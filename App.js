@@ -11,6 +11,8 @@ import Login_mock from './src/mocks/Login_mock';
 import Pesquisar_eventos_mocks from './src/mocks/Pesquisar_eventos';
 import Registrar_mocks from './src/mocks/Registrar_mocks';
 import Recuperar_mock from './src/mocks/Recuperar_mock';
+import Detalhes_eventos from './src/telas/Evento_Telas/Detalhes_eventos/Detalhes_eventos';
+import Detalhes_mock from './src/mocks/Detalhes_mock';
 
 
 export default function App() {
@@ -26,10 +28,11 @@ export default function App() {
   return (
     <SafeAreaView>
       <StatusBar />
-      {/* <Login {...Login_mock} /> */}
+      <Login {...Login_mock} />
       {/* <Registra {...Registrar_mocks}/> */}
       {/* <Pesquisar_eventos {...Pesquisar_eventos_mocks} /> */}
-      <Recuperar {...Recuperar_mock} />
+      {/* <Recuperar {...Recuperar_mock} /> */}
+      {/* <Detalhes_eventos {...Detalhes_mock} /> */}
 
     </SafeAreaView>
   );

@@ -41,6 +41,18 @@ export default function Imagem({ imagem, tipo }) {
                 }
                 break;
 
+            case 'fotoEvento':
+                return {
+                    picture : estilos.fotoEvento 
+                }
+                break;
+
+            case 'fotoMenor':
+                return {
+                    picture : estilos.fotoMenor 
+                }
+                break;
+
             default:
                 break;
         }
@@ -90,5 +102,16 @@ const estilos = StyleSheet.create({
         opacity: 0.4,
         height: 25,
         width: 25,
+    },
+
+    fotoEvento: {
+        height: 657/1.85,
+        width: 429,
+    },
+
+    fotoMenor: {
+        height: 28,
+        width: 28,
+        borderRadius: 25,
     },
 })

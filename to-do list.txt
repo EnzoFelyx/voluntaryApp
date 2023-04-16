@@ -35,4 +35,8 @@ flat list na lista
 
 verificar se a fonte está funcionando nas telas de eventos 
 
-estou no enzo
+colocar shadow nas interações nos detalhes do evento.
+
+fazer array de fotos nas pessoas participando no detalhe dos eventos
+
+Refatorar
