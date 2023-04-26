@@ -24,6 +24,12 @@ export default function Background({ children, back }) {
                 }
                 break;
 
+            case 'quadrado3':
+                return {
+                    background: estilos.quadrado3
+                }
+                break;
+
             default:
                 break;
         }
@@ -31,7 +37,7 @@ export default function Background({ children, back }) {
 
     const estiloFundo = tipoFundoEstilo(back);
     console.log(estiloFundo)
-    return <SafeAreaView style={[estiloFundo.background, {flex: 1}]}>
+    return <SafeAreaView style={[estiloFundo.background, { flex: 1 }]}>
         {children}
     </SafeAreaView>
 }
@@ -61,5 +67,17 @@ const estilos = StyleSheet.create({
         borderTopRightRadius: 24,
         marginTop: 8,
         paddingVertical: 24,
+    },
+
+    quadrado3: {
+        width: "94%",
+        marginLeft: 12,
+        paddingHorizontal: 16,
+        backgroundColor: '#D7FF9C',
+        borderTopLeftRadius: 24,
+        borderTopRightRadius: 24,
+        marginTop: 8,
+        paddingVertical: 24,
+        top: -70
     },
 })
