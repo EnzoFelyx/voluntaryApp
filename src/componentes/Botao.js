@@ -22,6 +22,11 @@ export default function Botao({ texto, tipo }) {
                     botao: estilos.botaoEvento
                 }
                 break;
+            case 4:
+                return {
+                    botao: estilos.botaoDestaque, texto: estilos.botaoTextoDestaque
+                }
+            
 
             default:
                 break;
@@ -72,6 +77,24 @@ const estilos = StyleSheet.create({
         paddingLeft: 16,
         flexDirection: "row",
     },
+
+    botaoDestaque: {
+        width:140,
+        height:192,
+        backgroundColor: "#FFFFFF",
+        borderRadius: 15,
+    },
+    botaoTextoDestaque: {
+        fontSize: 16,
+        fontWeight: "bold",
+        textAlign:'center',
+        justifyContent:'center',
+        alignSelf:'center',
+        alignContent:'center'
+    },
+
+  
+
 
 })
 

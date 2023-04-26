@@ -5,12 +5,15 @@ import { useFonts, Quicksand_400Regular, Quicksand_700Bold } from '@expo-google-
 import Login from './src/telas/Login_Telas/Login/Login';
 import Pesquisar_eventos from './src/telas/Evento_Telas/Pesquisar_eventos/Pesquisar_eventos';
 import Registra from './src/telas/Login_Telas/Registrar/Registra';
-import Recuperar from './src/telas/Login_Telas/Recuperar/Recuperar'
+import Recuperar from './src/telas/Login_Telas/Recuperar/Recuperar';
+import Seus_eventos from './src/telas/Evento_Telas/Seus_eventos/Seus_eventos';
+import Home from './src/telas/Usuario_Telas/Home/Home';
 
 import Login_mock from './src/mocks/Login_mock';
 import Pesquisar_eventos_mocks from './src/mocks/Pesquisar_eventos';
 import Registrar_mocks from './src/mocks/Registrar_mocks';
-
+import Seus_eventos_mocks from './src/mocks/Seus_eventos';
+import Home_mocks from './src/mocks/Home_mocks';
 
 export default function App() {
   const [fontCarregada] = useFonts({
@@ -23,12 +26,15 @@ export default function App() {
   }
 
   return (
-    <SafeAreaView>
+    <SafeAreaView >
       <StatusBar />
-      {/* <Login {...Login_mock} /> */}
-      {/* <Registra {...Registrar_mocks}/> */}
-      {/* <Pesquisar_eventos {...Pesquisar_eventos_mocks} /> */}
-      <Recuperar/>
+      {/*<Login {...Login_mock} />*/}
+      {/* <Registra {...Registrar_mocks}/>}
+      {/*<Pesquisar_eventos {...Pesquisar_eventos_mocks} />*/}
+      {/*<Seus_eventos {...Seus_eventos_mocks}/>*/}
+      {<Home {...Home_mocks} />}
+      {/*<Recuperar/>*/}
+    
 
     </SafeAreaView>
   );
