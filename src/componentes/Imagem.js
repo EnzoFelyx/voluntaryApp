@@ -40,6 +40,18 @@ export default function Imagem({ imagem, tipo }) {
                     picture : estilos.icone 
                 }
                 break;
+            case 'criadorEvento':
+                return{
+                    picture : estilos.criadorEvento
+                }
+            case 'imagemEvento':
+                return{
+                    picture : estilos.imagemEvento
+                }
+                case 'perfilDestaque':
+                    return{
+                        picture : estilos.perfilDestaque
+                    }
 
             default:
                 break;
@@ -91,4 +103,29 @@ const estilos = StyleSheet.create({
         height: 25,
         width: 25,
     },
+    criadorEvento:{
+        height: 25,
+        width: 25,
+        borderRadius: 25,
+
+    },
+    imagemEvento:
+    {
+        width: 328,
+        height: 158,
+        resizeMode:'contain'
+    },
+    perfilDestaque:
+    {
+        width: 51,
+        height: 51,
+        borderRadius: 25,
+        alignItems:'center',
+        justifyContent:'center',
+        alignSelf:'center',
+        alignContent:'center'
+
+    },
+
+
 })

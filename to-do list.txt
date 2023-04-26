@@ -34,5 +34,3 @@ verificar se a fonte está funcionando nas telas de eventos
 Estou na main
 
 Na tiago pra main
-
-estou no enzo
