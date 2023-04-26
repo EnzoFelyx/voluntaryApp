@@ -37,7 +37,7 @@ export default function Imagem({ imagem, tipo }) {
 
             case 'icone':
                 return {
-                    picture : estilos.icone 
+                    picture : estilos.icone aaaaaaa
                 }
                 break;
             case 'criadorEvento':

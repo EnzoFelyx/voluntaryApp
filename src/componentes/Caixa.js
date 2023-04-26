@@ -10,6 +10,5 @@ export default StyleSheet.create({
         backgroundColor: "rgba(255,255,255,0.75)",
         borderRadius: 15,
         paddingLeft: 24,
-        flexDirection: "row",
-    },
+        flexDirection: "row",AAA
 })

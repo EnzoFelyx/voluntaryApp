@@ -12,7 +12,7 @@ const estilos = StyleSheet.create({
         fontSize: 14,
         lineHeight: 26,
         paddingVertical: 15,
-        backgroundColor: "rgba(255,255,255,0.75)",
+        backgroundColor: "rgba(255,255,255,0.75)",AAAAAAAAAAAAAAAAA
         borderRadius: 15,
         paddingLeft: 16
     },
