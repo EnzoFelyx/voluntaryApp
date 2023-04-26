@@ -53,6 +53,18 @@ export default function Imagem({ imagem, tipo }) {
                         picture : estilos.perfilDestaque
                     }
 
+            case 'fotoEvento':
+                return {
+                    picture : estilos.fotoEvento 
+                }
+                break;
+
+            case 'fotoMenor':
+                return {
+                    picture : estilos.fotoMenor 
+                }
+                break;
+
             default:
                 break;
         }
@@ -127,5 +139,14 @@ const estilos = StyleSheet.create({
 
     },
 
+    fotoEvento: {
+        height: 657/1.85,
+        width: 429,
+    },
 
+    fotoMenor: {
+        height: 28,
+        width: 28,
+        borderRadius: 25,
+    },
 })

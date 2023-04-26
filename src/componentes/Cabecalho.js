@@ -1,11 +1,10 @@
 import React from "react";
-import Titulo from '../../../../componentes/Titulo'
-import PerfilFoto from '../../../../../assets/PerfilFoto.png'
-import Imagem from '../../../../componentes/Imagem';
+import Titulo from './Titulo';
+import Imagem from './Imagem';
 import { StyleSheet, View } from "react-native";
 
 
-export default function Topo({ titulo }) {
+export default function Cabecalho({ titulo, PerfilFoto }) {
     return <>
         <View style={estilos.topo}>
             <Titulo entrada={titulo} />

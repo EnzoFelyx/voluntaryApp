@@ -21,7 +21,11 @@ export default App; */
 
 arrumar:
 
-safearea view 
+safearea view ✅
+
+Colocar KeyboardAvoidingView em todas as caixas de entradas
+
+Fazer navegação de telas das telas de login/registrar/recuperar
 
 trocar icones por biblioteca
 
@@ -29,8 +33,10 @@ cor primária e scudanria
 
 flat list na lista 
 
-verificar se a fonte está funcionando nas telas de eventos
+verificar se a fonte está funcionando nas telas de eventos 
 
-Estou na main
+colocar shadow nas interações nos detalhes do evento.
 
-Na tiago pra main
+fazer array de fotos nas pessoas participando no detalhe dos eventos
+
+Refatorar

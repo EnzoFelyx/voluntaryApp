@@ -3,23 +3,14 @@ import { StyleSheet, View } from "react-native";
 
 import Botao from '../../../../componentes/Botao';
 import Texto from '../../../../componentes/texto';
+import Opcao from "../../../../componentes/Opcao";
 
 export default function Interacoes({ esqueceu, botaoEntrar, ou, convidado, pergunta, registrar }) {
     return <>
         <Texto style={estilos.esqueceu} >{esqueceu}</Texto>
-
         <Botao texto={botaoEntrar} tipo={1}/>
-
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <View style={{ flex: 1, height: 1, backgroundColor: 'black' }} />
-            <View>
-                <Texto style={estilos.ou} >{ou}</Texto>
-            </View>
-            <View style={{ flex: 1, height: 1, backgroundColor: 'black' }} />
-        </View>
-
+        <Opcao texto={ou}/>
         <Botao texto={convidado} tipo={2}/>
-
         <View style={estilos.registra}>
             <Texto style={estilos.pergunta} >{pergunta}</Texto>
             <Texto style={estilos.registrar} >{registrar}</Texto>
@@ -36,15 +27,6 @@ const estilos = StyleSheet.create({
         textAlign: "right",
         color: "#1ea3b5",
     },
-    ou: {
-        fontSize: 16,
-        lineHeight: 26,
-        paddingVertical: 12,
-        paddingHorizontal: 8,
-        marginBottom: 5,
-
-    },
-
     registra: {
         flexDirection: "row",
         paddingHorizontal: 20,
