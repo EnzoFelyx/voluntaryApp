@@ -17,7 +17,7 @@ const estilos = StyleSheet.create({
     topo: {
         flexDirection: "row",
         marginLeft: 26,
-        marginTop: 10,
+        marginTop: 48,
 
     },
 })
