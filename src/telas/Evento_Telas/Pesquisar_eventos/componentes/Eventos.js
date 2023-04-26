@@ -7,7 +7,7 @@ import Imagem from "../../../../componentes/Imagem";
 import pessoas from "../../../../../assets/pessoas.png";
 
 export default function Eventos({ subtitulo, evento1, evento2, evento3 }) {
-/*     return <>
+   return <>
         <View>
             <Titulo entrada={subtitulo.subtitle} />
             <Botao tipo={3} texto={
@@ -28,11 +28,11 @@ export default function Eventos({ subtitulo, evento1, evento2, evento3 }) {
                 </View>
             </View>
         </View>
-    </> */
+    </> 
 }
 
 const estilos = StyleSheet.create({
-/*     nome: {
+    nome: {
         fontWeight: "bold",
         fontSize: 16,
     },
@@ -48,5 +48,5 @@ const estilos = StyleSheet.create({
         marginHorizontal: 8,
     },
     contador: {
-    }, */
+    }, 
 })

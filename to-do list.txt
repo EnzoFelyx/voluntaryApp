@@ -40,5 +40,3 @@ colocar shadow nas interações nos detalhes do evento.
 fazer array de fotos nas pessoas participando no detalhe dos eventos
 
 Refatorar
-
-nova branch testando

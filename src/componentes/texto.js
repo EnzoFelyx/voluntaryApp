@@ -18,6 +18,7 @@ const estilos = StyleSheet.create({
     },
     textoNegrito: {
         fontFamily: "QuicksandBold",
-        fontWeight: 'normal',
+        fontWeight: "bold",
+        
     }
 })
