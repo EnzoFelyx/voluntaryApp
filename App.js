@@ -31,20 +31,15 @@ export default function App() {
 
   return (
     <SafeAreaView >
-      <StatusBar />
-      {/*<Login {...Login_mock} />*/}
-      {/* <Registra {...Registrar_mocks}/>}
-      {/*<Pesquisar_eventos {...Pesquisar_eventos_mocks} />*/}
-      {/*<Seus_eventos {...Seus_eventos_mocks}/>*/}
-      {<Home {...Home_mocks} />}
-      {/*<Recuperar/>*/}
-   
-      {/* {<Login {...Login_mock} />} */}
+      {/* <Login {...Login_mock} /> */}
       {/* <Registra {...Registrar_mocks}/> */}
       {/* <Recuperar {...Recuperar_mock} /> */}
+
       {/* <Pesquisar_eventos {...Pesquisar_eventos_mocks} /> */}
+      {/* <Seus_eventos {...Seus_eventos_mocks}/> */}
+      {/* {<Home {...Home_mocks} />} */}
       {/* <Detalhes_eventos {...Detalhes_mock} /> */}
-      <Criar_eventos/>
+      {/* <Criar_eventos/> */}
 
     </SafeAreaView>
   );

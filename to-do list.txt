@@ -1,28 +1,3 @@
-/* import React from 'react';
-import { Text, View } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
-
-const App = () => (
-  <View
-    style={{
-      flex: 1,
-      backgroundColor: '#1ea3b5',
-      alignItems: 'center',
-      justifyContent: 'center',
-    }}>
-    <Text style={{ color: '#fff' }}>Notice that the status bar has light text!</Text>
-    <StatusBar style="light" />
-  </View>
-);
-
-export default App; */
-
----------------------------------------------------------------------------------------------------------------------------------------------
-
-arrumar:
-
-safearea view ✅
-
 Colocar KeyboardAvoidingView em todas as caixas de entradas
 
 Fazer navegação de telas das telas de login/registrar/recuperar

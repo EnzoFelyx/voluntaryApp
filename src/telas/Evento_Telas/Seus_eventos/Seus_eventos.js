@@ -2,19 +2,19 @@ import React from 'react';
 import { ScrollView } from 'react-native';
 import Background from '../../../componentes/Background';
 import Lista from './componentes/Lista';
-import Topo from './componentes/Topo';
+import PerfilFoto from '../../../../assets/PerfilFoto.png'
 import NovoEvento from './componentes/novoEvento';
+import Cabecalho from '../../../componentes/Cabecalho';
 
-export default function Seus_eventos({ topo, interacoes}) {
+export default function Seus_eventos({ topo, interacoes }) {
     return (
-        <ScrollView contentContainerStyle={{height: "100%" }}>
+        <ScrollView contentContainerStyle={{ height: "100%" }}>
             <Background back={"fundo"}>
-                <Topo  {...topo} />
+                <Cabecalho PerfilFoto={PerfilFoto} titulo={"Pesquisar eventos"} />
                 <Background back={"quadrado2"}>
                     <Lista />
-                    <NovoEvento/>
+                    <NovoEvento />
                 </Background>
-
             </Background>
         </ScrollView>
     )
