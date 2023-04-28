@@ -3,7 +3,6 @@ import { StyleSheet, TouchableOpacity} from 'react-native';
 import Texto from '../componentes/texto';
 
 export default function Botao({ texto, tipo }) {
-
     const tipoBotaoEstilo = (tipo) => {
         switch (tipo) {
             case 1:
@@ -25,6 +24,10 @@ export default function Botao({ texto, tipo }) {
             case 4:
                 return {
                     botao: estilos.botaoDestaque, texto: estilos.botaoTextoDestaque
+                }
+            case 5:
+                return {
+                    botao: estilos.botaoanexarImagem
                 }
             
 
@@ -92,6 +95,17 @@ const estilos = StyleSheet.create({
         alignSelf:'center',
         alignContent:'center'
     },
+    botaoanexarImagem: {
+        width:350,
+        height:184,
+        marginTop: 16,
+        justifyContent: 'center', 
+        alignItems: 'center',
+        backgroundColor: "rgba(255,255,255,0.75)",
+        borderRadius: 15,
+    
+    }
+
 
   
 
