@@ -3,7 +3,7 @@ import { ScrollView, View } from 'react-native';
 import Background from '../../../componentes/Background';
 import Lista from './componentes/Lista';
 import Topo from './componentes/Topo';
-import PerfilFoto from '../../../../assets/PerfilFoto.png'
+import PerfilFoto from '../../../../assets/exemplos/PerfilFoto.png'
 import Cabecalho from '../../../componentes/Cabecalho';
 
 export default function Home({ topo, interacoes }) {

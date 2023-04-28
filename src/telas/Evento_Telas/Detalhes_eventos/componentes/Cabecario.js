@@ -4,7 +4,7 @@ import Texto from "../../../../componentes/texto";
 import { StyleSheet, Text, View } from "react-native";
 import { AntDesign, EvilIcons } from '@expo/vector-icons';
 
-import organizadoraFoto from "../../../../../assets/organizadoraFoto.png";
+import organizadoraFoto from "../../../../../assets/exemplos/organizadoraFoto.png";
 import Imagem from "../../../../componentes/Imagem";
 
 export default function Topo({ evento, title, local, data, organizadora }) {

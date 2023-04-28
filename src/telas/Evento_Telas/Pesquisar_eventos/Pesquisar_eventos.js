@@ -3,7 +3,7 @@ import { ScrollView } from 'react-native';
 import Background from '../../../componentes/Background';
 import Busca from './componentes/Busca';
 import Eventos from './componentes/Eventos';
-import PerfilFoto from '../../../../assets/PerfilFoto.png';
+import PerfilFoto from '../../../../assets/exemplos/PerfilFoto.png';
 import Cabecalho from '../../../componentes/Cabecalho';
 
 export default function Pesquisar_eventos({ topo, eventos }) {

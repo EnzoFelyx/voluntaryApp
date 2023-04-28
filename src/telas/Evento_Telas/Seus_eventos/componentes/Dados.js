@@ -3,10 +3,10 @@ import { FlatList,View,Text,StyleSheet } from 'react-native';
 import Imagem from "../../../../componentes/Imagem";
 import Texto from '../../../../componentes/texto';
 import Botao from '../../../../componentes/Botao';
-import Blooddonation from "../../../../../assets/Blooddonation.png"
-import Jose from "../../../../../assets/Jose.png";
-import doacaoCasacos from "../../../../../assets/doacaoCasacos.png";
-import Maria from "../../../../../assets/Maria.png";
+import Blooddonation from "../../../../../assets/exemplos/Blooddonation.png"
+import Jose from "../../../../../assets/exemplos/Jose.png";
+import doacaoCasacos from "../../../../../assets/exemplos/doacaoCasacos.png";
+import Maria from "../../../../../assets/exemplos/Maria.png";
 
 
 

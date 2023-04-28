@@ -1,6 +1,6 @@
 import React from 'react';
 import { SafeAreaView, View } from 'react-native';
-import fotoRecuperar from '../../../../assets/recuperar.png';
+import fotoRecuperar from '../../../../assets/loginTelas/recuperar.png';
 import Background from '../../../componentes/Background';
 import Imagem from '../../../componentes/Imagem';
 import Pedido from './Componentes/Pedido';

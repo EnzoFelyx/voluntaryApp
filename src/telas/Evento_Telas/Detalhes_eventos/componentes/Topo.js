@@ -1,5 +1,5 @@
 import { StyleSheet, View, TouchableOpacity } from "react-native";
-import Praia from "../../../../../assets/Praia.png";
+import Praia from "../../../../../assets/exemplos/Praia.png";
 import Imagem from '../../../../componentes/Imagem';
 import React from "react";
 import { MaterialCommunityIcons } from '@expo/vector-icons';

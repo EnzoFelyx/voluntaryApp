@@ -32,7 +32,7 @@ export default function App() {
   return (
     <SafeAreaView >
       {/* <Login {...Login_mock} /> */}
-      {/* <Registra {...Registrar_mocks}/> */}
+      <Registra {...Registrar_mocks}/>
       {/* <Recuperar {...Recuperar_mock} /> */}
 
       {/* <Pesquisar_eventos {...Pesquisar_eventos_mocks} /> */}

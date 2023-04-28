@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScrollView, View } from 'react-native';
-import fotoRegistrar from '../../../../assets/registra.png';
+import fotoRegistrar from '../../../../assets/loginTelas/registra.png';
 import Background from '../../../componentes/Background';
 import Botao from '../../../componentes/Botao';
 import Imagem from '../../../componentes/Imagem';

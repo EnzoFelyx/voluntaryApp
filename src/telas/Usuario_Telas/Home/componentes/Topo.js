@@ -1,6 +1,6 @@
 import React from "react";
 import Titulo from '../../../../componentes/Titulo'
-import PerfilFoto from '../../../../../assets/PerfilFoto.png'
+import PerfilFoto from '../../../../../assets/exemplos/PerfilFoto.png'
 import Imagem from '../../../../componentes/Imagem';
 import { StyleSheet, View } from "react-native";
 

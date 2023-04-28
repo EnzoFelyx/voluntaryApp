@@ -2,7 +2,7 @@ import React from 'react';
 import { ScrollView } from 'react-native';
 import Background from '../../../componentes/Background';
 import Lista from './componentes/Lista';
-import PerfilFoto from '../../../../assets/PerfilFoto.png'
+import PerfilFoto from '../../../../assets/exemplos/PerfilFoto.png'
 import NovoEvento from './componentes/novoEvento';
 import Cabecalho from '../../../componentes/Cabecalho';
 
