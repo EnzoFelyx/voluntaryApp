@@ -8,16 +8,19 @@ import Registra from './src/telas/Login_Telas/Registrar/Registra';
 import Recuperar from './src/telas/Login_Telas/Recuperar/Recuperar';
 import Seus_eventos from './src/telas/Evento_Telas/Seus_eventos/Seus_eventos';
 import Home from './src/telas/Usuario_Telas/Home/Home';
-
-import Login_mock from './src/mocks/Login_mock';
-import Pesquisar_eventos_mocks from './src/mocks/Pesquisar_eventos';
-import Registrar_mocks from './src/mocks/Registrar_mocks';
-import Seus_eventos_mocks from './src/mocks/Seus_eventos';
-import Home_mocks from './src/mocks/Home_mocks';
-import Recuperar_mock from './src/mocks/Recuperar_mock';
 import Detalhes_eventos from './src/telas/Evento_Telas/Detalhes_eventos/Detalhes_eventos';
-import Detalhes_mock from './src/mocks/Detalhes_mock';
 import Criar_eventos from './src/telas/Evento_Telas/Criar_evento/Criar_eventos';
+import Validacao from './src/telas/Login_Telas/Validacao/Validacao';
+
+
+import Login_mock from './src/mocks/Login_Mocks/Login_mock';
+import Pesquisar_eventos_mocks from './src/mocks/Evento_Mocks/Pesquisar_eventos';
+import Registrar_mocks from './src/mocks/Login_Mocks/Registrar_mocks';
+import Seus_eventos_mocks from './src/mocks/Evento_Mocks/Seus_eventos';
+import Home_mocks from './src/mocks/Home_mocks';
+import Recuperar_mock from './src/mocks/Login_Mocks/Recuperar_mock';
+import Detalhes_mock from './src/mocks/Evento_Mocks/Detalhes_mock';
+
 
 export default function App() {
   const [fontCarregada] = useFonts({
@@ -32,8 +35,9 @@ export default function App() {
   return (
     <SafeAreaView >
       {/* <Login {...Login_mock} /> */}
-      <Registra {...Registrar_mocks}/>
+      {/* <Registra {...Registrar_mocks}/> */}
       {/* <Recuperar {...Recuperar_mock} /> */}
+      <Validacao/>
 
       {/* <Pesquisar_eventos {...Pesquisar_eventos_mocks} /> */}
       {/* <Seus_eventos {...Seus_eventos_mocks}/> */}

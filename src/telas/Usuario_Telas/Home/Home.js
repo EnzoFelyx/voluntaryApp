@@ -11,7 +11,7 @@ export default function Home({ topo, interacoes }) {
         <ScrollView contentContainerStyle={{ height: "100%" }}>
             <Background back={"fundo"}>
                 <Cabecalho PerfilFoto={PerfilFoto} titulo={"Pesquisar eventos"} />
-                <Background back={"quadrado2"}>
+                <Background back={"quadrado2"}> 
                     <ScrollView style={{ flex: 1 }}>
                         <Lista {...interacoes} />
                     </ScrollView>
