@@ -20,6 +20,7 @@ import Seus_eventos_mocks from './src/mocks/Evento_Mocks/Seus_eventos';
 import Home_mocks from './src/mocks/Home_mocks';
 import Recuperar_mock from './src/mocks/Login_Mocks/Recuperar_mock';
 import Detalhes_mock from './src/mocks/Evento_Mocks/Detalhes_mock';
+import Validacao_Mock from './src/mocks/Login_Mocks/Validacao_mock';
 
 
 export default function App() {
@@ -37,7 +38,7 @@ export default function App() {
       {/* <Login {...Login_mock} /> */}
       {/* <Registra {...Registrar_mocks}/> */}
       {/* <Recuperar {...Recuperar_mock} /> */}
-      <Validacao/>
+      <Validacao {...Validacao_Mock}/>
 
       {/* <Pesquisar_eventos {...Pesquisar_eventos_mocks} /> */}
       {/* <Seus_eventos {...Seus_eventos_mocks}/> */}

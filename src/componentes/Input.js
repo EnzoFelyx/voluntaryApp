@@ -9,6 +9,7 @@ export default function Input({ entrada, senha = false }) {
 const estilos = StyleSheet.create({
     caixaInput: {
         marginTop: 16,
+        marginBottom: 16,
         fontSize: 14,
         lineHeight: 26,
         paddingVertical: 15,
