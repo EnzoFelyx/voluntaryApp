@@ -8,7 +8,7 @@ import Opcao from "../../../../componentes/Opcao";
 
 export default function Corpo({ subtitle, texto, input, botaoValidar, botaoReenviar }) {
     return <>
-         <View style={{marginTop: 16}}>
+         <View>
             <Titulo entrada={subtitle} />
             <View style={estilos.texto}>
                 <Texto>{texto}</Texto>
