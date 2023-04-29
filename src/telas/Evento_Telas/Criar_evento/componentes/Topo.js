@@ -5,6 +5,7 @@ import Input from "../../../../componentes/Input";
 import Botao from "../../../../componentes/Botao";
 import Imagem from "../../../../componentes/Imagem";
 import mais from "../../../../../assets/mais.png";
+import nuvem from "../../../../../assets/nuvem.png";
 
 
 export default function Topo({ titulos, interacoes }) {
@@ -46,8 +47,35 @@ export default function Topo({ titulos, interacoes }) {
         <View style={estilos.viewInput}>
             <Texto>{titulos.descricao}</Texto>
             <Input style={{marginHorizontal: 10}} entrada="Digite aqui ..." tipo={3}/>
+        </View>
 
-            
+
+        <View style={estilos.viewFotos}>
+        <Texto>{titulos.fotos}</Texto>
+                <View style = {estilos.viewInputPequena}>
+
+            <View>
+                <Botao tipo={1} 
+                texto = {
+                    <View style ={{width: 70,height: 30,alignItems:'center'}}>
+                                            <Imagem imagem ={nuvem} tipo={'Upload'}/>
+
+                    </View> 
+
+
+                } 
+                />
+            </View>
+
+            <View style = {{marginHorizontal:15}}>
+                <Botao tipo={2} texto = {
+                    <View style ={{width:188,height: 30,alignItems:'center'}}> 
+                        <Texto>Criar Evento</Texto>
+                    </View>
+                }  acao={() => { }}/>
+            </View>
+
+                </View>
         </View>
 
     
@@ -74,6 +102,13 @@ const estilos = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginTop:10
+    },
+    viewFotos : {
+        marginTop:10,
+        marginEnd:10,
+        alignItems: 'row',
+        flex:1
+
     }
 
 

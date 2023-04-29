@@ -65,6 +65,13 @@ export default function Imagem({ imagem, tipo }) {
                 }
                 break;
 
+            case 'Upload':
+            return {
+
+               picture: estilos.Upload
+
+            }
+
             default:
                 break;
         }
@@ -129,8 +136,8 @@ const estilos = StyleSheet.create({
     },
     perfilDestaque:
     {
-        width: 51,
-        height: 51,
+        width: 30,
+        height: 30,
         borderRadius: 25,
         alignItems:'center',
         justifyContent:'center',
@@ -149,4 +156,10 @@ const estilos = StyleSheet.create({
         width: 28,
         borderRadius: 25,
     },
+
+    Upload: {
+        width: 50,
+        height: 50,
+        
+    }
 })
