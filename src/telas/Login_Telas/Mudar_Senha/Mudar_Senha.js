@@ -4,7 +4,7 @@ import Background from '../../../componentes/Background';
 import Corpo from './Componentes/Corpo';
 import Topo from './Componentes/Topo';
 
-export default function Mudar_Senha({titulo, corpo}) {
+export default function Validacao({titulo, corpo}) {
     return <SafeAreaView style={{ height: "100%" }}>
         <Background back={"fundo"}>
             <Topo {...titulo}/>

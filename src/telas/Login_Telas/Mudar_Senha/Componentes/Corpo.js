@@ -4,20 +4,21 @@ import Input from '../../../../componentes/Input';
 import Titulo from "../../../../componentes/Titulo";
 import Texto from "../../../../componentes/texto";
 import Botao from "../../../../componentes/Botao";
-import Opcao from "../../../../componentes/Opcao";
 
-export default function Corpo({ subtitle, texto, input, botaoValidar, botaoReenviar }) {
+export default function Corpo({ subtitle, legendaSenha, inputSenha, legendaConfirma, botao }) {
     return <>
-         <View style={{marginTop: 16}}>
+        <View style={{marginTop: 16}}>
             <Titulo entrada={subtitle} />
             <View style={estilos.texto}>
-                <Texto>{texto}</Texto>
+                <Texto>{legendaSenha}</Texto>
             </View>
-            <Input entrada={input} />
+            <Input entrada={inputSenha} />
+            <View style={estilos.texto}>
+                <Texto>{legendaConfirma}</Texto>
+            </View>
+            <Input entrada={inputSenha} />
             <View style={estilos.botao}>
-                <Botao texto={botaoValidar} tipo={1} />
-                <Opcao texto={"ou"} />
-                <Botao texto={botaoReenviar} tipo={2} />
+                <Botao texto={botao} tipo={1} />
             </View>
         </View>
     </>
@@ -28,6 +29,7 @@ const estilos = StyleSheet.create({
         marginTop: 32,
     },
     texto: {
-        paddingVertical: 16,
+        marginTop: 24,
+        marginBottom: 16,
     },
 })

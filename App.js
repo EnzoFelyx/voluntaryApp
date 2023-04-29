@@ -11,7 +11,7 @@ import Home from './src/telas/Usuario_Telas/Home/Home';
 import Detalhes_eventos from './src/telas/Evento_Telas/Detalhes_eventos/Detalhes_eventos';
 import Criar_eventos from './src/telas/Evento_Telas/Criar_evento/Criar_eventos';
 import Validacao from './src/telas/Login_Telas/Validacao/Validacao';
-
+import Mudar_Senha from './src/telas/Login_Telas/Mudar_Senha/Mudar_Senha';
 
 import Login_mock from './src/mocks/Login_Mocks/Login_mock';
 import Pesquisar_eventos_mocks from './src/mocks/Evento_Mocks/Pesquisar_eventos';
@@ -21,6 +21,7 @@ import Home_mocks from './src/mocks/Home_mocks';
 import Recuperar_mock from './src/mocks/Login_Mocks/Recuperar_mock';
 import Detalhes_mock from './src/mocks/Evento_Mocks/Detalhes_mock';
 import Validacao_Mock from './src/mocks/Login_Mocks/Validacao_mock';
+import Mudar_Mock from './src/mocks/Login_Mocks/Mudar_mock';
 
 
 export default function App() {
@@ -38,7 +39,8 @@ export default function App() {
       {/* <Login {...Login_mock} /> */}
       {/* <Registra {...Registrar_mocks}/> */}
       {/* <Recuperar {...Recuperar_mock} /> */}
-      <Validacao {...Validacao_Mock}/>
+      {/* <Validacao {...Validacao_Mock}/> */}
+      <Mudar_Senha {...Mudar_Mock}/>
 
       {/* <Pesquisar_eventos {...Pesquisar_eventos_mocks} /> */}
       {/* <Seus_eventos {...Seus_eventos_mocks}/> */}
