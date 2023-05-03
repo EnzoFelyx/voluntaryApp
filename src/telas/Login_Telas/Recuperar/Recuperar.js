@@ -1,19 +1,16 @@
 import React from 'react';
-import { SafeAreaView, View } from 'react-native';
-import fotoRecuperar from '../../../../assets/loginTelas/recuperar.png';
+import { ScrollView } from 'react-native';
 import Background from '../../../componentes/Background';
-import Imagem from '../../../componentes/Imagem';
 import Pedido from './Componentes/Pedido';
+import Topo from './Componentes/Topo';
 
 export default function Recuperar({ recuperar }) {
-    return <SafeAreaView style={{ height: "100%" }}>
+    return <ScrollView>
         <Background back={"fundo"}>
-            <View style={{ alignItems: 'center' }}>
-                <Imagem imagem={fotoRecuperar} tipo={"recuperarImagem"} />
-            </View>
+            <Topo/>
             <Background back={"quadrado1"}>
                 <Pedido {...recuperar} />
             </Background>
         </Background>
-    </SafeAreaView>
+    </ScrollView>
 }

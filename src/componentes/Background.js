@@ -55,14 +55,14 @@ const estilos = StyleSheet.create({
         borderTopRightRadius: 32,
         paddingVertical: 24,
         paddingHorizontal: 30,
-        backgroundColor: "#D7FF9C",
+        backgroundColor: "#CAF38D",
     },
 
     quadrado2: {
         width: "94%",
         marginLeft: 12,
         paddingHorizontal: 16,
-        backgroundColor: '#D7FF9C',
+        backgroundColor: '#CAF38D',
         borderTopLeftRadius: 24,
         borderTopRightRadius: 24,
         marginTop: 8,

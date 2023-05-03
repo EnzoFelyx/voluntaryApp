@@ -9,7 +9,7 @@ const Mudar_Mock = {
         legendaSenha: "Digite sua nova senha:",
         inputSenha: "Senha",
         legendaConfirma: "Confirme a sua senha:",
-        botao: "Recuperar senha",
+        botao: "Alterar senha",
     },
 }
 

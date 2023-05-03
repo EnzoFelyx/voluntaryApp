@@ -6,7 +6,7 @@ import Botao from '../../../../componentes/Botao';
 
 export default function VisaoGeral({}) {
     return <>
-        <Botao texto={"oi"} tipo={4}
+    
     </>
 }
 

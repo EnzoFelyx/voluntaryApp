@@ -43,12 +43,12 @@ export default function App() {
       {/* <Validacao {...Validacao_Mock}/> */}
       {/* <Mudar_Senha {...Mudar_Mock}/> */}
 
-      {/* <Pesquisar_eventos {...Pesquisar_eventos_mocks} /> */}
+      <Pesquisar_eventos {...Pesquisar_eventos_mocks} />
       {/* <Seus_eventos {...Seus_eventos_mocks}/> */}
       {/* {<Home {...Home_mocks} />} */}
       {/* <Detalhes_eventos {...Detalhes_mock} /> */}
       {/* <Criar_eventos/> */}
-      <Perfil/>
+      {/* <Perfil/>  AINDA EM DESENVOLVILEMENTO*/}
 
     </SafeAreaView>
   );

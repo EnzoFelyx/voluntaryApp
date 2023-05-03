@@ -5,6 +5,7 @@ const Registrar_mocks = {
     },
     dados: {
         nome: "Nome",
+        social: "Razão social",
         email: "Email",
         CPF_CNPJ: "CPF / CNPJ",
         senha: "Senha",

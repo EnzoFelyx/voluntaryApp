@@ -1,11 +1,12 @@
 import React from "react";
+import { StyleSheet, View } from "react-native";
 import Botao from "../../../../componentes/Botao";
 import Input from '../../../../componentes/Input';
+import Opcao from "../../../../componentes/Opcao";
 import Titulo from '../../../../componentes/Titulo';
 import Texto from '../../../../componentes/texto';
-import Opcao from "../../../../componentes/Opcao";
-import { StyleSheet, View, KeyboardAvoidingView, Platform } from "react-native";
 export default function Pedido({ titulo, dados, BotaoRecupera }) {
+    
     return <>
         <Titulo entrada={titulo.title} />
 
