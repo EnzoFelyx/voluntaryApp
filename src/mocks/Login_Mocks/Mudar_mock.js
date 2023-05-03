@@ -5,6 +5,7 @@ const Mudar_Mock = {
     },
     corpo: {
         subtitle: "Mudar senha",
+        legendaAtual: "Digite sua senha atual",
         legendaSenha: "Digite sua nova senha:",
         inputSenha: "Senha",
         legendaConfirma: "Confirme a sua senha:",

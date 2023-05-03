@@ -22,6 +22,7 @@ import Recuperar_mock from './src/mocks/Login_Mocks/Recuperar_mock';
 import Detalhes_mock from './src/mocks/Evento_Mocks/Detalhes_mock';
 import Validacao_Mock from './src/mocks/Login_Mocks/Validacao_mock';
 import Mudar_Mock from './src/mocks/Login_Mocks/Mudar_mock';
+import Perfil from './src/telas/Perfil_Telas/Perfil/Perfil';
 
 
 export default function App() {
@@ -40,13 +41,14 @@ export default function App() {
       {/* <Registra {...Registrar_mocks}/> */}
       {/* <Recuperar {...Recuperar_mock} /> */}
       {/* <Validacao {...Validacao_Mock}/> */}
-      <Mudar_Senha {...Mudar_Mock}/>
+      {/* <Mudar_Senha {...Mudar_Mock}/> */}
 
       {/* <Pesquisar_eventos {...Pesquisar_eventos_mocks} /> */}
       {/* <Seus_eventos {...Seus_eventos_mocks}/> */}
       {/* {<Home {...Home_mocks} />} */}
       {/* <Detalhes_eventos {...Detalhes_mock} /> */}
       {/* <Criar_eventos/> */}
+      <Perfil/>
 
     </SafeAreaView>
   );

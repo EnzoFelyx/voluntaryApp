@@ -26,7 +26,11 @@ export default function Botao({ texto, tipo }) {
                 return {
                     botao: estilos.botaoDestaque, texto: estilos.botaoTextoDestaque
                 }
-            
+
+            case 5:
+                return {
+                    botao: estilos.botaoperfil, texto: estilos.textoperfil
+                }
 
             default:
                 break;
