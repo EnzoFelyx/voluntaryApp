@@ -36,7 +36,7 @@ export default function Background({ children, back }) {
     }
 
     const estiloFundo = tipoFundoEstilo(back);
-    console.log(estiloFundo)
+
     return <SafeAreaView style={[estiloFundo.background, { flex: 1 }]}>
         {children}
     </SafeAreaView>

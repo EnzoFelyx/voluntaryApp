@@ -42,11 +42,11 @@ export default function App() {
       {/* <Recuperar {...Recuperar_mock} /> */}
       {/* <Validacao {...Validacao_Mock}/> */}
       {/* <Mudar_Senha {...Mudar_Mock}/> */}
+      <Detalhes_eventos {...Detalhes_mock} />
 
-      <Pesquisar_eventos {...Pesquisar_eventos_mocks} />
+     {/*  <Pesquisar_eventos {...Pesquisar_eventos_mocks} /> */}
       {/* <Seus_eventos {...Seus_eventos_mocks}/> */}
       {/* {<Home {...Home_mocks} />} */}
-      {/* <Detalhes_eventos {...Detalhes_mock} /> */}
       {/* <Criar_eventos/> */}
       {/* <Perfil/>  AINDA EM DESENVOLVILEMENTO*/}
 
