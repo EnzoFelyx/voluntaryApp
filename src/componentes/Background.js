@@ -29,7 +29,7 @@ export default function Background({ children, back }) {
                     background: estilos.quadrado3
                 }
                 break;
-
+                
             default:
                 break;
         }

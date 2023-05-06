@@ -64,6 +64,12 @@ export default function Imagem({ imagem, tipo }) {
                     picture : estilos.fotoMenor 
                 }
                 break;
+            
+            case 'Comentario':
+                return {
+                    picture : estilos.Comentario 
+                }
+                break;
 
             default:
                 break;
@@ -115,12 +121,13 @@ const estilos = StyleSheet.create({
         height: 25,
         width: 25,
     },
+
     criadorEvento:{
         height: 25,
         width: 25,
         borderRadius: 25,
-
     },
+
     imagemEvento:
     {
         width: 328,
@@ -143,10 +150,16 @@ const estilos = StyleSheet.create({
         height: 657/1.85,
         width: 429,
     },
+    
+    Comentario: {
+        height: 40,
+        width: 40,
+        borderRadius: 25,
+    },
 
     fotoMenor: {
-        height: 28,
-        width: 28,
+        height: 32,
+        width: 32,
         borderRadius: 25,
     },
 })

@@ -18,6 +18,9 @@ Refatorar
 
 Telas com scrowview que não ocupam a tela inteira ficam as vezes faltando completar embaixo com background
 
+Revisar o switch de Imagem
+
+arrumar padding horizontal do background
 --------------------------------------------------------------------------------------------------------------------
 
 Telas completas (front):

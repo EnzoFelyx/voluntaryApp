@@ -14,6 +14,8 @@ import Validacao from './src/telas/Login_Telas/Validacao/Validacao';
 import Mudar_Senha from './src/telas/Login_Telas/Mudar_Senha/Mudar_Senha';
 import Perfil from './src/telas/Perfil_Telas/Perfil/Perfil';
 import Email from './src/telas/Perfil_Telas/Mudar_Email/Email';
+import Meus_Posts from './src/telas/Perfil_Telas/Meus_Posts/Meus_Posts';
+
 
 import Login_mock from './src/mocks/Login_Mocks/Login_mock';
 import Pesquisar_eventos_mocks from './src/mocks/Evento_Mocks/Pesquisar_eventos';
@@ -25,6 +27,7 @@ import Detalhes_mock from './src/mocks/Evento_Mocks/Detalhes_mock';
 import Validacao_Mock from './src/mocks/Login_Mocks/Validacao_mock';
 import Mudar_Mock from './src/mocks/Login_Mocks/Mudar_mock';
 import Email_mocks from './src/mocks/Perfil_Mocks/Email_mocks';
+import Posts_mocks from './src/mocks/Perfil_Mocks/Posts_mocks';
 
 
 export default function App() {
@@ -46,7 +49,7 @@ export default function App() {
       {/* <Mudar_Senha {...Mudar_Mock}/> */}
       {/* <Detalhes_eventos {...Detalhes_mock} /> */}
       {/* <Email {...Email_mocks}/> */}
-
+      <Meus_Posts {...Posts_mocks}/>
       {/*  <Pesquisar_eventos {...Pesquisar_eventos_mocks} /> */}
       {/* <Seus_eventos {...Seus_eventos_mocks}/> */}
       {/* {<Home {...Home_mocks} />} */}
