@@ -32,6 +32,11 @@ export default function Botao({ texto, tipo }) {
                     botao: estilos.botaoperfil, texto: estilos.textoperfil
                 }
 
+            case 6:
+                return {
+                    botao: estilos.postarCaixa, texto: estilos.postarLegenda
+                }
+
             default:
                 break;
         }
@@ -97,6 +102,25 @@ const estilos = StyleSheet.create({
         alignContent:'center'
     },
 
+    postarCaixa:{
+
+        width: 80,
+        height: 40,
+        marginTop: 16,
+        paddingVertical: 6,
+        backgroundColor: "#649469",
+        borderRadius: 30,
+        paddingLeft: 12,
+        flexDirection: "row",
+        marginLeft: "auto",
+    },
+
+    postarLegenda: {
+
+        fontWeight:  "bold",
+        fontSize: 18,
+        color: "white"
+    },
   
 
 
