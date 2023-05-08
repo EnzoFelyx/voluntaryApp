@@ -5,9 +5,10 @@ const Criar_mock = {
         comeca: "Começa ás:",
         descricao: "Faça uma breve descrição sobre o evento:",
         fotos: "Fotos sobre o evento:",
-        participantes: "Participantes",
-        local: "Local",
+        participantes: "Selecione a média de participantes do evento:",
+        local: "O Local de realizaação do evento é :",
         fotoCapa: "Foto de capa do evento:"
+        
         
     },
     interacoes: {
