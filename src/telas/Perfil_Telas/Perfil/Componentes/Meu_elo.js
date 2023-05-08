@@ -6,9 +6,22 @@ import Botao from '../../../../componentes/Botao';
 
 export default function Meu_elo ({}) {
     return <>
+    <View style ={estilos.caixa}>
+
+    </View>
     
     </>
 }
 
 const estilos = StyleSheet.create({
+    caixa: {
+        flexDirection: "row",
+        height: 150,
+        width: 330,
+        borderRadius: 30,
+        alignSelf: 'center',
+        backgroundColor: "#E5ECB9",
+        marginTop: 24,
+        marginBottom: 16,
+    },
 })
