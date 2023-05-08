@@ -1,35 +1,76 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet,FlatList } from "react-native";
 import Titulo from '../../../../componentes/Titulo';
 import Botao from '../../../../componentes/Botao';
 import Texto from "../../../../componentes/texto";
 import Imagem from "../../../../componentes/Imagem";
 import pessoas from "../../../../../assets/pessoas.png";
 
-export default function Eventos({ subtitulo, evento1, evento2, evento3 }) {
-   return <>
-        <View>
-            <Titulo entrada={subtitulo.subtitle} />
-            <Botao tipo={3} texto={
-                <View style={{ flexDirection: "row" }}>
-                    <Texto style={estilos.nome}>{evento2.nome}</Texto>
-                </View>
+const dadosEventos = [
+    
+      evento1= {
+        id: 1,
+        nome: "Coleta de lixo na Praia",
+        dataEvento: "29/05/2023",
+        localEvento: "Santos - SP",
+        contPessoas: 15,
+      },
 
-            }
-                acao={() => { }} />
-            <View style={{ flexDirection: "row" }}>
-                <Texto style={estilos.local}>{evento1.localEvento}</Texto>
-                <View style={{
-                    flexDirection: "row", marginLeft: "auto",
+      evento2= {
+        id: 2,
+        nome: "Arrecadação de casacos",
+        dataEvento: "20/04/2023",
+        localEvento: "Santos - SP",
+        contPessoas: 30,
+      },
+
+  
+      evento3 ={
+        id: 3,
+        nome: "Visitar casa de repouso",
+        dataEvento: "30/04/2023",
+        localEvento: "Praia Grande - SP",
+        contPessoas: 4,
+      },
+  ];
+  
+  export default function Eventos({ subtitulo }) {
+    return (
+      <>
+        <Titulo entrada={subtitulo.subtitle} />
+        <FlatList
+          data={dadosEventos} // substitua "data" pelo seu array de dados
+          keyExtractor={(item, index) => index.toString()} // atribua um identificador único a cada item
+          renderItem={({ item }) => (
+            <View>
+              <Botao
+                tipo={3}
+                texto={
+                  <View style={{ flexDirection: "row" }}>
+                    <Texto style={estilos.nome}>{item.nome}</Texto>
+                  </View>
+                }
+                acao={() => {}}
+              />
+              <View style={{ flexDirection: "row" }}>
+                <Texto style={estilos.local}>{item.localEvento}</Texto>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    marginLeft: "auto",
                     marginRight: 8,
-                }}>
-                    <Imagem imagem={pessoas} tipo={'icone'} />
-                    <Texto style={estilos.contador}>{evento1.contPessoas}</Texto>
+                  }}
+                >
+                  <Imagem imagem={pessoas} tipo={"icone"} />
+                  <Texto style={estilos.contador}>{item.contPessoas}</Texto>
                 </View>
+              </View>
             </View>
-        </View>
-    </> 
-}
+          )}
+        />
+      </>
+    );
+  }
 
 const estilos = StyleSheet.create({
     nome: {
