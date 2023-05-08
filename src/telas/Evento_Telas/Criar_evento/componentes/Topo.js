@@ -58,7 +58,7 @@ export default function Topo({ titulos, interacoes }) {
 
       <View style={estilos.viewFotos}>
         <Texto>{titulos.fotos}</Texto>
-        <View style={{ justifyContent: 'row', alignItems: 'flex-start',marginTop:20 }}>
+        <View style={{ alignItems: 'flex-start',marginTop:20 }}>
           <Botao
             tipo={2} 
             texto={
@@ -92,7 +92,7 @@ const estilos = StyleSheet.create({
     },
 
     viewInputPequena: {
-        flexDirection: 'row',
+        flexDirection: "row",
         justifyContent: 'space-between',
         marginTop:10
 
@@ -100,10 +100,8 @@ const estilos = StyleSheet.create({
     viewFotos : {
         marginTop:10,
         marginEnd:20,
-        alignItems: 'row',
         flex:1
 
+
     }
-
-
 })
