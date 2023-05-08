@@ -8,7 +8,7 @@ import pessoas from "../../../../../assets/pessoas.png";
 
 const dadosEventos = [
     
-      evento1= {
+      {
         id: 1,
         nome: "Coleta de lixo na Praia",
         dataEvento: "29/05/2023",
@@ -16,7 +16,7 @@ const dadosEventos = [
         contPessoas: 15,
       },
 
-      evento2= {
+      {
         id: 2,
         nome: "Arrecadação de casacos",
         dataEvento: "20/04/2023",
@@ -25,7 +25,7 @@ const dadosEventos = [
       },
 
   
-      evento3 ={
+      {
         id: 3,
         nome: "Visitar casa de repouso",
         dataEvento: "30/04/2023",
@@ -36,11 +36,12 @@ const dadosEventos = [
   
   export default function Eventos({ subtitulo }) {
     return (
-      <>
+        
+      <View>
         <Titulo entrada={subtitulo.subtitle} />
         <FlatList
-          data={dadosEventos} // substitua "data" pelo seu array de dados
-          keyExtractor={(item, index) => index.toString()} // atribua um identificador único a cada item
+          data={dadosEventos} 
+          keyExtractor={(item, index) => index.toString()}
           renderItem={({ item }) => (
             <View>
               <Botao
@@ -68,7 +69,7 @@ const dadosEventos = [
             </View>
           )}
         />
-      </>
+      </View>
     );
   }
 
