@@ -7,70 +7,82 @@ const width = Dimensions.get('screen').width;
 
 export default function Imagem({ imagem, tipo }) {
 
-   
+
     const tipoImagemTamanho = (tipo) => {
 
         switch (tipo) {
             case 'loginImagem':
                 return {
-                   picture : estilos.loginImagem 
+                    picture: estilos.loginImagem
                 }
                 break;
 
             case 'recuperarImagem':
                 return {
-                   picture : estilos.recuperarImagem 
+                    picture: estilos.recuperarImagem
                 }
                 break;
 
             case 'perfilFoto':
                 return {
-                    picture : estilos.perfilFoto 
+                    picture: estilos.perfilFoto
                 }
                 break;
-            
+
             case 'RegistrarFoto':
                 return {
-                    picture : estilos.RegistrarFoto 
+                    picture: estilos.RegistrarFoto
                 }
                 break;
 
             case 'icone':
                 return {
-                    picture : estilos.icone 
+                    picture: estilos.icone
                 }
                 break;
             case 'criadorEvento':
-                return{
-                    picture : estilos.criadorEvento
+                return {
+                    picture: estilos.criadorEvento
                 }
             case 'imagemEvento':
-                return{
-                    picture : estilos.imagemEvento
+                return {
+                    picture: estilos.imagemEvento
                 }
-                case 'perfilDestaque':
-                    return{
-                        picture : estilos.perfilDestaque
-                    }
+            case 'perfilDestaque':
+                return {
+                    picture: estilos.perfilDestaque
+                }
 
             case 'fotoEvento':
                 return {
-                    picture : estilos.fotoEvento 
+                    picture: estilos.fotoEvento
                 }
                 break;
 
             case 'fotoMenor':
                 return {
-                    picture : estilos.fotoMenor 
+                    picture: estilos.fotoMenor
                 }
                 break;
 
             case 'Upload':
-            return {
+                return {
 
-               picture: estilos.Upload
+                    picture: estilos.Upload
+                }
+                break;
 
-            }
+            case 'Comentario':
+                return {
+                    picture: estilos.Comentario
+                }
+                break;
+
+            case 'Perfil':
+                return {
+                    picture: estilos.Perfil
+                }
+                break;
 
             default:
                 break;
@@ -98,7 +110,7 @@ const estilos = StyleSheet.create({
         borderRadius: 25,
         marginLeft: "auto",
         marginRight: 16,
-        
+
     },
 
     RegistrarFoto: {
@@ -122,44 +134,59 @@ const estilos = StyleSheet.create({
         height: 25,
         width: 25,
     },
-    criadorEvento:{
+
+    criadorEvento: {
         height: 25,
         width: 25,
         borderRadius: 25,
-
     },
+
     imagemEvento:
     {
         width: 328,
         height: 158,
-        resizeMode:'contain'
+        resizeMode: 'contain'
     },
     perfilDestaque:
     {
         width: 30,
         height: 30,
         borderRadius: 25,
-        alignItems:'center',
-        justifyContent:'center',
-        alignSelf:'center',
-        alignContent:'center'
+        alignItems: 'center',
+        justifyContent: 'center',
+        alignSelf: 'center',
+        alignContent: 'center'
 
     },
 
     fotoEvento: {
-        height: 657/1.85,
+        height: 657 / 1.85,
         width: 429,
     },
 
-    fotoMenor: {
-        height: 28,
-        width: 28,
+    Comentario: {
+        height: 40,
+        width: 40,
         borderRadius: 25,
     },
 
     Upload: {
         width: 50,
         height: 50,
-        
-    }
+
+    },
+
+    fotoMenor: {
+        height: 32,
+        width: 32,
+        borderRadius: 25,
+    },
+
+    Perfil: {
+        height: 156,
+        width: 156,
+        borderRadius: 90,
+        marginTop: 5,
+        alignSelf: 'center',
+    },
 })

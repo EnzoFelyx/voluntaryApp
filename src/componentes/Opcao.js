@@ -18,7 +18,7 @@ const estilos = StyleSheet.create({
     ou: {
         fontSize: 16,
         lineHeight: 26,
-        paddingVertical: 12,
+        paddingVertical: 24,
         paddingHorizontal: 8,
         marginBottom: 5,
 

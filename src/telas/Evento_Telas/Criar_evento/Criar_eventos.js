@@ -3,9 +3,9 @@ import { SafeAreaView, ScrollView,View,KeyboardAvoidingView,Platform} from 'reac
 import Background from '../../../componentes/Background';
 import Topo from './componentes/Topo';
 import Cabecalho from '../../../componentes/Cabecalho';
-import PerfilFoto from '../../../../assets/PerfilFoto.png';
-import Criar_mock from '../../../mocks/Criar_mock';
 import CriarEvento from './componentes/CriarEvento';
+import PerfilFoto from '../../../../assets/exemplos/PerfilFoto.png';
+import Criar_mock from '../../../mocks/Evento_Mocks/Criar_mock';
 
 
 export default function Criar_eventos({titulos, interacoes}) {

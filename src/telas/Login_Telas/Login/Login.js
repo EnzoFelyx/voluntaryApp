@@ -3,7 +3,7 @@ import { SafeAreaView, View } from 'react-native';
 import Conta from './componentes/Conta';
 import Interacoes from './componentes/Interacoes';
 
-import loginImagem from '../../../../assets/login.png';
+import loginImagem from '../../../../assets/loginTelas/login.png';
 import Background from '../../../componentes/Background';
 import Imagem from '../../../componentes/Imagem';
 

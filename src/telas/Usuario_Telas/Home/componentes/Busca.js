@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, TextInput, View } from "react-native";
-import lupa from '../../../../../assets/lupa.png';
-import filtro from '../../../../../assets/filter.png';
+import lupa from '../../../../../assets/exemplos/lupa.png';
+import filtro from '../../../../../assets/exemplos/filter.png';
 import Imagem from '../../../../componentes/Imagem';
 import Caixa from '../../../../componentes/Caixa';
 

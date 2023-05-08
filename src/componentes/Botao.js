@@ -25,11 +25,20 @@ export default function Botao({ texto, tipo }) {
                 return {
                     botao: estilos.botaoDestaque, texto: estilos.botaoTextoDestaque
                 }
+
             case 5:
+                return {
+                    botao: estilos.botaoperfil, texto: estilos.textoperfil
+                }
+
+            case 6:
+                return {
+                    botao: estilos.postarCaixa, texto: estilos.postarLegenda
+                }
+            case 7:
                 return {
                     botao: estilos.botaoanexarImagem
                 }
-            
 
             default:
                 break;
@@ -104,9 +113,27 @@ const estilos = StyleSheet.create({
         backgroundColor: "rgba(255,255,255,0.75)",
         borderRadius: 15,
     
-    }
+    },
 
+    postarCaixa:{
 
+        width: 80,
+        height: 40,
+        marginTop: 16,
+        paddingVertical: 6,
+        backgroundColor: "#649469",
+        borderRadius: 30,
+        paddingLeft: 12,
+        flexDirection: "row",
+        marginLeft: "auto",
+    },
+
+    postarLegenda: {
+
+        fontWeight:  "bold",
+        fontSize: 18,
+        color: "white"
+    },
   
 
 

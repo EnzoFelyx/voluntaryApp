@@ -3,8 +3,8 @@ import { FlatList,View,Text } from 'react-native';
 import Imagem from "../../../../componentes/Imagem";
 import Texto from '../../../../componentes/texto';
 import Botao from '../../../../componentes/Botao';
-import Jose from "../../../../../assets/Jose.png";
-import Maria from "../../../../../assets/Maria.png";
+import Jose from "../../../../../assets/exemplos/Jose.png";
+import Maria from "../../../../../assets/exemplos/Maria.png";
 
 
 const data = [

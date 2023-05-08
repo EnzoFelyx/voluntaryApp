@@ -8,7 +8,7 @@ const Detalhes_mock = {
     },
     interacoes: {
         requisto: "requisitos",
-        equipamentos: "material",
+        foto: "galeria",
         mapa: "mapa",
         avisos: "avisos"
     },

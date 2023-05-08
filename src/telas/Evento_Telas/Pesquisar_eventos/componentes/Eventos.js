@@ -4,7 +4,7 @@ import Titulo from '../../../../componentes/Titulo';
 import Botao from '../../../../componentes/Botao';
 import Texto from "../../../../componentes/texto";
 import Imagem from "../../../../componentes/Imagem";
-import pessoas from "../../../../../assets/pessoas.png";
+import pessoas from "../../../../../assets/buscar/pessoas.png";
 
 const dadosEventos = [
     

@@ -3,10 +3,10 @@ import { FlatList,View,Text } from 'react-native';
 import Imagem from "../../../../componentes/Imagem";
 import Texto from '../../../../componentes/texto';
 import Botao from '../../../../componentes/Botao';
-import MaosUnidas from "../../../../../assets/MaosUnidas.png"
-import perfilMaosUnidas from "../../../../../assets/perfilMaosUnidas.png";
-import dedosEntrelacados from "../../../../../assets/dedosEntrelacados.png";
-import perfilDedosEntrelacados from "../../../../../assets/perfilDedosEntrelacados.png";
+import MaosUnidas from "../../../../../assets/exemplos/MaosUnidas.png"
+import perfilMaosUnidas from "../../../../../assets/exemplos/perfilMaosUnidas.png";
+import dedosEntrelacados from "../../../../../assets/exemplos/dedosEntrelacados.png";
+import perfilDedosEntrelacados from "../../../../../assets/exemplos/perfilDedosEntrelacados.png";
 
 
 const data = [

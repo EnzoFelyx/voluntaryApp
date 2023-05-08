@@ -6,10 +6,13 @@ export default function Input({ entrada, senha = false, tipo  }) {
     switch (tipo) {
       case 1:
         return estilos.caixaInputGrande;
+
       case 2:
         return estilos.caixaInputPequena;
+
       case 3:
-        return estilos.caixaInputcomentario;
+        return estilos.caixaComentar;
+
       default:
         return estilos.caixaInputGrande; // caso nenhum tipo seja fornecido, usará o estilo padrão
     }
@@ -33,27 +36,30 @@ const estilos = StyleSheet.create({
     marginTop: 16,
     fontSize: 12,
     paddingVertical: 15,
-    backgroundColor: "rgba(255,255,255,0.75)",
+    backgroundColor: "#E4F4CD",
     borderRadius: 15,
     paddingLeft: 16,
-
   },
+
+  caixaComentar:{
+
+    marginTop: 24,
+    paddingTop: 8,
+    paddingBottom: 56,
+    paddingHorizontal: 16,
+    backgroundColor: "#E4F4CD",
+    borderRadius: 15,
+
+},
+
   caixaInputGrande: {
     height: 43,
     marginTop: 16,
     fontSize: 12,
     paddingVertical: 15,
-    backgroundColor: "rgba(255,255,255,0.75)",
+    backgroundColor: "#E4F4CD",
     borderRadius: 15,
     paddingLeft: 16
   },
-  caixaInputcomentario: {
-    height: 80,
-    marginTop: 16,
-    fontSize: 12,
-    paddingVertical: 15,
-    backgroundColor: "rgba(255,255,255,0.75)",
-    borderRadius: 15,
-    paddingLeft: 16
-  },
+
 });

@@ -16,4 +16,39 @@ fazer array de fotos nas pessoas participando no detalhe dos eventos
 
 Refatorar
 
-tou main nova
+Telas com scrowview que não ocupam a tela inteira ficam as vezes faltando completar embaixo com background
+
+Revisar o switch de Imagem
+
+arrumar padding horizontal do background
+--------------------------------------------------------------------------------------------------------------------
+
+Telas completas (front):
+
+Login ✅
+
+Cadastrao ✅
+
+Recuperar conta ✅
+
+Validação ✅
+
+Home
+
+Eventos
+
+Criar Evento
+
+Buscar
+
+Detalhes do evento
+
+Perfil
+
+Meus Posts
+
+Comentário
+
+Alterar Senha
+
+E-mail
