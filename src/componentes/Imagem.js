@@ -70,7 +70,13 @@ export default function Imagem({ imagem, tipo }) {
                     picture : estilos.Comentario 
                 }
                 break;
-
+                
+                case 'Perfil':
+                    return {
+                        picture : estilos.Perfil 
+                    }
+                    break;
+    
             default:
                 break;
         }
@@ -161,5 +167,13 @@ const estilos = StyleSheet.create({
         height: 32,
         width: 32,
         borderRadius: 25,
+    },
+
+    Perfil:{
+        height: 156,
+        width: 156,
+        borderRadius: 90,
+        marginTop: 5,
+        alignSelf: 'center',
     },
 })

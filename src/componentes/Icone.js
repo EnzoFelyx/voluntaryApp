@@ -23,6 +23,13 @@ export default function Icone({ tipo, icone, texto, interativo = true }) {
                     estilus: estilos.organizadora,
                 }
                 break;
+            
+            case "perfil":
+                return {
+                    estilus: estilos.perfil,
+                }
+                break;
+
 
             default:
                 break;
@@ -57,5 +64,10 @@ const estilos = StyleSheet.create({
         marginLeft: 8,
         marginBottom: 8,
         flexDirection: "row",
+    },
+
+    perfil:{
+        marginLeft: "auto",
+        marginRight: 24,
     },
 })

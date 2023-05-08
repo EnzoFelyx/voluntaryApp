@@ -1,15 +1,13 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import Titulo from '../../../../componentes/Titulo';
-import { SimpleLineIcons } from '@expo/vector-icons';
+import Icone from "../../../../componentes/Icone";
 
 export default function Topo({ titulo }) {
     return <>
         <View style={estilos.titulo}>
-            <Titulo entrada={"Sua conta"} />
-            <View style={estilos.vazar}>
-            <SimpleLineIcons name="logout" size={32} color="black"/>
-            </View>
+            <Titulo entrada={titulo} />
+            <Icone icone={"logout"} tipo={"perfil"} texto={""}/>
         </View>
     </>
 }
@@ -19,7 +17,6 @@ const estilos = StyleSheet.create({
         flexDirection: "row",
         marginLeft: 40,
         marginTop: 54,
-        marginBottom: 8,
     },
     vazar: {
         marginLeft: "auto",

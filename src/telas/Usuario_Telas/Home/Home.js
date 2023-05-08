@@ -1,10 +1,9 @@
 import React from 'react';
-import { ScrollView, View } from 'react-native';
+import { ScrollView } from 'react-native';
+import PerfilFoto from '../../../../assets/exemplos/PerfilFoto.png';
 import Background from '../../../componentes/Background';
-import Lista from './componentes/Lista';
-import Topo from './componentes/Topo';
-import PerfilFoto from '../../../../assets/exemplos/PerfilFoto.png'
 import Cabecalho from '../../../componentes/Cabecalho';
+import Lista from './componentes/Lista';
 
 export default function Home({ topo, interacoes }) {
     return (

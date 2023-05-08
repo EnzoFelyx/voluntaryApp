@@ -30,6 +30,7 @@ import Mudar_Mock from './src/mocks/Login_Mocks/Mudar_mock';
 import Email_mocks from './src/mocks/Perfil_Mocks/Email_mocks';
 import Posts_mocks from './src/mocks/Perfil_Mocks/Posts_mocks';
 import Comentar_mocks from './src/mocks/Evento_Mocks/Comentar';
+import Perfil_mocks from './src/mocks/Perfil_Mocks/Perfil_mocks';
 
 export default function App() {
   const [fontCarregada] = useFonts({
@@ -55,8 +56,8 @@ export default function App() {
       {/* <Seus_eventos {...Seus_eventos_mocks}/> */}
       {/* {<Home {...Home_mocks} />} */}
       {/* <Criar_eventos/> */}
-      {/* <Perfil/>  AINDA EM DESENVOLVILEMENTO*/}
-      <Comentar_evento {...Comentar_mocks}/>
+      <Perfil {...Perfil_mocks}/> 
+      {/* <Comentar_evento {...Comentar_mocks}/> */}
 
     </SafeAreaView>
   );
