@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, ScrollView,View } from 'react-native';
+import { SafeAreaView, ScrollView,View,KeyboardAvoidingView,Platform} from 'react-native';
 import Background from '../../../componentes/Background';
 import Topo from './componentes/Topo';
 import Cabecalho from '../../../componentes/Cabecalho';
@@ -11,6 +11,9 @@ import CriarEvento from './componentes/CriarEvento';
 export default function Criar_eventos({titulos, interacoes}) {
     return (
         <ScrollView contentContainerStyle={{ height: "100%" }}>
+            <KeyboardAvoidingView
+                behavior={Platform.OS == "ios" ? "padding" : "height"}
+                style={{ flex: 1 }}>
             <Background back={"fundo"}>
                 <Cabecalho PerfilFoto={PerfilFoto} titulo={"Criar Evento"}/>
                 <ScrollView style={{ flex: 1 }}>
@@ -22,6 +25,8 @@ export default function Criar_eventos({titulos, interacoes}) {
                     </Background>
                 </ScrollView>
             </Background>
+            </KeyboardAvoidingView>
         </ScrollView>
+        
     )
 }

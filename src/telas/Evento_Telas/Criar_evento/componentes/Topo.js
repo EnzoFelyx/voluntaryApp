@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, KeyboardAvoidingView,Platform, SafeAreaView } from "react-native";
 import Contador from './Contador';
 import Texto from "../../../../componentes/texto";
 import Input from "../../../../componentes/Input";
@@ -13,6 +13,9 @@ import NovoEvento from './CriarEvento'
 
 export default function Topo({ titulos, interacoes }) {
   return (
+
+    <SafeAreaView style={{flex:1}}>
+  
     <View style={estilos.container}>
       <View style={estilos.viewInput}>
         <Texto>{titulos.evento}</Texto>
@@ -70,6 +73,7 @@ export default function Topo({ titulos, interacoes }) {
 
 
     </View>
+  </SafeAreaView>
   );
 }
 
