@@ -10,7 +10,7 @@ export default function Pesquisar_eventos({ topo, eventos }) {
     return (
         <ScrollView contentContainerStyle={{height: "100%" }}>
             <Background back={"fundo"}>
-                <Cabecalho PerfilFoto={PerfilFoto} titulo={"Pesquisar eventos"}/>
+                <Cabecalho PerfilFoto={PerfilFoto} titulo={topo.titulo}/>
                 <Background back={"quadrado2"}>
                     <Busca {...topo} />
                     <Eventos {...eventos} />

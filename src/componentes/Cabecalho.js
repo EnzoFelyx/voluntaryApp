@@ -1,14 +1,16 @@
 import React from "react";
-import Titulo from './Titulo';
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import Imagem from './Imagem';
-import { StyleSheet, View } from "react-native";
+import Titulo from './Titulo';
 
 
 export default function Cabecalho({ titulo, PerfilFoto }) {
     return <>
         <View style={estilos.topo}>
             <Titulo entrada={titulo} />
-            <Imagem imagem={PerfilFoto} tipo={'perfilFoto'}/>
+            <TouchableOpacity style={{ flex: 1 }}>
+                <Imagem imagem={PerfilFoto} tipo={'perfilFoto'} />
+            </TouchableOpacity>
         </View>
     </>
 }

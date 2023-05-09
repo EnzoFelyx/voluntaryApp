@@ -16,7 +16,3 @@ export default function Comentario({ nome, tempo, comentario, organizadora }) {
 
     </>
 }
-
-const estilos = StyleSheet.create({
-
-})

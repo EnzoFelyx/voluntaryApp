@@ -96,6 +96,7 @@ const estilos = StyleSheet.create({
         backgroundColor: "#FFFFFF",
         borderRadius: 15,
     },
+    
     botaoTextoDestaque: {
         fontSize: 16,
         fontWeight: "bold",
@@ -104,6 +105,7 @@ const estilos = StyleSheet.create({
         alignSelf:'center',
         alignContent:'center'
     },
+    
     botaoanexarImagem: {
         width:350,
         height:184,

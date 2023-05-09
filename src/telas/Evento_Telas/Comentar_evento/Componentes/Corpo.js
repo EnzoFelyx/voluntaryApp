@@ -13,7 +13,7 @@ export default function Corpo({ subtitle, legenda, input, botao }) {
         </View>
 
         <TouchableOpacity>
-            <Input entrada={input} tipo={2} />
+            <Input entrada={input} tipo={3} />
         </TouchableOpacity>
 
         <Botao texto={botao} tipo={6}/>

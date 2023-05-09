@@ -5,8 +5,11 @@ const evento = {
     },
 
     interacoes: {
-        mensagem:'Confira abaixo sua lista de eventos em que você está isncrito',
-        novoEvento: 'Novo Evento'
+        mensagem:'    Confira abaixo sua lista de eventos em que você está isncrito',
+        novoEvento: 'Novo Evento',
+        botao: {
+            botaum: 'Criar evento',
+        }
     },
 
     

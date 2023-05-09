@@ -1,7 +1,7 @@
 const Home_mocks = {
 
     topo: {
-        titulo: "Seus Eventos",
+        titulo: "Home",
     },
 
     interacoes: {

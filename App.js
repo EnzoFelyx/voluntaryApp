@@ -53,9 +53,9 @@ export default function App() {
       {/* <Detalhes_eventos {...Detalhes_mock} /> */}
       {/* <Email {...Email_mocks}/> */}
       {/* <Meus_Posts {...Posts_mocks}/> */}
-      {/*  <Pesquisar_eventos {...Pesquisar_eventos_mocks} /> */}
+      {/* <Pesquisar_eventos {...Pesquisar_eventos_mocks} /> */}
       {/* <Seus_eventos {...Seus_eventos_mocks}/> */}
-      {/* {<Home {...Home_mocks} />} */}
+      {/* <Home {...Home_mocks} /> */}
       {/* <Criar_eventos/> */}
       {/* <Perfil {...Perfil_mocks}/>  */}
       {/* <Comentar_evento {...Comentar_mocks}/> */}

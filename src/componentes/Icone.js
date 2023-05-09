@@ -29,7 +29,12 @@ export default function Icone({ tipo, icone, texto, interativo = true }) {
                     estilus: estilos.perfil,
                 }
                 break;
-
+            
+            case "adicionarCapa":
+                return {
+                    estilus: estilos.adicionarCapa,
+                }
+                break;
 
             default:
                 break;
@@ -44,13 +49,13 @@ export default function Icone({ tipo, icone, texto, interativo = true }) {
             <MaterialCommunityIcons name={icone} size={34} color="black" style={{ marginRight: 8, }} />
             <Texto>{texto}</Texto>
         </TouchableOpacity>
-    }
+    } 
+
     else {
         return  <View style={estiloIcone.estilus}>
             <MaterialCommunityIcons name={icone} size={30} color="black" style={{ marginRight: 8, }} />
             <Texto>{texto}</Texto>
         </View>
-
     }
 }
 
@@ -70,4 +75,8 @@ const estilos = StyleSheet.create({
         marginLeft: "auto",
         marginRight: 24,
     },
+
+    adicionarCapa: {
+        alignItems: 'center',
+    }
 })

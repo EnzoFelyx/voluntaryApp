@@ -9,7 +9,7 @@ export default function Home({ topo, interacoes }) {
     return (
         <ScrollView contentContainerStyle={{ height: "100%" }}>
             <Background back={"fundo"}>
-                <Cabecalho PerfilFoto={PerfilFoto} titulo={"Pesquisar eventos"} />
+                <Cabecalho PerfilFoto={PerfilFoto} titulo={topo.titulo} />
                 <Background back={"quadrado2"}> 
                     <ScrollView style={{ flex: 1 }}>
                         <Lista {...interacoes} />
