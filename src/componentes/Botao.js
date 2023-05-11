@@ -40,6 +40,11 @@ export default function Botao({ texto, tipo }) {
                     botao: estilos.botaoanexarImagem
                 }
 
+            case 8:
+                return {
+                    botao: estilos.perfilOption
+                }
+
             default:
                 break;
         }
@@ -136,8 +141,6 @@ const estilos = StyleSheet.create({
         fontSize: 18,
         color: "white"
     },
-  
-
 
 })
 

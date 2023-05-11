@@ -36,6 +36,18 @@ export default function Icone({ tipo, icone, texto, interativo = true }) {
                 }
                 break;
 
+            case "info":
+                return {
+                    estilus: estilos.info,
+                }
+                break;
+
+            case "perfilOption":
+                return {
+                    estilus: estilos.perfilOption,
+                }
+                break;
+
             default:
                 break;
         }
@@ -78,5 +90,12 @@ const estilos = StyleSheet.create({
 
     adicionarCapa: {
         alignItems: 'center',
-    }
+    },
+    
+    perfilOption:{
+
+        marginLeft: "auto",
+        marginRight: 12,
+        marginTop: 12,
+    },
 })

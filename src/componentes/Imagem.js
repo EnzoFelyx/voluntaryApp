@@ -84,6 +84,17 @@ export default function Imagem({ imagem, tipo }) {
                 }
                 break;
 
+            case 'Elos':
+                return {
+                    picture: estilos.Elos
+                }
+                break;
+
+            case 'Loading':
+                return {
+                    picture: estilos.Loading
+                }
+                break;
             default:
                 break;
         }
@@ -189,4 +200,15 @@ const estilos = StyleSheet.create({
         marginTop: 5,
         alignSelf: 'center',
     },
+
+    Elos: {
+        height: 100,
+        width: 110,
+        alignSelf: 'center',
+    },
+
+    Loading: {
+        marginTop: 8,
+
+    }
 })

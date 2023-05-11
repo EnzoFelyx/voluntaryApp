@@ -57,7 +57,7 @@ export default function App() {
       {/* <Seus_eventos {...Seus_eventos_mocks}/> */}
       {/* <Home {...Home_mocks} /> */}
       {/* <Criar_eventos/> */}
-      {/* <Perfil {...Perfil_mocks}/>  */}
+      <Perfil {...Perfil_mocks}/> 
       {/* <Comentar_evento {...Comentar_mocks}/> */}
 
     </SafeAreaView>

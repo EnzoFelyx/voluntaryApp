@@ -9,7 +9,7 @@ import Meu_elo from './Componentes/Meu_elo';
 
 export default function Perfil({topo, botoes}) {
     return (
-        <ScrollView contentContainerStyle={{ height: "100%" }}>
+        <ScrollView>
             <Background back={"fundo"}>
                 <Topo {...topo}/>
                 <Background back={"quadrado2"}> 
