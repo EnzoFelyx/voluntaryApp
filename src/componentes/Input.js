@@ -1,9 +1,12 @@
 import React from 'react';
 import { StyleSheet, TextInput } from 'react-native';
 
-export default function Input({ entrada, senha = false, tipo  }) {
+export default function Input({ entrada, senha = false, tipo }) {
+  
   const caixaInputStyle = (tipo) => {
+
     switch (tipo) {
+
       case 1:
         return estilos.caixaInputGrande;
 
@@ -14,19 +17,13 @@ export default function Input({ entrada, senha = false, tipo  }) {
         return estilos.caixaComentar;
 
       default:
-        return estilos.caixaInputGrande; // caso nenhum tipo seja fornecido, usará o estilo padrão
+        return estilos.caixaInputGrande;
     }
   }
 
   const estiloCaixa = caixaInputStyle(tipo);
 
-  return (
-    <TextInput
-      secureTextEntry={senha}
-      style={estiloCaixa}
-      placeholder={entrada}
-    />
-  );
+  return <TextInput secureTextEntry={senha} style={estiloCaixa} placeholder={entrada}/>
 }
 
 const estilos = StyleSheet.create({
@@ -41,7 +38,7 @@ const estilos = StyleSheet.create({
     paddingLeft: 16,
   },
 
-  caixaComentar:{
+  caixaComentar: {
 
     marginTop: 24,
     paddingTop: 8,
@@ -50,7 +47,7 @@ const estilos = StyleSheet.create({
     backgroundColor: "#E4F4CD",
     borderRadius: 15,
 
-},
+  },
 
   caixaInputGrande: {
     height: 43,

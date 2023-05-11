@@ -1,16 +1,14 @@
 import React from 'react';
-import { FlatList, View, Text, StyleSheet } from 'react-native';
-import Imagem from "../../../../componentes/Imagem";
-import Texto from '../../../../componentes/texto';
-import Botao from '../../../../componentes/Botao';
-import Blooddonation from "../../../../../assets/exemplos/Blooddonation.png"
+import { FlatList, StyleSheet, View } from 'react-native';
+import Blooddonation from "../../../../../assets/exemplos/Blooddonation.png";
 import Jose from "../../../../../assets/exemplos/Jose.png";
-import doacaoCasacos from "../../../../../assets/exemplos/doacaoCasacos.png";
 import Maria from "../../../../../assets/exemplos/Maria.png";
-import Organizadora from '../../../../componentes/Organizadora';
+import doacaoCasacos from "../../../../../assets/exemplos/doacaoCasacos.png";
+import Botao from '../../../../componentes/Botao';
+import Imagem from "../../../../componentes/Imagem";
 import Linha from '../../../../componentes/Linha';
-
-
+import Organizadora from '../../../../componentes/Organizadora';
+import Texto from '../../../../componentes/texto';
 
 const data = [
   {
@@ -20,6 +18,7 @@ const data = [
     criador: 'Cleyton Silva Nascimento',
     perfilCriador: Jose
   },
+
   {
     id: '2',
     title: 'Doação de casacos',
@@ -27,8 +26,6 @@ const data = [
     criador: 'Maria Eduarda Ferreira',
     perfilCriador: Maria
   },
-
-
 ];
 
 const MyImageList = () => {

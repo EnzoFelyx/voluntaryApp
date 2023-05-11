@@ -11,9 +11,9 @@ export default function Seus_eventos({ topo, interacoes }) {
             <Background back={"fundo"}>
                 <Cabecalho PerfilFoto={PerfilFoto} titulo={topo.titulo} />
                 <Background back={"quadrado2"}>
-                    <View style={{flex: 1,}}>
-                        <Lista {...interacoes}/>
-                    </View>                    
+                    <View style={{ flex: 1, }}>
+                        <Lista {...interacoes} />
+                    </View>
                 </Background>
             </Background>
         </ScrollView>

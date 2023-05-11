@@ -3,7 +3,7 @@ import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import Texto from '../componentes/texto';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-export default function Icone({ tipo, icone, texto, interativo = true }) {
+export default function Icone({ icone, tamanho, tipo= null, texto = null, interativo = true }) {
 
     const tipoIconeEstilo = (tipo) => {
         switch (tipo) {
@@ -48,6 +48,12 @@ export default function Icone({ tipo, icone, texto, interativo = true }) {
                 }
                 break;
 
+            case null:
+                return {
+                    estilus: estilos.default,
+                }
+                break;
+
             default:
                 break;
         }
@@ -58,14 +64,14 @@ export default function Icone({ tipo, icone, texto, interativo = true }) {
     if (interativo == true) {
 
         return <TouchableOpacity style={estiloIcone.estilus}>
-            <MaterialCommunityIcons name={icone} size={34} color="black" style={{ marginRight: 8, }} />
+            <MaterialCommunityIcons name={icone} size={tamanho} color="black" style={{ marginRight: 8, }} />
             <Texto>{texto}</Texto>
         </TouchableOpacity>
     } 
 
     else {
         return  <View style={estiloIcone.estilus}>
-            <MaterialCommunityIcons name={icone} size={30} color="black" style={{ marginRight: 8, }} />
+            <MaterialCommunityIcons name={icone} size={tamanho} color="black" style={{ marginRight: 8, }} />
             <Texto>{texto}</Texto>
         </View>
     }
@@ -98,4 +104,6 @@ const estilos = StyleSheet.create({
         marginRight: 12,
         marginTop: 12,
     },
+    
+    default:{},
 })

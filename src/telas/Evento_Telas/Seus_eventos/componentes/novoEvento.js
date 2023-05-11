@@ -1,7 +1,6 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 import Botao from '../../../../componentes/Botao';
-import Texto from "../../../../componentes/texto";
 
 export default function NovoEvento({botaum}){
     return <View style={estilos.posicao}>

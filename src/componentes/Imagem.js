@@ -120,7 +120,7 @@ const estilos = StyleSheet.create({
         width: 48,
         borderRadius: 25,
         marginLeft: "auto",
-        marginRight: 16,
+        marginRight: 24,
 
     },
 

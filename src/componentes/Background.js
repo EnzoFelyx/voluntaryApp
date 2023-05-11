@@ -65,7 +65,6 @@ const estilos = StyleSheet.create({
         backgroundColor: '#CAF38D',
         borderTopLeftRadius: 24,
         borderTopRightRadius: 24,
-        marginTop: 8,
         paddingVertical: 24,
     },
 
