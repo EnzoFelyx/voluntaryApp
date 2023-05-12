@@ -46,17 +46,19 @@ export default function App() {
     <SafeAreaView >
 
       {/* <Comentar_evento {...Comentar_mocks}/> */}
-
+      {/* <Seus_eventos {...Seus_eventos_mocks}/> */}
       {/* <Login {...Login_mock} /> */}
       {/* <Registra {...Registrar_mocks}/> */}
       {/* <Recuperar {...Recuperar_mock} /> */}
       {/* <Validacao {...Validacao_Mock}/> */}
       {/* <Mudar_Senha {...Mudar_Mock}/> */}
+
+
+
       {/* <Detalhes_eventos {...Detalhes_mock} /> */}
       {/* <Email {...Email_mocks}/> */}
       {/* <Meus_Posts {...Posts_mocks}/> */}
       {/* <Pesquisar_eventos {...Pesquisar_eventos_mocks} /> */}
-      <Seus_eventos {...Seus_eventos_mocks}/>
       {/* <Home {...Home_mocks} /> */}
       {/* <Criar_eventos/> */}
       {/* <Perfil {...Perfil_mocks}/>  */}

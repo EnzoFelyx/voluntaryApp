@@ -1,12 +1,12 @@
 import React from "react";
-import Titulo from '../../../../componentes/Titulo';
+import { TouchableOpacity } from "react-native";
 import Default from '../../../../../assets/perfil/FotoDefault.png';
-import { TouchableOpacity, View } from "react-native";
 import Imagem from '../../../../componentes/Imagem';
+import Titulo from '../../../../componentes/Titulo';
 
 export default function Topo({ title }) {
     return <>
-        <Titulo entrada={title} />
+        <Titulo entrada={title} tipo={"Titulo"}/>
         <TouchableOpacity>
             <Imagem imagem={Default} tipo={"RegistrarFoto"} />
         </TouchableOpacity>

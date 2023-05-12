@@ -1,8 +1,9 @@
 import React from 'react';
-import { StyleSheet, TextInput } from 'react-native';
+import { SafeAreaView, StyleSheet, TextInput, View } from 'react-native';
+import Texto from './texto';
 
-export default function Input({ entrada, senha = false, tipo }) {
-  
+export default function Input({ legenda = null, entrada, senha = false, tipo}) {
+
   const caixaInputStyle = (tipo) => {
 
     switch (tipo) {
@@ -23,7 +24,16 @@ export default function Input({ entrada, senha = false, tipo }) {
 
   const estiloCaixa = caixaInputStyle(tipo);
 
-  return <TextInput secureTextEntry={senha} style={estiloCaixa} placeholder={entrada}/>
+  if (legenda == null) {
+    return <TextInput secureTextEntry={senha} style={estiloCaixa} placeholder={entrada} />
+
+  }
+  else {
+    return <View style={estilos.insertLegenda}>
+      <Texto>{legenda}</Texto>
+      <TextInput secureTextEntry={senha} style={estiloCaixa} placeholder={entrada} />
+    </View>
+  }
 }
 
 const estilos = StyleSheet.create({
@@ -56,7 +66,13 @@ const estilos = StyleSheet.create({
     paddingVertical: 15,
     backgroundColor: "#E4F4CD",
     borderRadius: 15,
-    paddingLeft: 16
+    paddingLeft: 16,
+    marginBottom: 16,
+  },
+
+  insertLegenda: {
+    marginTop: 16,
+    marginBottom: 16,
   },
 
 });

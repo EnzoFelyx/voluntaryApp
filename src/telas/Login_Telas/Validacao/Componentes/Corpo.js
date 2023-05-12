@@ -1,33 +1,27 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { SafeAreaView, StyleSheet, View } from "react-native";
+import Botao from "../../../../componentes/Botao";
 import Input from '../../../../componentes/Input';
+import Linha from "../../../../componentes/Linha";
 import Titulo from "../../../../componentes/Titulo";
 import Texto from "../../../../componentes/texto";
-import Botao from "../../../../componentes/Botao";
-import Opcao from "../../../../componentes/Opcao";
 
 export default function Corpo({ subtitle, texto, input, botaoValidar, botaoReenviar }) {
-    return <>
-         <View>
-            <Titulo entrada={subtitle} />
-            <View style={estilos.texto}>
-                <Texto>{texto}</Texto>
-            </View>
-            <Input entrada={input} />
-            <View style={estilos.botao}>
-                <Botao texto={botaoValidar} tipo={1} />
-                <Opcao texto={"ou"} />
-                <Botao texto={botaoReenviar} tipo={2} />
-            </View>
-        </View>
-    </>
-}
+    return <SafeAreaView>
 
-const estilos = StyleSheet.create({
-    botao: {
-        marginTop: 32,
-    },
-    texto: {
-        paddingVertical: 16,
-    },
-})
+        <Titulo entrada={subtitle} tipo={"Titulo"} />
+
+        <Input legenda={texto} entrada={input} />
+
+        <Botao texto={botaoValidar} tipo={1} />
+
+        <View style={{ paddingVertical: 24, }}>
+
+            <Linha texto={"ou"} />
+
+        </View>
+
+        <Botao texto={botaoReenviar} tipo={2} />
+        
+    </SafeAreaView>
+}

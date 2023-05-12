@@ -112,6 +112,7 @@ const estilos = StyleSheet.create({
     loginImagem: {
         height: 230,
         width: 302,
+        alignSelf: 'center',
         backgroundColor: "#E4F4CD"
     },
 
@@ -136,6 +137,7 @@ const estilos = StyleSheet.create({
     recuperarImagem: {
         height: 250,
         width: 250,
+        alignSelf: 'center',
         backgroundColor: "#E4F4CD"
     },
 

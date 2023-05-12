@@ -10,9 +10,7 @@ import Imagem from '../../../componentes/Imagem';
 export default function Login({ conta, interacoes }) {
     return <SafeAreaView style={{ height: "100%" }}>
         <Background back={"fundo"}>
-            <View style={{ alignItems: 'center' }}>
-                <Imagem imagem={loginImagem} tipo={"loginImagem"} />
-            </View>
+            <Imagem imagem={loginImagem} tipo={"loginImagem"} />
             <Background back={"quadrado1"}>
                 <Conta {...conta} />
                 <Interacoes {...interacoes} />
