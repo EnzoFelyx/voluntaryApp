@@ -38,7 +38,7 @@ const dadosEventos = [
     return (
         
       <View>
-        <Titulo entrada={subtitulo.subtitle} />
+        <Titulo entrada={subtitulo.subtitle} tipo={"Titulo"}/>
         <FlatList
           data={dadosEventos} 
           keyExtractor={(item, index) => index.toString()}

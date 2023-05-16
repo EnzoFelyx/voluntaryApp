@@ -162,14 +162,11 @@ const estilos = StyleSheet.create({
     },
     perfilDestaque:
     {
-        width: 30,
-        height: 30,
+        width: 50,
+        height: 50,
         borderRadius: 25,
-        alignItems: 'center',
-        justifyContent: 'center',
         alignSelf: 'center',
-        alignContent: 'center'
-
+        marginBottom: 8,
     },
 
     fotoEvento: {

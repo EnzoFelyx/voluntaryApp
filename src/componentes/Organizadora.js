@@ -14,6 +14,7 @@ const estilos = StyleSheet.create({
     organizadora: {
         flexDirection: "row",
         marginLeft: "auto",
+        marginBottom: 16,
     },
     nome: {
         fontSize: 16,

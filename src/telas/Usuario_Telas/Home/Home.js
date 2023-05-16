@@ -7,9 +7,9 @@ import Lista from './componentes/Lista';
 
 export default function Home({ topo, interacoes }) {
     return (
-        <ScrollView contentContainerStyle={{ height: "100%" }}>
+        <ScrollView>
             <Background back={"fundo"}>
-                <Cabecalho PerfilFoto={PerfilFoto} titulo={topo.titulo} />
+                <Cabecalho PerfilFoto={PerfilFoto}  titulo={topo.titulo}/>
                 <Background back={"quadrado2"}> 
                     <ScrollView style={{ flex: 1 }}>
                         <Lista {...interacoes} />

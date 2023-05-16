@@ -90,17 +90,20 @@ const estilos = StyleSheet.create({
     botaoEvento: {
         marginTop: 16,
         paddingVertical: 12,
-        backgroundColor: "rgba(255,255,255,0.75)",
+        backgroundColor: "#FFFFFF",
         borderRadius: 15,
-        paddingLeft: 16,
+        marginRight: 8,
         flexDirection: "row",
     },
 
     botaoDestaque: {
         width:140,
         height:192,
-        backgroundColor: "#FFFFFF",
         borderRadius: 15,
+        backgroundColor: "#FFFFFF",
+        marginEnd: 15, 
+        marginTop: 15,
+        justifyContent: 'center',
     },
     
     botaoTextoDestaque: {

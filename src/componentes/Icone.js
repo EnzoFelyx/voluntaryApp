@@ -48,6 +48,11 @@ export default function Icone({ icone, tamanho, tipo= null, texto = null, intera
                 }
                 break;
 
+            case "pesquisa":
+                return {
+                    estilus: estilos.pesquisa,
+                }
+
             case null:
                 return {
                     estilus: estilos.default,
@@ -103,6 +108,11 @@ const estilos = StyleSheet.create({
         marginLeft: "auto",
         marginRight: 12,
         marginTop: 12,
+    },
+
+    pesquisa:{
+        marginLeft: "auto",
+
     },
     
     default:{},

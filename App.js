@@ -52,16 +52,15 @@ export default function App() {
       {/* <Recuperar {...Recuperar_mock} /> */}
       {/* <Validacao {...Validacao_Mock}/> */}
       {/* <Mudar_Senha {...Mudar_Mock}/> */}
-
-
-
-      {/* <Detalhes_eventos {...Detalhes_mock} /> */}
       {/* <Email {...Email_mocks}/> */}
       {/* <Meus_Posts {...Posts_mocks}/> */}
+
+      
       {/* <Pesquisar_eventos {...Pesquisar_eventos_mocks} /> */}
-      {/* <Home {...Home_mocks} /> */}
+      <Home {...Home_mocks} />
       {/* <Criar_eventos/> */}
       {/* <Perfil {...Perfil_mocks}/>  */}
+      {/* <Detalhes_eventos {...Detalhes_mock} /> */}
 
     </SafeAreaView>
   );

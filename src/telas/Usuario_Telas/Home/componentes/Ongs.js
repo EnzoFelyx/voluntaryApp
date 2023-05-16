@@ -1,12 +1,11 @@
 import React from 'react';
-import { FlatList, View, Text } from 'react-native';
-import Imagem from "../../../../componentes/Imagem";
-import Texto from '../../../../componentes/texto';
-import Botao from '../../../../componentes/Botao';
-import MaosUnidas from "../../../../../assets/exemplos/MaosUnidas.png"
-import perfilMaosUnidas from "../../../../../assets/exemplos/perfilMaosUnidas.png";
+import { FlatList, View } from 'react-native';
+import MaosUnidas from "../../../../../assets/exemplos/MaosUnidas.png";
 import dedosEntrelacados from "../../../../../assets/exemplos/dedosEntrelacados.png";
 import perfilDedosEntrelacados from "../../../../../assets/exemplos/perfilDedosEntrelacados.png";
+import perfilMaosUnidas from "../../../../../assets/exemplos/perfilMaosUnidas.png";
+import Botao from '../../../../componentes/Botao';
+import Imagem from "../../../../componentes/Imagem";
 import Organizadora from '../../../../componentes/Organizadora';
 
 
@@ -24,27 +23,21 @@ const data = [
     perfilOng: perfilDedosEntrelacados
   },
 
-
 ];
 
 const Ongs = () => {
 
   const renderItem = ({ item }) => (
-    <View style={{ flex: 1, marginEnd: 10, marginBottom: 20 }}>
+    <View style={{ flex: 1, marginBottom: 20 }}>
       <Botao tipo={3} texto={
         <View>
           <Imagem imagem={item.imageUrl} tipo={'imagemEvento'} />
-
         </View>}
-
         acao={() => { }}
       />
       <View style={{ marginTop: 12, marginRight: 16, }}>
         <Organizadora image={item.perfilOng} nome={item.criador} />
       </View>
-
-
-
     </View>
   );
 
