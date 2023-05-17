@@ -45,7 +45,7 @@ export default function Background({ children, back }) {
 const estilos = StyleSheet.create({
 
     fundo: {
-        backgroundColor: "#E4F4CD",
+    backgroundColor:'#E4F4CD',
     },
 
     quadrado1: {

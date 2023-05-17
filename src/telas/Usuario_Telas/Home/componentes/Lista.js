@@ -5,21 +5,26 @@ import Titulo from "../../../../componentes/Titulo";
 import MyImageList from './Eventos';
 import Destaques from "./Destaques";
 import Ongs from "./Ongs";
+import Linha from "../../../../componentes/Linha";
+
 
 
 export default function Lista({subtitulo,frases}) {
    return (
    <View style = {{flex:1}}>
     <Titulo entrada={subtitulo.subtitle} />
-    <Texto>{frases.mensagem}</Texto>
 
+        <View style={{flex:1, marginTop:20, marginBottom:20}} >
+            <Texto>{frases.mensagem}</Texto>
+        </View>
+
+<Linha/>
             <View style={{flex:1, marginTop:20}}>
                 <Text style={estilos.titulosFlatLists}>Eventos:</Text>
                 <View style={{ flexDirection: "row" }}>
                     <MyImageList/>
                  </View>
             </View>
-
 
 
             <View style={estilos.viewDestaque}>
@@ -53,7 +58,8 @@ const estilos = StyleSheet.create({
     },
     viewBotaoDestaque: {
         alignItems:'center',
-        flexDirection: "row"
+        flexDirection: "row",
+        
         
     },
 

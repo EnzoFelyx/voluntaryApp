@@ -2,12 +2,11 @@ import React from "react";
 import { View, StyleSheet, Text, SafeAreaView } from "react-native";
 import Texto from "../../../../componentes/texto";
 import MyImageList from './Dados';
-import NovoEvento from "./novoEvento";
 import Linha from "../../../../componentes/Linha";
 
 
 export default function Lista({mensagem, botao}) {
-    return <SafeAreaView style={{ flex: 1 }}>
+    return <View style={{ flex: 1 }}>
         <View style={{ paddingHorizontal: 12 }}>{/*Margem apenas para adequar ao figma*/}
             <Texto>{mensagem}</Texto>
         </View>
@@ -20,16 +19,12 @@ export default function Lista({mensagem, botao}) {
         <Linha/>
 
         {/*View da Flatlist*/}
-        <View style={{ flex: 1, }}>
+        <View style={{ flex: 1 }}>
             <View>
                 <MyImageList />
             </View>
         </View>
 
-        <View style={{ marginTop: 40 }}>
-                <NovoEvento {...botao}/>
-        </View>
-
-    </SafeAreaView>
+    </View>
 }
 

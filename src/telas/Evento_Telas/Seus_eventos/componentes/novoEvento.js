@@ -12,7 +12,7 @@ export default function NovoEvento({botaum}){
 
 const estilos = StyleSheet.create({
     posicao: {
-        bottom: 20,
+        top:10,
         alignSelf: 'center',
         height:55,
         width: 188,

@@ -11,7 +11,7 @@ const Home_mocks = {
     },
 
     frases: {
-        mensagem:'Veja aqui as novidades de nossas comunidades solidárias',
+        mensagem:'    Veja aqui as novidades de nossas comunidades solidárias',
         novoEvento: 'Novo Evento'
     },
 }  

@@ -1,4 +1,4 @@
-import { StatusBar, SafeAreaView, View } from 'react-native';
+import { StatusBar, SafeAreaView, View,Dimensions,StyleSheet } from 'react-native';
 import React from 'react'
 import { useFonts, Quicksand_400Regular, Quicksand_700Bold } from '@expo-google-fonts/quicksand';
 
@@ -16,13 +16,11 @@ import Perfil from './src/telas/Perfil_Telas/Perfil/Perfil';
 import Email from './src/telas/Perfil_Telas/Mudar_Email/Email';
 import Meus_Posts from './src/telas/Perfil_Telas/Meus_Posts/Meus_Posts';
 import Comentar_evento from './src/telas/Evento_Telas/Comentar_evento/Comentar_evento';
+import Rotas from './src/Rotas';
 
 
 import Login_mock from './src/mocks/Login_Mocks/Login_mock';
-import Pesquisar_eventos_mocks from './src/mocks/Evento_Mocks/Pesquisar_eventos';
 import Registrar_mocks from './src/mocks/Login_Mocks/Registrar_mocks';
-import Seus_eventos_mocks from './src/mocks/Evento_Mocks/Seus_eventos';
-import Home_mocks from './src/mocks/Home_mocks';
 import Recuperar_mock from './src/mocks/Login_Mocks/Recuperar_mock';
 import Detalhes_mock from './src/mocks/Evento_Mocks/Detalhes_mock';
 import Validacao_Mock from './src/mocks/Login_Mocks/Validacao_mock';
@@ -30,7 +28,9 @@ import Mudar_Mock from './src/mocks/Login_Mocks/Mudar_mock';
 import Email_mocks from './src/mocks/Perfil_Mocks/Email_mocks';
 import Posts_mocks from './src/mocks/Perfil_Mocks/Posts_mocks';
 import Comentar_mocks from './src/mocks/Evento_Mocks/Comentar';
-import Perfil_mocks from './src/mocks/Perfil_Mocks/Perfil_mocks';
+
+const window = Dimensions.get('window');
+
 
 export default function App() {
   const [fontCarregada] = useFonts({
@@ -42,10 +42,11 @@ export default function App() {
     return <View />
   }
 
-  return (
-    <SafeAreaView >
-      
-      {/* <Login {...Login_mock} /> */}
+  return (<>
+    <SafeAreaView style = {estilo.container}>
+     <StatusBar style = {{backgroundColor:'#E4F4CD'}}/>
+      <Rotas/>
+      {/*<Login {...Login_mock} />*/}
       {/* <Registra {...Registrar_mocks}/> */}
       {/* <Recuperar {...Recuperar_mock} /> */}
       {/* <Validacao {...Validacao_Mock}/> */}
@@ -53,13 +54,27 @@ export default function App() {
       {/* <Detalhes_eventos {...Detalhes_mock} /> */}
       {/* <Email {...Email_mocks}/> */}
       {/* <Meus_Posts {...Posts_mocks}/> */}
-      {/* <Pesquisar_eventos {...Pesquisar_eventos_mocks} /> */}
-      {/* <Seus_eventos {...Seus_eventos_mocks}/> */}
-      {/* <Home {...Home_mocks} /> */}
       {/* <Criar_eventos/> */}
-      {/* <Perfil {...Perfil_mocks}/>  */}
       {/* <Comentar_evento {...Comentar_mocks}/> */}
+      </SafeAreaView>
+      <SafeAreaView style = {estilo.barradeBaixo}/>
 
-    </SafeAreaView>
+    </>
   );
 }
+
+const estilo = StyleSheet.create(
+{
+  container: {
+    flex: 1,
+    width: window.width,
+    height: window.height,
+    backgroundColor:'#E4F4CD'
+  },
+  barradeBaixo:
+  {
+    backgroundColor:'#649469',
+    flex:0,
+  }
+}
+);

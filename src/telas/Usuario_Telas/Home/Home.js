@@ -4,10 +4,11 @@ import PerfilFoto from '../../../../assets/exemplos/PerfilFoto.png';
 import Background from '../../../componentes/Background';
 import Cabecalho from '../../../componentes/Cabecalho';
 import Lista from './componentes/Lista';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Home({ topo, interacoes }) {
     return (
-        <ScrollView contentContainerStyle={{ height: "100%" }}>
+        <SafeAreaView style = {{flex:1}}>
             <Background back={"fundo"}>
                 <Cabecalho PerfilFoto={PerfilFoto} titulo={topo.titulo} />
                 <Background back={"quadrado2"}> 
@@ -16,6 +17,6 @@ export default function Home({ topo, interacoes }) {
                     </ScrollView>
                 </Background>
             </Background>
-        </ScrollView>
+        </SafeAreaView>
     )
 }
