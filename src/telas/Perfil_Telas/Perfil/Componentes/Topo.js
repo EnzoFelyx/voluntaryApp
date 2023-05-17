@@ -6,8 +6,8 @@ import Icone from "../../../../componentes/Icone";
 export default function Topo({ titulo }) {
     return <>
         <View style={estilos.titulo}>
-            <Titulo entrada={titulo} />
-            <Icone icone={"logout"} tipo={"perfil"} texto={""}/>
+            <Titulo entrada={titulo} tipo={'Titulo'} />
+            <Icone icone={"logout"} tipo={"perfil"} tamanho={32}/>
         </View>
     </>
 }
@@ -17,10 +17,5 @@ const estilos = StyleSheet.create({
         flexDirection: "row",
         marginLeft: 40,
         marginTop: 54,
-    },
-    vazar: {
-        marginLeft: "auto",
-        marginTop: 8,
-        marginRight: 40,
     },
 })

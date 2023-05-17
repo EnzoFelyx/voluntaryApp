@@ -54,12 +54,12 @@ export default function App() {
       {/* <Mudar_Senha {...Mudar_Mock}/> */}
       {/* <Email {...Email_mocks}/> */}
       {/* <Meus_Posts {...Posts_mocks}/> */}
+      {/* <Home {...Home_mocks} /> */}
+      <Perfil {...Perfil_mocks}/> 
 
       
       {/* <Pesquisar_eventos {...Pesquisar_eventos_mocks} /> */}
-      <Home {...Home_mocks} />
       {/* <Criar_eventos/> */}
-      {/* <Perfil {...Perfil_mocks}/>  */}
       {/* <Detalhes_eventos {...Detalhes_mock} /> */}
 
     </SafeAreaView>

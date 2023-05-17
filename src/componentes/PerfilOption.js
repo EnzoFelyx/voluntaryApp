@@ -6,7 +6,7 @@ export default function PerfilOption({ texto, }) {
 
     return <TouchableOpacity style={estilos.perfilOption}>
         <Text style={estilos.texto}>{texto}</Text>
-        <Icone icone={"chevron-right"} texto={""} tipo={"perfilOption"}/>
+        <Icone icone={"chevron-right"} tipo={"perfilOption"} tamanho={32} interativo={false}/>
     </TouchableOpacity>
 }
 

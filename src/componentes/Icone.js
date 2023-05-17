@@ -97,6 +97,7 @@ const estilos = StyleSheet.create({
     perfil:{
         marginLeft: "auto",
         marginRight: 24,
+        marginTop: 4,
     },
 
     adicionarCapa: {
