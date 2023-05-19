@@ -47,7 +47,7 @@ export default function App() {
 
       {/* <Comentar_evento {...Comentar_mocks}/> */}
       {/* <Seus_eventos {...Seus_eventos_mocks}/> */}
-      {/* <Login {...Login_mock} /> */}
+      <Login {...Login_mock} />
       {/* <Registra {...Registrar_mocks}/> */}
       {/* <Recuperar {...Recuperar_mock} /> */}
       {/* <Validacao {...Validacao_Mock}/> */}
@@ -55,7 +55,7 @@ export default function App() {
       {/* <Email {...Email_mocks}/> */}
       {/* <Meus_Posts {...Posts_mocks}/> */}
       {/* <Home {...Home_mocks} /> */}
-      <Perfil {...Perfil_mocks}/> 
+      {/* <Perfil {...Perfil_mocks}/>  */}
 
       
       {/* <Pesquisar_eventos {...Pesquisar_eventos_mocks} /> */}

@@ -60,7 +60,7 @@ const estilos = StyleSheet.create({
   },
 
   caixaInputGrande: {
-    height: 43,
+    height: 48,
     marginTop: 16,
     fontSize: 12,
     paddingVertical: 15,
