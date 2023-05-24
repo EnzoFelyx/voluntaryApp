@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList, View, Text, StyleSheet } from 'react-native';
+import { FlatList, View, Text, StyleSheet,TouchableOpacity } from 'react-native';
 import Imagem from "../../../../componentes/Imagem";
 import Texto from '../../../../componentes/texto';
 import Botao from '../../../../componentes/Botao';
@@ -9,7 +9,7 @@ import doacaoCasacos from "../../../../../assets/exemplos/doacaoCasacos.png";
 import Maria from "../../../../../assets/exemplos/Maria.png";
 import Organizadora from '../../../../componentes/Organizadora';
 import Linha from '../../../../componentes/Linha';
-
+import { useNavigation } from '@react-navigation/native';
 
 
 const data = [
@@ -30,16 +30,21 @@ const data = [
 
 
 ];
+function Eventos()
+{
 
-const MyImageList = () => {
+  const navigation = useNavigation();
+
 
   const renderItem = ({ item }) => (<View style={estilo.container}>
-    <Botao tipo={3} texto={
+    <TouchableOpacity  onPress={() => navigation.navigate ('Detalhes')}> 
       <View>
-        <Texto>{item.title}</Texto>
+        <Text>{item.title}</Text>
         <Imagem imagem={item.imageUrl} tipo={'imagemEvento'} />
-      </View>}
-      acao={() => { }} />
+      </View>
+
+      
+        </TouchableOpacity>
     <View style={{ marginTop: 12, marginBottom: 8, }}>
       <Organizadora image={item.perfilCriador} nome={item.criador} />
     </View>
@@ -56,6 +61,7 @@ const MyImageList = () => {
   );
 }
 
+
 const estilo = StyleSheet.create({
   container: {
 
@@ -63,5 +69,5 @@ const estilo = StyleSheet.create({
 
 })
 
-export default MyImageList;
+export default Eventos;
 

@@ -3,32 +3,34 @@ import React from "react";
 import { NavigationContainer,View } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"; //importa
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+
 //importando paginas da TabBar.
 //Eventos
-import Seus_eventos from "./telas/Evento_Telas/Seus_eventos/Seus_eventos";
+import SeusEventosRotas from "./Rotas_seus_eventos";
+import Seus_eventos from "../telas/Evento_Telas/Seus_eventos/Seus_eventos";
 //Home
-import Home from "./telas/Usuario_Telas/Home/Home";
+import Home from "../telas/Usuario_Telas/Home/Home";
 //Buscar 
-import Pesquisar_eventos from "./telas/Evento_Telas/Pesquisar_eventos/Pesquisar_eventos";
+import Pesquisar_eventos from "../telas/Evento_Telas/Pesquisar_eventos/Pesquisar_eventos";
 //Perfil
-import Perfil from "./telas/Perfil_Telas/Perfil/Perfil";
+import Perfil from "../telas/Perfil_Telas/Perfil/Perfil";
 
 //importar mocks
-import Seus_eventos_mocks from "./mocks/Evento_Mocks/Seus_eventos"
-import Home_mocks from "./mocks/Home_mocks";
-import Pesquisar_eventos_mocks from "./mocks/Evento_Mocks/Pesquisar_eventos"
-import Perfil_mocks from "./mocks/Perfil_Mocks/Perfil_mocks";
+import Seus_eventos_mocks from "../mocks/Evento_Mocks/Seus_eventos"
+import Home_mocks from "../mocks/Home_mocks";
+import Pesquisar_eventos_mocks from "../mocks/Evento_Mocks/Pesquisar_eventos"
+import Perfil_mocks from "../mocks/Perfil_Mocks/Perfil_mocks";
 
 
 const Tab = createBottomTabNavigator();
+
 
 export default function Rotas ()
 {
 
 return <NavigationContainer>
-    
     <Tab.Navigator
-    tabBarOptions={{
+    screenOptions={{
         activeTintColor: '#ffff', //selecionado
         activeBackgroundColor:'#649469',
         inactiveTintColor:'#D3d3d3', // n selecionado
@@ -36,11 +38,10 @@ return <NavigationContainer>
         style:
         {
         height:70,
-        borderBottomStartRadius:20
+        borderRadius:15,
         },
         labelStyle: //estilo dos botões
         {   
-            width:'100%',
             fontWeight:'bold',
             fontSize:16,
             lineHeight:21,
@@ -61,9 +62,9 @@ return <NavigationContainer>
             size={focused ? 35 : 30}
             style={{ flex:1,marginTop:5 }} />
             )
-            }}>
-            {(props) => <Seus_eventos {...Seus_eventos_mocks} />} 
-        </Tab.Screen> 
+            }} component={SeusEventosRotas}/>
+                
+          
 
         <Tab.Screen name = "Home"
         options={{
@@ -105,7 +106,6 @@ return <NavigationContainer>
         </Tab.Screen>
 
     </Tab.Navigator>
-
 </NavigationContainer>
 
 }

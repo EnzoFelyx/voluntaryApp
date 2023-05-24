@@ -16,7 +16,7 @@ import Perfil from './src/telas/Perfil_Telas/Perfil/Perfil';
 import Email from './src/telas/Perfil_Telas/Mudar_Email/Email';
 import Meus_Posts from './src/telas/Perfil_Telas/Meus_Posts/Meus_Posts';
 import Comentar_evento from './src/telas/Evento_Telas/Comentar_evento/Comentar_evento';
-import Rotas from './src/Rotas';
+import Rotas from './src/rotas/Rotas';
 
 
 import Login_mock from './src/mocks/Login_Mocks/Login_mock';

@@ -6,6 +6,7 @@ import Cabecalho from '../../../componentes/Cabecalho';
 import Lista from './componentes/Lista';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+
 export default function Home({ topo, interacoes }) {
     return (
         <SafeAreaView style = {{flex:1}}>
