@@ -1,7 +1,5 @@
 Colocar KeyboardAvoidingView em todas as caixas de entradas
 
-Fazer navegação de telas das telas de login/registrar/recuperar
-
 trocar icones por biblioteca
 
 cor primária e scudanria

@@ -6,7 +6,7 @@ const Perfil_mocks = {
 
     botoes: {
         criados: "Meus eventos criados",
-        posts: "Meus psots",
+        posts: "Meus posts",
         email: "E-mail",
         senha: "Mudar senha",
         config: "Configurações",

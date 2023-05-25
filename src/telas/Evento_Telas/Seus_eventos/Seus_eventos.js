@@ -14,15 +14,9 @@ export default function Seus_eventos({ topo, interacoes,botao }) {
             <Background back={"fundo"}>
                 <Cabecalho PerfilFoto={PerfilFoto} titulo={topo.titulo} />
                 <Background back={"quadrado2"}>
-
-                    <View style={{flex:1}}>
-                        <Lista {...interacoes}/>
-                    </View >
-
-                    <View style = {{wipaddingtTop:30}}>
-                        <NovoEvento {...interacoes.botao}/>
-                    </View> 
-
+                    <View style={{ flex: 1, }}>
+                        <Lista {...interacoes} />
+                    </View>
                 </Background>
             </Background>
         </SafeAreaView>

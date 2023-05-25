@@ -1,31 +1,17 @@
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import Texto from "../../../../componentes/texto";
+import { SafeAreaView, View } from "react-native";
 import Botao from "../../../../componentes/Botao";
 import Input from "../../../../componentes/Input";
+import Titulo from "../../../../componentes/Titulo";
+import Texto from "../../../../componentes/texto";
 
 export default function Corpo({ subtitle, legenda, input, botao }) {
-    return <>
-
-        <View style={{ marginLeft: 12}}>
-            <Text style={estilos.subtitle}>{subtitle}</Text>
+    return <SafeAreaView>
+        <View style={{ marginLeft: 12 }}>
+            <Titulo entrada={subtitle} tipo={"subtitle"} />
             <Texto>{legenda}</Texto>
         </View>
-
-        <TouchableOpacity>
-            <Input entrada={input} tipo={3} />
-        </TouchableOpacity>
-
-        <Botao texto={botao} tipo={6}/>
-    </>
+        <Input entrada={input} tipo={3} />
+        <Botao texto={botao} tipo={6} />
+    </SafeAreaView>
 }
-
-const estilos = StyleSheet.create({
-    subtitle: {
-        fontWeight: "bold",
-        fontSize: 20,
-        paddingRight: 8,
-        marginBottom: 24,
-    },
-
-})

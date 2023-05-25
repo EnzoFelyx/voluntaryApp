@@ -9,15 +9,15 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Home({ topo, interacoes }) {
     return (
-        <SafeAreaView style = {{flex:1}}>
+        <ScrollView>
             <Background back={"fundo"}>
-                <Cabecalho PerfilFoto={PerfilFoto} titulo={topo.titulo} />
+                <Cabecalho PerfilFoto={PerfilFoto}  titulo={topo.titulo}/>
                 <Background back={"quadrado2"}> 
                     <ScrollView style={{ flex: 1 }}>
                         <Lista {...interacoes} />
                     </ScrollView>
                 </Background>
             </Background>
-        </SafeAreaView>
+        </ScrollView>
     )
 }

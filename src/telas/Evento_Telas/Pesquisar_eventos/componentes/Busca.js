@@ -4,25 +4,24 @@ import lupa from '../../../../../assets/buscar/lupa.png';
 import filtro from '../../../../../assets/buscar/filter.png';
 import Imagem from '../../../../componentes/Imagem';
 import Caixa from '../../../../componentes/Caixa';
+import Icone from "../../../../componentes/Icone";
 
 export default function Busca({ search }) {
 
     return <View style={Caixa.caixa}>
         <TextInput style={estilos.caixaInput} placeholder={search} />
-        <View style={{
-            flexDirection: "row",
-        }}>
-            <Imagem imagem={lupa} tipo={'icone'} />
-            <Imagem imagem={filtro} tipo={'icone'} />
-        </View>
+
+            <Icone icone={"magnify"} tamanho={24} tipo={"pesquisa"}/>
+
 
     </View>
 }
 
 const estilos = StyleSheet.create({
-    caixaInput: {
+    caixa: {
         fontSize: 18,
-        width: "80%",
+        flexDirection: "row",
+        
     },
 
 })

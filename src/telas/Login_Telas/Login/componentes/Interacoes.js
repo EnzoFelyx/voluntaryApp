@@ -1,17 +1,17 @@
 import React from "react";
-import { StyleSheet, TouchableOpacity, View } from "react-native";
+import { SafeAreaView, StyleSheet, TouchableOpacity, View } from "react-native";
 
 import Botao from '../../../../componentes/Botao';
+import Linha from "../../../../componentes/Linha";
 import Texto from '../../../../componentes/texto';
-import Opcao from "../../../../componentes/Opcao";
 
 export default function Interacoes({ esqueceu, botaoEntrar, ou, convidado, pergunta, registrar }) {
-    return <>
+    return <SafeAreaView>
         <TouchableOpacity>
             <Texto style={estilos.esqueceu} >{esqueceu}</Texto>
         </TouchableOpacity>
         <Botao texto={botaoEntrar} tipo={1} />
-        <Opcao texto={ou} />
+        <Linha texto={ou} />
         <Botao texto={convidado} tipo={2} />
         <View style={estilos.registra}>
             <Texto style={estilos.pergunta} >{pergunta}</Texto>
@@ -19,7 +19,7 @@ export default function Interacoes({ esqueceu, botaoEntrar, ou, convidado, pergu
                 <Texto style={estilos.registrar} >{registrar}</Texto>
             </TouchableOpacity>
         </View>
-    </>
+    </SafeAreaView>
 }
 
 const estilos = StyleSheet.create({

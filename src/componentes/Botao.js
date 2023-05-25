@@ -40,6 +40,11 @@ export default function Botao({ texto, tipo }) {
                     botao: estilos.botaoanexarImagem
                 }
 
+            case 8:
+                return {
+                    botao: estilos.perfilOption
+                }
+
             default:
                 break;
         }
@@ -54,10 +59,10 @@ export default function Botao({ texto, tipo }) {
 
 const estilos = StyleSheet.create({
     botaoPrimario: {
-
         backgroundColor: "#5B9900",
         paddingVertical: 16,
         borderRadius: 15,
+        marginTop: 24,
     },
     botaoTextoPrimario: {
         textAlign: "center",
@@ -84,17 +89,20 @@ const estilos = StyleSheet.create({
     botaoEvento: {
         marginTop: 16,
         paddingVertical: 12,
-        backgroundColor: "rgba(255,255,255,0.75)",
+        backgroundColor: "#FFFFFF",
         borderRadius: 15,
-        paddingLeft: 16,
+        marginRight: 8,
         flexDirection: "row",
     },
 
     botaoDestaque: {
         width:140,
         height:192,
-        backgroundColor: "#FFFFFF",
         borderRadius: 15,
+        backgroundColor: "#FFFFFF",
+        marginEnd: 15, 
+        marginTop: 15,
+        justifyContent: 'center',
     },
     
     botaoTextoDestaque: {
@@ -136,8 +144,6 @@ const estilos = StyleSheet.create({
         fontSize: 18,
         color: "white"
     },
-  
-
 
 })
 

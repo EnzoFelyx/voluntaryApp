@@ -84,6 +84,17 @@ export default function Imagem({ imagem, tipo }) {
                 }
                 break;
 
+            case 'Elos':
+                return {
+                    picture: estilos.Elos
+                }
+                break;
+
+            case 'Loading':
+                return {
+                    picture: estilos.Loading
+                }
+                break;
             default:
                 break;
         }
@@ -101,6 +112,7 @@ const estilos = StyleSheet.create({
     loginImagem: {
         height: 230,
         width: 302,
+        alignSelf: 'center',
         backgroundColor: "#E4F4CD"
     },
 
@@ -109,7 +121,7 @@ const estilos = StyleSheet.create({
         width: 48,
         borderRadius: 25,
         marginLeft: "auto",
-        marginRight: 16,
+        marginRight: 24,
 
     },
 
@@ -125,6 +137,7 @@ const estilos = StyleSheet.create({
     recuperarImagem: {
         height: 250,
         width: 250,
+        alignSelf: 'center',
         backgroundColor: "#E4F4CD"
     },
 
@@ -149,14 +162,11 @@ const estilos = StyleSheet.create({
     },
     perfilDestaque:
     {
-        width: 30,
-        height: 30,
+        width: 50,
+        height: 50,
         borderRadius: 25,
-        alignItems: 'center',
-        justifyContent: 'center',
         alignSelf: 'center',
-        alignContent: 'center'
-
+        marginBottom: 8,
     },
 
     fotoEvento: {
@@ -189,4 +199,15 @@ const estilos = StyleSheet.create({
         marginTop: 5,
         alignSelf: 'center',
     },
+
+    Elos: {
+        height: 100,
+        width: 110,
+        alignSelf: 'center',
+    },
+
+    Loading: {
+        marginTop: 8,
+
+    }
 })

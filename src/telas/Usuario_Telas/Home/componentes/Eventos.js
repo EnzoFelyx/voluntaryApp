@@ -32,14 +32,13 @@ const data = [
 const MyImageList = () => {
 
   const renderItem = ({ item }) => (
-    <View style={{ flex: 1, marginEnd: 10 }}>
+    <View style={{ flex: 1}}>
       <Botao tipo={3} texto={
         <View>
           <Imagem imagem={item.imageUrl} tipo={'imagemEvento'} />
-          <Texto>{item.title}</Texto>
+          <Text style={{marginLeft: 12, fontSize: 16,}}>{item.title}</Text>
         </View>
       }
-
         acao={() => { }}
       />
       <View style={{ marginTop: 12, marginRight: 16, }}>
