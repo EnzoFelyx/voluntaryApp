@@ -17,12 +17,12 @@ const data = [
     perfilDesaque: Maria
   },
   {
-    id: '1',
+    id: '3',
     nomeDestaque: 'Cleyton Silva',
     perfilDesaque: Jose
   },
   {
-    id: '2',
+    id: '4',
     nomeDestaque: 'Maria Eduarda',
     perfilDesaque: Maria
   },

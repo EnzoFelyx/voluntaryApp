@@ -9,13 +9,13 @@ export default function Interativos({ requisto, foto, mapa, avisos }) {
 
         <View style={estilos.icones}>
 
-            <Icone tipo={"detalhes"} icone={"checkbox-marked-circle-outline"} texto={requisto} />
+            <Icone tipo={"detalhes"} icone={"checkbox-marked-circle-outline"} texto={requisto} tamanho={32}/>
 
-            <Icone tipo={"detalhes"} icone={"map-outline"} texto={mapa} />
+            <Icone tipo={"detalhes"} icone={"map-outline"} texto={mapa} tamanho={32}/>
 
-            <Icone tipo={"detalhes"} icone={"image-multiple-outline"} texto={foto} />
+            <Icone tipo={"detalhes"} icone={"image-multiple-outline"} texto={foto} tamanho={32}/>
 
-            <Icone tipo={"detalhes"} icone={"information-outline"} texto={avisos} />
+            <Icone tipo={"detalhes"} icone={"information-outline"} texto={avisos} tamanho={32}/>
 
         </View>
 

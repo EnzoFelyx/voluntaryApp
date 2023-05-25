@@ -1,17 +1,13 @@
 import React from 'react';
 import { FlatList, View, Text, StyleSheet,TouchableOpacity } from 'react-native';
-import Imagem from "../../../../componentes/Imagem";
-import Texto from '../../../../componentes/texto';
-import Botao from '../../../../componentes/Botao';
 import Blooddonation from "../../../../../assets/exemplos/Blooddonation.png"
 import Jose from "../../../../../assets/exemplos/Jose.png";
 import Maria from "../../../../../assets/exemplos/Maria.png";
 import doacaoCasacos from "../../../../../assets/exemplos/doacaoCasacos.png";
-import Botao from '../../../../componentes/Botao';
 import Imagem from "../../../../componentes/Imagem";
 import Linha from '../../../../componentes/Linha';
 import Organizadora from '../../../../componentes/Organizadora';
-import Texto from '../../../../componentes/texto';
+import { useNavigation } from '@react-navigation/native';
 
 const data = [
   {

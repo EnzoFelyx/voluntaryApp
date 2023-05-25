@@ -12,7 +12,7 @@ export default function Topo({ evento, title, local, data, organizadora }) {
         
         <View style={estilos.titulo}>
 
-            <Titulo entrada={title} />
+            <Titulo entrada={title} tipo={"Titulo"}/>
 
         </View>
 

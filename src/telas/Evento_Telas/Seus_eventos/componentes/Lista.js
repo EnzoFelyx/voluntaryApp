@@ -2,7 +2,7 @@ import React from "react";
 import { SafeAreaView, Text, View } from "react-native";
 import Linha from "../../../../componentes/Linha";
 import Texto from "../../../../componentes/texto";
-import MyImageList from './Dados';
+import Eventos from './Dados';
 import NovoEvento from "./novoEvento";
 
 

@@ -10,7 +10,7 @@ import Botao from "../../../../componentes/Botao";
 export default function Corpo({ descricao, texto, participantes, botao }) {
     return <>
 
-        <Titulo entrada={descricao} />
+        <Titulo entrada={descricao} tipo={"Titulo"}/>
 
         <View style={{ marginTop: 12, }}>
             <Texto>{texto}</Texto>
