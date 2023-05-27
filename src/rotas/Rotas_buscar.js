@@ -13,7 +13,10 @@ const Stack = createNativeStackNavigator();
 
 export default function BuscarRotas()
 {   
-    return(<Stack.Navigator>
+    return(<Stack.Navigator 
+        screenOptions={{
+        headerShown:false}}
+        >
         <Stack.Screen name='StackBuscar'>
         {() => <Pesquisar_eventos {...Pesquisar_eventos_mocks} />}
         </Stack.Screen>

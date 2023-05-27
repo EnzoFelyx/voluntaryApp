@@ -2,9 +2,9 @@ import React from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import Icone from './Icone';
 
-export default function PerfilOption({ texto, }) {
+export default function PerfilOption({ texto, acao }) {
 
-    return <TouchableOpacity style={estilos.perfilOption}>
+    return <TouchableOpacity style={estilos.perfilOption} onPress={acao}>
         <Text style={estilos.texto}>{texto}</Text>
         <Icone icone={"chevron-right"} tipo={"perfilOption"} tamanho={32} interativo={false}/>
     </TouchableOpacity>

@@ -3,15 +3,19 @@ import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-na
 import Imagem from './Imagem';
 import Titulo from './Titulo';
 import Icone from './Icone';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Cabecalho({ titulo = null, Foto = null, icone = false, fotoEstilo = null }) {
+
+    const navigation = useNavigation();
+
 
     if (Foto != null && icone == false) {
         return <SafeAreaView style={estilos.topo}>
             <Titulo entrada={titulo} tipo={"Titulo"} />
-            <TouchableOpacity style={{ flex: 1 }}>
+            <View style={{ flex: 1 }}>
                 <Imagem imagem={Foto} tipo={'perfilFoto'} />
-            </TouchableOpacity>
+            </View>
         </SafeAreaView>
     }
 
@@ -20,7 +24,12 @@ export default function Cabecalho({ titulo = null, Foto = null, icone = false, f
             <View style={{ marginTop: 40 }}>
                 <Imagem imagem={Foto} tipo={fotoEstilo} />
                 <View style={estilos.voltarImagem}>
-                    <Icone icone={"chevron-left"} interativo={true} tamanho={40} />
+                    <Icone 
+                    icone={"chevron-left"} 
+                    interativo={true} 
+                    tamanho={40}
+                    acao={() => {navigation.goBack()}}
+                    />
                 </View>
             </View>
         </SafeAreaView>
@@ -28,7 +37,14 @@ export default function Cabecalho({ titulo = null, Foto = null, icone = false, f
 
     else {
         return <SafeAreaView style={estilos.voltar}>
-            <Icone icone={"chevron-left"} interativo={true} tamanho={40} />
+            
+            <Icone 
+            icone={"chevron-left"} 
+            interativo={true} 
+            tamanho={40}
+            acao={() => {navigation.goBack()}}
+            />
+
             <Titulo entrada={titulo} tipo={"Titulo"} />
         </SafeAreaView>
     }

@@ -1,12 +1,22 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import React from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
+import { useNavigation } from '@react-navigation/native';
+
 
 
 export default function Voltar() {
-    return <TouchableOpacity style={estilos.voltar}>
+
+    const navigation =useNavigation();
+
+    return (
+    <TouchableOpacity 
+    style={estilos.voltar}
+    onPress= {() => {navigation.goBack()}} 
+    >
         <MaterialCommunityIcons name="chevron-left" size={40} color="black" />
     </TouchableOpacity>
+    )
 }
 
 
@@ -14,7 +24,7 @@ const estilos = StyleSheet.create({
     voltar: {
         position: "absolute",
         marginTop: 56,
-        marginLeft: 16,
+        marginRight:16,
     },
 
 })

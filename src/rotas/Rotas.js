@@ -12,6 +12,8 @@ import HomeRotas from "./Rotas_home";
 //Buscar 
 import BuscarRotas from "./Rotas_buscar"
 //Perfil
+import Perfilrotas from "./Rotas_perfil";
+
 import Perfil from "../telas/Perfil_Telas/Perfil/Perfil";
 
 
@@ -29,10 +31,12 @@ export default function Rotas ()
 return <NavigationContainer>
     <Tab.Navigator
     screenOptions={{
-        activeTintColor: '#ffff', //selecionado
-        activeBackgroundColor:'#649469',
-        inactiveTintColor:'#D3d3d3', // n selecionado
-        inactiveBackgroundColor:'#649469',
+        headerShown:false,
+        tabBarActiveTintColor: '#ffff',
+        tabBarActiveBackgroundColor :'#649469', //selecionado
+        tabBarInactiveBackgroundColor:'#649469',
+        tabBarInactiveTintColor:'#D3d3d3', // n selecionado
+        TabBa:'#649469',
         style:
         {
         height:70,
@@ -97,9 +101,9 @@ return <NavigationContainer>
             size={focused ? 35 : 30}
             style={{ flex:1,marginTop:5 }} />
             )
-            }}>
-            {(props) => <Perfil {...Perfil_mocks}/>}
-        </Tab.Screen>
+            }} component={Perfilrotas}/>
+           
+    
 
     </Tab.Navigator>
 </NavigationContainer>

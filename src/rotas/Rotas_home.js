@@ -19,7 +19,10 @@ const Stack = createNativeStackNavigator();
 
 export default function HomeRotas()
 {   
-    return(<Stack.Navigator>
+    return(<Stack.Navigator
+            screenOptions={{
+            headerShown:false}}
+            >
         <Stack.Screen name='StackHome'>
         {() => <Home {...Home_mocks} />}
         </Stack.Screen>

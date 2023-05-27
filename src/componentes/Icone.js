@@ -3,7 +3,7 @@ import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import Texto from '../componentes/texto';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-export default function Icone({ icone, tamanho, tipo= null, texto = null, interativo = true,acao }) {
+export default function Icone({ icone, tamanho, tipo= null, texto = null, interativo = true, acao}) {
 
     const tipoIconeEstilo = (tipo) => {
         switch (tipo) {
@@ -73,8 +73,8 @@ export default function Icone({ icone, tamanho, tipo= null, texto = null, intera
 
     if (interativo == true) {
 
-        return <TouchableOpacity style={estiloIcone.estilus}>
-            <MaterialCommunityIcons name={icone} size={tamanho} color="black"  style={{ marginRight: 8,  } }  />
+        return <TouchableOpacity onPress = {acao} style={estiloIcone.estilus} >
+            <MaterialCommunityIcons name={icone} size={tamanho} color="black"  style={{ marginRight: 8}}  />
             <Texto>{texto}</Texto>
         </TouchableOpacity>
     } 

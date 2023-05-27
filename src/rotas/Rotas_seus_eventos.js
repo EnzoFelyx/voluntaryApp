@@ -19,7 +19,10 @@ const Stack = createNativeStackNavigator();
 
 export default function SeusEventosRotas()
 {   
-    return(<Stack.Navigator>
+    return(<Stack.Navigator
+            screenOptions={{
+            headerShown:false}}
+            >
         <Stack.Screen name='SeusEventos'>
         {() => <Seus_eventos {...Seus_eventos_mocks} />} 
         </Stack.Screen>
