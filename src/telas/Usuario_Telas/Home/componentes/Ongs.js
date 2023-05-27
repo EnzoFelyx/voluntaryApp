@@ -7,6 +7,7 @@ import perfilMaosUnidas from "../../../../../assets/exemplos/perfilMaosUnidas.pn
 import Botao from '../../../../componentes/Botao';
 import Imagem from "../../../../componentes/Imagem";
 import Organizadora from '../../../../componentes/Organizadora';
+import { useNavigation } from '@react-navigation/native';
 
 
 const data = [
@@ -25,7 +26,9 @@ const data = [
 
 ];
 
-const Ongs = () => {
+export default function Ongs() {
+
+  const navigation = useNavigation();
 
   const renderItem = ({ item }) => (
     <View style={{ flex: 1, marginBottom: 20 }}>
@@ -33,10 +36,10 @@ const Ongs = () => {
         <View>
           <Imagem imagem={item.imageUrl} tipo={'imagemEvento'} />
         </View>}
-        acao={() => { }}
+        acao={() => { navigation.navigate('PerfilOng')}}
       />
       <View style={{ marginTop: 12, marginRight: 16, }}>
-        <Organizadora image={item.perfilOng} nome={item.criador} />
+        <Organizadora image={item.perfilOng} nome={item.criador} acao={() => { navigation.navigate('PerfilOng')}} />
       </View>
     </View>
   );
@@ -51,5 +54,5 @@ const Ongs = () => {
   );
 }
 
-export default Ongs;
+
 

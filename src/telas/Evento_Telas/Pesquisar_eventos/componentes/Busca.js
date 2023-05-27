@@ -1,17 +1,14 @@
 import React from "react";
 import { StyleSheet, TextInput, View } from "react-native";
-import lupa from '../../../../../assets/buscar/lupa.png';
-import filtro from '../../../../../assets/buscar/filter.png';
-import Imagem from '../../../../componentes/Imagem';
 import Caixa from '../../../../componentes/Caixa';
 import Icone from "../../../../componentes/Icone";
 
 export default function Busca({ search }) {
 
     return <View style={Caixa.caixa}>
+        
         <TextInput style={estilos.caixaInput} placeholder={search} />
-
-            <Icone icone={"magnify"} tamanho={24} tipo={"pesquisa"}/>
+        <Icone icone={"magnify"} tamanho={24} tipo={"pesquisa"}/>
 
 
     </View>

@@ -8,6 +8,7 @@ import Jose from "../../../../../assets/exemplos/Jose.png";
 import doacaoCasacos from "../../../../../assets/exemplos/doacaoCasacos.png";
 import Maria from "../../../../../assets/exemplos/Maria.png";
 import Organizadora from '../../../../componentes/Organizadora';
+import { useNavigation } from '@react-navigation/native';
 
 
 const data = [
@@ -29,7 +30,9 @@ const data = [
 
 ];
 
-const MyImageList = () => {
+function Eventos () {
+
+  const navigation = useNavigation();
 
   const renderItem = ({ item }) => (
     <View style={{ flex: 1}}>
@@ -39,10 +42,14 @@ const MyImageList = () => {
           <Text style={{marginLeft: 12, fontSize: 16,}}>{item.title}</Text>
         </View>
       }
-        acao={() => { }}
+        acao={() => navigation.navigate ('Detalhes')}
       />
       <View style={{ marginTop: 12, marginRight: 16, }}>
-        <Organizadora image={item.perfilCriador} nome={item.criador} />
+        <Organizadora 
+        image={item.perfilCriador} 
+        nome={item.criador} 
+        acao={()=> navigation.navigate('PerfilCriadorEvento')
+        }/>
       </View>
     </View>
   );
@@ -57,5 +64,5 @@ const MyImageList = () => {
   );
 }
 
-export default MyImageList;
+export default Eventos;
 

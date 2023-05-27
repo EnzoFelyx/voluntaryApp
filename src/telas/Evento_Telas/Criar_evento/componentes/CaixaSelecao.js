@@ -22,8 +22,8 @@ const CaixaSelecao = ({ label1, label2 }) => {
   };
 
   return (
-    <View style ={{marginTop:20}}>
-      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+    <View>
+      <View style={{ flexDirection: 'row', alignItems: 'center',marginTop:16,marginBottom:10 }}>
         <TouchableOpacity onPress={handleAmbiente1Press}>
           {isAmbiente1 ? (
             <MaterialIcons name="check-box" size={24} color="green" />

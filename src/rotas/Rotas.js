@@ -7,18 +7,16 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 //importando paginas da TabBar.
 //Eventos
 import SeusEventosRotas from "./Rotas_seus_eventos";
-import Seus_eventos from "../telas/Evento_Telas/Seus_eventos/Seus_eventos";
 //Home
-import Home from "../telas/Usuario_Telas/Home/Home";
+import HomeRotas from "./Rotas_home";
 //Buscar 
-import Pesquisar_eventos from "../telas/Evento_Telas/Pesquisar_eventos/Pesquisar_eventos";
+import BuscarRotas from "./Rotas_buscar"
 //Perfil
 import Perfil from "../telas/Perfil_Telas/Perfil/Perfil";
 
-//importar mocks
-import Seus_eventos_mocks from "../mocks/Evento_Mocks/Seus_eventos"
-import Home_mocks from "../mocks/Home_mocks";
-import Pesquisar_eventos_mocks from "../mocks/Evento_Mocks/Pesquisar_eventos"
+
+
+
 import Perfil_mocks from "../mocks/Perfil_Mocks/Perfil_mocks";
 
 
@@ -75,9 +73,8 @@ return <NavigationContainer>
             size={focused ? 35 : 30}
             style={{ flex:1,marginTop:5 }} />
             )
-            }}>
-            {(props) => <Home {...Home_mocks} />} 
-        </Tab.Screen>
+            }} component = {HomeRotas}/>
+           
 
         <Tab.Screen name = "Buscar"
         options={{
@@ -88,9 +85,8 @@ return <NavigationContainer>
             size={focused ? 35 : 30}
             style={{ flex:1,marginTop:5 }} />
             )
-            }}>
-            {(props) => <Pesquisar_eventos {...Pesquisar_eventos_mocks}/>}
-        </Tab.Screen>
+            }}
+            component = {BuscarRotas}/>
 
         <Tab.Screen name = "Perfil"
         options={{

@@ -5,6 +5,7 @@ import Botao from '../../../../componentes/Botao';
 import Texto from "../../../../componentes/texto";
 import Imagem from "../../../../componentes/Imagem";
 import pessoas from "../../../../../assets/buscar/pessoas.png";
+import { useNavigation } from "@react-navigation/native";
 
 const dadosEventos = [
     
@@ -35,6 +36,9 @@ const dadosEventos = [
   ];
   
   export default function Eventos({ subtitulo }) {
+
+    const navigation = useNavigation();
+
     return (
         
       <View>
@@ -47,11 +51,11 @@ const dadosEventos = [
               <Botao
                 tipo={3}
                 texto={
-                  <View style={{ flexDirection: "row" }}>
+                  <View style={{ flexDirection: "row",paddingLeft:10 }}>
                     <Texto style={estilos.nome}>{item.nome}</Texto>
                   </View>
                 }
-                acao={() => {}}
+                acao={() => {navigation.navigate('Detalhes')}}
               />
               <View style={{ flexDirection: "row" }}>
                 <Texto style={estilos.local}>{item.localEvento}</Texto>
@@ -59,7 +63,7 @@ const dadosEventos = [
                   style={{
                     flexDirection: "row",
                     marginLeft: "auto",
-                    marginRight: 8,
+                    marginRight: 20,
                   }}
                 >
                   <Imagem imagem={pessoas} tipo={"icone"} />

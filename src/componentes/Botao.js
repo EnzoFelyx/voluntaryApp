@@ -1,8 +1,9 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity} from 'react-native';
 import Texto from '../componentes/texto';
+import { useNavigation } from '@react-navigation/native';
 
-export default function Botao({ texto, tipo }) {
+export default function Botao({ texto, tipo,acao }) {
     const tipoBotaoEstilo = (tipo) => {
         switch (tipo) {
             case 1:
@@ -50,11 +51,15 @@ export default function Botao({ texto, tipo }) {
         }
     }
 
-    const estiloBotao = tipoBotaoEstilo(tipo, acao=false);
+    const estiloBotao = tipoBotaoEstilo(tipo);
 
-    return <TouchableOpacity style={estiloBotao.botao} onPress={(acao) => { }}>
+
+   
+        return (
+    <TouchableOpacity style={estiloBotao.botao} onPress={acao} >
         <Texto style={estiloBotao.texto} >{texto}</Texto>
     </TouchableOpacity>
+        );
 }
 
 const estilos = StyleSheet.create({
@@ -120,8 +125,8 @@ const estilos = StyleSheet.create({
         marginTop: 16,
         justifyContent: 'center', 
         alignItems: 'center',
-        backgroundColor: "rgba(255,255,255,0.75)",
         borderRadius: 15,
+        marginBottom:16
     
     },
 

@@ -53,7 +53,6 @@ export default function App() {
       {/* <Mudar_Senha {...Mudar_Mock}/> */}
       {/* <Email {...Email_mocks}/> */}
       {/* <Meus_Posts {...Posts_mocks}/> */}
-      {/* <Criar_eventos/> */}
       {/* <Comentar_evento {...Comentar_mocks}/> */}
       </SafeAreaView>
       <SafeAreaView style = {estilo.barradeBaixo}/>

@@ -50,18 +50,18 @@ const estilos = StyleSheet.create({
 
   caixaComentar: {
 
-    marginTop: 24,
-    paddingTop: 8,
+    marginTop: 25,
     paddingBottom: 56,
     paddingHorizontal: 16,
     backgroundColor: "#E4F4CD",
     borderRadius: 15,
+    marginBottom:16
 
   },
 
   caixaInputGrande: {
     height: 48,
-    marginTop: 16,
+    marginTop: 25,
     fontSize: 12,
     paddingVertical: 15,
     backgroundColor: "#E4F4CD",

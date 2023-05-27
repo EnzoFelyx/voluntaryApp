@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import Titulo from "../../../../componentes/Titulo";
 import Texto from "../../../../componentes/texto";
 import Destaques from "./Destaques";
-import MyImageList from './Eventos';
+import Eventos from './Eventos';
 import Ongs from "./Ongs";
 import Linha from "../../../../componentes/Linha";
 
@@ -18,7 +18,7 @@ export default function Lista({ subtitulo, frases }) {
             <View style={{ flex: 1, marginTop: 20 }}>
                 <Text style={estilos.titulosFlatLists}>Eventos:</Text>
                 <View style={{ flexDirection: "row" }}>
-                    <MyImageList />
+                    <Eventos />
                 </View>
             </View>
 

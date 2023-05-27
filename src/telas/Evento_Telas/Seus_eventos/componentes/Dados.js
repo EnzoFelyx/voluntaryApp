@@ -8,6 +8,7 @@ import Imagem from "../../../../componentes/Imagem";
 import Linha from '../../../../componentes/Linha';
 import Organizadora from '../../../../componentes/Organizadora';
 import { useNavigation } from '@react-navigation/native';
+import Botao from '../../../../componentes/Botao';
 
 const data = [
   {
@@ -32,20 +33,20 @@ function Eventos()
   const navigation = useNavigation();
 
 
-  const renderItem = ({ item }) => (<View style={estilo.container}>
-    <TouchableOpacity  onPress={() => navigation.navigate ('Detalhes')}> 
-      <View>
-        <Text>{item.title}</Text>
-        <Imagem imagem={item.imageUrl} tipo={'imagemEvento'} />
+  const renderItem = ({ item }) => (
+    <View style={{ flex: 1}}>
+      <Botao tipo={3} texto={
+        <View>
+          <Imagem imagem={item.imageUrl} tipo={'imagemEvento'} />
+          <Text style={{marginLeft: 12, fontSize: 16,}}>{item.title}</Text>
+        </View>
+      }
+        acao={() => navigation.navigate ('Detalhes')}
+      />
+      <View style={{ marginTop: 12, marginRight: 16, }}>
+        <Organizadora image={item.perfilCriador} nome={item.criador} acao={() => navigation.navigate('PerfilCriadorEvento')}/>
       </View>
-
-      
-        </TouchableOpacity>
-    <View style={{ marginTop: 12, marginBottom: 8, }}>
-      <Organizadora image={item.perfilCriador} nome={item.criador} />
     </View>
-    <Linha />
-  </View>
   );
 
   return (

@@ -27,9 +27,14 @@ const data = [
     perfilDesaque: Maria
   },
 
+
 ];
 
-const Destaques = () => {
+
+
+function Destaques() {
+
+
   const renderItem = ({ item }) => (
 
     <Botao tipo={4} texto={

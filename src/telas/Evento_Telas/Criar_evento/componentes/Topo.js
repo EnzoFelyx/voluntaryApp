@@ -1,14 +1,10 @@
 import React from "react";
-import { StyleSheet, View, KeyboardAvoidingView, Platform, SafeAreaView } from "react-native";
-import Contador from './Contador';
+import { StyleSheet, View, KeyboardAvoidingView, Platform, SafeAreaView, TouchableOpacity } from "react-native";
 import Texto from "../../../../componentes/texto";
 import Input from "../../../../componentes/Input";
 import Botao from "../../../../componentes/Botao";
-import Imagem from "../../../../componentes/Imagem";
-import mais from "../../../../../assets/mais.png";
 import CaixaSelecao from "./CaixaSelecao";
 import { MaterialIcons } from '@expo/vector-icons';
-import NovoEvento from './CriarEvento'
 import Icone from "../../../../componentes/Icone";
 
 
@@ -40,9 +36,10 @@ export default function Topo({ titulos, interacoes }) {
 
         <View style={estilos.viewInput}>
           <Texto>{titulos.fotoCapa}</Texto>
-          <Botao tipo={5} texto={
+          <View style ={estilos.viewInput}/> 
+          <Botao tipo={7} texto={
             <View style={estilos.Capa}>
-              <Icone icone={"plus-circle-outline"} tipo={"adicionarCapa"} texto={""} />
+              <Icone icone={"plus-circle-outline"} tipo={"adicionarCapa"} tamanho={36} />
             </View>
           } />
         </View>
@@ -59,18 +56,14 @@ export default function Topo({ titulos, interacoes }) {
 
         <View style={estilos.viewFotos}>
           <Texto>{titulos.fotos}</Texto>
-          <View style={{ alignItems: 'flex-start', marginTop: 20 }}>
-            <Botao
-              tipo={2}
-              texto={
-                <View style={{ width: 60, height: 30, justifyContent: 'center', alignItems: 'center' }}>
-
-                  <MaterialIcons name="cloud-upload" size={35} color="black" />
-                </View>
-              }
-            />
-          </View>
+          
         </View>
+          
+        <TouchableOpacity style={{paddingTop:10,alignItems:"center",paddingBottom:20}} >
+          <MaterialIcons name="cloud-upload" size={36} color="green" />
+        </TouchableOpacity>
+            
+        
 
 
       </View>
@@ -89,13 +82,14 @@ const estilos = StyleSheet.create({
   viewInput: {
     marginTop: 10,
     marginEnd: 10,
-    flexDirection: 'column'
+    flexDirection: 'column',
   },
 
   viewInputPequena: {
     flexDirection: "row",
     justifyContent: 'space-between',
-    marginTop: 10
+    marginBottom:10
+    
 
   },
   viewFotos: {
@@ -105,6 +99,7 @@ const estilos = StyleSheet.create({
   },
 
   Capa: {
+    paddingTop:70,
     height: 180,
     width: 300,
     backgroundColor: "#E4F4CD",
