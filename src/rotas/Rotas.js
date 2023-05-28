@@ -1,6 +1,6 @@
 import React from "react";
 
-import { NavigationContainer,View } from "@react-navigation/native";
+import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"; //importa
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
@@ -14,13 +14,6 @@ import BuscarRotas from "./Rotas_buscar"
 //Perfil
 import Perfilrotas from "./Rotas_perfil";
 
-import Perfil from "../telas/Perfil_Telas/Perfil/Perfil";
-
-
-
-
-import Perfil_mocks from "../mocks/Perfil_Mocks/Perfil_mocks";
-
 
 const Tab = createBottomTabNavigator();
 
@@ -28,8 +21,7 @@ const Tab = createBottomTabNavigator();
 export default function Rotas ()
 {
 
-return <NavigationContainer>
-    <Tab.Navigator
+return<Tab.Navigator
     screenOptions={{
         headerShown:false,
         tabBarActiveTintColor: '#ffff',
@@ -106,6 +98,5 @@ return <NavigationContainer>
     
 
     </Tab.Navigator>
-</NavigationContainer>
 
 }

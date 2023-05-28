@@ -1,5 +1,4 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
 import Background from '../../../componentes/Background';
 import Cabecalho from '../../../componentes/Cabecalho';
 import Corpo from './Componentes/Corpo';
