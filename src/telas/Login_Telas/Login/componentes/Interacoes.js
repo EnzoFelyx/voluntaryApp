@@ -1,21 +1,34 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { SafeAreaView, StyleSheet, TouchableOpacity, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import Botao from '../../../../componentes/Botao';
+import Linha from "../../../../componentes/Linha";
 import Texto from '../../../../componentes/texto';
-import Opcao from "../../../../componentes/Opcao";
 
 export default function Interacoes({ esqueceu, botaoEntrar, ou, convidado, pergunta, registrar }) {
-    return <>
-        <Texto style={estilos.esqueceu} >{esqueceu}</Texto>
-        <Botao texto={botaoEntrar} tipo={1}/>
-        <Opcao texto={ou}/>
-        <Botao texto={convidado} tipo={2}/>
+    const navigation = useNavigation();
+
+    return( 
+    <SafeAreaView>
+        <TouchableOpacity
+        onPress={()=>{navigation.navigate('Mudar Senha')}}
+        >
+            <Texto style={estilos.esqueceu} >{esqueceu}</Texto>
+        </TouchableOpacity>
+        <Botao texto={botaoEntrar} tipo={1} acao={()=>{navigation.navigate('Logado')}} />
+        <Linha texto={ou} />
+        <Botao texto={convidado} tipo={2} />
         <View style={estilos.registra}>
             <Texto style={estilos.pergunta} >{pergunta}</Texto>
-            <Texto style={estilos.registrar} >{registrar}</Texto>
+            <TouchableOpacity
+            onPress={()=>{navigation.navigate('Registrar')}}
+            >
+                <Texto style={estilos.registrar} >{registrar}</Texto>
+            </TouchableOpacity>
         </View>
-    </>
+    </SafeAreaView>
+    )
 }
 
 const estilos = StyleSheet.create({

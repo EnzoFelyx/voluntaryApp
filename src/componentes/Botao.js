@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity} from 'react-native';
 import Texto from '../componentes/texto';
+import { useNavigation } from '@react-navigation/native';
 
-export default function Botao({ texto, tipo }) {
-
+export default function Botao({ texto, tipo,acao }) {
     const tipoBotaoEstilo = (tipo) => {
         switch (tipo) {
             case 1:
@@ -26,26 +26,48 @@ export default function Botao({ texto, tipo }) {
                 return {
                     botao: estilos.botaoDestaque, texto: estilos.botaoTextoDestaque
                 }
-            
+
+            case 5:
+                return {
+                    botao: estilos.botaoperfil, texto: estilos.textoperfil
+                }
+
+            case 6:
+                return {
+                    botao: estilos.postarCaixa, texto: estilos.postarLegenda
+                }
+            case 7:
+                return {
+                    botao: estilos.botaoanexarImagem
+                }
+
+            case 8:
+                return {
+                    botao: estilos.perfilOption
+                }
 
             default:
                 break;
         }
     }
 
-    const estiloBotao = tipoBotaoEstilo(tipo, acao=false);
+    const estiloBotao = tipoBotaoEstilo(tipo);
 
-    return <TouchableOpacity style={estiloBotao.botao} onPress={(acao) => { }}>
+
+   
+        return (
+    <TouchableOpacity style={estiloBotao.botao} onPress={acao} >
         <Texto style={estiloBotao.texto} >{texto}</Texto>
     </TouchableOpacity>
+        );
 }
 
 const estilos = StyleSheet.create({
     botaoPrimario: {
-
         backgroundColor: "#5B9900",
         paddingVertical: 16,
         borderRadius: 15,
+        marginTop: 24,
     },
     botaoTextoPrimario: {
         textAlign: "center",
@@ -72,18 +94,22 @@ const estilos = StyleSheet.create({
     botaoEvento: {
         marginTop: 16,
         paddingVertical: 12,
-        backgroundColor: "rgba(255,255,255,0.75)",
+        backgroundColor: "#FFFFFF",
         borderRadius: 15,
-        paddingLeft: 16,
+        marginRight: 8,
         flexDirection: "row",
     },
 
     botaoDestaque: {
         width:140,
         height:192,
-        backgroundColor: "#FFFFFF",
         borderRadius: 15,
+        backgroundColor: "#FFFFFF",
+        marginEnd: 15, 
+        marginTop: 15,
+        justifyContent: 'center',
     },
+    
     botaoTextoDestaque: {
         fontSize: 16,
         fontWeight: "bold",
@@ -92,9 +118,37 @@ const estilos = StyleSheet.create({
         alignSelf:'center',
         alignContent:'center'
     },
+    
+    botaoanexarImagem: {
+        width:350,
+        height:184,
+        marginTop: 16,
+        justifyContent: 'center', 
+        alignItems: 'center',
+        borderRadius: 15,
+        marginBottom:16
+    
+    },
 
-  
+    postarCaixa:{
 
+        width: 80,
+        height: 40,
+        marginTop: 16,
+        paddingVertical: 6,
+        backgroundColor: "#649469",
+        borderRadius: 30,
+        paddingLeft: 12,
+        flexDirection: "row",
+        marginLeft: "auto",
+    },
+
+    postarLegenda: {
+
+        fontWeight:  "bold",
+        fontSize: 18,
+        color: "white"
+    },
 
 })
 

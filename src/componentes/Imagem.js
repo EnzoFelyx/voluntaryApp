@@ -7,64 +7,98 @@ const width = Dimensions.get('screen').width;
 
 export default function Imagem({ imagem, tipo }) {
 
-   
+
     const tipoImagemTamanho = (tipo) => {
 
         switch (tipo) {
             case 'loginImagem':
                 return {
-                   picture : estilos.loginImagem 
+                    picture: estilos.loginImagem
                 }
                 break;
 
             case 'recuperarImagem':
                 return {
-                   picture : estilos.recuperarImagem 
+                    picture: estilos.recuperarImagem
                 }
                 break;
 
             case 'perfilFoto':
                 return {
-                    picture : estilos.perfilFoto 
+                    picture: estilos.perfilFoto
                 }
                 break;
-            
+
             case 'RegistrarFoto':
                 return {
-                    picture : estilos.RegistrarFoto 
+                    picture: estilos.RegistrarFoto
                 }
                 break;
 
             case 'icone':
                 return {
+<<<<<<< HEAD
                     picture : estilos.icone aaaaaaa
+=======
+                    picture: estilos.icone
+>>>>>>> branch-thiaguinho
                 }
                 break;
             case 'criadorEvento':
-                return{
-                    picture : estilos.criadorEvento
+                return {
+                    picture: estilos.criadorEvento
                 }
             case 'imagemEvento':
-                return{
-                    picture : estilos.imagemEvento
+                return {
+                    picture: estilos.imagemEvento
                 }
-                case 'perfilDestaque':
-                    return{
-                        picture : estilos.perfilDestaque
-                    }
+            case 'perfilDestaque':
+                return {
+                    picture: estilos.perfilDestaque
+                }
 
             case 'fotoEvento':
                 return {
-                    picture : estilos.fotoEvento 
+                    picture: estilos.fotoEvento
                 }
                 break;
 
             case 'fotoMenor':
                 return {
-                    picture : estilos.fotoMenor 
+                    picture: estilos.fotoMenor
                 }
                 break;
 
+            case 'Upload':
+                return {
+
+                    picture: estilos.Upload
+                }
+                break;
+
+            case 'Comentario':
+                return {
+                    picture: estilos.Comentario
+                }
+                break;
+
+            case 'Perfil':
+                return {
+                    picture: estilos.Perfil
+                }
+                break;
+
+            case 'Elos':
+                return {
+                    picture: estilos.Elos
+                }
+                break;
+
+            case 'Loading':
+                return {
+                    picture: estilos.Loading
+                }
+                break;
             default:
                 break;
         }
@@ -82,6 +116,7 @@ const estilos = StyleSheet.create({
     loginImagem: {
         height: 230,
         width: 302,
+        alignSelf: 'center',
         backgroundColor: "#E4F4CD"
     },
 
@@ -90,8 +125,8 @@ const estilos = StyleSheet.create({
         width: 48,
         borderRadius: 25,
         marginLeft: "auto",
-        marginRight: 16,
-        
+        marginRight: 24,
+
     },
 
     RegistrarFoto: {
@@ -106,6 +141,7 @@ const estilos = StyleSheet.create({
     recuperarImagem: {
         height: 250,
         width: 250,
+        alignSelf: 'center',
         backgroundColor: "#E4F4CD"
     },
 
@@ -115,38 +151,67 @@ const estilos = StyleSheet.create({
         height: 25,
         width: 25,
     },
-    criadorEvento:{
+
+    criadorEvento: {
         height: 25,
         width: 25,
         borderRadius: 25,
-
     },
+
     imagemEvento:
     {
         width: 328,
         height: 158,
-        resizeMode:'contain'
+        resizeMode: 'contain'
     },
     perfilDestaque:
     {
-        width: 51,
-        height: 51,
+        width: 50,
+        height: 50,
         borderRadius: 25,
-        alignItems:'center',
-        justifyContent:'center',
-        alignSelf:'center',
-        alignContent:'center'
-
+        alignSelf: 'center',
+        marginBottom: 8,
     },
 
     fotoEvento: {
-        height: 657/1.85,
+        height: 657 / 1.85,
         width: 429,
     },
 
-    fotoMenor: {
-        height: 28,
-        width: 28,
+    Comentario: {
+        height: 40,
+        width: 40,
         borderRadius: 25,
     },
+
+    Upload: {
+        width: 50,
+        height: 50,
+
+    },
+
+    fotoMenor: {
+        height: 32,
+        width: 32,
+        borderRadius: 25,
+    },
+
+    Perfil: {
+        height: 156,
+        width: 156,
+        borderRadius: 90,
+        marginTop: 5,
+        alignSelf: 'center',
+    },
+
+    Elos: {
+        height: 100,
+        width: 110,
+        alignSelf: 'center',
+    },
+
+    Loading: {
+        marginTop: 8,
+
+    }
 })

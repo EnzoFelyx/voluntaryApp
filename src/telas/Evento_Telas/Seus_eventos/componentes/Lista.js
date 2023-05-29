@@ -1,26 +1,52 @@
 import React from "react";
-import { View, StyleSheet,Text } from "react-native";
+import { SafeAreaView, Text, View,TouchableOpacity } from "react-native";
+import Linha from "../../../../componentes/Linha";
 import Texto from "../../../../componentes/texto";
-import MyImageList from './Dados';
+import Eventos from './Dados';
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
+export default function Lista({ mensagem, botao, contador }) {
 
-export default function Lista() {
-   return <>
-    <View style={{marginRight:110}}>{/*Margem apenas para adequar ao figma*/}
-        <Texto>Confira abaixo uma lista de eventos em que você está inscrito</Texto>
+    const navigation = useNavigation();
+
+    return <SafeAreaView style={{ flex: 1 }}>
+        <View style={{ paddingHorizontal: 12 }}>{/*Margem apenas para adequar ao figma*/}
+            <Texto>{mensagem}</Texto>
         </View>
-        
 
-        <View style={{marginTop:40}}>
-         <Texto> Nº de eventos inscritos: 2 </Texto> 
+
+        <View style={{ marginTop: 40, marginBottom: 24, }}>
+            <Text style={{ fontWeight: "bold", fontSize: 18 }}>{contador}</Text>
         </View>
+
+        <Linha />
 
         {/*View da Flatlist*/}
-         <View style={{flex:1}}>
-                <View style={{ flexDirection: "row" }}>
-                    <MyImageList/>
-                 </View>
+        <View style={{ flex: 1 }}>
+            <View>
+                <Eventos />
+            </View>
+
+            <TouchableOpacity 
+            style={
+            {position:'absolute',
+            marginRight: "auto",
+            marginRight: 24,
+            marginTop:350}
+            } 
+             
+            onPress={() => navigation.navigate ('CriarEvento')}> 
+
+            <MaterialCommunityIcons name={"plus-circle-outline"} size={36} color="black"  style={{ marginRight: 8,  } }/>
+        </TouchableOpacity>
+
         </View>
-    </> 
+
+        
+
+       
+
+    </SafeAreaView>
 }
 

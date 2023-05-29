@@ -1,7 +1,7 @@
 import React from "react";
+import { StyleSheet, View } from "react-native";
 import Titulo from '../../../../componentes/Titulo';
 import Texto from "../../../../componentes/texto";
-import { StyleSheet, Text, View } from "react-native";
 
 import Botao from "../../../../componentes/Botao";
 
@@ -9,17 +9,26 @@ import Botao from "../../../../componentes/Botao";
 
 export default function Corpo({ descricao, texto, participantes, botao }) {
     return <>
-        <Titulo entrada={descricao} />
-        <Texto>{texto}</Texto>
-        <View style={estilos.participantes}>
-            <Texto>{participantes}</Texto>
+
+        <Titulo entrada={descricao} tipo={"Titulo"}/>
+
+        <View style={{ marginTop: 12, }}>
+            <Texto>{texto}</Texto>
         </View>
+        
+        <View style={estilos.participantes}>
+
+            <Texto>{participantes}</Texto>
+
+        </View>
+
         <Botao texto={botao} tipo={2} />
     </>
 }
 
 
 const estilos = StyleSheet.create({
+
     participantes: {
         marginTop: 16,
         flexDirection: "row",

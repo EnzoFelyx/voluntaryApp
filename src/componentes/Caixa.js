@@ -4,11 +4,11 @@ export default StyleSheet.create({
     
 
     caixa: {
+        alignItems:'center',
         marginTop: 16,
         marginBottom: 16,
-        paddingVertical: 12,
         backgroundColor: "rgba(255,255,255,0.75)",
-        borderRadius: 15,
+        borderRadius: 20,
         paddingLeft: 24,
         flexDirection: "row",AAA
 })

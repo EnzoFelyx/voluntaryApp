@@ -1,31 +1,4 @@
-/* import React from 'react';
-import { Text, View } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
-
-const App = () => (
-  <View
-    style={{
-      flex: 1,
-      backgroundColor: '#1ea3b5',
-      alignItems: 'center',
-      justifyContent: 'center',
-    }}>
-    <Text style={{ color: '#fff' }}>Notice that the status bar has light text!</Text>
-    <StatusBar style="light" />
-  </View>
-);
-
-export default App; */
-
----------------------------------------------------------------------------------------------------------------------------------------------
-
-arrumar:
-
-safearea view ✅
-
 Colocar KeyboardAvoidingView em todas as caixas de entradas
-
-Fazer navegação de telas das telas de login/registrar/recuperar
 
 trocar icones por biblioteca
 
@@ -40,3 +13,40 @@ colocar shadow nas interações nos detalhes do evento.
 fazer array de fotos nas pessoas participando no detalhe dos eventos
 
 Refatorar
+
+Telas com scrowview que não ocupam a tela inteira ficam as vezes faltando completar embaixo com background
+
+Revisar o switch de Imagem
+
+arrumar padding horizontal do background
+--------------------------------------------------------------------------------------------------------------------
+
+Telas completas (front):
+
+Login ✅
+
+Cadastrao ✅
+
+Recuperar conta ✅
+
+Validação ✅
+
+Home
+
+Eventos
+
+Criar Evento
+
+Buscar
+
+Detalhes do evento
+
+Perfil
+
+Meus Posts
+
+Comentário
+
+Alterar Senha
+
+E-mail
