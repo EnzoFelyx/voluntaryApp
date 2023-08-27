@@ -110,8 +110,8 @@ export default function Imagem({ imagem, tipo }) {
 const estilos = StyleSheet.create({
 
     loginImagem: {
-        height: 230,
-        width: 302,
+        height:200,
+        width: 350,
         alignSelf: 'center',
         backgroundColor: "#E4F4CD"
     },
@@ -129,9 +129,11 @@ const estilos = StyleSheet.create({
         height: 102,
         width: 102,
         borderRadius: 90,
-        marginTop: 26,
+        marginVertical: 26,
         alignSelf: 'center',
-        marginBottom: 45,
+        borderWidth: 3,
+        borderColor: '#accb7f',
+
     },
 
     recuperarImagem: {

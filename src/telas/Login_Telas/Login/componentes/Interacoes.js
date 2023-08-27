@@ -12,9 +12,9 @@ export default function Interacoes({ esqueceu, botaoEntrar, ou, convidado, pergu
     return (
         <SafeAreaView>
 
-            <TouchableOpacity onPress={() => { navigation.navigate('Mudar Senha') }}>
+            {/* <TouchableOpacity onPress={() => { navigation.navigate('Mudar Senha') }}>
                 <Text style={estilos.esqueceu}>{esqueceu}</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
 
             <Botao texto={botaoEntrar} tipo={1} acao={() => { navigation.navigate('Logado') }} />
 

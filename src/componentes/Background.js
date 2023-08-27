@@ -53,7 +53,7 @@ const estilos = StyleSheet.create({
         marginLeft: 15,
         borderTopLeftRadius: 32,
         borderTopRightRadius: 32,
-        paddingVertical: 24,
+        paddingVertical: 40,
         paddingHorizontal: 30,
         backgroundColor: "#CAF38D",
     },
