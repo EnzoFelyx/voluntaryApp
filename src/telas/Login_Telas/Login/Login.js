@@ -18,3 +18,4 @@ export default function Login({ conta, interacoes }) {
         </Background>
     </ScrollView>
 }
+
