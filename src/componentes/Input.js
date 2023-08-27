@@ -61,13 +61,10 @@ const estilos = StyleSheet.create({
 
   caixaInputGrande: {
     height: 48,
-    marginTop: 25,
-    fontSize: 12,
-    paddingVertical: 15,
+    marginTop: 32,
     backgroundColor: "#E4F4CD",
     borderRadius: 15,
     paddingLeft: 16,
-    marginBottom: 16,
   },
 
   insertLegenda: {

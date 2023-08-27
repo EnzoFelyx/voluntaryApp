@@ -19,6 +19,8 @@ Telas com scrowview que não ocupam a tela inteira ficam as vezes faltando compl
 Revisar o switch de Imagem
 
 arrumar padding horizontal do background
+
+status bar
 --------------------------------------------------------------------------------------------------------------------
 
 Telas completas (front):

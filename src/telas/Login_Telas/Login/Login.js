@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, View } from 'react-native';
+import { SafeAreaView, ScrollView, StyleSheet } from 'react-native';
 import Conta from './componentes/Conta';
 import Interacoes from './componentes/Interacoes';
 
@@ -8,7 +8,7 @@ import Background from '../../../componentes/Background';
 import Imagem from '../../../componentes/Imagem';
 
 export default function Login({ conta, interacoes }) {
-    return <SafeAreaView style={{ height: "100%" }}>
+    return <ScrollView>
         <Background back={"fundo"}>
             <Imagem imagem={loginImagem} tipo={"loginImagem"} />
             <Background back={"quadrado1"}>
@@ -16,5 +16,5 @@ export default function Login({ conta, interacoes }) {
                 <Interacoes {...interacoes} />
             </Background>
         </Background>
-    </SafeAreaView>
+    </ScrollView>
 }

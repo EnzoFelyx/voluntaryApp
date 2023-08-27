@@ -63,12 +63,13 @@ export default function Botao({ texto, tipo,acao }) {
 }
 
 const estilos = StyleSheet.create({
+
     botaoPrimario: {
         backgroundColor: "#5B9900",
         paddingVertical: 16,
         borderRadius: 15,
-        marginTop: 24,
     },
+
     botaoTextoPrimario: {
         textAlign: "center",
         color: "#FFFFFF",

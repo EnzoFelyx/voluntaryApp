@@ -6,7 +6,7 @@ export default function Linha({ texto = null }) {
 
     if (texto != null) {
         return <SafeAreaView>
-            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <View style={{ flexDirection: 'row', alignItems: 'center', marginVertical: 16, }}>
                 <View style={estilos.risco} />
                 <View>
                     <Texto style={estilos.ou}>{texto}</Texto>
