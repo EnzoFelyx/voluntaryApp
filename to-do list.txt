@@ -22,6 +22,8 @@ colocar rota para botão "criar conta" em registrar (obs: voltar para a tela log
 
 separar "interagiveis" de "botões"
 
+@thiago implementar Flat list nos "Meus posts"
+
 --------------------------------------------------------------------------------------------------------------------
 
 Telas refatoradas (front):

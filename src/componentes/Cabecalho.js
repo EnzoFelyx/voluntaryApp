@@ -60,7 +60,7 @@ const estilos = StyleSheet.create({
 
     voltar: {
         flexDirection: "row",
-        marginTop: 56,
+        marginTop: 16,
         marginLeft: 16,
     },
 
