@@ -4,7 +4,7 @@ import Input from '../../../../componentes/Input';
 
 export default function Dados({ nome, social, email, CPF_CNPJ, senha, confirma}) {
     return <>
-    <View style={{marginBottom: 32,}}>
+    <View style={{marginBottom: 16,}}>
         <Input entrada={nome} />
         <Input entrada={social} />
         <Input entrada={email} />

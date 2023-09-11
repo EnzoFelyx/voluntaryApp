@@ -16,9 +16,6 @@ export default function Perfil({ topo, botoes }) {
           
     const rotaAtual = navigation.name;
 
-        
-
-
     return (
             
         <ScrollView>

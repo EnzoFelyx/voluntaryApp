@@ -19,7 +19,7 @@ export default function Topo({ titulo }) {
 const estilos = StyleSheet.create({
     titulo: {
         flexDirection: "row",
-        marginLeft: 40,
-        marginTop: 54,
+        marginLeft: 32,
+        marginTop: 16,
     },
 })

@@ -1,8 +1,8 @@
 Colocar KeyboardAvoidingView em todas as caixas de entradas
 
-trocar icones por biblioteca
+trocar icones de imagens por biblioteca icons
 
-cor primária e scudanria
+definir um .js para controlar as cores do projeto
 
 flat list na lista 
 
@@ -12,24 +12,29 @@ colocar shadow nas interações nos detalhes do evento.
 
 fazer array de fotos nas pessoas participando no detalhe dos eventos
 
-Refatorar
+Arrumar portabilidade dos background
 
-Telas com scrowview que não ocupam a tela inteira ficam as vezes faltando completar embaixo com background
+Revisar o switch de Imagem (nao lembro o que é isso)
 
-Revisar o switch de Imagem
+implementar status bar
 
-arrumar padding horizontal do background
+colocar rota para botão "criar conta" em registrar (obs: voltar para a tela login)
+
+separar "interagiveis" de "botões"
+
+@thiago implementar Flat list nos "Meus posts"
+
 --------------------------------------------------------------------------------------------------------------------
 
-Telas completas (front):
+Telas refatoradas (front):
 
 Login ✅
 
 Cadastrao ✅
 
-Recuperar conta ✅
+Recuperar conta 
 
-Validação ✅
+Validação 
 
 Home
 
@@ -41,12 +46,18 @@ Buscar
 
 Detalhes do evento
 
-Perfil
+Perfil ✅
 
-Meus Posts
+Meus Posts ✅
 
 Comentário
 
 Alterar Senha
 
 E-mail
+
+componentes
+
+mocks
+
+rotas

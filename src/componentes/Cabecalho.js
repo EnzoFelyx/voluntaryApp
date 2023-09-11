@@ -21,7 +21,7 @@ export default function Cabecalho({ titulo = null, Foto = null, icone = false, f
 
     else if (Foto != null && icone == true) {
         return <SafeAreaView>
-            <View style={{ marginTop: 40 }}>
+            <View style={{ marginTop: 16 }}>
                 <Imagem imagem={Foto} tipo={fotoEstilo} />
                 <View style={estilos.voltarImagem}>
                     <Icone 
@@ -60,13 +60,12 @@ const estilos = StyleSheet.create({
 
     voltar: {
         flexDirection: "row",
-        marginTop: 56,
+        marginTop: 16,
         marginLeft: 16,
     },
 
     voltarImagem: {
         position: "absolute",
-        marginTop: 12,
         marginLeft: 16,
     },
 })
