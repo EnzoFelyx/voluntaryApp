@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState,useEffect} from "react";
 import { StyleSheet, View, KeyboardAvoidingView, Platform, SafeAreaView, TouchableOpacity } from "react-native";
 import Texto from "../../../../componentes/texto";
 import Input from "../../../../componentes/Input";
@@ -6,9 +6,103 @@ import Botao from "../../../../componentes/Botao";
 import CaixaSelecao from "./CaixaSelecao";
 import { MaterialIcons } from '@expo/vector-icons';
 import Icone from "../../../../componentes/Icone";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {criarEvento} from '../../../../servicos/requisicoes/eventos'
+import { pegarDadosUsuario } from '../../../../servicos/requisicoes/usuario'
+import { Alert } from 'react-native';
+import * as ImagePicker from 'expo-image-picker';
+
+
+
 
 
 export default function Topo({ titulos, interacoes }) {
+  const [nomeEvento, setnomeEvento] = useState('');
+  const [dataEvento, setdataEvento] = useState('');
+  const [horaEvento, sethoraEvento] = useState('');
+  const [localEvento, setlocalEvento] = useState('');
+  const [descricao, setdescricao] = useState('');
+  const [imagemEvento, setImagemSelecionada] = useState(null);
+  const [permissaoGaleria,setPermissaoGaleria] = useState(null);
+
+
+  const [dadosDoUsuario, setDadosDoUsuario] = useState({});
+
+  
+  
+    useEffect(() => {
+      async function buscarDadosDoUsuario() {
+        const id = await AsyncStorage.getItem('id');
+  
+        if (!id) {
+          return null;
+        }
+        
+        const resultado = await pegarDadosUsuario(id);
+        if (resultado) {
+          setDadosDoUsuario(resultado);
+
+        }
+      }
+      buscarDadosDoUsuario();
+
+    }, []);
+
+    useEffect(() => {
+      (async () => {
+          const galleryStatus = await ImagePicker.requestMediaLibrarPermissionsAsync();
+          setPermissaoGaleria(galleryStatus.status ==='granted');
+
+        })();
+
+    }, []);
+
+    const pickImage = async () => {
+      let result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        allowsEditing:true,
+        aspect: [4,3],
+        quality:1
+      });
+
+      console.log(result);
+
+      if (!result.cancelled)
+      {
+        setImagemSelecionada(result.uri)
+      }
+    };
+
+    if (permissaoGaleria === false)
+    {
+      console.log('Sem acesso a Galeria.')
+    }
+
+
+  async function criar(){
+
+      const resultado = await criarEvento(
+
+          dadosDoUsuario.id,
+          dadosDoUsuario.nome,
+          nomeEvento,
+          dataEvento,
+          horaEvento,
+          localEvento,
+          descricao,
+          imagemEvento
+      );
+
+      if (resultado == 'Sucesso')
+          {
+              Alert.alert("Sucesso. Evento criado !")
+              navigation.goBack()
+      }
+      else{
+          Alert.alert("Erro ao criar Evento")
+      }
+  };
+
   return (
 
     <SafeAreaView style={{ flex: 1 }}>
@@ -16,7 +110,12 @@ export default function Topo({ titulos, interacoes }) {
       <View style={estilos.container}>
         <View style={estilos.viewInput}>
           <Texto>{titulos.evento}</Texto>
-          <Input entrada="Nome do evento" tipo={'1'} />
+          <Input
+           entrada="Nome do evento" 
+           tipo={'1'}
+           valor={nomeEvento}
+           onChangeText={setnomeEvento}
+            />
         </View>
 
         <View style={estilos.viewInput}>
@@ -28,9 +127,21 @@ export default function Topo({ titulos, interacoes }) {
           </View>
           <View style={estilos.viewInputPequena}>
             {/*data*/}
-            <Input style={{ marginHorizontal: 10 }} entrada="dd/mm/aa" tipo={2} />
+
+            <Input style={{ marginHorizontal: 10 }} 
+            entrada="dd/mm/aa" 
+            tipo={2} 
+            valor={dataEvento}
+            onChangeText={setdataEvento}
+            />
+
             {/*Hora*/}
-            <Input style={{ marginHorizontal: 10 }} entrada="Horário" tipo={2} />
+            <Input style={{ marginHorizontal: 10 }} 
+            entrada="Horário"
+            tipo={2} 
+            valor={horaEvento}
+            onChangeText={sethoraEvento}
+             />
           </View>
         </View>
 
@@ -41,12 +152,18 @@ export default function Topo({ titulos, interacoes }) {
             <View style={estilos.Capa}>
               <Icone icone={"plus-circle-outline"} tipo={"adicionarCapa"} tamanho={36} />
             </View>
-          } />
+            
+          } acao={pickImage}/>
         </View>
 
         <View style={estilos.viewInput}>
           <Texto>{titulos.descricao}</Texto>
-          <Input style={{ marginHorizontal: 10 }} entrada="Digite aqui ..." tipo={3} />
+          <Input style={{ marginHorizontal: 10 }} 
+          entrada="Digite aqui ..." 
+          tipo={3} 
+          valor={descricao}
+          onChangeText={setdescricao}
+          />
         </View>
 
         <View style={estilos.viewInput}>
@@ -62,7 +179,11 @@ export default function Topo({ titulos, interacoes }) {
         <TouchableOpacity style={{paddingTop:10,alignItems:"center",paddingBottom:20}} >
           <MaterialIcons name="cloud-upload" size={36} color="green" />
         </TouchableOpacity>
-            
+
+        <View style={estilos.posicao}>
+        <Botao tipo={2} texto={'Criar Evento'}
+        acao={criar} />
+        </View>            
         
 
 
@@ -104,6 +225,14 @@ const estilos = StyleSheet.create({
     width: 300,
     backgroundColor: "#E4F4CD",
     borderRadius: 15,
-  }
+  },
+
+  posicao: {
+    marginTop:20,
+    bottom: 20,
+    alignSelf: 'center',
+    height:55,
+    width: 188,
+  },
 
 })

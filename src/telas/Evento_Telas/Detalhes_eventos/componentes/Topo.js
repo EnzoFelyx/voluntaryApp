@@ -5,10 +5,10 @@ import React from "react";
 import Voltar from "../../../../componentes/Voltar";
 
 
-export default function Topo() {
+export default function Topo({imagem}) {
     return <>
         <View>
-            <Imagem imagem={Praia} tipo={"fotoEvento"} />
+            <Imagem imagem={{uri:imagem}} tipo={"fotoEvento"} />
             <Voltar/>
         </View>
     </>

@@ -3,13 +3,13 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import exemploFoto from "../../../../../assets/exemplos/PerfilFoto.png";
 import Imagem from "../../../../componentes/Imagem";
 
-export default function VisaoGeral({}) {
+export default function VisaoGeral({perfil,nome}) {
     return <>
         <TouchableOpacity style={estilos.contorno}>
-        <Imagem imagem={exemploFoto} tipo={"Perfil"} />
+        <Imagem imagem={{uri:perfil}} tipo={"Perfil"} />
         </TouchableOpacity>
         <View style={{alignItems: "center"}}>
-            <Text style={estilos.nome}>{"José Lins da Silva Junior"} </Text>
+            <Text style={estilos.nome}>{nome}</Text>
         </View>
     </>
 }

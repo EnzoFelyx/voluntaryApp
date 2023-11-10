@@ -7,7 +7,7 @@ const Registrar_mocks = {
         nome: "Nome",
         social: "Razão social",
         email: "Email",
-        CPF_CNPJ: "CPF / CNPJ",
+        cpf_cnpj: "CPF / CNPJ",
         senha: "Senha",
         confirma: "Confirmar senha",
     },

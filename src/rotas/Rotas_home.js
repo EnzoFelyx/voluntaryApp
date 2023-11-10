@@ -10,8 +10,9 @@ import Detalhes_eventos from "../telas/Evento_Telas/Detalhes_eventos/Detalhes_ev
 import Detalhes_mock from "../mocks/Evento_Mocks/Detalhes_mock";
 
 
-import Perfil from "../telas/Perfil_Telas/Perfil/Perfil"
+import Perfil_outro_usuario from "../telas/Perfil_Telas/Perfil/Perfil_outro_usuario"
 import Perfil_mocks from "../mocks/Perfil_Mocks/Perfil_mocks"
+
 
 
 
@@ -28,18 +29,10 @@ export default function HomeRotas()
         </Stack.Screen>
 
 
-        <Stack.Screen name='Detalhes'>
-        {() => <Detalhes_eventos {...Detalhes_mock} />}
-        </Stack.Screen>
+        <Stack.Screen name="Detalhes" component={Detalhes_eventos}/>
 
-        <Stack.Screen name='PerfilCriadorEvento'>
-        {() => <Perfil {...Perfil_mocks}/>}
-        </Stack.Screen> 
-
-        <Stack.Screen name='PerfilOng'>
-        {() => <Perfil {...Perfil_mocks}/>}
-        </Stack.Screen> 
-
+        <Stack.Screen name='PerfilCriadorEvento' component={Perfil_outro_usuario}/>
+        
         
         </Stack.Navigator>
     )

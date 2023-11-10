@@ -1,16 +1,59 @@
-import React from "react";
-import { View } from "react-native";
+import React, { useState } from "react";
+import { View,Alert,TouchableOpacity } from "react-native";
 import Input from '../../../../componentes/Input';
+import Botao from '../../../../componentes/Botao';
+import { criarConta } from "../../../../servicos/requisicoes/cadastrar";
+import { useNavigation } from "@react-navigation/native";
+import Default from '../../../../../assets/perfil/FotoDefault.png';
+import Imagem from '../../../../componentes/Imagem';
 
-export default function Dados({ nome, social, email, CPF_CNPJ, senha, confirma}) {
+export default function Dados({botao, nome, email, cpf_cnpj, senha, imagem}) {
+    const [dados, setDados] = useState ({}); 
+    const navigation = useNavigation()
+
+
+    function atualizarDados(id,valor)
+    {   
+        setDados({...dados,[id]:valor})
+        console.log(dados);
+
+    }
+
+    async function criar() {
+          const resultado = await criarConta(
+            dados[imagem],
+            dados[nome],
+            dados[email],
+            dados[cpf_cnpj],
+            dados[senha]
+          );
+      
+          if (resultado == 'Sucesso')
+            {
+                Alert.alert("Sucesso. Sua conta foi criada !")
+                navigation.goBack()
+        }
+        else{
+            Alert.alert("Erro ao criar repositório")
+        }
+        {/*falar com os meninons sobre isnerir imagem*/}
+    };
+
     return <>
+    <TouchableOpacity>
+            <Imagem imagem={Default} tipo={"RegistrarFoto"} /> 
+        </TouchableOpacity>
     <View style={{marginBottom: 16,}}>
-        <Input entrada={nome} />
-        <Input entrada={social} />
-        <Input entrada={email} />
-        <Input entrada={CPF_CNPJ} />
-        <Input entrada={senha} senha={true}/>
-        <Input entrada={confirma} senha={true}/>
+    <Input entrada={nome} valor={dados[nome]} onChangeText={(valor) => atualizarDados(nome, valor)} />
+    <Input entrada={email} valor={dados[email]} onChangeText={(valor) => atualizarDados(email, valor)} />
+    <Input entrada={cpf_cnpj} valor={dados[cpf_cnpj]} onChangeText={(valor) => atualizarDados(cpf_cnpj, valor)} />
+    <Input entrada={senha} valor={dados[senha]} senha={true} onChangeText={(valor) => atualizarDados(senha, valor)} />
+    {/*<Input entrada={confirma} valor={dados[confirma]} senha={true} onChangeText={(valor) => atualizarDados(confirma, valor)} />*/}
+    <Botao  texto={botao} tipo={1} acao={criar}/>
     </View>
     </>
 }
+
+
+
+

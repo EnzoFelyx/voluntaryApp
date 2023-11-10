@@ -1,6 +1,7 @@
-import React from "react";
-import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import React, { useState } from "react";
+import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import { useNavigation } from "@react-navigation/native";
+
 
 import Botao from '../../../../componentes/Botao';
 import Linha from "../../../../componentes/Linha";
@@ -9,14 +10,19 @@ import Texto from '../../../../componentes/texto';
 export default function Interacoes({ esqueceu, botaoEntrar, ou, convidado, pergunta, registrar }) {
     const navigation = useNavigation();
 
+
+    function handleResultadoLogin(resultado) {
+        setResultadoLogin(resultado);
+    }
+
     return (
         <SafeAreaView>
 
-            {/* <TouchableOpacity onPress={() => { navigation.navigate('Mudar Senha') }}>
+            <TouchableOpacity onPress={() => { navigation.navigate('Mudar Senha') }}>
                 <Text style={estilos.esqueceu}>{esqueceu}</Text>
-            </TouchableOpacity> */}
+            </TouchableOpacity> 
 
-            <Botao texto={botaoEntrar} tipo={1} acao={() => { navigation.navigate('Logado') }} />
+            {/*<Botao texto={botaoEntrar} tipo={1} acao={() => { navigation.navigate('Logado') }} />*/}
 
             <Linha texto={ou} />
 

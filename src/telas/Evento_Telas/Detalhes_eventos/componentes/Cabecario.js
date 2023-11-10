@@ -2,17 +2,16 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Titulo from '../../../../componentes/Titulo';
 
-import organizadoraFoto from "../../../../../assets/exemplos/organizadoraFoto.png";
 import Icone from "../../../../componentes/Icone";
 import Organizadora from "../../../../componentes/Organizadora";
 
-export default function Topo({ evento, title, local, data, organizadora }) {
+export default function Topo({ nome, local, data, organizadora,organizadoraFoto}) {
     return <>
-        <Text style={estilos.evento}>{evento}</Text>
+        <Text style={estilos.evento}>{"Evento"}</Text>
         
         <View style={estilos.titulo}>
 
-            <Titulo entrada={title} tipo={"Titulo"}/>
+            <Titulo entrada={nome} tipo={"Titulo"}/>
 
         </View>
 
@@ -20,7 +19,7 @@ export default function Topo({ evento, title, local, data, organizadora }) {
 
         <Icone tipo={"cabecario"} icone={"calendar-month-outline"} texto={data} interativo={false} />
 
-        <Organizadora image={organizadoraFoto} nome={organizadora} />
+        <Organizadora image={{uri:organizadoraFoto}} nome={organizadora} />
     </>
 }
 

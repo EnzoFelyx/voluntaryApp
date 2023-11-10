@@ -22,9 +22,7 @@ export default function BuscarRotas()
         </Stack.Screen>
 
 
-        <Stack.Screen name='Detalhes'>
-        {() => <Detalhes_eventos {...Detalhes_mock} />}
-        </Stack.Screen>
+        <Stack.Screen name="Detalhes" component={Detalhes_eventos}/>
         
         </Stack.Navigator>
     )

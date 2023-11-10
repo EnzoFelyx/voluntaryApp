@@ -16,12 +16,9 @@ export default function Criar_eventos({ titulos, interacoes }) {
                 style={{ flex: 1 }}>
                 <Background back={"fundo"}>
                     <Cabecalho PerfilFoto={PerfilFoto} titulo={"Criar Evento"} />
-                    <ScrollView style={{ flex: 1 }}>
+                    <ScrollView >
                         <Background back={"quadrado2"} >
                             <Topo {...Criar_mock} />
-                            <View style={{ marginTop: 80 }}>
-                                <CriarEvento />
-                            </View>
                         </Background>
                     </ScrollView>
                 </Background>

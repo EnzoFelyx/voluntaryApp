@@ -1,68 +1,37 @@
 import React from 'react';
 import { FlatList, View, Text } from 'react-native';
 import Imagem from "../../../../componentes/Imagem";
-import Texto from '../../../../componentes/texto';
 import Botao from '../../../../componentes/Botao';
-import Blooddonation from "../../../../../assets/exemplos/Blooddonation.png"
-import Jose from "../../../../../assets/exemplos/Jose.png";
-import doacaoCasacos from "../../../../../assets/exemplos/doacaoCasacos.png";
-import Maria from "../../../../../assets/exemplos/Maria.png";
 import Organizadora from '../../../../componentes/Organizadora';
 import { useNavigation } from '@react-navigation/native';
 
-
-const data = [
-  {
-    id: '1',
-    title: 'Doação de sangue',
-    imageUrl: Blooddonation,
-    criador: 'Cleyton Silva Nascimento',
-    perfilCriador: Jose
-  },
-  {
-    id: '2',
-    title: 'Doação de casacos',
-    imageUrl: doacaoCasacos,
-    criador: 'Maria Eduarda Ferreira',
-    perfilCriador: Maria
-  },
-
-
-];
-
-function Eventos () {
-
+function Eventos({ dadosEventos }) {
   const navigation = useNavigation();
 
   const renderItem = ({ item }) => (
-    <View style={{ flex: 1}}>
+    <View style={{ flex: 1 }}>
       <Botao tipo={3} texto={
         <View>
-          <Imagem imagem={item.imageUrl} tipo={'imagemEvento'} />
-          <Text style={{marginLeft: 12, fontSize: 16,}}>{item.title}</Text>
+          <Imagem imagem={{ uri: item.imagemEvento }} tipo={'imagemEvento'} />
+          <Text style={{ marginLeft: 12, fontSize: 16 }}>{item.nomeEvento}</Text>
         </View>
       }
-        acao={() => navigation.navigate ('Detalhes')}
+      acao={() => navigation.navigate('Detalhes', { item })} 
       />
-      <View style={{ marginTop: 12, marginRight: 16, }}>
-        <Organizadora 
-        image={item.perfilCriador} 
-        nome={item.criador} 
-        acao={()=> navigation.navigate('PerfilCriadorEvento')
-        }/>
+      <View style={{ marginTop: 12, marginRight: 16 }}>
+        <Organizadora image={{ uri: item.imagemCriadorEvento }} nome={item.criadorEvento} />
       </View>
     </View>
   );
 
   return (
     <FlatList
-      data={data}
+      data={dadosEventos}
       renderItem={renderItem}
-      keyExtractor={(item) => item.id}
+      keyExtractor={(item) => item.id.toString()} 
       horizontal={true}
     />
   );
 }
 
 export default Eventos;
-

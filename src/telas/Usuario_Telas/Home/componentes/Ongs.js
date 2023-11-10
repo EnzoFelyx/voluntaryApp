@@ -10,23 +10,7 @@ import Organizadora from '../../../../componentes/Organizadora';
 import { useNavigation } from '@react-navigation/native';
 
 
-const data = [
-  {
-    id: '1',
-    imageUrl: MaosUnidas,
-    criador: 'ONG Mãos Unidas',
-    perfilOng: perfilMaosUnidas
-  },
-  {
-    id: '2',
-    imageUrl: dedosEntrelacados,
-    criador: 'ONG Dedos entrelaçados',
-    perfilOng: perfilDedosEntrelacados
-  },
-
-];
-
-export default function Ongs() {
+export default function Ongs({dadosOng}) {
 
   const navigation = useNavigation();
 
@@ -34,22 +18,22 @@ export default function Ongs() {
     <View style={{ flex: 1, marginBottom: 20 }}>
       <Botao tipo={3} texto={
         <View>
-          <Imagem imagem={item.imageUrl} tipo={'imagemEvento'} />
+          <Imagem imagem={{uri:item.imagemOng}} tipo={'imagemEvento'} />
         </View>}
-        acao={() => { navigation.navigate('PerfilOng')}}
+        acao={() => navigation.navigate('PerfilCriadorEvento', { item })} 
       />
       <View style={{ marginTop: 12, marginRight: 16, }}>
-        <Organizadora image={item.perfilOng} nome={item.criador} acao={() => { navigation.navigate('PerfilOng')}} />
+        <Organizadora image={{uri:item.perfilOng}} nome={item.nomeOng} acao={() => navigation.navigate('PerfilCriadorEvento', { item })}  />
       </View>
     </View>
   );
 
   return (
     <FlatList
-      data={data}
-      renderItem={renderItem}
-      keyExtractor={(item) => item.id}
-      horizontal={true}
+    data={dadosOng}
+    renderItem={renderItem}
+    keyExtractor={(item) => item.id.toString()} 
+    horizontal={true}
     />
   );
 }

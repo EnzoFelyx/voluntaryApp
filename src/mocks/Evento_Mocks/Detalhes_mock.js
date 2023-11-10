@@ -6,12 +6,6 @@ const Detalhes_mock = {
         data: "Dez 17, 2022",
         organizadora: "Ana Beatriz",
     },
-    interacoes: {
-        requisto: "requisitos",
-        foto: "galeria",
-        mapa: "mapa",
-        avisos: "avisos"
-    },
 
     corpo: {
         descricao: "Descrição",

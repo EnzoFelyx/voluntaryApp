@@ -2,27 +2,26 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import Titulo from '../../../../componentes/Titulo';
 import Texto from "../../../../componentes/texto";
-
 import Botao from "../../../../componentes/Botao";
 
 
 
-export default function Corpo({ descricao, texto, participantes, botao }) {
+export default function Corpo({ descricao, participantes }) {
     return <>
 
-        <Titulo entrada={descricao} tipo={"Titulo"}/>
+        <Titulo entrada={'Descrição'} tipo={"Titulo"}/>
 
         <View style={{ marginTop: 12, }}>
-            <Texto>{texto}</Texto>
+            <Texto>{descricao}</Texto>
         </View>
         
         <View style={estilos.participantes}>
-
+            <Texto>{'Participantes:'}</Texto>
             <Texto>{participantes}</Texto>
 
         </View>
 
-        <Botao texto={botao} tipo={2} />
+        <Botao texto={'Inscrever-se'} tipo={2} />
     </>
 }
 

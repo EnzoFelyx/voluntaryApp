@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ScrollView,View,Text } from 'react-native';
 import Background from '../../../componentes/Background';
 import Interativos from './Componentes/Interativos';
@@ -7,13 +7,35 @@ import VisaoGeral from './Componentes/VisaoGeral';
 import Meu_elo from './Componentes/Meu_elo';
 import Voltar from '../../../componentes/Voltar';
 import { useRoute } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { pegarDadosUsuario } from '../../../servicos/requisicoes/usuario';
 
 
 
 export default function Perfil({ topo, botoes }) {
-
+    const [dadosDoUsuario, setDadosDoUsuario] = useState({});
     const navigation = useRoute();
-          
+  
+    useEffect(() => {
+      async function buscarDadosDoUsuario() {
+        const id = await AsyncStorage.getItem('id');
+  
+        if (!id) {
+          return null;
+        }
+        
+        const resultado = await pegarDadosUsuario(id);
+        if (resultado) {
+          setDadosDoUsuario(resultado);
+
+        }
+      }
+      buscarDadosDoUsuario();
+
+    }, []);
+
+
+        
     const rotaAtual = navigation.name;
 
     return (
@@ -34,8 +56,8 @@ export default function Perfil({ topo, botoes }) {
             )}
              
                 <Background back={"quadrado2"}>
-                    <VisaoGeral />
-                    <Meu_elo />
+                    <VisaoGeral {...dadosDoUsuario}  />
+                    <Meu_elo  />
                     <Interativos {...botoes} />
                 </Background>
             </Background>

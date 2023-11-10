@@ -2,7 +2,7 @@ import React from 'react';
 import { SafeAreaView, StyleSheet, TextInput, View } from 'react-native';
 import Texto from './texto';
 
-export default function Input({ legenda = null, entrada, senha = false, tipo}) {
+export default function Input({ legenda = null, entrada, senha = false, tipo, valor,onChangeText}) {
 
   const caixaInputStyle = (tipo) => {
 
@@ -25,13 +25,13 @@ export default function Input({ legenda = null, entrada, senha = false, tipo}) {
   const estiloCaixa = caixaInputStyle(tipo);
 
   if (legenda == null) {
-    return <TextInput secureTextEntry={senha} style={estiloCaixa} placeholder={entrada} />
+    return <TextInput secureTextEntry={senha} style={estiloCaixa} placeholder={entrada} value={valor} onChangeText={onChangeText} />
 
   }
   else {
     return <View style={estilos.insertLegenda}>
       <Texto>{legenda}</Texto>
-      <TextInput secureTextEntry={senha} style={estiloCaixa} placeholder={entrada} />
+      <TextInput secureTextEntry={senha} style={estiloCaixa} placeholder={entrada} value={valor} onChangeText={onChangeText} />
     </View>
   }
 }
