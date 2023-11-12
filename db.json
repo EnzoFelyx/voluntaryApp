@@ -104,6 +104,11 @@
       "postId": 1,
       "eventoId": 2,
       "id": 2
+    },
+    {
+      "postId": 1,
+      "eventoId": 5,
+      "id": 3
     }
   ]
 }

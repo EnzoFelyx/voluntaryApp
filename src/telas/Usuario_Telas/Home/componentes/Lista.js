@@ -60,8 +60,9 @@ export default function Lista({ subtitulo, frases }) {
 
     return (
         <View style={{ flex: 1 }}>
-            <Titulo entrada={subtitulo.subtitle} tipo={"subtitle"} />
+            <Titulo entrada={'Bem vindo ! '}  tipo={"subtitle"} />
             <Texto>{frases.mensagem}</Texto>
+            <Linha/>
 
             <View style={{ flex: 1, marginTop: 20 }}>
                 <Text style={estilos.titulosFlatLists}>Eventos:</Text>

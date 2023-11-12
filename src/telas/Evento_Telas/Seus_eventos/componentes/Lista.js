@@ -41,7 +41,7 @@ export default function Lista({ mensagem, dadosEventos }) {
 
 
         <View style={{ marginTop: 40, marginBottom: 24, }}>
-            {/*<Text style={{ fontWeight: "bold", fontSize: 18 }}>Nº de eventos inscritos: {dadosEventos.length}</Text>*/}
+            <Text style={{ fontWeight: "bold", fontSize: 18 }}>Nº de eventos inscritos: {dadosEventos.length}</Text>
     </View>
 
         <Linha />

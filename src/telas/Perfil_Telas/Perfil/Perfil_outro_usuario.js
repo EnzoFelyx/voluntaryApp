@@ -17,15 +17,15 @@ export default function Perfil_outro_usuario({ route }) {
  
     return (
             
-        <ScrollView>
+        <>
             <Background back={"fundo"}>
                 <Background back={"quadrado2"}>
                 <Voltar />
                     <VisaoGeral perfil={perfil} nome={nome}/>
-                    <Meu_elo  />
-                    <Interativos />
+                    {/*<Meu_elo  />
+                    <Interativos />*/}
                 </Background>
             </Background>
-        </ScrollView>
+        </>
     )
 }
