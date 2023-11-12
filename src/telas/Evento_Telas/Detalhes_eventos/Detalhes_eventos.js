@@ -17,7 +17,9 @@ export default function Detalhes_eventos({ route }) {
     const [data, setData] = useState(item.dataEvento);
     const [organizadoraFoto, setorganizadoraFoto] = useState(item.imagemCriadorEvento);
     const [descricao, setDescricao] = useState(item.descricao);
-    const [participantes,setParticipantes] =useState(item.contPessoas)
+    const [participantes,setParticipantes] =useState(item.contPessoas);
+    const [idEvento,setIdEvento] =useState(item.id)
+
 
 
 
@@ -28,7 +30,7 @@ export default function Detalhes_eventos({ route }) {
                 <Background back={"quadrado3"}>
                     <Cabecario nome={nome} local={local} data={data} organizadoraFoto={organizadoraFoto}/>
                     <Interativos/>
-                    <Corpo descricao={descricao} participantes={participantes}/>
+                    <Corpo descricao={descricao} participantes={participantes} idEvento={idEvento}/>
                 </Background>
             </Background>
         </ScrollView>

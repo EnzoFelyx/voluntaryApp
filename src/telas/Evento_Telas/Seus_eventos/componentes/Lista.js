@@ -10,7 +10,29 @@ import { useNavigation } from "@react-navigation/native";
 
 export default function Lista({ mensagem, dadosEventos }) {
 
+
     const navigation = useNavigation();
+
+    const renderItem = ({ item }) => (
+      <ScrollView>
+        <Botao
+          tipo={3}
+          texto={
+            <View style={{ flex: 1 }}>
+              <Imagem imagem={{ uri: item[0].imagemEvento }} tipo={'imagemEvento'} />
+              <Text style={{ marginLeft: 12, fontSize: 16 }}>{item[0].nomeEvento}</Text>
+            </View>
+          }
+          acao={() => navigation.navigate('Detalhes', { item: item[0] })}
+        />
+  
+        <View style={{ marginTop: 12, marginRight: 16 }}>
+          <Organizadora image={{ uri: item[0].imagemCriadorEvento }} nome={item[0].criadorEvento} acao={() => navigation.navigate('PerfilCriadorEvento', { item })} />
+        </View>
+      </ScrollView>
+    );
+    
+
 
     return (<>
         <View style={{ paddingHorizontal: 12 }}>{/*Margem apenas para adequar ao figma*/}
@@ -18,39 +40,20 @@ export default function Lista({ mensagem, dadosEventos }) {
         </View>
 
 
-        {/*<View style={{ marginTop: 40, marginBottom: 24, }}>
-            <Text style={{ fontWeight: "bold", fontSize: 18 }}>Nº de eventos inscritos: {dadosEventos.length}</Text>
-    </View>*/}
+        <View style={{ marginTop: 40, marginBottom: 24, }}>
+            {/*<Text style={{ fontWeight: "bold", fontSize: 18 }}>Nº de eventos inscritos: {dadosEventos.length}</Text>*/}
+    </View>
 
         <Linha />
-        
-       
-
-        
         <>
-            <FlatList
-                data={dadosEventos}
-                keyExtractor={(item) => item.id.toString()} 
-                renderItem={({ item }) => (
-                    <ScrollView>
-                        <Botao
-                            tipo={3}
-                            texto={
-                                <View style={{ flex: 1 }}>
-                                    <Imagem imagem={{ uri: item.imagemEvento }} tipo={'imagemEvento'} />
-                                    <Text style={{ marginLeft: 12, fontSize: 16 }}>{item.nomeEvento}</Text>
-                                </View>
-                            }
-                            acao={() => navigation.navigate('Detalhes', { item })} 
-                        />
 
-                        <View style={{ marginTop: 12, marginRight: 16 }}>
-                            <Organizadora image={{ uri: item.imagemCriadorEvento }} nome={item.criadorEvento} acao={() => navigation.navigate('PerfilCriadorEvento', { item })} />
-                        </View>
-                    </ScrollView>
-                )}
-            />
-        </>
+  <FlatList
+      data={dadosEventos}
+      keyExtractor={(item) => item[0].id.toString()}
+      renderItem={renderItem}
+    />
+</>
+
 
           <View>
              <TouchableOpacity
@@ -67,5 +70,7 @@ export default function Lista({ mensagem, dadosEventos }) {
     
 
     </>)
+
+
 }
 

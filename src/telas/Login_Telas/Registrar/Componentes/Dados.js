@@ -15,7 +15,6 @@ export default function Dados({botao, nome, email, cpf_cnpj, senha, imagem}) {
     function atualizarDados(id,valor)
     {   
         setDados({...dados,[id]:valor})
-        console.log(dados);
 
     }
 

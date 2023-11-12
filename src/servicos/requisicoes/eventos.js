@@ -2,7 +2,7 @@ import api from "../api";
 
 export async function pegarEventos(id) {
     try {
-        const resultado = await api.get(`/eventos?postId=${id}`); 
+        const resultado = await api.get(`/eventos?id=${id}`); 
         return resultado.data;
     } catch (error) {
         console.log(error);
@@ -12,8 +12,9 @@ export async function pegarEventos(id) {
 
 export async function pegarEventosInscritos(id) {
     try {
-        const resultado = await api.get(`/eventos//participantes?id=${id}`); 
-        return resultado.data.eventos;
+
+        const resultado = await api.get(`/amarraParticipanteEvento?postId=${id}`); 
+        return resultado.data;
     } catch (error) {
         console.log(error);
         return null;
@@ -105,4 +106,26 @@ export async function buscarEvento(nomeEvento){
         console.log(error)
         return {}
     }
+}
+
+
+export async function criarAmrEvento(postId,eventoId)
+{
+
+    try{
+
+        await api.post(`/amarraParticipanteEvento`,
+        {
+            postId:postId,
+            eventoId:eventoId,
+            
+        });
+        return 1
+    }
+
+    catch (error){
+        console.log(error)
+        return 'Erro'
+    }
+
 }

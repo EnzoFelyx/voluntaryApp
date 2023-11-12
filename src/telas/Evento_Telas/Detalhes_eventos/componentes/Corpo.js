@@ -1,12 +1,61 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { StyleSheet, View } from "react-native";
 import Titulo from '../../../../componentes/Titulo';
 import Texto from "../../../../componentes/texto";
 import Botao from "../../../../componentes/Botao";
+import { pegarDadosUsuario } from '../../../../servicos/requisicoes/usuario';
+import { criarAmrEvento } from '../../../../servicos/requisicoes/eventos';
+import { useNavigation } from "@react-navigation/native";
+
+
+export default function Corpo({ descricao, participantes,idEvento }) {
+
+    const [dadosDoUsuario, setDadosDoUsuario] = useState({});
+    const navigation = useNavigation()
+
+
+  
+  
+    useEffect(() => {
+      async function buscarDadosDoUsuario() {
+        const id = await AsyncStorage.getItem('id');
+  
+        if (!id) {
+          return null;
+        }
+        
+        const resultado = await pegarDadosUsuario(id);
+        if (resultado) {
+          setDadosDoUsuario(resultado);
+
+        }
+      }
+      buscarDadosDoUsuario();
+
+    }, []);
+
+    async function criarAmr(){
+
+        const resultado = await criarAmrEvento(
+  
+            dadosDoUsuario.id,
+            idEvento
+           
+        );
+  
+        if (resultado == 'Sucesso')
+            {
+                Alert.alert("Sucesso.Você se inscreveu !")
+                navigation.goBack()
+        }
+        else{
+            Alert.alert("Erro")
+        }
+    };
 
 
 
-export default function Corpo({ descricao, participantes }) {
     return <>
 
         <Titulo entrada={'Descrição'} tipo={"Titulo"}/>
@@ -21,7 +70,9 @@ export default function Corpo({ descricao, participantes }) {
 
         </View>
 
-        <Botao texto={'Inscrever-se'} tipo={2} />
+        <Botao texto={'Inscrever-se'} 
+        tipo={2} 
+        acao={criarAmr}/>
     </>
 }
 

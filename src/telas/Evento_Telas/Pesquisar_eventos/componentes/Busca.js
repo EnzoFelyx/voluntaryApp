@@ -19,7 +19,6 @@ export default function Busca({ search, subtitulo }) {
 
     async function busca() {
         const resultados = await buscarEvento(nomeDoEvento);
-        console.log(resultados);
         if (resultados && resultados.length > 0) {
             setEventos(resultados);
         } else {

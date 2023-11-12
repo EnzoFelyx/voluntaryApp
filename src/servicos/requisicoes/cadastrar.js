@@ -17,7 +17,6 @@ export async function criarConta(perfil,nome,email,senha,cpf_cnpj)
         }
     
         catch (error){
-            console.log(error)
             return 'Erro'
         }
  

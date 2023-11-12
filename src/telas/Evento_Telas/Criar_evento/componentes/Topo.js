@@ -11,6 +11,8 @@ import {criarEvento} from '../../../../servicos/requisicoes/eventos'
 import { pegarDadosUsuario } from '../../../../servicos/requisicoes/usuario'
 import { Alert } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
+import { useNavigation } from "@react-navigation/native";
+
 
 
 
@@ -24,9 +26,9 @@ export default function Topo({ titulos, interacoes }) {
   const [descricao, setdescricao] = useState('');
   const [imagemEvento, setImagemSelecionada] = useState(null);
   const [permissaoGaleria,setPermissaoGaleria] = useState(null);
-
-
   const [dadosDoUsuario, setDadosDoUsuario] = useState({});
+  const navigation = useNavigation()
+
 
   
   
@@ -65,7 +67,6 @@ export default function Topo({ titulos, interacoes }) {
         quality:1
       });
 
-      console.log(result);
 
       if (!result.cancelled)
       {
@@ -93,7 +94,7 @@ export default function Topo({ titulos, interacoes }) {
           imagemEvento
       );
 
-      if (resultado == 'Sucesso')
+      if (resultado === 1)
           {
               Alert.alert("Sucesso. Evento criado !")
               navigation.goBack()
