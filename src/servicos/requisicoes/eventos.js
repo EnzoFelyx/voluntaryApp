@@ -54,7 +54,7 @@ export async function salvarEvento(postId,id,rnome,rdata)
 
 }
 
-export async function criarEvento(postId,criadorEvento,nomeEvento,localEvento,dataEvento,horaEvento,descricao,imagemEvento)
+export async function criarEvento(postId,criadorEvento,imagemCriadorEvento,nomeEvento,localEvento,dataEvento,horaEvento,descricao,imagemEvento)
 {
 
     try{
@@ -63,6 +63,7 @@ export async function criarEvento(postId,criadorEvento,nomeEvento,localEvento,da
         {
             postId:postId,
             criadorEvento:criadorEvento,
+            imagemCriadorEvento:imagemCriadorEvento,
             nomeEvento:nomeEvento,
             localEvento:localEvento,
             dataEvento:dataEvento,

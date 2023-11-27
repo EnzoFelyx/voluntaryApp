@@ -15,9 +15,6 @@ import { useNavigation } from "@react-navigation/native";
 
 
 
-
-
-
 export default function Topo({ titulos, interacoes }) {
   const [nomeEvento, setnomeEvento] = useState('');
   const [dataEvento, setdataEvento] = useState('');
@@ -29,8 +26,6 @@ export default function Topo({ titulos, interacoes }) {
   const [dadosDoUsuario, setDadosDoUsuario] = useState({});
   const navigation = useNavigation()
 
-
-  
   
     useEffect(() => {
       async function buscarDadosDoUsuario() {
@@ -52,7 +47,7 @@ export default function Topo({ titulos, interacoes }) {
 
     useEffect(() => {
       (async () => {
-          const galleryStatus = await ImagePicker.requestMediaLibrarPermissionsAsync();
+          const galleryStatus = await ImagePicker.requestMediaLibraryPermissionsAsync();
           setPermissaoGaleria(galleryStatus.status ==='granted');
 
         })();
@@ -68,9 +63,9 @@ export default function Topo({ titulos, interacoes }) {
       });
 
 
-      if (!result.cancelled)
+      if (!result.cencaled)
       {
-        setImagemSelecionada(result.uri)
+        setImagemSelecionada(result.assets) //mudei de uri para assests pq está dizendo que é depreciado.
       }
     };
 
@@ -86,6 +81,7 @@ export default function Topo({ titulos, interacoes }) {
 
           dadosDoUsuario.id,
           dadosDoUsuario.nome,
+          dadosDoUsuario.perfil,
           nomeEvento,
           dataEvento,
           horaEvento,
@@ -94,14 +90,8 @@ export default function Topo({ titulos, interacoes }) {
           imagemEvento
       );
 
-      if (resultado === 1)
-          {
-              Alert.alert("Sucesso. Evento criado !")
-              navigation.goBack()
-      }
-      else{
-          Alert.alert("Erro ao criar Evento")
-      }
+      Alert.alert("Sucesso. Evento criado !")
+      navigation.goBack()
   };
 
   return (
@@ -166,7 +156,7 @@ export default function Topo({ titulos, interacoes }) {
           onChangeText={setdescricao}
           />
         </View>
-
+{/*
         <View style={estilos.viewInput}>
           <Texto>{titulos.local}</Texto>
           <CaixaSelecao label1={<Texto>Publico</Texto>} label2={<Texto>Privado</Texto>} />
@@ -180,12 +170,12 @@ export default function Topo({ titulos, interacoes }) {
         <TouchableOpacity style={{paddingTop:10,alignItems:"center",paddingBottom:20}} >
           <MaterialIcons name="cloud-upload" size={36} color="green" />
         </TouchableOpacity>
-
+*/}
         <View style={estilos.posicao}>
         <Botao tipo={2} texto={'Criar Evento'}
         acao={criar} />
         </View>            
-        
+  
 
 
       </View>
@@ -229,7 +219,7 @@ const estilos = StyleSheet.create({
   },
 
   posicao: {
-    marginTop:20,
+    marginTop:30,
     bottom: 20,
     alignSelf: 'center',
     height:55,

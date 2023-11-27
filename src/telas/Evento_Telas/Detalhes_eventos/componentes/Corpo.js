@@ -43,15 +43,9 @@ export default function Corpo({ descricao, participantes,idEvento }) {
             idEvento
            
         );
-  
-        if (resultado == 'Sucesso')
-            {
-                Alert.alert("Sucesso.Você se inscreveu !")
-                navigation.goBack()
-        }
-        else{
-            Alert.alert("Erro")
-        }
+        Alert.alert("Sucesso.Você se inscreveu !")
+        console.log(chegounogoBack)
+    
     };
 
 

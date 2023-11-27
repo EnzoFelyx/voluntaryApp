@@ -26,16 +26,13 @@ export default function SeusEventos({ topo, interacoes }) {
       if (resultadoIns) {
         setDadosAmarra(resultadoIns);
 
-        // Fetch data for each subscribed event
         const eventosPromises = resultadoIns.map(async (inscricao) => {
           const resultado = await pegarEventos(inscricao.eventoId);
           return resultado;
         });
 
-        // Wait for all promises to resolve
         const eventos = await Promise.all(eventosPromises);
 
-        // Update state with all events
         setDadosEventos(eventos);
       }
     }
