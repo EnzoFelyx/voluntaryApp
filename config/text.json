@@ -27,6 +27,10 @@
             "senha": "Senha",
             "confirmar": "Confirmar Senha",
             "botao": "Criar Conta"
+        },
+        "alertas": {
+            "error": "Erro ao criar repositório",
+            "registrado": "Sucesso. Sua conta foi criada !"
         }
     },
     "perfil": {
