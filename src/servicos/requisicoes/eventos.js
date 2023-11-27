@@ -99,7 +99,7 @@ export async function deletarEvento(id)
 
 export async function buscarEvento(nomeEvento){
     try{
-        const resultado = await api.get (`/eventos?nomeEvento=${nomeEvento}`)
+        const resultado = await api.get(`/eventos?nomeEvento_like=${nomeEvento}`);
         return resultado.data;
     }
     catch (error){
