@@ -1,4 +1,4 @@
-import { StatusBar, SafeAreaView, View,Dimensions,StyleSheet } from 'react-native';
+import { StatusBar, SafeAreaView, View, Dimensions, StyleSheet } from 'react-native';
 import React, { useEffect } from 'react'
 import { useFonts, Quicksand_400Regular, Quicksand_700Bold } from '@expo-google-fonts/quicksand';
 import api from './src/servicos/api'
@@ -14,14 +14,14 @@ const window = Dimensions.get('window');
 
 export default function App() {
 
-  useEffect(() =>  {
-    async function pegarDardos (){
+  useEffect(() => {
+    async function pegarDardos() {
       const resultado = await api.get('/users')
 
     }
     pegarDardos()
-  },[])
-  
+  }, [])
+
 
 
 
@@ -35,29 +35,28 @@ export default function App() {
   }
 
   return (
-  <>
-  
-    <SafeAreaView style = {estilo.container}>
-     <StatusBar style = {{backgroundColor:'#E4F4CD'}}/>
-      <RotasLogin/>
+    <>
+
+      <SafeAreaView style={{ flex: 1 }}>
+        <StatusBar backgroundColor={'#E4F4CD'} barStyle='dark-content' />
+        <RotasLogin />
       </SafeAreaView>
-      <SafeAreaView style = {estilo.barradeBaixo}/>
+      <SafeAreaView style={estilo.barradeBaixo} />
     </>
   );
 }
 
 const estilo = StyleSheet.create(
-{
-  container: {
-    flex: 1,
-    width: window.width,
-    height: window.height,
-    backgroundColor:'#E4F4CD'
-  },
-  barradeBaixo:
   {
-    backgroundColor:'#649469',
-    flex:0,
+    container: {
+      flex: 1,
+      width: window.width,
+      height: window.height,
+    },
+    barradeBaixo:
+    {
+      backgroundColor: '#649469',
+      flex: 0,
+    }
   }
-}
 );
