@@ -1,0 +1,120 @@
+{
+    "login": {
+        "conta": {
+            "titulo": "Login",
+            "emailLeg": "Seu email",
+            "senhaLeg": "Senha",
+            "entrar": "Entrar"
+        },
+        "interacoes": {
+            "convidado": "Convidado",
+            "ou": "ou",
+            "pergunta": "Ainda não tem uma conta?",
+            "registrar": "Registre-se"
+        },
+        "alertas": {
+            "error": "Usuário inválido",
+            "logado": "Logado"
+        }
+    },
+    "registrar": {
+        "titulo": "Registrar",
+        "input": {
+            "nome": "Nome",
+            "social": "Razão Social",
+            "email": "Email",
+            "cpf": "CPF / CNPJ",
+            "senha": "Senha",
+            "confirmar": "Confirmar Senha",
+            "botao": "Criar Conta"
+        }
+    },
+    "perfil": {
+        "conta": {
+            "topo": {
+                "titulo": "Sua conta"
+            },
+            "botoes": {
+                "criados": "Eventos Criados",
+                "inscritos": "Eventos Inscritos",
+                "posts": "Posts",
+                "email": "E-mail",
+                "senha": "Mudar senha",
+                "config": "Configurações"
+            }
+        },
+        "email": {
+            "topo": {
+                "titulo": "E-mail"
+            },
+            "corpo": {
+                "subtitle": "Mudar e-mail",
+                "legendaNova": "Novo e-mail",
+                "inputEmail": "E-mail",
+                "legendaSenha": "Digite sua senha para confirmar:",
+                "inputSenha": "Senha",
+                "botao": "Confirmar"
+            }
+        },
+        "posts": {
+            "titulo": "Meus posts"
+        },
+        "mudarSenha": {
+            "titulo": "Recuperar conta",
+            "corpo": {
+                "subtitle": "Mudar senha",
+                "legendaAtual": "Digite sua senha atual",
+                "legendaSenha": "Digite sua nova senha:",
+                "inputSenha": "Senha",
+                "legendaConfirma": "Confirme a sua senha:",
+                "botao": "Alterar senha"
+            }
+        }
+    },
+    "buscar": {
+        "topo": {
+            "titulo": "Pesquisar",
+            "search": "Digite aqui..."
+        },
+        "subtitle": "Eventos:"
+    },
+    "evento": {
+        "criar": {
+            "topo": {
+                "titulo": "Criar Evento",
+                "nome": "Digite qual será o nome do evento",
+                "legendaNome": "Título do evento",
+                "data": "Data",
+                "legendaData": "dd/mm/aa",
+                "periodo": "Perído",
+                "legendaPeriodo": "Ex:. Matutino",
+                "comeca": "Começa ás:",
+                "legendaHorario": "00:00",
+                "termina": "Termina ás:"
+            },
+            "mapa": {
+                "mapa": "Mapa:",
+                "mapaLegenda": "Localização:"
+            },
+            "local": {
+                "cep": "CEP",
+                "cepLegenda": "Buscar...",
+                "logradouro": "Logradouro",
+                "legendaLogradouro": "Ex: Av, Rua, Praça...",
+                "bairro": "Bairro",
+                "cidade": "Cidade",
+                "estado": "Estado",
+                "botao": "Continuar"
+            },
+            "descricao": {
+                "capa": "Foto de capa do evento",
+                "sobre": "Faça uma breve descrição sobre o evento:",
+                "legendaSobre": "Digite aqui ...",
+                "fotos": "Fotos sobre o evento:",
+                "participantes": "Selecione a média de participantes do evento:",
+                "local": "O Local de realizaação do evento é :",
+                "botao": "Criar evento"
+            }
+        }
+    }
+}

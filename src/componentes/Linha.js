@@ -5,21 +5,19 @@ import Texto from './texto';
 export default function Linha({ texto = null }) {
 
     if (texto != null) {
-        return <SafeAreaView style={{ flex: 1 }}>
+        return <>
             <View style={{ flexDirection: 'row', alignItems: 'center', marginVertical: 16, }}>
                 <View style={estilos.riscoParicial} />
-                <View>
-                    <Texto style={estilos.ou}>{texto}</Texto>
-                </View>
+                <Texto style={estilos.ou}>{texto}</Texto>
                 <View style={estilos.riscoParicial} />
             </View>
-        </SafeAreaView>
+        </>
     }
 
     else {
-        return <SafeAreaView style={{ flex: 1 }}>
+        return <>
             <View style={estilos.risco} />
-        </SafeAreaView>
+        </>
     }
 }
 
@@ -33,13 +31,13 @@ const estilos = StyleSheet.create({
     },
 
     risco: {
-        height: 0.6,
+        height: 0.8,
         backgroundColor: 'black',
     },
 
     riscoParicial: {
         flex: 1,
-        height: 0.6,
+        height: 0.7,
         backgroundColor: 'black',
     }
 })

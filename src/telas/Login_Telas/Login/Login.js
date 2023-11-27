@@ -1,21 +1,20 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, StyleSheet } from 'react-native';
-import Conta from './componentes/Conta';
-import Interacoes from './componentes/Interacoes';
-
+import { ScrollView } from 'react-native';
 import loginImagem from '../../../../assets/loginTelas/login.png';
 import Background from '../../../componentes/Background';
 import Imagem from '../../../componentes/Imagem';
+import Conta from './componentes/Conta';
+import Interacoes from './componentes/Interacoes';
 
-export default function Login({ conta, interacoes }) {
-    return <SafeAreaView style={{flex:1}}>
+export default function Login() {
+    return <ScrollView style={{ flex: 1, backgroundColor: '#E4F4CD', }}>
         <Background back={"fundo"}>
             <Imagem imagem={loginImagem} tipo={"loginImagem"} />
             <Background back={"quadrado1"}>
-                <Conta {...conta}{...interacoes}/>
-                <Interacoes {...interacoes} />
+                <Conta />
+                <Interacoes />
             </Background>
         </Background>
-    </SafeAreaView>
+    </ScrollView>
 }
 
