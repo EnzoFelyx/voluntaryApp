@@ -11,21 +11,17 @@ import { useNavigation } from "@react-navigation/native";
 import { FlatList } from "react-native";
 import { useEffect, Alert } from "react-native";
 import { buscarEvento } from "../../../../servicos/requisicoes/eventos";
+import useBusca from "../../../../hooks/useBusca";
 
 export default function Busca({ search, subtitulo }) {
-    const navigation = useNavigation();
-    const [nomeDoEvento, setNomeEvento] = useState('');
-    const [eventos, setEventos] = useState([]); // Alterado para um array
 
-    async function busca() {
-        const resultados = await buscarEvento(nomeDoEvento);
-        if (resultados && resultados.length > 0) {
-            setEventos(resultados);
-        } else {
-            Alert.alert('Nenhum evento encontrado');
-            setEventos([]);
-        }
-    }
+    const navigation = useNavigation();
+
+    const [nomeDoEvento, setNomeEvento] = useState('');
+    const lista = useBusca(nomeDoEvento);
+
+    console.log(lista)
+
 
     return (
         <SafeAreaView>
@@ -38,16 +34,16 @@ export default function Busca({ search, subtitulo }) {
                     value={nomeDoEvento}
                     onChangeText={setNomeEvento}
                 />
-                <Icone icone={"magnify"} tamanho={24} tipo={"pesquisa"} acao={busca} />
+                {/* <Icone icone={"magnify"} tamanho={24} tipo={"pesquisa"} acao={busca} /> */}
             </View>
 
             <View>
                 <View>
-                    {eventos.length > 0 && (
+                    {lista.length > 0 && (
                         <>
                             <Titulo entrada={subtitulo.subtitle} tipo={"Titulo"} />
                             <FlatList
-                                data={eventos} // Alterado para eventos
+                                data={lista}
                                 keyExtractor={(item) => item.id.toString()}
                                 renderItem={({ item }) => (
                                     <View>
@@ -58,7 +54,7 @@ export default function Busca({ search, subtitulo }) {
                                                     <Texto style={estilos.nome}>{item.nomeEvento}</Texto>
                                                 </View>
                                             }
-                                            acao={() => navigation.navigate('Detalhes', { item })} 
+                                            acao={() => navigation.navigate('Detalhes', { item })}
                                         />
                                         <View style={{ flexDirection: "row" }}>
                                             <Texto style={estilos.local}>{item.localEvento}</Texto>
