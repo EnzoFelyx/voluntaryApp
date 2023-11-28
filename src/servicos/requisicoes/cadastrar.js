@@ -1,25 +1,23 @@
 import api from "../api";
 
-export async function criarConta(perfil,nome,email,senha,cpf_cnpj)
-{ 
-        try{
+export async function criarConta(perfil, nome, email, cpf, senha) {
+    try {
 
-            await api.post(`/users`,
+        await api.post(`/users`,
             {
-            
-               perfil:perfil,
-               nome:nome,
-               email:email,
-               cpf_cnpj:cpf_cnpj,
-               senha:senha,
+                perfil: perfil,
+                nome: nome,
+                email: email,
+                cpf: cpf,
+                senha: senha,
             });
-            return 'Sucesso'
-        }
-    
-        catch (error){
-            return 'Erro'
-        }
- 
+        return 'Sucesso'
+    }
+
+    catch (error) {
+        return 'Erro'
+    }
+
 };
 
 
