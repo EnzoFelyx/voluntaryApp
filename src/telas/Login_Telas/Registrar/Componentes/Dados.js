@@ -33,9 +33,9 @@ export default function Dados({botao, nome, email, cpf_cnpj, senha, imagem}) {
                 navigation.goBack()
         }
         else{
-            Alert.alert("Erro ao criar repositório")
+            Alert.alert("Erro ao criar conta")
         }
-        {/*falar com os meninons sobre isnerir imagem*/}
+        {/*falar com os meninons sobre isnerir i'magem*/}
     };
 
     return <>

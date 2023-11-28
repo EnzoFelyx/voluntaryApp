@@ -65,7 +65,7 @@ export default function Topo({ titulos, interacoes }) {
 
       if (!result.cencaled)
       {
-        setImagemSelecionada(result.assets) //mudei de uri para assests pq está dizendo que é depreciado.
+        setImagemSelecionada(result.uri) //mudei de uri para assests pq está dizendo que é depreciado.
       }
     };
 

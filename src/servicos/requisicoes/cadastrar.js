@@ -1,6 +1,6 @@
 import api from "../api";
 
-export async function criarConta(perfil,nome,email,senha,cpf_cnpj)
+export async function criarConta(perfil,nome,email,cpf_cnpj,senha)
 { 
         try{
 
