@@ -1,9 +1,9 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { SafeAreaView, StyleSheet, View } from 'react-native';
+import Icone from './Icone';
 import Imagem from './Imagem';
 import Titulo from './Titulo';
-import Icone from './Icone';
-import { useNavigation } from '@react-navigation/native';
 
 export default function Cabecalho({ titulo = null, Foto = null, icone = false, fotoEstilo = null }) {
 
@@ -24,11 +24,11 @@ export default function Cabecalho({ titulo = null, Foto = null, icone = false, f
             <View style={{ marginTop: 16 }}>
                 <Imagem imagem={Foto} tipo={fotoEstilo} />
                 <View style={estilos.voltarImagem}>
-                    <Icone 
-                    icone={"chevron-left"} 
-                    interativo={true} 
-                    tamanho={40}
-                    acao={() => {navigation.goBack()}}
+                    <Icone
+                        icone={"chevron-left"}
+                        interativo={true}
+                        tamanho={40}
+                        acao={() => { navigation.goBack() }}
                     />
                 </View>
             </View>
@@ -37,12 +37,12 @@ export default function Cabecalho({ titulo = null, Foto = null, icone = false, f
 
     else {
         return <SafeAreaView style={estilos.voltar}>
-            
-            <Icone 
-            icone={"chevron-left"} 
-            interativo={true} 
-            tamanho={40}
-            acao={() => {navigation.goBack()}}
+
+            <Icone
+                icone={"chevron-left"}
+                interativo={true}
+                tamanho={40}
+                acao={() => { navigation.goBack() }}
             />
 
             <Titulo entrada={titulo} tipo={"Titulo"} />
@@ -54,7 +54,7 @@ const estilos = StyleSheet.create({
     topo: {
         flexDirection: "row",
         marginLeft: 26,
-        marginTop: 56,
+        marginTop: 16,
         marginBottom: 12,
     },
 

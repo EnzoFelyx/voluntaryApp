@@ -1,128 +1,29 @@
 import React from "react";
-import { useState,useEffect } from 'react';
-import { StyleSheet, Text, View } from "react-native";
+import { View } from "react-native";
+import { home } from "../../../../../config/text.json";
+import Linha from "../../../../componentes/Linha";
 import Titulo from "../../../../componentes/Titulo";
 import Texto from "../../../../componentes/texto";
-import Destaques from "./Destaques";
-import Eventos from './Eventos';
-import Ongs from "./Ongs";
-import Linha from "../../../../componentes/Linha";
-import { pegarTodosEventos } from '../../../../servicos/requisicoes/eventos';
-import { pegarDadosTodosUsuarios } from "../../../../servicos/requisicoes/usuario";
-import { pegarDadosTodasOngs } from "../../../../servicos/requisicoes/ong";
+import { UseOngs, useEventos, useUsuarios } from "../../../../hooks/useHome";
+import estilos from "./estilos";
 
-export default function Lista({ subtitulo, frases }) {
+export default function Lista({ destaque: Destaques, eventos: Eventos, ongs: Ongs }) {
 
-    const[dadosEventos, setDadosEventos] = useState({});
-    const[dadosDoUsuario, setDadosDoUsuario] = useState({});
-    const[dadosOng, setDadosOng] = useState({});
-
-
-
-
-    useEffect(() => {
-        async function buscarDadosEventos() {
-          
-          const resultado = await pegarTodosEventos();
-          if (resultado) {
-              setDadosEventos(resultado);
-          }
-  
-  
-        }
-        buscarDadosEventos();
-
-      }, []);
-
-      useEffect(() => {
-        async function buscarDadosUsuarios() {
-          
-          const resultadoUsers = await pegarDadosTodosUsuarios();
-          if (resultadoUsers) {
-            setDadosDoUsuario(resultadoUsers);
-          }
-  
-        }
-        buscarDadosUsuarios();
-      }, []);
-
-      useEffect(() => {
-        async function buscarDadosOngs() {
-          
-          const resultadoOngs = await pegarDadosTodasOngs();
-          if (resultadoOngs) {
-            setDadosOng(resultadoOngs);
-          }
-  
-        }
-        buscarDadosOngs();
-      }, []);
+    const { subtitulo, novidades, eventos, destaques, ongs } = home.corpo
+    const dadosEventos = useEventos();
+    const dadosDoUsuario = useUsuarios();
+    const dadosOng = UseOngs();
 
     return (
         <View style={{ flex: 1 }}>
-            <Titulo entrada={'Bem vindo ! '}  tipo={"subtitle"} />
-            <Texto>{frases.mensagem}</Texto>
-            <Linha/>
-
-            <View style={{ flex: 1, marginTop: 20 }}>
-                <Text style={estilos.titulosFlatLists}>Eventos:</Text>
-                <View style={{ flexDirection: "row" }}>
-                    <Eventos dadosEventos={dadosEventos} />
-                </View>
-            </View>
-
-            <View style={estilos.viewDestaque}>
-                <Text style={estilos.titulosFlatLists}>Destaques do mês:</Text>
-                <View style={estilos.viewBotaoDestaque}>
-                    <Destaques dadosDoUsuario={dadosDoUsuario}/>
-                </View>
-            </View>
-
-
-            <View style={estilos.viewOngsDestaque}>
-                <Text style={estilos.titulosFlatLists}>ONGS:</Text>
-                <View style={estilos.viewBotaoOngsDestaque}>
-                    <Ongs dadosOng={dadosOng} />
-                </View>
-            </View>
+            <Titulo entrada={subtitulo} tipo={"subtitle"} />
+            <Texto style={estilos.subtitulo}>{novidades}</Texto>
+            <Linha />
+            <Eventos dadosEventos={dadosEventos} titulo={eventos} />
+            <Destaques dadosDoUsuario={dadosDoUsuario} titulo={destaques} />
+            <Ongs dadosOng={dadosOng} titulo={ongs} />
         </View>
     );
 }
 
-const estilos = StyleSheet.create({
-    viewDestaque: {
-        flex: 1,
-        width: 350,
-        height: 245,
-        marginTop: 40,
-
-
-    },
-    viewBotaoDestaque: {
-        alignItems: 'center',
-        flexDirection: "row"
-
-    },
-
-    viewOngsDestaque: {
-        //backgroundColor: '#E4F4CD',
-        alignSelf: 'flex-end',
-        marginTop: 40
-
-    },
-    viewBotaoOngsDestaque: {
-        alignItems: 'center',
-        marginBottom: 10,
-        flexDirection: "row"
-
-
-    },
-    titulosFlatLists:
-    {
-        fontSize: 16,
-        lineHeight: 42,
-        fontWeight: "bold",
-    }
-
-})
 

@@ -29,7 +29,7 @@ export default function Background({ children, back }) {
                     background: estilos.quadrado3
                 }
                 break;
-                
+
             default:
                 break;
         }
@@ -45,12 +45,11 @@ export default function Background({ children, back }) {
 const estilos = StyleSheet.create({
 
     fundo: {
-    backgroundColor:'#E4F4CD',
+        backgroundColor: '#E4F4CD',
     },
 
     quadrado1: {
         marginHorizontal: 15,
-        
         borderRadius: 32,
         paddingTop: 40,
         paddingBottom: 40,
@@ -60,13 +59,13 @@ const estilos = StyleSheet.create({
     },
 
     quadrado2: {
-        width: "94%",
-        marginLeft: 12,
-        paddingHorizontal: 16,
+        marginHorizontal: 15,
+        paddingLeft: 16,
+        paddingRight: 16,
         backgroundColor: '#CAF38D',
         borderTopLeftRadius: 24,
         borderTopRightRadius: 24,
-        paddingVertical: 24,
+        paddingTop: 24,
     },
 
     quadrado3: {

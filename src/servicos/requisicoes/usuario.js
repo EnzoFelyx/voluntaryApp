@@ -38,13 +38,3 @@ export async function pegarDadosUsuario(id) {
         return null;
     }
 }
-
-export async function pegarDadosTodosUsuarios() {
-    try {
-        const resultado = await api.get(`/users`); 
-        return resultado.data;
-    } catch (error) {
-        console.log(error);
-        return null;
-    }
-}

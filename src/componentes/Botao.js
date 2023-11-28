@@ -91,24 +91,19 @@ const estilos = StyleSheet.create({
             borderRadius: 15,
             borderWidth: 1,
             borderColor: '#5B9900',
-    },
+        },
         texto: {
             textAlign: "center",
             fontSize: 16,
             fontWeight: "500",
             color: '#5B9900',
-    }
-},
-
-
-
-
-
-
+        }
+    },
 
     botaoEvento: {
         marginTop: 16,
-        paddingVertical: 12,
+        paddingTop: 12,
+        paddingBottom: 12,
         backgroundColor: "#FFFFFF",
         borderRadius: 15,
         marginRight: 8,
@@ -122,6 +117,7 @@ const estilos = StyleSheet.create({
         backgroundColor: "#FFFFFF",
         marginEnd: 15,
         marginTop: 15,
+        marginBottom: 20,
         justifyContent: 'center',
     },
 

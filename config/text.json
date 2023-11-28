@@ -120,5 +120,15 @@
                 "botao": "Criar evento"
             }
         }
+    },
+    "home": {
+        "titulo": "Home",
+        "corpo": {
+            "subtitulo": "Seja bem-vindo!",
+            "novidades": "Veja aqui as novidades de nossas comunidades solidárias",
+            "eventos": "Eventos:",
+            "destaques": "Destaques do mês:",
+            "ongs": "ONGs:"
+        }
     }
 }

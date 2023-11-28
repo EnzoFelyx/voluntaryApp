@@ -17,9 +17,8 @@ export default function Linha({ texto = null }) {
     }
 
     else {
-        return <SafeAreaView style={{ flex: 1 }}>
-            <View style={estilos.risco} />
-        </SafeAreaView>
+        return <View style={estilos.risco} />
+
     }
 }
 

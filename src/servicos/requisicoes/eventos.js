@@ -2,7 +2,7 @@ import api from "../api";
 
 export async function pegarEventos(id) {
     try {
-        const resultado = await api.get(`/eventos?id=${id}`); 
+        const resultado = await api.get(`/eventos?id=${id}`);
         return resultado.data;
     } catch (error) {
         console.log(error);
@@ -13,7 +13,7 @@ export async function pegarEventos(id) {
 export async function pegarEventosInscritos(id) {
     try {
 
-        const resultado = await api.get(`/amarraParticipanteEvento?postId=${id}`); 
+        const resultado = await api.get(`/amarraParticipanteEvento?postId=${id}`);
         return resultado.data;
     } catch (error) {
         console.log(error);
@@ -21,60 +21,47 @@ export async function pegarEventosInscritos(id) {
     }
 }
 
-export async function pegarTodosEventos() {
+export async function salvarEvento(postId, id, rnome, rdata) {
+
     try {
-        const resultado = await api.get(`/eventos`); 
-        return resultado.data;
-    } catch (error) {
-        console.log(error);
-        return null;
-    }
-}
-
-
-export async function salvarEvento(postId,id,rnome,rdata)
-{
-
-    try{
 
         const resultado = await api.put(`/repositories/${id}`,
-        {
-            postId:postId,
-            id:id,
-            rnome:rnome,
-            rdata:rdata 
-        });
+            {
+                postId: postId,
+                id: id,
+                rnome: rnome,
+                rdata: rdata
+            });
         return 'Sucesso'
     }
 
-    catch (error){
+    catch (error) {
         console.log(error)
         return 'Erro'
     }
 
 }
 
-export async function criarEvento(postId,criadorEvento,imagemCriadorEvento,nomeEvento,localEvento,dataEvento,horaEvento,descricao,imagemEvento)
-{
+export async function criarEvento(postId, criadorEvento, imagemCriadorEvento, nomeEvento, localEvento, dataEvento, horaEvento, descricao, imagemEvento) {
 
-    try{
+    try {
 
         await api.post(`/eventos`,
-        {
-            postId:postId,
-            criadorEvento:criadorEvento,
-            imagemCriadorEvento:imagemCriadorEvento,
-            nomeEvento:nomeEvento,
-            localEvento:localEvento,
-            dataEvento:dataEvento,
-            horaEvento:horaEvento,
-            descricao:descricao,
-            imagemEvento:imagemEvento
-        });
+            {
+                postId: postId,
+                criadorEvento: criadorEvento,
+                imagemCriadorEvento: imagemCriadorEvento,
+                nomeEvento: nomeEvento,
+                localEvento: localEvento,
+                dataEvento: dataEvento,
+                horaEvento: horaEvento,
+                descricao: descricao,
+                imagemEvento: imagemEvento
+            });
         return 'Sucesso'
     }
 
-    catch (error){
+    catch (error) {
         console.log(error)
         return 'Erro'
     }
@@ -82,49 +69,47 @@ export async function criarEvento(postId,criadorEvento,imagemCriadorEvento,nomeE
 }
 
 
-export async function deletarEvento(id)
-{
+export async function deletarEvento(id) {
 
-    try{
+    try {
 
         await api.delete(`/repositories/${id}`);
         return 'Sucesso'
     }
 
-    catch (error){
+    catch (error) {
         console.log(error)
         return 'Erro'
     }
 
 }
 
-export async function buscarEvento(nomeEvento){
-    try{
+export async function buscarEvento(nomeEvento) {
+    try {
         const resultado = await api.get(`/eventos?nomeEvento_like=${nomeEvento}`);
         return resultado.data;
     }
-    catch (error){
+    catch (error) {
         console.log(error)
         return {}
     }
 }
 
 
-export async function criarAmrEvento(postId,eventoId)
-{
+export async function criarAmrEvento(postId, eventoId) {
 
-    try{
+    try {
 
         await api.post(`/amarraParticipanteEvento`,
-        {
-            postId:postId,
-            eventoId:eventoId,
-            
-        });
+            {
+                postId: postId,
+                eventoId: eventoId,
+
+            });
         return 1
     }
 
-    catch (error){
+    catch (error) {
         console.log(error)
         return 'Erro'
     }
