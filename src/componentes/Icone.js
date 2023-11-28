@@ -3,7 +3,7 @@ import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import Texto from '../componentes/texto';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-export default function Icone({ icone, tamanho, tipo= null, texto = null, interativo = true, acao}) {
+export default function Icone({ icone, tamanho, tipo = null, texto = null, interativo = true, acao }) {
 
     const tipoIconeEstilo = (tipo) => {
         switch (tipo) {
@@ -18,18 +18,18 @@ export default function Icone({ icone, tamanho, tipo= null, texto = null, intera
                     estilus: estilos.cabecario,
                 }
                 break;
-             case "organizadora":
+            case "organizadora":
                 return {
                     estilus: estilos.organizadora,
                 }
                 break;
-            
+
             case "perfil":
                 return {
                     estilus: estilos.perfil,
                 }
                 break;
-            
+
             case "adicionarCapa":
                 return {
                     estilus: estilos.adicionarCapa,
@@ -58,13 +58,10 @@ export default function Icone({ icone, tamanho, tipo= null, texto = null, intera
                     estilus: estilos.mais,
                 }
 
-            case null:
+            default:
                 return {
                     estilus: estilos.default,
                 }
-                break;
-
-            default:
                 break;
         }
     }
@@ -73,17 +70,15 @@ export default function Icone({ icone, tamanho, tipo= null, texto = null, intera
 
     if (interativo == true) {
 
-        return <TouchableOpacity onPress = {acao} style={estiloIcone.estilus} >
-            <MaterialCommunityIcons name={icone} size={tamanho} color="black"  style={{ marginRight: 8}}  />
+        return <TouchableOpacity onPress={acao} style={estiloIcone.estilus} >
+            <MaterialCommunityIcons name={icone} size={tamanho} color="black" style={{ marginRight: 8 }} />
             <Texto>{texto}</Texto>
         </TouchableOpacity>
-    } 
+    }
 
     else {
-        return  <View style={estiloIcone.estilus}>
-            <MaterialCommunityIcons name={icone} size={tamanho} color="black" style={{ marginRight: 8, }} />
-            <Texto>{texto}</Texto>
-        </View>
+        return <MaterialCommunityIcons name={icone} size={tamanho} color="black" style={estiloIcone.estilus} />
+        /*           <Texto>{texto}</Texto> */
     }
 }
 
@@ -99,7 +94,7 @@ const estilos = StyleSheet.create({
         flexDirection: "row",
     },
 
-    perfil:{
+    perfil: {
         marginLeft: "auto",
         marginRight: 24,
         marginTop: 4,
@@ -107,29 +102,22 @@ const estilos = StyleSheet.create({
 
     adicionarCapa: {
         alignItems: 'center',
-        
-    },
-    
-    perfilOption:{
 
-        marginLeft: "auto",
-        marginRight: 12,
-        marginTop: 12,
     },
 
-    pesquisa:{
-        paddingTop:16,
+    pesquisa: {
+        paddingTop: 16,
         marginLeft: "auto",
 
     },
 
-    mais : {
-        position:'absolute',
+    mais: {
+        position: 'absolute',
         marginRight: "auto",
         marginRight: 24,
-        marginTop:350
-},
-    
+        marginTop: 350
+    },
 
-    default:{},
+
+    default: {},
 })
