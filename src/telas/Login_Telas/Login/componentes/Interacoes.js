@@ -43,9 +43,8 @@ const estilos = StyleSheet.create({
         color: "#1ea3b5",
     },
     registra: {
-        flexDirection: "row",
-        paddingHorizontal: 20,
-        paddingTop: 20,
+        marginTop: 20,
+        alignItems: "center"
     },
 
     pergunta: {
@@ -56,7 +55,6 @@ const estilos = StyleSheet.create({
     registrar: {
         fontSize: 14,
         lineHeight: 26,
-        marginLeft: 8,
         color: "#1ea3b5",
     },
 })

@@ -2,7 +2,7 @@ import React from 'react';
 import { SafeAreaView, StyleSheet, TextInput, View } from 'react-native';
 import Texto from './texto';
 
-export default function Input({ legenda = null, entrada, senha = false, tipo, valor,onChangeText}) {
+export default function Input({ legenda = null, entrada, senha = false, tipo, valor, onChangeText }) {
 
   const caixaInputStyle = (tipo) => {
 
@@ -55,12 +55,12 @@ const estilos = StyleSheet.create({
     paddingHorizontal: 16,
     backgroundColor: "#E4F4CD",
     borderRadius: 15,
-    marginBottom:16
+    marginBottom: 16
 
   },
 
   caixaInputGrande: {
-    height: 48,
+    paddingVertical: 14,
     marginVertical: 18,
     backgroundColor: "#E4F4CD",
     borderRadius: 15,

@@ -17,7 +17,6 @@ export default function App() {
 
   return (
     <>
-
       <SafeAreaView style={{ flex: 1 }}>
         <StatusBar backgroundColor={'#E4F4CD'} barStyle='dark-content' />
         <RotasLogin />

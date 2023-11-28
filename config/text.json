@@ -2,7 +2,7 @@
     "login": {
         "conta": {
             "titulo": "Login",
-            "emailLeg": "Seu email",
+            "emailLeg": "Seu Nome",
             "senhaLeg": "Senha",
             "entrar": "Entrar"
         },

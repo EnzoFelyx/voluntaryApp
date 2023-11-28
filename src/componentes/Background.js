@@ -49,11 +49,13 @@ const estilos = StyleSheet.create({
     },
 
     quadrado1: {
-        width: "93%",
-        marginLeft: 15,
+        marginHorizontal: 15,
+        
         borderRadius: 32,
-        paddingVertical: 40,
-        paddingHorizontal: 30,
+        paddingTop: 40,
+        paddingBottom: 40,
+        paddingLeft: 20,
+        paddingRight: 20,
         backgroundColor: "#CAF38D",
     },
 
