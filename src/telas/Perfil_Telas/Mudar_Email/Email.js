@@ -1,16 +1,20 @@
 import React from 'react';
-import { SafeAreaView, ScrollView } from 'react-native';
+import { ScrollView } from 'react-native';
+import { mudarEmail } from "../../../../config/text.json";
 import Background from '../../../componentes/Background';
-import Corpo from './Componentes/Corpo';
 import Cabecalho from '../../../componentes/Cabecalho';
+import Corpo from './Componentes/Corpo';
 
-export default function Email({topo, corpo}) {
-    return <ScrollView style={{ height: "100%" }}>
-        <Background back={"fundo"}>
-            <Cabecalho titulo={topo.titulo} icone={true}/>
+export default function Email() {
+
+    const titulo = mudarEmail.titulo
+
+    return <Background back={"fundo"}>
+        <ScrollView>
+            <Cabecalho titulo={titulo} icone={true} />
             <Background back={"quadrado1"}>
-                <Corpo {...corpo}/>
+                <Corpo />
             </Background>
-        </Background>
-    </ScrollView>
+        </ScrollView>
+    </Background>
 }
