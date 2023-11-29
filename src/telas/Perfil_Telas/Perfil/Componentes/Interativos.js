@@ -12,7 +12,7 @@ export default function Interativos() {
         <>
             <PerfilOption
                 texto={criados}
-                acao={() => { navigation.navigate('Meus Eventos Criados') }}
+                acao={() => {/*  navigation.navigate('Meus Eventos Criados') */ }}
             />
             <PerfilOption
                 texto={posts}
