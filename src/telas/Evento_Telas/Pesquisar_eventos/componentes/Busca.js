@@ -20,9 +20,6 @@ export default function Busca({ search, subtitulo }) {
     const [nomeDoEvento, setNomeEvento] = useState('');
     const lista = useBusca(nomeDoEvento);
 
-    console.log(lista)
-
-
     return (
         <SafeAreaView>
             <View style={Caixa.caixa}>

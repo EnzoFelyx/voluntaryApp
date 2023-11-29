@@ -11,7 +11,6 @@ export default function useBusca(termoDeBusca) {
             } else {
                 const retorno = await buscarEvento(termoDeBusca);
                 setLista(retorno);
-                console.log(retorno)
             }
         } catch (error) {
             console.error("Erro ao buscar ao buscar evento:", error);
