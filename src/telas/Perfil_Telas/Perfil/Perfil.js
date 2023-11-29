@@ -9,7 +9,7 @@ import Meu_elo from './Componentes/Meu_elo';
 import Topo from './Componentes/Topo';
 import VisaoGeral from './Componentes/VisaoGeral';
 
-export default function Perfil({ topo, botoes }) {
+export default function Perfil() {
 
   const navigation = useRoute();
   const rotaAtual = navigation.name;
@@ -22,20 +22,20 @@ export default function Perfil({ topo, botoes }) {
 
         {rotaAtual === 'StackPerfil' ?
           (
-            <Topo {...topo} />
+            <Topo />
           )
           :
           (
             <>
               <Voltar />
-              <Topo {...topo} />
+              <Topo />
             </>
           )}
 
         <Background back={"quadrado2"}>
           <VisaoGeral {...dadosDoUsuario} />
           <Meu_elo />
-          <Interativos {...botoes} />
+          <Interativos />
         </Background>
       </Background>
     </ScrollView>

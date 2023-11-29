@@ -1,20 +1,23 @@
 import React from "react";
+import { recuperar } from '../../../../../config/text.json';
 import Botao from "../../../../componentes/Botao";
 import Input from '../../../../componentes/Input';
 import Linha from "../../../../componentes/Linha";
 import Titulo from '../../../../componentes/Titulo';
-export default function Pedido({ titulo, dados, BotaoRecupera }) {
+export default function Pedido() {
+
+    const { title, nome, nomeInsert, email, emailInsert, ou, botao } = recuperar;
 
     return <>
-        <Titulo entrada={titulo.title} tipo={"Titulo"} />
+        <Titulo entrada={title} tipo={"Titulo"} />
 
-        <Input legenda={dados.nome} entrada={dados.nomeInsert} />
+        <Input legenda={nome} entrada={nomeInsert} />
 
-        <Linha texto={dados.ou} />
+        <Linha texto={ou} />
 
-        <Input legenda={dados.email} entrada={dados.emailInsert} />
+        <Input legenda={email} entrada={emailInsert} />
 
-        <Botao texto={BotaoRecupera.botao} tipo={1} />
+        <Botao texto={botao} tipo={1} />
 
     </>
 }

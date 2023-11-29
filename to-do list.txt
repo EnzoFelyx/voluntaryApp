@@ -1,63 +1,13 @@
-Colocar KeyboardAvoidingView em todas as caixas de entradas
-
 trocar icones de imagens por biblioteca icons
 
 definir um .js para controlar as cores do projeto
 
-flat list na lista 
-
-verificar se a fonte está funcionando nas telas de eventos 
-
-colocar shadow nas interações nos detalhes do evento.
-
 fazer array de fotos nas pessoas participando no detalhe dos eventos
 
-Arrumar portabilidade dos background
+refatorar componentes (ta muito banguçado)
 
-Revisar o switch de Imagem (nao lembro o que é isso)
-
-implementar status bar
-
-colocar rota para botão "criar conta" em registrar (obs: voltar para a tela login)
+pesquisar eventos (colocar infocused para limpar pesquisa e duas fotos, uma para pesquisa vazia e outra para não achado)
 
 separar "interagiveis" de "botões"
 
-@thiago implementar Flat list nos "Meus posts"
-
---------------------------------------------------------------------------------------------------------------------
-
-Telas refatoradas (front):
-
-Login ✅
-
-Cadastrao ✅
-
-Recuperar conta 
-
-Validação 
-
-Home
-
-Eventos
-
-Criar Evento
-
-Buscar
-
-Detalhes do evento
-
-Perfil ✅
-
-Meus Posts ✅
-
-Comentário
-
-Alterar Senha
-
-E-mail
-
-componentes
-
-mocks
-
-rotas
+Implementar escopo excluido

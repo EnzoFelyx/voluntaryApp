@@ -1,22 +1,19 @@
-import React, { useState } from "react";
-import { SafeAreaView, StyleSheet, TextInput, View } from "react-native";
-import Caixa from '../../../../componentes/Caixa';
-import Icone from "../../../../componentes/Icone";
-import Titulo from '../../../../componentes/Titulo';
-import Botao from '../../../../componentes/Botao';
-import Texto from "../../../../componentes/texto";
-import Imagem from "../../../../componentes/Imagem";
-import pessoas from "../../../../../assets/buscar/pessoas.png";
 import { useNavigation } from "@react-navigation/native";
-import { FlatList } from "react-native";
-import { useEffect, Alert } from "react-native";
-import { buscarEvento } from "../../../../servicos/requisicoes/eventos";
+import React, { useState } from "react";
+import { FlatList, SafeAreaView, StyleSheet, TextInput, View } from "react-native";
+import pessoas from "../../../../../assets/buscar/pessoas.png";
+import { buscar } from "../../../../../config/text.json";
+import Botao from '../../../../componentes/Botao';
+import Caixa from '../../../../componentes/Caixa';
+import Imagem from "../../../../componentes/Imagem";
+import Titulo from '../../../../componentes/Titulo';
+import Texto from "../../../../componentes/texto";
 import useBusca from "../../../../hooks/useBusca";
 
-export default function Busca({ search, subtitulo }) {
+export default function Busca() {
 
     const navigation = useNavigation();
-
+    const { search, subtitle } = buscar.corpo
     const [nomeDoEvento, setNomeEvento] = useState('');
     const lista = useBusca(nomeDoEvento);
 
@@ -26,7 +23,7 @@ export default function Busca({ search, subtitulo }) {
                 <TextInput
                     style={estilos.caixaInput}
                     setNomeEvento={''}
-                    placeholder="Busque por Evento"
+                    placeholder={search}
                     autoCapitalize="none"
                     value={nomeDoEvento}
                     onChangeText={setNomeEvento}
@@ -38,7 +35,7 @@ export default function Busca({ search, subtitulo }) {
                 <View>
                     {lista.length > 0 && (
                         <>
-                            <Titulo entrada={subtitulo.subtitle} tipo={"Titulo"} />
+                            <Titulo entrada={subtitle} tipo={"Titulo"} />
                             <FlatList
                                 data={lista}
                                 keyExtractor={(item) => item.id.toString()}

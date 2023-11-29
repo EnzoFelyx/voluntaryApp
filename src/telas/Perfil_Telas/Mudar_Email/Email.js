@@ -1,13 +1,13 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
-import { mudarEmail } from "../../../../config/text.json";
+import { perfil } from "../../../../config/text.json";
 import Background from '../../../componentes/Background';
 import Cabecalho from '../../../componentes/Cabecalho';
 import Corpo from './Componentes/Corpo';
 
 export default function Email() {
 
-    const titulo = mudarEmail.titulo
+    const titulo = perfil.email.titulo
 
     return <Background back={"fundo"}>
         <ScrollView>

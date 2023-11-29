@@ -5,12 +5,12 @@ import Background from '../../../componentes/Background';
 import Cabecalho from '../../../componentes/Cabecalho';
 import Pedido from './Componentes/Pedido';
 
-export default function Recuperar({ recuperar }) {
+export default function Recuperar() {
     return <ScrollView>
         <Background back={"fundo"}>
-            <Cabecalho Foto={fotoRecuperar} icone={true} fotoEstilo={"recuperarImagem"}/>
+            <Cabecalho Foto={fotoRecuperar} icone={true} fotoEstilo={"recuperarImagem"} />
             <Background back={"quadrado1"}>
-                <Pedido {...recuperar} />
+                <Pedido />
             </Background>
         </Background>
     </ScrollView>

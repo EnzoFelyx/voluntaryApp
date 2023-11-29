@@ -33,33 +33,18 @@
             "registrado": "Sucesso. Sua conta foi criada !"
         }
     },
-    "mudarsenha": {
-        "titulo": "Recuperar conta",
-        "corpo": {
-            "subtitle": "Mudar senha",
-            "legendaAtual": "Digite sua senha atual",
-            "legendaSenha": "Digite sua nova senha:",
-            "inputSenha": "Senha",
-            "legendaConfirma": "Confirme a sua senha:",
-            "botao": "Alterar senha"
-        }
-    },
-    "mudarEmail": {
-        "titulo": "E-mail",
-        "corpo": {
-            "subtitle": "Mudar e-mail",
-            "legendaNova": "Novo e-mail",
-            "inputEmail": "E-mail",
-            "legendaSenha": "Digite sua senha para confirmar:",
-            "inputSenha": "Senha",
-            "botao": "Confirmar"
-        }
+    "recuperar": {
+        "title": "Recuperar conta",
+        "nome": "Digite o nome de usuário de sua conta",
+        "nomeInsert": "Nome",
+        "email": "Digite o email da sua conta",
+        "emailInsert": "Email",
+        "ou": "ou",
+        "botao": "Recuperar senha"
     },
     "perfil": {
         "conta": {
-            "topo": {
-                "titulo": "Sua conta"
-            },
+            "titulo": "Sua conta",
             "botoes": {
                 "criados": "Eventos Criados",
                 "inscritos": "Eventos Inscritos",
@@ -70,9 +55,7 @@
             }
         },
         "email": {
-            "topo": {
-                "titulo": "E-mail"
-            },
+            "titulo": "E-mail",
             "corpo": {
                 "subtitle": "Mudar e-mail",
                 "legendaNova": "Novo e-mail",
@@ -98,11 +81,11 @@
         }
     },
     "buscar": {
-        "topo": {
-            "titulo": "Pesquisar",
-            "search": "Digite aqui..."
-        },
-        "subtitle": "Eventos:"
+        "titulo": "Pesquisar",
+        "corpo": {
+            "search": "Digite aqui...",
+            "subtitle": "Eventos:"
+        }
     },
     "evento": {
         "criar": {
