@@ -17,8 +17,8 @@ export default function App() {
 
   return (
     <>
-      <SafeAreaView style={{ flex: 1 }}>
-        <StatusBar backgroundColor={'#E4F4CD'} barStyle='dark-content' />
+      <SafeAreaView style={estilo.container}>
+        <StatusBar backgroundColor={'#E4F4CD'} />
         <RotasLogin />
       </SafeAreaView>
       <SafeAreaView style={estilo.barradeBaixo} />

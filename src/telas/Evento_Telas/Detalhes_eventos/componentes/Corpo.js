@@ -43,8 +43,8 @@ export default function Corpo({ descricao, participantes,idEvento }) {
             idEvento
            
         );
-        Alert.alert("Sucesso.Você se inscreveu !")
-        console.log(chegounogoBack)
+    
+        navigation.goBack()
     
     };
 
