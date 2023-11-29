@@ -1,13 +1,12 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 import Botao from '../../../../componentes/Botao';
-import Texto from "../../../../componentes/texto";
 
-export default function CriarEvento(){
+export default function CriarEvento() {
     return <View style={estilos.posicao}>
-    <Botao tipo={2} texto={'Criar Evento'}
-        acao={() => { }} />
-        </View>
+        <Botao tipo={2} texto={'Criar Evento'}
+            acao={() => { }} />
+    </View>
 };
 
 const estilos = StyleSheet.create({
@@ -15,9 +14,9 @@ const estilos = StyleSheet.create({
         position: 'absolute',
         bottom: 20,
         alignSelf: 'center',
-        height:55,
+        height: 55,
         width: 188,
-      },
+    },
 
 })
 

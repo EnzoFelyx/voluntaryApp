@@ -1,14 +1,13 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, View, KeyboardAvoidingView, Platform } from 'react-native';
-import Background from '../../../componentes/Background';
-import Topo from './componentes/Topo';
-import Cabecalho from '../../../componentes/Cabecalho';
-import CriarEvento from './componentes/CriarEvento';
+import { KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 import PerfilFoto from '../../../../assets/exemplos/PerfilFoto.png';
+import Background from '../../../componentes/Background';
+import Cabecalho from '../../../componentes/Cabecalho';
 import Criar_mock from '../../../mocks/Evento_Mocks/Criar_mock';
+import Topo from './componentes/Topo';
 
 
-export default function Criar_eventos({ titulos, interacoes }) {
+export default function Criar_eventos() {
     return (
         <ScrollView contentContainerStyle={{ height: "100%" }}>
             <KeyboardAvoidingView
