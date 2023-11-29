@@ -1,7 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
-import Recuperar_mock from "../mocks/Login_Mocks/Recuperar_mock";
 import Login from "../telas/Login_Telas/Login/Login";
 import Recuperar from "../telas/Login_Telas/Recuperar/Recuperar";
 import Registra from "../telas/Login_Telas/Registrar/Registra";
@@ -26,7 +25,7 @@ export default function RotasLogin() {
                 </Stack.Screen>
 
                 <Stack.Screen name="Recuperar">
-                    {() => <Recuperar {...Recuperar_mock} />}
+                    {() => <Recuperar />}
                 </Stack.Screen>
 
                 <Stack.Screen name="Registrar">
