@@ -14,7 +14,7 @@ export default function Voltar() {
     style={estilos.voltar}
     onPress= {() => {navigation.goBack()}} 
     >
-        <MaterialCommunityIcons name="chevron-left" size={40} color="black" />
+        <MaterialCommunityIcons name="chevron-left" size={40} color="gray" />
     </TouchableOpacity>
     )
 }
@@ -23,8 +23,8 @@ export default function Voltar() {
 const estilos = StyleSheet.create({
     voltar: {
         position: "absolute",
-        marginTop: 56,
-        marginRight:16,
+        marginTop: 20,
+        marginLeft: 16
     },
 
 })

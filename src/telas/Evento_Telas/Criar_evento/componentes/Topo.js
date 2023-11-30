@@ -84,8 +84,8 @@ export default function Topo({ titulos, interacoes }) {
           dadosDoUsuario.perfil,
           nomeEvento,
           dataEvento,
-          horaEvento,
           localEvento,
+          horaEvento,
           descricao,
           imagemEvento
       );
@@ -106,6 +106,16 @@ export default function Topo({ titulos, interacoes }) {
            tipo={'1'}
            valor={nomeEvento}
            onChangeText={setnomeEvento}
+            />
+        </View>
+
+        <View style={estilos.viewInput}>
+          <Texto>Local do evento:</Texto>
+          <Input
+           entrada="Local" 
+           tipo={'1'}
+           valor={localEvento}
+           onChangeText={setlocalEvento}
             />
         </View>
 
