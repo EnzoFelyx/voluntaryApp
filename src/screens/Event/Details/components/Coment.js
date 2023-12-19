@@ -14,4 +14,5 @@ export default function Corpo({ subtitle, legenda, input, botao }) {
         <Input entrada={input} tipo={3} />
         <Botao texto={botao} tipo={6} />
     </SafeAreaView>
-} */
+} */ 
+

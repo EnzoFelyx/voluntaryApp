@@ -1,28 +1,28 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { FlatList, Text, View } from 'react-native';
-import Botao from '../../../../componentes/Botao';
-import Imagem from "../../../../componentes/Imagem";
-import Organizadora from '../../../../componentes/Organizadora';
-import Texto from '../../../../componentes/texto';
+import Button from '../../../../components/Button';
+import Image from "../../../../components/Image";
+import Owner from '../../../../components/Owner';
+import Texto from '../../../../components/texto';
 import estilos from './estilos';
 
-export default function Eventos({ dadosEventos, titulo }) {
+export default function Trends({ dadosEventos, titulo }) {
 
   const navigation = useNavigation();
 
   const renderItem = ({ item }) => (
     <View style={{ flex: 1, }}>
-      <Botao tipo={3} texto={
+      <Button tipo={3} texto={
         <View>
-          <Imagem imagem={{ uri: item.imagemEvento }} tipo={'imagemEvento'} />
+          <Image imagem={{ uri: item.imagemEvento }} tipo={'imagemEvento'} />
           <Text style={{ marginLeft: 12, fontSize: 16 }}>{item.nomeEvento}</Text>
         </View>
       }
         acao={() => navigation.navigate('Detalhes', { item })}
       />
       <View style={{ marginTop: 12, marginRight: 16 }}>
-        <Organizadora image={{ uri: item.imagemCriadorEvento }} nome={item.criadorEvento} />
+        <Owner image={{ uri: item.imagemCriadorEvento }} nome={item.criadorEvento} />
       </View>
     </View>
   );

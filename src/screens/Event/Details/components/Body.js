@@ -1,11 +1,11 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import Botao from "../../../../componentes/Botao";
-import Titulo from '../../../../componentes/Titulo';
-import Texto from "../../../../componentes/texto";
+import Button from "../../../../components/Button";
+import Title from '../../../../components/Title';
+import Texto from "../../../../components/texto";
 import useTopo from '../../../../hooks/useTopo';
-import { criarAmrEvento } from '../../../../servicos/requisicoes/eventos';
+import { criarAmrEvento } from '../../../../services/requests/eventos';
 
 export default function Corpo({ descricao, participantes, idEvento }) {
 
@@ -22,7 +22,7 @@ export default function Corpo({ descricao, participantes, idEvento }) {
   };
 
   return <>
-    <Titulo entrada={'Descrição'} tipo={"Titulo"} />
+    <Title entrada={'Descrição'} tipo={"Titulo"} />
     <View style={{ marginTop: 12, }}>
       <Texto>{descricao}</Texto>
     </View>
@@ -30,7 +30,7 @@ export default function Corpo({ descricao, participantes, idEvento }) {
       <Texto>{'Participantes:'}</Texto>
       <Texto>{participantes}</Texto>
     </View>
-    <Botao texto={'Inscrever-se'}
+    <Button texto={'Inscrever-se'}
       tipo={2}
       acao={criarAmr} />
   </>

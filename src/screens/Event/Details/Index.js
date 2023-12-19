@@ -1,17 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ScrollView } from 'react-native';
-import Background from '../../../componentes/Background';
-import Topo from './componentes/Topo';
-import Cabecario from './componentes/Cabecario';
-import Corpo from './componentes/Corpo';
-import Interativos from './componentes/Interativos';
-import { useState } from 'react';
-
+import Background from '../../../components/Background';
+import Body from './components/Body';
+import Interactions from './components/Interactions';
+import Overview from './components/Overview';
+import Topo from './components/Topo';
 
 export default function Detalhes_eventos({ route }) {
 
     const { item } = route.params;
-    console.log(item)
     const [imagem, setImagem] = useState(item.imagemEvento);
     const [nome, setNome] = useState(item.nomeEvento);
     const [local, setLocal] = useState(item.localEvento);
@@ -28,9 +25,9 @@ export default function Detalhes_eventos({ route }) {
             <ScrollView>
                 <Topo imagem={imagem} />
                 <Background back={"quadrado3"}>
-                    <Cabecario nome={nome} local={local} data={data} hora={horaEvento} organizadoraFoto={organizadoraFoto} organizadora={criadorEvento} />
-                    <Interativos />
-                    <Corpo descricao={descricao} participantes={participantes} idEvento={idEvento} />
+                    <Overview nome={nome} local={local} data={data} hora={horaEvento} organizadoraFoto={organizadoraFoto} organizadora={criadorEvento} />
+                    <Interactions />
+                    <Body descricao={descricao} participantes={participantes} idEvento={idEvento} />
                 </Background>
             </ScrollView>
         </Background>

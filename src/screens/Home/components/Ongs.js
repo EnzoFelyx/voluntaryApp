@@ -1,12 +1,11 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { FlatList, View } from 'react-native';
-import Botao from '../../../../componentes/Botao';
-import Imagem from "../../../../componentes/Imagem";
-import Organizadora from '../../../../componentes/Organizadora';
-import Texto from '../../../../componentes/texto';
+import Button from '../../../../components/Button';
+import Image from "../../../../components/Image";
+import Owner from '../../../../components/Owner';
+import Texto from '../../../../components/texto';
 import estilos from './estilos';
-
 
 export default function Ongs({ dadosOng, titulo }) {
 
@@ -14,14 +13,14 @@ export default function Ongs({ dadosOng, titulo }) {
 
   const renderItem = ({ item }) => (
     <View style={{ flex: 1, }}>
-      <Botao tipo={3} texto={
+      <Button tipo={3} texto={
         <View>
-          <Imagem imagem={{ uri: item.imagemOng }} tipo={'imagemEvento'} />
+          <Image imagem={{ uri: item.imagemOng }} tipo={'imagemEvento'} />
         </View>}
         acao={() => navigation.navigate('PerfilCriadorEvento', { item })}
       />
       <View style={{ marginTop: 12, marginRight: 16, }}>
-        <Organizadora image={{ uri: item.perfilOng }} nome={item.nomeOng} acao={() => navigation.navigate('PerfilCriadorEvento', { item })} />
+        <Owner image={{ uri: item.perfilOng }} nome={item.nomeOng} acao={() => navigation.navigate('PerfilCriadorEvento', { item })} />
       </View>
     </View>
   );

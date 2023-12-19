@@ -1,13 +1,13 @@
 import { React } from 'react';
-import { ScrollView, View } from 'react-native';
+import { ScrollView } from 'react-native';
 import { home } from "../../../../config/text.json";
-import Background from '../../../componentes/Background';
-import Cabecalho from '../../../componentes/Cabecalho';
+import Background from '../../../components/Background';
+import Top from '../../../components/Top';
 import useTopo from '../../../hooks/useTopo';
-import Destaque from './componentes/Destaques';
-import Eventos from './componentes/Eventos';
-import Lista from './componentes/Lista';
-import Ongs from './componentes/Ongs';
+import Highlights from './components/Highlights';
+import List from './components/List';
+import Ongs from './components/Ongs';
+import Trends from './components/Trends';
 
 export default function Home() {
 
@@ -17,9 +17,9 @@ export default function Home() {
   return (
     <ScrollView>
       <Background back={"fundo"}>
-        <Cabecalho Foto={{ uri: dadosDoUsuario.perfil }} titulo={titulo} />
+        <Top Foto={{ uri: dadosDoUsuario.perfil }} titulo={titulo} />
         <Background back={"quadrado2"}>
-          <Lista destaque={Destaque} eventos={Eventos} ongs={Ongs} />
+          <List highlights={Highlights} trends={Trends} ongs={Ongs} />
         </Background>
       </Background>
     </ScrollView>
