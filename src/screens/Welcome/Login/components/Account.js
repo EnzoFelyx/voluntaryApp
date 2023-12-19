@@ -1,11 +1,11 @@
-import AsyncStorage from "@react-native-async-storage/async-storage"; // Importe o AsyncStorage
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import { Alert } from "react-native";
 import { login } from "../../../../../config/text.json";
-import Botao from "../../../../componentes/Botao";
-import Input from "../../../../componentes/Input";
-import Titulo from "../../../../componentes/Titulo";
+import Button from "../../../../components/Button";
+import Input from "../../../../components/Input";
+import Title from "../../../../components/Title";
 import { Login } from "../../../../servicos/requisicoes/usuario";
 
 export default function Conta() {
@@ -29,10 +29,10 @@ export default function Conta() {
   }
 
   return <>
-    <Titulo entrada={titulo} tipo={"Titulo"} />
+    <Title entrada={titulo} tipo={"Titulo"} />
     <Input entrada={emailLeg} valor={email} onChangeText={setEmail} />
     <Input entrada={senhaLeg} senha={true} valor={password} onChangeText={setSenha} />
-    <Botao texto={entrar} tipo={1} acao={logar} />
+    <Button texto={entrar} tipo={1} acao={logar} />
 
   </>
 }

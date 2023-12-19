@@ -2,9 +2,9 @@ import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { login } from "../../../../../config/text.json";
-import Botao from '../../../../componentes/Botao';
-import Linha from "../../../../componentes/Linha";
-import Texto from '../../../../componentes/texto';
+import Button from '../../../../components/Button';
+import Line from "../../../../components/Line";
+import Texto from '../../../../components/texto';
 
 export default function Interacoes() {
 
@@ -17,12 +17,12 @@ export default function Interacoes() {
 
     return (
         <>
-           {/*  <TouchableOpacity onPress={() => { navigation.navigate('Mudar Senha') }}>
+            {/*  <TouchableOpacity onPress={() => { navigation.navigate('Mudar Senha') }}>
                 <Texto style={estilos.esqueceu}>esqueceu</Texto>
             </TouchableOpacity> */}
 
-            <Linha texto={ou} />
-            <Botao texto={convidado} tipo={2} />
+            <Line texto={ou} />
+            <Button texto={convidado} tipo={2} />
             <View style={estilos.registra}>
                 <Texto style={estilos.pergunta} >{pergunta}</Texto>
                 <TouchableOpacity onPress={() => { navigation.navigate('Registrar') }}>

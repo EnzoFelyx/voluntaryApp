@@ -8,7 +8,6 @@ import Interativos from './componentes/Interativos';
 import { useState } from 'react';
 
 
-
 export default function Detalhes_eventos({ route }) {
 
     const { item } = route.params;

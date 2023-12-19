@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { View, Alert, TouchableOpacity } from "react-native";
-import Input from '../../../../componentes/Input';
-import Botao from '../../../../componentes/Botao';
-import { criarConta } from "../../../../servicos/requisicoes/cadastrar";
 import { useNavigation } from "@react-navigation/native";
+import React, { useState } from "react";
+import { Alert, TouchableOpacity, View } from "react-native";
 import Default from '../../../../../assets/perfil/FotoDefault.png';
-import Imagem from '../../../../componentes/Imagem';
 import { registrar } from "../../../../../config/text.json";
+import Input from '../../../../componentes/Input';
+import Button from '../../../../components/Button';
+import Image from '../../../../components/Image';
+import { criarConta } from "../../../../servicos/requisicoes/cadastrar";
 
 export default function Dados() {
 
@@ -43,7 +43,7 @@ export default function Dados() {
 
     return <>
         <TouchableOpacity>
-            <Imagem imagem={Default} tipo={"RegistrarFoto"} />
+            <Image imagem={Default} tipo={"RegistrarFoto"} />
         </TouchableOpacity>
         <View style={{ marginBottom: 16, }}>
             <Input entrada={nome} valor={dados[nome]} onChangeText={(valor) => atualizarDados(nome, valor)} />
@@ -53,7 +53,7 @@ export default function Dados() {
             quando for cnpj (fazer verificação*/}
             <Input entrada={senha} valor={dados[senha]} senha={true} onChangeText={(valor) => atualizarDados(senha, valor)} />
             <Input entrada={confirmar} valor={dados[confirmar]} senha={true} onChangeText={(valor) => atualizarDados(confirmar, valor)} />
-            <Botao texto={botao} tipo={1} acao={criar} />
+            <Button texto={botao} tipo={1} acao={criar} />
         </View>
     </>
 }

@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { useFocusEffect } from '@react-navigation/native';
-import { View, StatusBar } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import Background from '../../../componentes/Background';
-import Cabecalho from '../../../componentes/Cabecalho';
-import Lista from './componentes/Lista';
-import { pegarEventos } from '../../../servicos/requisicoes/eventos';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useFocusEffect } from '@react-navigation/native';
+import React, { useEffect, useState } from 'react';
+import { SafeAreaView, StatusBar, View } from 'react-native';
+import Background from '../../../components/Background';
+import Top from '../../../components/Top';
+import { pegarEventos, pegarEventosInscritos } from '../../../servicos/requisicoes/eventos';
 import { pegarDadosUsuario } from '../../../servicos/requisicoes/usuario';
-import { pegarEventosInscritos } from '../../../servicos/requisicoes/eventos';
+import List from './components/List';
 
 import { useNavigation } from "@react-navigation/native";
 
@@ -74,10 +72,10 @@ export default function SeusEventos({ topo, interacoes }) {
     <SafeAreaView style={{ flex: 1 }}>
       <StatusBar />
       <Background back="fundo">
-        <Cabecalho Foto={{ uri: dadosDoUsuario.perfil }} titulo={topo.titulo} icone={false} />
+        <Top Foto={{ uri: dadosDoUsuario.perfil }} titulo={topo.titulo} icone={false} />
         <Background back="quadrado2">
           <View style={{ flex: 1 }}>
-            <Lista {...interacoes} dadosEventos={dadosEventos} />
+            <List {...interacoes} dadosEventos={dadosEventos} />
           </View>
         </Background>
       </Background>

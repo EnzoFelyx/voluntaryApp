@@ -2,9 +2,9 @@ import React from 'react';
 import { ScrollView } from 'react-native';
 import fotoRegistrar from '../../../../assets/loginTelas/registra.png';
 import { registrar } from "../../../../config/text.json";
-import Background from '../../../componentes/Background';
-import Cabecalho from '../../../componentes/Cabecalho';
-import Titulo from '../../../componentes/Titulo';
+import Background from '../../../components/Background';
+import Title from '../../../components/Title';
+import Top from '../../../components/Top';
 import Dados from './Componentes/Dados';
 
 export default function Registra() {
@@ -13,9 +13,9 @@ export default function Registra() {
 
     return <ScrollView style={{ flex: 1, backgroundColor: '#E4F4CD', }}>
         <Background back={"fundo"}>
-            <Cabecalho Foto={fotoRegistrar} icone={true} fotoEstilo={"loginImagem"} />
+            <Top Foto={fotoRegistrar} icone={true} fotoEstilo={"loginImagem"} />
             <Background back={"quadrado1"}>
-                <Titulo entrada={titulo} tipo={"Titulo"} />
+                <Title entrada={titulo} tipo={"Titulo"} />
                 <Dados />
             </Background>
         </Background>

@@ -20,3 +20,4 @@ const estilos = StyleSheet.create({
 })
 
 
+//transformar num botão
