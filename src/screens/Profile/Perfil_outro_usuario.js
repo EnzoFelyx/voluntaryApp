@@ -12,7 +12,7 @@ import { pegarEventosInscritos } from '../../../servicos/requisicoes/eventos';
 import { pegarEventos } from '../../../servicos/requisicoes/eventos';
 
 
-export default function Perfil_outro_usuario({ route }) {
+export default function Perfil_outro_usuario({ route }) {/* 
     const { item } = route.params;
     let  [perfil, setFoto] = useState(item.imagemOng ?? item.perfil);
     let [nome, setNome] = useState(item.nomeOng ?? item.nome);
@@ -51,8 +51,6 @@ export default function Perfil_outro_usuario({ route }) {
                 <Background back={"quadrado2"}>
                 <Voltar />
                     <VisaoGeral perfil={perfil} nome={nome}/>
-                    {/*<Meu_elo />*/}
-                   {/*<Interativos />*/}
                     <View style={estilos.perfilOption}>
                         <MaterialCommunityIcons name={"calendar-check"} size={30} color="black" style={{ marginLeft: 8, marginTop: 3}} />
                         <Text style={estilos.texto}>Eventos Inscritos : {dadosEventos.length}</Text>
@@ -64,7 +62,7 @@ export default function Perfil_outro_usuario({ route }) {
                 </Background>
             </Background>
         </>
-    )
+    ) */
 }
 
 

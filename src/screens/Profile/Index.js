@@ -1,13 +1,13 @@
 import { useRoute } from '@react-navigation/native';
 import React from 'react';
 import { ScrollView } from 'react-native';
-import Background from '../../../componentes/Background';
-import Voltar from '../../../componentes/Voltar';
+import Background from '../../../components/Background';
+import Return from '../../../components/Return';
 import useTopo from '../../../hooks/useTopo';
-import Interativos from './Componentes/Interativos';
-import Meu_elo from './Componentes/Meu_elo';
-import Topo from './Componentes/Topo';
-import VisaoGeral from './Componentes/VisaoGeral';
+import Interactions from './components/Interactions';
+import Overview from './components/Overview';
+import Rank from './components/Rank';
+import Topo from './components/Topo';
 
 export default function Perfil() {
 
@@ -27,15 +27,15 @@ export default function Perfil() {
           :
           (
             <>
-              <Voltar />
+              <Return />
               <Topo />
             </>
           )}
 
         <Background back={"quadrado2"}>
-          <VisaoGeral {...dadosDoUsuario} />
-          <Meu_elo />
-          <Interativos />
+          <Overview {...dadosDoUsuario} />
+          <Rank />
+          <Interactions />
         </Background>
       </Background>
     </ScrollView>

@@ -1,9 +1,9 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import { perfil } from "../../../../../config/text.json";
-import Icone from "../../../../componentes/Icone";
-import Titulo from '../../../../componentes/Titulo';
+import { perfil } from "../../../..config/text.json";
+import Icon from "../../../components/Icon";
+import Title from '../../../components/Title';
 
 export default function Topo() {
 
@@ -12,8 +12,8 @@ export default function Topo() {
 
     return <>
         <View style={estilos.titulo}>
-            <Titulo entrada={titulo} tipo={'Titulo'} />
-            <Icone icone={"logout"} tipo={"perfil"} tamanho={32} acao={() => { navigation.navigate('Login') }} />
+            <Title entrada={titulo} tipo={'Titulo'} />
+            <Icon icone={"logout"} tipo={"perfil"} tamanho={32} acao={() => { navigation.navigate('Login') }} />
         </View>
     </>
 }

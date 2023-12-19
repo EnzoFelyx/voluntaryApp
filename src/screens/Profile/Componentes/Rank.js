@@ -1,24 +1,23 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import Bronze from "../../../../../assets/bronze.png";
-import Loading from "../../../../../assets/loading.png";
-import Imagem from "../../../../componentes/Imagem";
+import Bronze from "../../../../assets/bronze.png";
+import Loading from "../../../../assets/loading.png";
+import Image from "../../../components/Image";
 
-export default function Meu_elo() {
+export default function Rank() {
     return <>
         <View style={estilos.caixa}>
-            <Imagem imagem={Bronze} tipo={"Elos"} />
+            <Image imagem={Bronze} tipo={"Elos"} />
             <View style={estilos.legenda}>
                 <TouchableOpacity style={{ flexDirection: "row", marginLeft: 4, }}>
                     <Text style={estilos.texto}>Bronze</Text>
                     <MaterialCommunityIcons name={"information-outline"} size={16} color="black" style={{ marginLeft: 8, marginTop: 3 }} />
                 </TouchableOpacity>
                 <Text style={{ fontWeight: 'bold', fontSize: 14 }}>16/20</Text>
-                <Imagem imagem={Loading} tipo={"Loading"} />
+                <Image imagem={Loading} tipo={"Loading"} /> 
             </View>
         </View>
-
     </>
 }
 

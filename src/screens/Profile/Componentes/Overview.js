@@ -1,14 +1,15 @@
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import Imagem from "../../../../componentes/Imagem";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
+import Image from "../../../components/Image";
+import Texto from "../../../components/Texto";
 
-export default function VisaoGeral({ perfil, nome }) {
+export default function Overview({ perfil, nome }) {
     return <>
         <TouchableOpacity style={estilos.contorno}>
-            <Imagem imagem={{ uri: perfil }} tipo={"Perfil"} />
+            <Image imagem={{ uri: perfil }} tipo={"Perfil"} />
         </TouchableOpacity>
         <View style={{ alignItems: "center" }}>
-            <Text style={estilos.nome}>{nome}</Text>
+            <Texto style={estilos.nome}>{nome}</Texto>
         </View>
     </>
 }

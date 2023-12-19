@@ -1,4 +1,4 @@
-import React from "react";
+/* import React from "react";
 import { View } from "react-native";
 import PerfilFoto from '../../../../../assets/exemplos/PerfilFoto.png';
 import maos from "../../../../../assets/exemplos/perfilMaosUnidas.png";
@@ -12,4 +12,4 @@ export default function Comentario({ nome, tempo, comentario, organizadora }) {
         <Organizadora image={maos} nome={organizadora} />
         <Linha />
     </View>
-}
+} */

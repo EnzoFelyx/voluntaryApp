@@ -1,30 +1,33 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { perfil } from "../../../../../config/text.json";
-import PerfilOption from "../../../../componentes/PerfilOption";
+import { perfil } from "../../../../config/text.json";
+import Option from "../../../components/Option";
 
-export default function Interativos() {
+export default function Interactions() {
 
     const navigation = useNavigation();
     const { criados, posts, email, senha, config } = perfil.conta.botoes
 
     return (
         <>
-            <PerfilOption
+            <Option
                 texto={criados}
                 acao={() => {/*  navigation.navigate('Meus Eventos Criados') */ }}
             />
-            <PerfilOption
+            <Option
                 texto={posts}
                 acao={() => { navigation.navigate('Meus Posts') }}
             />
-            <PerfilOption texto={email}
+            <Option
+                texto={email}
                 acao={() => { navigation.navigate('Email') }}
             />
-            <PerfilOption texto={senha}
+            <Option
+                texto={senha}
                 acao={() => { navigation.navigate('Mudar Senha') }}
             />
-            <PerfilOption texto={config} />
+            <Option
+                texto={config} />
         </>
     );
 }
