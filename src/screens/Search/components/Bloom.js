@@ -1,16 +1,15 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import { FlatList, SafeAreaView, StyleSheet, TextInput, View } from "react-native";
-import pessoas from "../../../../../assets/buscar/pessoas.png";
-import { buscar } from "../../../../../config/text.json";
-import Botao from '../../../../componentes/Botao';
-import Caixa from '../../../../componentes/Caixa';
-import Imagem from "../../../../componentes/Imagem";
-import Titulo from '../../../../componentes/Titulo';
-import Texto from "../../../../componentes/texto";
-import useBusca from "../../../../hooks/useBusca";
+import pessoas from "../../../../assets/buscar/pessoas.png";
+import { buscar } from "../../../../config/text.json";
+import Button from '../../../components/Button';
+import Image from "../../../components/Image";
+import Title from '../../../components/Title';
+import Texto from "../../../components/texto";
+import useBusca from "../../../hooks/useBusca";
 
-export default function Busca() {
+export default function Bloom() {
 
     const navigation = useNavigation();
     const { search, subtitle } = buscar.corpo
@@ -19,7 +18,7 @@ export default function Busca() {
 
     return (
         <SafeAreaView>
-            <View style={Caixa.caixa}>
+            <View style={estilos.caixa}>
                 <TextInput
                     style={estilos.caixaInput}
                     setNomeEvento={''}
@@ -35,13 +34,13 @@ export default function Busca() {
                 <View>
                     {lista.length > 0 && (
                         <>
-                            <Titulo entrada={subtitle} tipo={"Titulo"} />
+                            <Title entrada={subtitle} tipo={"Titulo"} />
                             <FlatList
                                 data={lista}
                                 keyExtractor={(item) => item.id.toString()}
                                 renderItem={({ item }) => (
                                     <View>
-                                        <Botao
+                                        <Button
                                             tipo={3}
                                             texto={
                                                 <View style={{ flexDirection: "row", paddingLeft: 10 }}>
@@ -59,7 +58,7 @@ export default function Busca() {
                                                     marginRight: 20,
                                                 }}
                                             >
-                                                <Imagem imagem={pessoas} tipo={"icone"} />
+                                                <Image imagem={pessoas} tipo={"icone"} />
                                                 <Texto style={estilos.contador}>{item.contPessoas}</Texto>
                                             </View>
                                         </View>

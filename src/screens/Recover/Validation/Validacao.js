@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 import { SafeAreaView } from 'react-native';
 import Background from '../../../componentes/Background';
 import Cabecalho from '../../../componentes/Cabecalho';
@@ -13,4 +13,4 @@ export default function Mudar_Senha({titulo, corpo}) {
             </Background>
         </Background>
     </SafeAreaView>
-}
+} */

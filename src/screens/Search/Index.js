@@ -2,9 +2,9 @@ import { React } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { buscar } from "../../../../config/text.json";
 import Background from '../../../componentes/Background';
-import Cabecalho from '../../../componentes/Cabecalho';
+import Top from '../../../componentes/Cabecalho';
 import useTopo from '../../../hooks/useTopo';
-import Busca from './componentes/Busca';
+import Bloom from './components/Bloom';
 
 export default function Pesquisar_eventos() {
 
@@ -14,9 +14,9 @@ export default function Pesquisar_eventos() {
   return (
     <SafeAreaView style={{ height: "100%" }}>
       <Background back={"fundo"}>
-        <Cabecalho Foto={{ uri: dadosDoUsuario.perfil }} titulo={titulo} />
+        <Top Foto={{ uri: dadosDoUsuario.perfil }} titulo={titulo} />
         <Background back={"quadrado2"}>
-          <Busca />
+          <Bloom />
         </Background>
       </Background>
     </SafeAreaView>

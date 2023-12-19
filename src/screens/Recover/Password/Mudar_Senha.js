@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 import { ScrollView } from 'react-native';
 import { perfil } from "../../../../config/text.json";
 import Background from '../../../componentes/Background';
@@ -17,4 +17,4 @@ export default function Validacao() {
             </Background>
         </ScrollView>
     </Background>
-}
+} */

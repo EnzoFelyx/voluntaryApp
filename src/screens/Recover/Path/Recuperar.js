@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 import { ScrollView } from 'react-native';
 import fotoRecuperar from '../../../../assets/loginTelas/recuperar.png';
 import Background from '../../../componentes/Background';
@@ -15,3 +15,4 @@ export default function Recuperar() {
         </Background>
     </ScrollView>
 }
+ */
