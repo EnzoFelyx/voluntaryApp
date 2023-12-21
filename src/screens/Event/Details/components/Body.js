@@ -6,9 +6,11 @@ import Title from '../../../../components/Title';
 import Texto from "../../../../components/texto";
 import useTop from '../../../../hooks/useTop';
 import { criarAmrEvento } from '../../../../services/requests/eventos';
+import { details } from '../../../../../config/text.json'
 
 export default function Corpo({ descricao, participantes, idEvento }) {
 
+  const title = details.title;
   const dadosDoUsuario = useTop();
   const navigation = useNavigation()
 
@@ -22,7 +24,7 @@ export default function Corpo({ descricao, participantes, idEvento }) {
   };
 
   return <>
-    <Title entrada={'Descrição'} tipo={"Titulo"} />
+    <Title entrada={title} tipo={"Titulo"} />
     <View style={{ marginTop: 12, }}>
       <Texto>{descricao}</Texto>
     </View>

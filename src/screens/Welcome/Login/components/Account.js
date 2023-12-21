@@ -11,8 +11,8 @@ import { Login } from "../../../../services/requests/usuario";
 export default function Conta() {
 
   const navigation = useNavigation();
-  const { titulo, emailLeg, senhaLeg, entrar } = login.conta;
-  const { error, logado } = login.alertas;
+  const { title, emailLeg, passLeg, join } = login.account;
+  const { error, logged } = login.warnings;
 
   const [email, setEmail] = useState("");
   const [password, setSenha] = useState("");
@@ -21,7 +21,7 @@ export default function Conta() {
     const resultado = await Login(email, password);
     if (resultado) {
       await AsyncStorage.setItem("id", String(resultado.id))
-      navigation.replace(logado);
+      navigation.replace(logged);
 
     } else {
       Alert.alert(error);
@@ -29,10 +29,10 @@ export default function Conta() {
   }
 
   return <>
-    <Title entrada={titulo} tipo={"Titulo"} />
+    <Title entrada={title} tipo={"Titulo"} />
     <Input entrada={emailLeg} valor={email} onChangeText={setEmail} />
-    <Input entrada={senhaLeg} senha={true} valor={password} onChangeText={setSenha} />
-    <Button texto={entrar} tipo={1} acao={logar} />
+    <Input entrada={passLeg} senha={true} valor={password} onChangeText={setSenha} />
+    <Button texto={join} tipo={1} acao={logar} />
 
   </>
 }

@@ -7,10 +7,14 @@ import Top from '../../components/Top';
 import { pegarEventos, pegarEventosInscritos } from '../../services/requests/eventos';
 import { pegarDadosUsuario } from '../../services/requests/usuario';
 import List from './components/List';
+import { subscribed } from '../../../config/text.json'
 
 import { useNavigation } from "@react-navigation/native";
 
-export default function SeusEventos({ topo, interacoes }) {
+export default function SeusEventos({ interacoes }) {
+
+  const title = subscribed.title
+
   const [dadosEventos, setDadosEventos] = useState({});
   const [dadosAmarra, setDadosAmarra] = useState({});
   const [dadosDoUsuario, setDadosDoUsuario] = useState({});
@@ -72,7 +76,7 @@ export default function SeusEventos({ topo, interacoes }) {
     <SafeAreaView style={{ flex: 1 }}>
       <StatusBar />
       <Background back="fundo">
-        <Top Foto={{ uri: dadosDoUsuario.perfil }} titulo={topo.titulo} icone={false} />
+        <Top Foto={{ uri: dadosDoUsuario.perfil }} titulo={title} icone={false} />
         <Background back="quadrado2">
           <View style={{ flex: 1 }}>
             <List {...interacoes} dadosEventos={dadosEventos} />

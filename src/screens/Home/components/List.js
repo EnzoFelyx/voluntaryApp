@@ -13,18 +13,18 @@ export default function List({
     ongs: Ongs
 }) {
 
-    const { subtitulo, novidades, eventos, destaques, ongs } = home.corpo
+    const { subtitle, news, events, highlights, ongs } = home.corpo
     const dadosEventos = useEventos();
     const dadosDoUsuario = useUsuarios();
     const dadosOng = UseOngs();
 
     return (
         <View style={{ flex: 1 }}>
-            <Title entrada={subtitulo} tipo={"subtitle"} />
-            <Texto style={estilos.subtitulo}>{novidades}</Texto>
+            <Title entrada={subtitle} tipo={"subtitle"} />
+            <Texto style={estilos.subtitulo}>{news}</Texto>
             <Line />
-            <Trends dadosEventos={dadosEventos} titulo={eventos} />
-            <Highlights dadosDoUsuario={dadosDoUsuario} titulo={destaques} />
+            <Trends dadosEventos={dadosEventos} titulo={events} />
+            <Highlights dadosDoUsuario={dadosDoUsuario} titulo={highlights} />
             <Ongs dadosOng={dadosOng} titulo={ongs} />
         </View>
     );

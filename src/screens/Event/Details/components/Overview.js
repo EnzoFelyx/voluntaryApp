@@ -15,7 +15,6 @@ export default function Overview({
 }) {
 
     return <>
-        <Texto style={estilos.evento}>{"Evento"}</Texto>
         <View style={estilos.titulo}>
             <Title entrada={nome} tipo={"Titulo"} />
         </View>

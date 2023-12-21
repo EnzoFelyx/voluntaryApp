@@ -12,12 +12,12 @@ import Trends from './components/Trends';
 export default function Home() {
 
   const dadosDoUsuario = useTopo();
-  const titulo = home.titulo
+  const title = home.title
 
   return (
     <ScrollView>
       <Background back={"fundo"}>
-        <Top Foto={{ uri: dadosDoUsuario.perfil }} titulo={titulo} />
+        <Top Foto={{ uri: dadosDoUsuario.perfil }} titulo={title} />
         <Background back={"quadrado2"}>
           <List highlights={Highlights} trends={Trends} ongs={Ongs} />
         </Background>

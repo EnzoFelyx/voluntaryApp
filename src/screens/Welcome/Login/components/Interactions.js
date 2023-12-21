@@ -9,7 +9,7 @@ import Texto from '../../../../components/texto';
 export default function Interacoes() {
 
     const navigation = useNavigation();
-    const { convidado, ou, pergunta, registrar } = login.interacoes;
+    const { guest, or, ask, register } = login.interactions;
 
     function handleResultadoLogin(resultado) {
         setResultadoLogin(resultado);
@@ -21,12 +21,12 @@ export default function Interacoes() {
                 <Texto style={estilos.esqueceu}>esqueceu</Texto>
             </TouchableOpacity> */}
 
-            <Line texto={ou} />
-            <Button texto={convidado} tipo={2} />
+            <Line texto={or} />
+            <Button texto={guest} tipo={2} />
             <View style={estilos.registra}>
-                <Texto style={estilos.pergunta} >{pergunta}</Texto>
+                <Texto style={estilos.pergunta} >{ask}</Texto>
                 <TouchableOpacity onPress={() => { navigation.navigate('Registrar') }}>
-                    <Texto style={estilos.registrar} >{registrar}</Texto>
+                    <Texto style={estilos.registrar} >{register}</Texto>
                 </TouchableOpacity>
             </View>
         </>
