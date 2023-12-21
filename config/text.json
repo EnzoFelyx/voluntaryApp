@@ -1,4 +1,7 @@
 {
+    "tabBar":{
+        
+    },
     "login": {
         "conta": {
             "titulo": "Login",

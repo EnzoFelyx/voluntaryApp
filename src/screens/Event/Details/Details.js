@@ -6,7 +6,7 @@ import Interactions from './components/Interactions';
 import Overview from './components/Overview';
 import Topo from './components/Topo';
 
-export default function Detalhes_eventos({ route }) {
+export default function Details({ route }) {
 
     const { item } = route.params;
     const [imagem, setImagem] = useState(item.imagemEvento);

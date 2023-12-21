@@ -1,10 +1,10 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
-import BuscarRotas from "./Rotas_buscar";
-import HomeRotas from "./Rotas_home";
+import Search_Routes from "./Search_Routes";
+import Home_Routes from "./Home_Routes";
 import Perfilrotas from "./Rotas_perfil";
-import SeusEventosRotas from "./Rotas_seus_eventos";
+import Subscribed_Routes from "./Subscribed_Routes";
 
 const Tab = createBottomTabNavigator();
 
@@ -44,7 +44,7 @@ export default function Rotas() {
                         size={focused ? 35 : 30}
                         style={{ flex: 1, marginTop: 5 }} />
                 )
-            }} component={SeusEventosRotas} />
+            }} component={Subscribed_Routes} />
 
         <Tab.Screen name="Home"
             options={{
@@ -55,7 +55,7 @@ export default function Rotas() {
                         size={focused ? 35 : 30}
                         style={{ flex: 1, marginTop: 5 }} />
                 )
-            }} component={HomeRotas} />
+            }} component={Home_Routes} />
 
         <Tab.Screen name="Buscar"
             options={{
@@ -67,7 +67,7 @@ export default function Rotas() {
                         style={{ flex: 1, marginTop: 5 }} />
                 )
             }}
-            component={BuscarRotas} />
+            component={Search_Routes} />
 
         <Tab.Screen name="Perfil"
             options={{

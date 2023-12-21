@@ -7,7 +7,7 @@ import Criar_mock from '../../../mocks/Evento_Mocks/Criar_mock';
 import Topo from './componentes/Topo';
 
 
-export default function Criar_eventos() {
+export default function NewEvent() {
     return (
         <ScrollView contentContainerStyle={{ height: "100%" }}>
             <KeyboardAvoidingView

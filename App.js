@@ -1,7 +1,7 @@
 import { Quicksand_400Regular, Quicksand_700Bold, useFonts } from '@expo-google-fonts/quicksand';
 import React from 'react';
 import { Dimensions, SafeAreaView, StatusBar, StyleSheet, View } from 'react-native';
-import RotasLogin from './src/rotas/Rotas_login';
+import Login_Routes from './src/routes/Login_Routes'
 const window = Dimensions.get('window');
 
 export default function App() {
@@ -19,7 +19,7 @@ export default function App() {
     <>
       <SafeAreaView style={estilo.container}>
         <StatusBar backgroundColor={'#E4F4CD'} barStyle={'dark-content'}/>
-        <RotasLogin />
+        <Login_Routes />
       </SafeAreaView>
       <SafeAreaView style={estilo.barradeBaixo} />
     </>

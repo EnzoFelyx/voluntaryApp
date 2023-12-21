@@ -7,7 +7,7 @@ import Title from '../../../components/Title';
 import Top from '../../../components/Top';
 import Dados from './Componentes/Dados';
 
-export default function Registra() {
+export default function Index() {
 
     const titulo = registrar.titulo
 
