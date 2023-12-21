@@ -1,9 +1,9 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
-import Icone from './Icone';
-import Imagem from './Imagem';
-import Titulo from './Titulo';
+import Icon from './Icon';
+import Image from './Image';
+import Title from './Title';
 
 export default function Cabecalho({ titulo = null, Foto = null, icone = false, fotoEstilo = null }) {
 
@@ -12,9 +12,9 @@ export default function Cabecalho({ titulo = null, Foto = null, icone = false, f
 
     if (Foto != null && icone == false) {
         return <SafeAreaView style={estilos.topo}>
-            <Titulo entrada={titulo} tipo={"Titulo"} />
+            <Title entrada={titulo} tipo={"Titulo"} />
             <View style={{ flex: 1 }}>
-                <Imagem imagem={Foto} tipo={'perfilFoto'} />
+                <Image imagem={Foto} tipo={'perfilFoto'} />
             </View>
         </SafeAreaView>
     }
@@ -22,9 +22,9 @@ export default function Cabecalho({ titulo = null, Foto = null, icone = false, f
     else if (Foto != null && icone == true) {
         return <SafeAreaView>
             <View style={{ marginTop: 16 }}>
-                <Imagem imagem={Foto} tipo={fotoEstilo} />
+                <Image imagem={Foto} tipo={fotoEstilo} />
                 <View style={estilos.voltarImagem}>
-                    <Icone
+                    <Icon
                         icone={"chevron-left"}
                         interativo={true}
                         tamanho={40}
@@ -38,14 +38,14 @@ export default function Cabecalho({ titulo = null, Foto = null, icone = false, f
     else {
         return <SafeAreaView style={estilos.voltar}>
 
-            <Icone
+            <Icon
                 icone={"chevron-left"}
                 interativo={true}
                 tamanho={40}
                 acao={() => { navigation.goBack() }}
             />
 
-            <Titulo entrada={titulo} tipo={"Titulo"} />
+            <Title entrada={titulo} tipo={"Titulo"} />
         </SafeAreaView>
     }
 }

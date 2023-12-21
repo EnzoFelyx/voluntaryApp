@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
 import loginImagem from '../../../../assets/loginTelas/login.png';
-import Background from '../../../componentes/Background';
+import Background from '../../../components/Background';
 import Image from '../../../components/Image';
 import Account from './components/Account';
 import Interactions from './components/Interactions';

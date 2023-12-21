@@ -5,7 +5,7 @@ import { registrar } from "../../../../config/text.json";
 import Background from '../../../components/Background';
 import Title from '../../../components/Title';
 import Top from '../../../components/Top';
-import Dados from './Componentes/Dados';
+import Dados from './components/Dados';
 
 export default function Index() {
 

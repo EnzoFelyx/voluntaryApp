@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import Texto from '../componentes/texto';
+import Texto from '../components/texto';
 
 export default function Titulo({ entrada, tipo }) {
 

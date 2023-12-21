@@ -1,15 +1,16 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
-import Imagem from './Imagem';
+import Image from './Image';
 import { useNavigation } from '@react-navigation/native';
+import Texto from './texto';
 
 export default function Organizadora({ image, nome,acao }) {
 
 
 
     return <TouchableOpacity style={estilos.organizadora} onPress={acao}>
-        <Text style={estilos.nome}>{nome}</Text>
-        <Imagem imagem={image} tipo={"fotoMenor"}/>
+        <Texto style={estilos.nome}>{nome}</Texto>
+        <Image imagem={image} tipo={"fotoMenor"}/>
     </TouchableOpacity>
 }
 

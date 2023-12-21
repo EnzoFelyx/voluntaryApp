@@ -1,13 +1,13 @@
 import React from "react";
-import Titulo from './Titulo';
-import Imagem from './Imagem';
+import Titulo from './Title';
+import Image from './Image';
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Texto from "./texto";
 
 export default function Comentar({ UsuarioFoto, nome, data, comentario }) {
     return <>
         <TouchableOpacity style={{ flexDirection: "row", marginTop: 8, }}>
-            <Imagem imagem={UsuarioFoto} tipo={'Comentario'} />
+            <Image imagem={UsuarioFoto} tipo={'Comentario'} />
             <View style={estilos.foto}>
                 <Text style={estilos.usuario}>{nome}</Text>
                 <Text style={estilos.ago}>{data}</Text>

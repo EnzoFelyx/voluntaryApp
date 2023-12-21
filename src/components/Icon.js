@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
-import Texto from '../componentes/texto';
+import Texto from '../components/texto';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default function Icone({ icone, tamanho, tipo = null, texto = null, interativo = true, acao }) {

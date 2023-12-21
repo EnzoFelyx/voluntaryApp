@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
-import Texto from '../componentes/texto';
+import Texto from '../components/texto';
 import { useNavigation } from '@react-navigation/native';
 
 export default function Botao({ texto, tipo, acao }) {
