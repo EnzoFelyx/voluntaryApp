@@ -46,13 +46,13 @@ export default function Dados() {
             <Image imagem={Default} tipo={"RegistrarFoto"} />
         </TouchableOpacity>
         <View style={{ marginBottom: 16, }}>
-            <Input entrada={name} valor={dados[nome]} onChangeText={(valor) => atualizarDados(nome, valor)} />
+            <Input entrada={name} valor={dados[name]} onChangeText={(valor) => atualizarDados(name, valor)} />
             <Input entrada={email} valor={dados[email]} onChangeText={(valor) => atualizarDados(email, valor)} />
             <Input entrada={cpf} valor={dados[cpf]} onChangeText={(valor) => atualizarDados(cpf, valor)} />
             {/* <Input entrada={social} valor={dados[social]} onChangeText={(valor) => atualizarDados(social, valor)} /> 
             quando for cnpj (fazer verificação*/}
-            <Input entrada={password} valor={dados[senha]} senha={true} onChangeText={(valor) => atualizarDados(senha, valor)} />
-            <Input entrada={confirm} valor={dados[confirm]} senha={true} onChangeText={(valor) => atualizarDados(confirmar, valor)} />
+            <Input entrada={password} valor={dados[password]} senha={true} onChangeText={(valor) => atualizarDados(password, valor)} />
+            <Input entrada={confirm} valor={dados[confirm]} senha={true} onChangeText={(valor) => atualizarDados(confirm, valor)} />
             <Button texto={button} tipo={1} acao={criar} />
         </View>
     </>

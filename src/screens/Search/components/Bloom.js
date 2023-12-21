@@ -12,7 +12,7 @@ import useSearch from "../../../hooks/useSearch";
 export default function Bloom() {
 
     const navigation = useNavigation();
-    const { search, subtitle } = search.body
+    const { searchFor, subtitle } = search.body
     const [nomeDoEvento, setNomeEvento] = useState('');
     const lista = useSearch(nomeDoEvento);
 
@@ -22,7 +22,7 @@ export default function Bloom() {
                 <TextInput
                     style={estilos.caixaInput}
                     setNomeEvento={''}
-                    placeholder={search}
+                    placeholder={searchFor}
                     autoCapitalize="none"
                     value={nomeDoEvento}
                     onChangeText={setNomeEvento}

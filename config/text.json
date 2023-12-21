@@ -52,7 +52,7 @@
     "search": {
         "title": "Pesquisar",
         "body": {
-            "search": "Digite aqui...",
+            "searchFor": "Digite aqui...",
             "subtitle": "Eventos:"
         }
     },

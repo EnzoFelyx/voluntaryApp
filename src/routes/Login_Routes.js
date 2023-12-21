@@ -28,7 +28,7 @@ export default function Login_Routes() {
                     {() => <Path />}
                 </Stack.Screen> */}
 
-                <Stack.Screen name="Register">
+                <Stack.Screen name="Registrar">
                     {() => <Register />}
                 </Stack.Screen>
 

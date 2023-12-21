@@ -13,7 +13,7 @@ export default function List({
     ongs: Ongs
 }) {
 
-    const { subtitle, news, events, highlights, ongs } = home.corpo
+    const { subtitle, news, events, highlights, ongs } = home.body
     const dadosEventos = useEventos();
     const dadosDoUsuario = useUsuarios();
     const dadosOng = UseOngs();
