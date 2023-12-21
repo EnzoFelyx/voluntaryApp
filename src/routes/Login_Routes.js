@@ -1,15 +1,15 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
-import Login from "../telas/Login_Telas/Login/Login";
-import Recuperar from "../telas/Login_Telas/Recuperar/Recuperar";
-import Registra from "../telas/Login_Telas/Registrar/Registra";
-import Mudar_Senha from "../telas/Login_Telas/Validacao/Validacao";
+import Login from '../screens/Welcome/Login/Login';
+import Path from '../screens/Recover/Path'
+import Register from '../screens/Welcome/Register';
+import Password from '../screens/Recover/Password';
 import Rotas from "./Rotas";
 
 const Stack = createNativeStackNavigator();
 
-export default function RotasLogin() {
+export default function Login_Routes() {
     return (
         <NavigationContainer >
             <Stack.Navigator
@@ -20,16 +20,16 @@ export default function RotasLogin() {
                     {() => <Login />}
                 </Stack.Screen>
 
-                <Stack.Screen name="Mudar Senha">
-                    {() => <Mudar_Senha />}
+{/*                 <Stack.Screen name="Password">
+                    {() => <Password />}
                 </Stack.Screen>
 
-                <Stack.Screen name="Recuperar">
-                    {() => <Recuperar />}
-                </Stack.Screen>
+                <Stack.Screen name="Path">
+                    {() => <Path />}
+                </Stack.Screen> */}
 
-                <Stack.Screen name="Registrar">
-                    {() => <Registra />}
+                <Stack.Screen name="Register">
+                    {() => <Register />}
                 </Stack.Screen>
 
                 <Stack.Screen name="Logado" component={Rotas} />

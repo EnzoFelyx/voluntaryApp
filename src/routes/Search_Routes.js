@@ -1,20 +1,20 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
-import Detalhes_eventos from "../telas/Evento_Telas/Detalhes_eventos/Detalhes_eventos";
-import Pesquisar_eventos from "../telas/Evento_Telas/Pesquisar_eventos/Pesquisar_eventos";
+import Details from '../screens/Event/Details'
+import Search from '../screens/Search'
 
 const Stack = createNativeStackNavigator();
 
-export default function BuscarRotas() {
+export default function Search_Routes() {
     return (<Stack.Navigator
         screenOptions={{
             headerShown: false
         }}
     >
         <Stack.Screen name='StackBuscar'>
-            {() => <Pesquisar_eventos />}
+            {() => <Search />}
         </Stack.Screen>
-        <Stack.Screen name="Detalhes" component={Detalhes_eventos} />
+        <Stack.Screen name="Detalhes" component={Details} />
     </Stack.Navigator>
     )
 }

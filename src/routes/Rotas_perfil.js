@@ -5,7 +5,7 @@ import Email from "../telas/Perfil_Telas/Mudar_Email/Email";
 import Perfil from "../telas/Perfil_Telas/Perfil/Perfil";
 
 import Pesquisar_eventos_mocks from "../mocks/Perfil_Mocks/Pesquisar_eventos";
-import Pesquisar_eventos from "../telas/Perfil_Telas/Pesquisar_eventos/Pesquisar_eventos";
+import Search from '../screens/Search'
 
 import Posts_mocks from "../mocks/Perfil_Mocks/Posts_mocks";
 import Meus_Posts from "../telas/Perfil_Telas/Meus_Posts/Meus_Posts";
@@ -24,7 +24,7 @@ export default function Perfilrotas() {
         </Stack.Screen>
 
         <Stack.Screen name='Meus Eventos Criados'>
-            {() => <Pesquisar_eventos {...Pesquisar_eventos_mocks} />}
+            {() => <Search {...Pesquisar_eventos_mocks} />}
         </Stack.Screen>
 
         <Stack.Screen name='Meus Posts'>

@@ -2,11 +2,11 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { FlatList, ScrollView, Text, TouchableOpacity, View } from "react-native";
-import Button from "../../../../components/Button";
-import Image from "../../../../components/Image";
-import Line from "../../../../components/Line";
-import Organizadora from "../../../../components/Organizadora";
-import Texto from "../../../../components/texto";
+import Button from "../../../components/Button";
+import Image from "../../../components/Image";
+import Line from "../../../components/Line";
+import Owner from "../../../components/Owner";
+import Texto from "../../../components/texto";
 
 export default function Lista({ mensagem, dadosEventos }) {
 
@@ -27,7 +27,7 @@ export default function Lista({ mensagem, dadosEventos }) {
       />
 
       <View style={{ marginTop: 12, marginRight: 16 }}>
-        <Organizadora image={{ uri: item[0].imagemCriadorEvento }} nome={item[0].criadorEvento} acao={() => navigation.navigate('PerfilCriadorEvento', { item })} />
+        <Owner image={{ uri: item[0].imagemCriadorEvento }} nome={item[0].criadorEvento} acao={() => navigation.navigate('PerfilCriadorEvento', { item })} />
       </View>
     </ScrollView>
   );
