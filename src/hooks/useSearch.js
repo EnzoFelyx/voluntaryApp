@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { buscarEvento } from "../servicos/requisicoes/eventos";
+import { buscarEvento } from "../services/requests/eventos";
 
-export default function useBusca(termoDeBusca) {
+export default function useSearch(termoDeBusca) {
     const [lista, setLista] = useState([]);
 
     const fetchData = async () => {

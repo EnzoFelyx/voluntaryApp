@@ -1,14 +1,14 @@
 import { React } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { buscar } from "../../../../config/text.json";
-import Background from '../../../componentes/Background';
-import Top from '../../../componentes/Cabecalho';
-import useTopo from '../../../hooks/useTopo';
+import { buscar } from "../../../config/text.json";
+import Background from '../../components/Background';
+import Top from '../../components/Top';
+import useTop from '../../hooks/useTop';
 import Bloom from './components/Bloom';
 
 export default function Pesquisar_eventos() {
 
-  const dadosDoUsuario = useTopo();
+  const dadosDoUsuario = useTop();
   const titulo = buscar.titulo
 
   return (

@@ -2,10 +2,10 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
 import { SafeAreaView, StatusBar, View } from 'react-native';
-import Background from '../../../components/Background';
-import Top from '../../../components/Top';
-import { pegarEventos, pegarEventosInscritos } from '../../../servicos/requisicoes/eventos';
-import { pegarDadosUsuario } from '../../../servicos/requisicoes/usuario';
+import Background from '../../components/Background';
+import Top from '../../components/Top';
+import { pegarEventos, pegarEventosInscritos } from '../../services/requests/eventos';
+import { pegarDadosUsuario } from '../../services/requests/usuario';
 import List from './components/List';
 
 import { useNavigation } from "@react-navigation/native";

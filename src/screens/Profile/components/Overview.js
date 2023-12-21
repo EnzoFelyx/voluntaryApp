@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 import Image from "../../../components/Image";
-import Texto from "../../../components/Texto";
+import Texto from "../../../components/texto";
 
 export default function Overview({ perfil, nome }) {
     return <>

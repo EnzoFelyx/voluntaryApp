@@ -4,12 +4,12 @@ import { StyleSheet, View } from "react-native";
 import Button from "../../../../components/Button";
 import Title from '../../../../components/Title';
 import Texto from "../../../../components/texto";
-import useTopo from '../../../../hooks/useTopo';
+import useTop from '../../../../hooks/useTop';
 import { criarAmrEvento } from '../../../../services/requests/eventos';
 
 export default function Corpo({ descricao, participantes, idEvento }) {
 
-  const dadosDoUsuario = useTopo();
+  const dadosDoUsuario = useTop();
   const navigation = useNavigation()
 
   async function criarAmr() {

@@ -1,14 +1,14 @@
 import React, {useState,useEffect} from "react";
 import { StyleSheet, View, KeyboardAvoidingView, Platform, SafeAreaView, TouchableOpacity } from "react-native";
-import Texto from "../../../../componentes/texto";
-import Input from "../../../../componentes/Input";
-import Botao from "../../../../componentes/Botao";
+import Texto from "../../../../components/texto";
+import Input from "../../../../components/Input";
+import Button from "../../../../components/Button";
 import CaixaSelecao from "./CaixaSelecao";
 import { MaterialIcons } from '@expo/vector-icons';
-import Icone from "../../../../componentes/Icone";
+import Icon from "../../../../components/Icon";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {criarEvento} from '../../../../servicos/requisicoes/eventos'
-import { pegarDadosUsuario } from '../../../../servicos/requisicoes/usuario'
+import {criarEvento} from '../../../../services/requests/eventos'
+import { pegarDadosUsuario } from '../../../../services/requests/usuario'
 import { Alert } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { useNavigation } from "@react-navigation/native";
@@ -149,9 +149,9 @@ export default function Topo({ titulos, interacoes }) {
         <View style={estilos.viewInput}>
           <Texto>{titulos.fotoCapa}</Texto>
           <View style ={estilos.viewInput}/> 
-          <Botao tipo={7} texto={
+          <Button tipo={7} texto={
             <View style={estilos.Capa}>
-              <Icone icone={"plus-circle-outline"} tipo={"adicionarCapa"} tamanho={36} />
+              <Icon icone={"plus-circle-outline"} tipo={"adicionarCapa"} tamanho={36} />
             </View>
             
           } acao={pickImage}/>
@@ -182,7 +182,7 @@ export default function Topo({ titulos, interacoes }) {
         </TouchableOpacity>
 */}
         <View style={estilos.posicao}>
-        <Botao tipo={2} texto={'Criar Evento'}
+        <Button tipo={2} texto={'Criar Evento'}
         acao={criar} />
         </View>            
   

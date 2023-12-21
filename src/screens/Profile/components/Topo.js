@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import { perfil } from "../../../..config/text.json";
+import { perfil } from "../../../../config/text.json";
 import Icon from "../../../components/Icon";
 import Title from '../../../components/Title';
 

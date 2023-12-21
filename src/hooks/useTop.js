@@ -1,8 +1,8 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect, useState } from 'react';
-import { pegarDadosUsuario } from '../servicos/requisicoes/usuario';
+import { pegarDadosUsuario } from '../services/requests/usuario';
 
-export default function useTopo() {
+export default function useTop() {
 
     const [dadosDoUsuario, setDadosDoUsuario] = useState({});
 

@@ -7,14 +7,14 @@ import Button from '../../../components/Button';
 import Image from "../../../components/Image";
 import Title from '../../../components/Title';
 import Texto from "../../../components/texto";
-import useBusca from "../../../hooks/useBusca";
+import useSearch from "../../../hooks/useSearch";
 
 export default function Bloom() {
 
     const navigation = useNavigation();
     const { search, subtitle } = buscar.corpo
     const [nomeDoEvento, setNomeEvento] = useState('');
-    const lista = useBusca(nomeDoEvento);
+    const lista = useSearch(nomeDoEvento);
 
     return (
         <SafeAreaView>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { pegarDadosTodasOngs, pegarDadosTodosUsuarios, pegarTodosEventos } from '../servicos/requisicoes/home';
+import { pegarDadosTodasOngs, pegarDadosTodosUsuarios, pegarTodosEventos } from '../services/requests/home';
 
 export function useEventos() {
 

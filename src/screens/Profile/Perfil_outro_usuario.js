@@ -7,10 +7,10 @@ import Meu_elo from './Componentes/Meu_elo';
 import Voltar from '../../../componentes/Voltar';
 import { useRoute } from '@react-navigation/native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { pegarDadosUsuario } from '../../../servicos/requisicoes/usuario';
+/* import { pegarDadosUsuario } from '../../../servicos/requisicoes/usuario';
 import { pegarEventosInscritos } from '../../../servicos/requisicoes/eventos';
 import { pegarEventos } from '../../../servicos/requisicoes/eventos';
-
+ */
 
 export default function Perfil_outro_usuario({ route }) {/* 
     const { item } = route.params;

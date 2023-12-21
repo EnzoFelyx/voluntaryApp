@@ -1,10 +1,10 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { FlatList, View } from 'react-native';
-import Button from '../../../../components/Button';
-import Image from "../../../../components/Image";
-import Owner from '../../../../components/Owner';
-import Texto from '../../../../components/texto';
+import Button from '../../../components/Button';
+import Image from "../../../components/Image";
+import Owner from '../../../components/Owner';
+import Texto from '../../../components/texto';
 import estilos from './estilos';
 
 export default function Ongs({ dadosOng, titulo }) {
