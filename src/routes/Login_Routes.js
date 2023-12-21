@@ -5,7 +5,7 @@ import Login from '../screens/Welcome/Login/Login';
 import Path from '../screens/Recover/Path/Path'
 import Register from '../screens/Welcome/Register/Register';
 import Password from '../screens/Recover/Password/Password';
-import Rotas from "./Rotas";
+import Routes from "./Routes";
 
 const Stack = createNativeStackNavigator();
 
@@ -32,7 +32,7 @@ export default function Login_Routes() {
                     {() => <Register />}
                 </Stack.Screen>
 
-                <Stack.Screen name="Logado" component={Rotas} />
+                <Stack.Screen name="Logado" component={Routes} />
 
             </Stack.Navigator>
         </NavigationContainer>

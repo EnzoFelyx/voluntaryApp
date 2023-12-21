@@ -3,12 +3,12 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
 import Search_Routes from "./Search_Routes";
 import Home_Routes from "./Home_Routes";
-import Perfilrotas from "./Rotas_perfil";
+import Profile_Routes from "./Profile_Routes";
 import Subscribed_Routes from "./Subscribed_Routes";
 
 const Tab = createBottomTabNavigator();
 
-export default function Rotas() {
+export default function Routes() {
 
     return <Tab.Navigator
         screenOptions={{
@@ -78,7 +78,7 @@ export default function Rotas() {
                         size={focused ? 35 : 30}
                         style={{ flex: 1, marginTop: 5 }} />
                 )
-            }} component={Perfilrotas} />
+            }} component={Profile_Routes} />
 
     </Tab.Navigator>
 }

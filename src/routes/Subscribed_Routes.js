@@ -1,8 +1,8 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
-import NewEvent from '../screens/Event/NewEvent'
-import Details from '../screens/Event/Details'
-import Subscribed from '../screens/Subscribed'
+import NewEvent from '../screens/Event/NewEvent/NewEvent'
+import Details from '../screens/Event/Details/Details'
+import Subscribed from '../screens/Subscribed/Subscribed'
 /* import Perfil_outro_usuario from "../telas/Perfil_Telas/Perfil/Perfil_outro_usuario"; */
 
 const Stack = createNativeStackNavigator();

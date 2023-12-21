@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
-import Details from '../screens/Event/Details'
-import Search from '../screens/Search'
+import Details from '../screens/Event/Details/Details'
+import Search from '../screens/Search/Search'
 
 const Stack = createNativeStackNavigator();
 
