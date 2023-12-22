@@ -1,9 +1,24 @@
-import React from 'react';
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
-import Texto from '../components/texto';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import React from 'react';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 
-export default function Icone({ icone, tamanho, tipo = null, texto = null, interativo = true, acao }) {
+export default function Icon({ familia, icone, tipo, interativo = true, cor, acao = null }) {
+
+    const ObterFamiliaIcone = (familia) => {
+        switch (familia) {
+
+            case 'Fontisto':
+                return Fontisto;
+
+            case 'Feather':
+                return Feather;
+
+            default:
+                return MaterialCommunityIcons;
+        }
+    }
+
+    const FamiliaIcone = ObterFamiliaIcone(familia);
 
     const tipoIconeEstilo = (tipo) => {
         switch (tipo) {
@@ -41,21 +56,15 @@ export default function Icone({ icone, tamanho, tipo = null, texto = null, inter
                     estilus: estilos.info,
                 }
                 break;
-
-            case "perfilOption":
-                return {
-                    estilus: estilos.perfilOption,
-                }
-                break;
-
-            case "pesquisa":
-                return {
-                    estilus: estilos.pesquisa,
-                }
-
+        
             case "mais":
                 return {
                     estilus: estilos.mais,
+                }
+
+            case "option":
+                return {
+                    estilus: estilos.option,
                 }
 
             default:
@@ -68,19 +77,11 @@ export default function Icone({ icone, tamanho, tipo = null, texto = null, inter
 
     const estiloIcone = tipoIconeEstilo(tipo);
 
-    if (interativo == true) {
-
-        return <TouchableOpacity onPress={acao} style={estiloIcone.estilus} >
-            <MaterialCommunityIcons name={icone} size={tamanho} color="black" style={{ marginRight: 8 }} />
-            <Texto>{texto}</Texto>
-        </TouchableOpacity>
-    }
-
-    else {
-        return <MaterialCommunityIcons name={icone} size={tamanho} color="black" style={estiloIcone.estilus} />
-        /*           <Texto>{texto}</Texto> */
-    }
+    return <TouchableOpacity disabled={!interativo} onPress={acao} >
+        <FamiliaIcone name={icone} style={estiloIcone.estilus} color={cor} />
+    </TouchableOpacity>
 }
+
 
 const estilos = StyleSheet.create({
 
@@ -95,9 +96,8 @@ const estilos = StyleSheet.create({
     },
 
     perfil: {
-        marginLeft: "auto",
         marginRight: 24,
-        marginTop: 4,
+        fontSize: 30,
     },
 
     adicionarCapa: {
@@ -116,6 +116,10 @@ const estilos = StyleSheet.create({
         marginRight: "auto",
         marginRight: 24,
         marginTop: 350
+    },
+
+    option: {
+        fontSize: 28,
     },
 
 

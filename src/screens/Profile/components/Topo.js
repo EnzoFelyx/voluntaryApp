@@ -13,15 +13,18 @@ export default function Topo() {
     return <>
         <View style={estilos.titulo}>
             <Title entrada={title} tipo={'Titulo'} />
-            <Icon icone={"logout"} tipo={"perfil"} tamanho={32} acao={() => { navigation.navigate('Login') }} />
+            <Icon icone={"logout"} tipo={"perfil"} acao={() => { navigation.navigate('Login') }} />
         </View>
     </>
 }
 
 const estilos = StyleSheet.create({
     titulo: {
+        alignItems: 'center',
         flexDirection: "row",
+        justifyContent: "space-between",
         marginLeft: 32,
         marginTop: 16,
+        marginBottom: 10,
     },
 })

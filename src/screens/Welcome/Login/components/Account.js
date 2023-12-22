@@ -11,6 +11,7 @@ import { Login } from "../../../../services/requests/usuario";
 export default function Conta() {
 
   const navigation = useNavigation();
+
   const { title, emailLeg, passLeg, join } = login.account;
   const { error, logged } = login.warnings;
 

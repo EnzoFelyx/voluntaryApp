@@ -17,10 +17,6 @@ export default function Interacoes() {
 
     return (
         <>
-            {/*  <TouchableOpacity onPress={() => { navigation.navigate('Mudar Senha') }}>
-                <Texto style={estilos.esqueceu}>esqueceu</Texto>
-            </TouchableOpacity> */}
-
             <Line texto={or} />
             <Button texto={guest} tipo={2} />
             <View style={estilos.registra}>

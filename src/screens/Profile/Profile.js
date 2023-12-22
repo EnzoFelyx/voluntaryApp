@@ -8,6 +8,7 @@ import Interactions from './components/Interactions';
 import Overview from './components/Overview';
 import Rank from './components/Rank';
 import Topo from './components/Topo';
+import Screen from '../../components/Screen';
 
 export default function Perfil() {
 
@@ -16,28 +17,24 @@ export default function Perfil() {
   const dadosDoUsuario = useTop();
 
   return (
-
-    <ScrollView>
-      <Background back={"fundo"}>
-
-        {rotaAtual === 'StackPerfil' ?
-          (
+    <Screen>
+      {rotaAtual === 'StackPerfil' ?
+        (
+          <Topo />
+        )
+        :
+        (
+          <>
+            <Return />
             <Topo />
-          )
-          :
-          (
-            <>
-              <Return />
-              <Topo />
-            </>
-          )}
+          </>
+        )}
 
-        <Background back={"quadrado2"}>
-          <Overview {...dadosDoUsuario} />
-          <Rank />
-          <Interactions />
-        </Background>
+      <Background back={"backTwo"}>
+        <Overview {...dadosDoUsuario} />
+        <Rank />
+        <Interactions />
       </Background>
-    </ScrollView>
+    </Screen>
   )
 }
