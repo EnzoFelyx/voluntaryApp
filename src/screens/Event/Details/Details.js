@@ -8,7 +8,7 @@ import Topo from './components/Topo';
 
 export default function Details({ route }) {
 
-    const { item } = route.params;
+    const item = route.params;
     const [imagem, setImagem] = useState(item.imagemEvento);
     const [nome, setNome] = useState(item.nomeEvento);
     const [local, setLocal] = useState(item.localEvento);

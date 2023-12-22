@@ -8,6 +8,7 @@ import Highlights from './components/Highlights';
 import List from './components/List';
 import Ongs from './components/Ongs';
 import Trends from './components/Trends';
+import Screen from '../../components/Screen';
 
 export default function Home() {
 
@@ -15,13 +16,11 @@ export default function Home() {
   const title = home.title
 
   return (
-    <ScrollView>
-      <Background back={"fundo"}>
-        <Top Foto={{ uri: dadosDoUsuario.perfil }} titulo={title} />
-        <Background back={"quadrado2"}>
-          <List highlights={Highlights} trends={Trends} ongs={Ongs} />
-        </Background>
+    <Screen>
+      <Top Foto={{ uri: dadosDoUsuario.perfil }} titulo={title} />
+      <Background back={"backTwo"}>
+        <List highlights={Highlights} trends={Trends} ongs={Ongs} />
       </Background>
-    </ScrollView>
+    </Screen>
   )
 }

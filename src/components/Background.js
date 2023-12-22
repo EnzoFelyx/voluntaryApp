@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, SafeAreaView } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 export default function Background({ children, back }) {
 
@@ -12,15 +12,15 @@ export default function Background({ children, back }) {
                 }
                 break;
 
-            case 'quadrado1':
+            case 'backOne':
                 return {
-                    background: estilos.quadrado1
+                    background: estilos.backOne
                 }
                 break;
 
-            case 'quadrado2':
+            case 'backTwo':
                 return {
-                    background: estilos.quadrado2
+                    background: estilos.backTwo
                 }
                 break;
 
@@ -31,41 +31,45 @@ export default function Background({ children, back }) {
                 break;
 
             default:
+                return {
+                    background: estilos.backOne
+                }
                 break;
         }
     }
 
     const estiloFundo = tipoFundoEstilo(back);
 
-    return <SafeAreaView style={[estiloFundo.background, { flex: 1 }]}>
+    return <View style={estiloFundo.background}>
         {children}
-    </SafeAreaView>
+    </View>
 }
 
 const estilos = StyleSheet.create({
 
     fundo: {
-        backgroundColor: '#E4F4CD',
+
     },
 
-    quadrado1: {
+    backOne: {
         marginHorizontal: 15,
         borderRadius: 32,
         paddingTop: 40,
-        paddingBottom: 40,
+        paddingBottom: 20,
         paddingLeft: 20,
         paddingRight: 20,
         backgroundColor: "#CAF38D",
     },
 
-    quadrado2: {
+    backTwo: {
         marginHorizontal: 15,
         paddingLeft: 16,
         paddingRight: 16,
         backgroundColor: '#CAF38D',
-        borderTopLeftRadius: 24,
-        borderTopRightRadius: 24,
+        borderTopLeftRadius: 32,
+        borderTopRightRadius: 32,
         paddingTop: 24,
+        flex: 1,
     },
 
     quadrado3: {

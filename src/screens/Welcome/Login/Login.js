@@ -5,16 +5,15 @@ import Background from '../../../components/Background';
 import Image from '../../../components/Image';
 import Account from './components/Account';
 import Interactions from './components/Interactions';
+import Screen from '../../../components/Screen';
 
 export default function Login() {
-    return <ScrollView style={{ flex: 1, backgroundColor: '#E4F4CD', }}>
-        <Background back={"fundo"}>
-            <Image imagem={loginImagem} tipo={"loginImagem"} />
-            <Background back={"quadrado1"}>
-                <Account />
-                <Interactions />
-            </Background>
+    return <Screen>
+        <Image imagem={loginImagem} tipo={"loginImagem"} />
+        <Background back={"backOne"}>
+            <Account />
+            <Interactions />
         </Background>
-    </ScrollView>
+    </Screen>
 }
 

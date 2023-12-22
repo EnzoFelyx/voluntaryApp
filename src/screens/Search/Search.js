@@ -5,6 +5,8 @@ import Background from '../../components/Background';
 import Top from '../../components/Top';
 import useTop from '../../hooks/useTop';
 import Bloom from './components/Bloom';
+import Screen from '../../components/Screen';
+import { ScrollView } from 'react-native';
 
 export default function Pesquisar_eventos() {
 
@@ -12,13 +14,11 @@ export default function Pesquisar_eventos() {
   const title = search.title
 
   return (
-    <SafeAreaView style={{ height: "100%" }}>
-      <Background back={"fundo"}>
-        <Top Foto={{ uri: dadosDoUsuario.perfil }} titulo={title} />
-        <Background back={"quadrado2"}>
+    <Screen type={'static'}>
+      <Top Foto={{ uri: dadosDoUsuario.perfil }} titulo={title} />
+      <Background back={"backTwo"}>
           <Bloom />
-        </Background>
       </Background>
-    </SafeAreaView>
+    </Screen>
   )
 }
