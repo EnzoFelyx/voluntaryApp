@@ -6,11 +6,6 @@ export default function Background({ children, back }) {
     const tipoFundoEstilo = (back) => {
 
         switch (back) {
-            case 'fundo':
-                return {
-                    background: estilos.fundo
-                }
-                break;
 
             case 'backOne':
                 return {
@@ -24,9 +19,9 @@ export default function Background({ children, back }) {
                 }
                 break;
 
-            case 'quadrado3':
+            case 'backThree':
                 return {
-                    background: estilos.quadrado3
+                    background: estilos.backThree
                 }
                 break;
 
@@ -46,10 +41,6 @@ export default function Background({ children, back }) {
 }
 
 const estilos = StyleSheet.create({
-
-    fundo: {
-
-    },
 
     backOne: {
         marginHorizontal: 15,
@@ -72,15 +63,15 @@ const estilos = StyleSheet.create({
         flex: 1,
     },
 
-    quadrado3: {
-        width: "94%",
-        marginLeft: 12,
+    backThree: {
+        
+        marginHorizontal: 15,
         paddingHorizontal: 16,
         backgroundColor: '#D7FF9C',
         borderRadius: 24,
         marginTop: 8,
         paddingTop: 24,
-        top: -70,
+        top: -40,
         paddingBottom: 50,
     },
 })

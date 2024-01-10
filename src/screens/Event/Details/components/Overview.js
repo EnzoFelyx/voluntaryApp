@@ -14,19 +14,19 @@ export default function Overview({
     hora
 }) {
 
+    const About = ({ icone, familia, texto }) =>
+        <View style={estilos.about}>
+            <Icon familia={familia} tipo={"detalhes"} icone={icone} interativo={false} cor={"gray"} />
+            <Texto style={estilos.texto}>{texto}</Texto>
+        </View>
+
     return <>
         <View style={estilos.titulo}>
             <Title entrada={nome} tipo={"Titulo"} />
         </View>
-        <View style={{ flexDirection: "row" }}>
-            <Icon tipo={"cabecario"} icone={"google-maps"} texto={local} interativo={false} tamanho={20} />
-            <Texto>{local}</Texto>
-        </View>
-        <View style={{ flexDirection: "row" }}>
-            <Icon tipo={"cabecario"} icone={"calendar-month-outline"} texto={data} interativo={false} tamanho={20} />
-            <Texto>{data}</Texto>
-            <Texto style={{ marginLeft: 10 }}>{hora}</Texto>
-        </View>
+        <About familia={"Entypo"} icone={"location-pin"} texto={local} />
+        <About icone={"calendar-month-outline"} texto={data} />
+        <About icone={"clock-outline"} texto={hora} />
         <Owner image={{ uri: organizadoraFoto }} nome={organizadora} />
     </>
 }
@@ -42,4 +42,12 @@ const estilos = StyleSheet.create({
         marginTop: 10,
         marginBottom: 8,
     },
+    about: {
+        flexDirection: "row",
+        marginVertical: 3,
+    },
+    texto: {
+        marginLeft: 8,
+        color: "gray"
+    }
 })

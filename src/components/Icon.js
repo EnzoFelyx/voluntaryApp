@@ -1,4 +1,4 @@
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons, Entypo, Feather } from '@expo/vector-icons';
 import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 
@@ -7,8 +7,8 @@ export default function Icon({ familia, icone, tipo, interativo = true, cor, aca
     const ObterFamiliaIcone = (familia) => {
         switch (familia) {
 
-            case 'Fontisto':
-                return Fontisto;
+            case 'Entypo':
+                return Entypo;
 
             case 'Feather':
                 return Feather;
@@ -22,22 +22,18 @@ export default function Icon({ familia, icone, tipo, interativo = true, cor, aca
 
     const tipoIconeEstilo = (tipo) => {
         switch (tipo) {
+
             case "detalhes":
                 return {
                     estilus: estilos.detalhes,
                 }
                 break;
 
-            case "cabecario":
-                return {
-                    estilus: estilos.cabecario,
-                }
-                break;
-            case "organizadora":
+/*             case "organizadora":
                 return {
                     estilus: estilos.organizadora,
                 }
-                break;
+                break; */
 
             case "perfil":
                 return {
@@ -45,22 +41,22 @@ export default function Icon({ familia, icone, tipo, interativo = true, cor, aca
                 }
                 break;
 
-            case "adicionarCapa":
+/*             case "adicionarCapa":
                 return {
                     estilus: estilos.adicionarCapa,
                 }
-                break;
+                break; */
 
-            case "info":
+/*             case "info":
                 return {
                     estilus: estilos.info,
                 }
-                break;
+                break; */
         
-            case "mais":
+/*             case "mais":
                 return {
                     estilus: estilos.mais,
-                }
+                } */
 
             case "option":
                 return {
@@ -86,13 +82,8 @@ export default function Icon({ familia, icone, tipo, interativo = true, cor, aca
 const estilos = StyleSheet.create({
 
     detalhes: {
-        alignItems: 'center',
-        marginRight: 32,
-    },
-    cabecario: {
-        marginLeft: 8,
-        marginBottom: 8,
-        flexDirection: "row",
+        fontSize: 25,
+        
     },
 
     perfil: {

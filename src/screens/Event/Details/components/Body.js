@@ -1,12 +1,13 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { StyleSheet, View } from "react-native";
+import { details } from '../../../../../config/text.json';
 import Button from "../../../../components/Button";
 import Title from '../../../../components/Title';
 import Texto from "../../../../components/texto";
 import useTop from '../../../../hooks/useTop';
 import { criarAmrEvento } from '../../../../services/requests/eventos';
-import { details } from '../../../../../config/text.json'
+import Subscribe from "./Subscribe";
 
 export default function Corpo({ descricao, participantes, idEvento }) {
 
@@ -14,14 +15,6 @@ export default function Corpo({ descricao, participantes, idEvento }) {
   const dadosDoUsuario = useTop();
   const navigation = useNavigation()
 
-  async function criarAmr() {
-
-    const resultado = await criarAmrEvento(
-      dadosDoUsuario.id,
-      idEvento
-    );
-    navigation.goBack()
-  };
 
   return <>
     <Title entrada={title} tipo={"Titulo"} />
@@ -32,9 +25,10 @@ export default function Corpo({ descricao, participantes, idEvento }) {
       <Texto>{'Participantes:'}</Texto>
       <Texto>{participantes}</Texto>
     </View>
-    <Button texto={'Inscrever-se'}
+    <Subscribe idEvento={idEvento} />
+    {/* <Button texto={'Inscrever-se'}
       tipo={2}
-      acao={criarAmr} />
+      acao={criarAmr} /> */}
   </>
 }
 

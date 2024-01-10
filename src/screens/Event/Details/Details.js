@@ -5,10 +5,11 @@ import Body from './components/Body';
 import Interactions from './components/Interactions';
 import Overview from './components/Overview';
 import Topo from './components/Topo';
+import Screen from '../../../components/Screen';
 
 export default function Details({ route }) {
 
-    const item = route.params;
+    const { item } = route.params;
     const [imagem, setImagem] = useState(item.imagemEvento);
     const [nome, setNome] = useState(item.nomeEvento);
     const [local, setLocal] = useState(item.localEvento);
@@ -21,15 +22,13 @@ export default function Details({ route }) {
     const [horaEvento, setHoraEvento] = useState(item.horaEvento)
 
     return (
-        <Background back={"fundo"}>
-            <ScrollView>
-                <Topo imagem={imagem} />
-                <Background back={"quadrado3"}>
-                    <Overview nome={nome} local={local} data={data} hora={horaEvento} organizadoraFoto={organizadoraFoto} organizadora={criadorEvento} />
-                    <Interactions />
-                    <Body descricao={descricao} participantes={participantes} idEvento={idEvento} />
-                </Background>
-            </ScrollView>
-        </Background>
+        <Screen>
+            <Topo imagem={imagem} />
+            <Background back={"backThree"}>
+                {/* <Overview nome={nome} local={local} data={data} hora={horaEvento} organizadoraFoto={organizadoraFoto} organizadora={criadorEvento} />
+                <Interactions /> */}
+                <Body descricao={descricao} participantes={participantes} idEvento={idEvento} />
+            </Background>
+        </Screen>
     )
 }

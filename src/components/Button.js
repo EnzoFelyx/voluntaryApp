@@ -50,6 +50,13 @@ export default function Botao({ texto, tipo, acao }) {
                     botao: estilos.perfilOption
                 }
 
+            case 9:
+                return {
+                    botao: estilos.terceiroBotao.caixa,
+                    texto: estilos.terceiroBotao.texto
+                }
+                break;
+
             default:
                 break;
         }
@@ -97,6 +104,22 @@ const estilos = StyleSheet.create({
             fontSize: 16,
             fontWeight: "500",
             color: '#5B9900',
+        }
+    },
+
+    terceiroBotao: {
+        caixa: {
+            backgroundColor: "red",
+            paddingVertical: 16,
+            borderRadius: 15,
+            borderWidth: 1,
+            borderColor: 'white',
+        },
+        texto: {
+            textAlign: "center",
+            fontSize: 16,
+            fontWeight: "bold",
+            color: 'white',
         }
     },
 

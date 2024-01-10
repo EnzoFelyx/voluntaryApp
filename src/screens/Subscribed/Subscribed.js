@@ -1,13 +1,14 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView, StatusBar, View } from 'react-native';
+import { View } from 'react-native';
+import { subscribed } from '../../../config/text.json';
 import Background from '../../components/Background';
+import Screen from '../../components/Screen';
 import Top from '../../components/Top';
 import { pegarEventos, pegarEventosInscritos } from '../../services/requests/eventos';
 import { pegarDadosUsuario } from '../../services/requests/usuario';
 import List from './components/List';
-import { subscribed } from '../../../config/text.json'
 
 import { useNavigation } from "@react-navigation/native";
 
@@ -73,16 +74,13 @@ export default function SeusEventos({ interacoes }) {
   }, []);
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <StatusBar />
-      <Background back="fundo">
-        <Top Foto={{ uri: dadosDoUsuario.perfil }} titulo={title} icone={false} />
-        <Background back="quadrado2">
-          <View style={{ flex: 1 }}>
-            <List {...interacoes} dadosEventos={dadosEventos} />
-          </View>
-        </Background>
+    <Screen type={'static'}>
+      <Top Foto={{ uri: dadosDoUsuario.perfil }} titulo={title} icone={false} />
+      <Background back="backTwo">
+        <View style={{ flex: 1 }}>
+          <List {...interacoes} dadosEventos={dadosEventos} />
+        </View>
       </Background>
-    </SafeAreaView>
+    </Screen>
   );
 }
