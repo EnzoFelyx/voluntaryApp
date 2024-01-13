@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import Texto from '../components/texto';
-import { useNavigation } from '@react-navigation/native';
 
 export default function Botao({ texto, tipo, acao }) {
     const tipoBotaoEstilo = (tipo) => {
@@ -109,17 +108,17 @@ const estilos = StyleSheet.create({
 
     terceiroBotao: {
         caixa: {
-            backgroundColor: "red",
+            backgroundColor: "#F9F9F9",
             paddingVertical: 16,
             borderRadius: 15,
             borderWidth: 1,
-            borderColor: 'white',
+            borderColor: 'red',
         },
         texto: {
             textAlign: "center",
             fontSize: 16,
-            fontWeight: "bold",
-            color: 'white',
+            fontWeight: "500",
+            color: 'red',
         }
     },
 

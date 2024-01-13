@@ -2,7 +2,7 @@ import { useNavigation } from "@react-navigation/native";
 import React, { useEffect, useState } from "react";
 import Button from "../../../../components/Button";
 import useTop from '../../../../hooks/useTop';
-import { criarAmrEvento } from '../../../../services/requests/eventos';
+import { criarAmrEvento, deletAmrEvento } from '../../../../services/requests/eventos';
 import { UserEvent } from "../../../../services/requests/usuario";
 
 export default function Subscribe({ idEvento }) {
@@ -11,14 +11,23 @@ export default function Subscribe({ idEvento }) {
     const navigation = useNavigation()
     const [verificaResultado, setVerificaResultado] = useState();
 
-        async function criarAmr() {
-    
-            const resultado = await criarAmrEvento(
-                dadosDoUsuario.id,
-                idEvento
-            );
-            navigation.goBack()
-        };
+    async function criarAmr() {
+
+        const resultado = await criarAmrEvento(
+            dadosDoUsuario.id,
+            idEvento
+        );
+        navigation.goBack()
+    };
+
+    async function deletAmr() {
+
+        const resultado = await deletAmrEvento(
+            dadosDoUsuario.id,
+            idEvento
+        );
+        navigation.goBack()
+    };
 
     async function verf() {
 
@@ -41,16 +50,15 @@ export default function Subscribe({ idEvento }) {
         fetchData();
     },);
 
-    /* console.log(verificaResultado) */
 
     if (verificaResultado == false) {
         return <Button texto={'Inscrever-se'}
             tipo={2}
-        acao={criarAmr} />
+            acao={criarAmr} />
     }
     else {
         return <Button texto={'Desinscrever'}
             tipo={9}
-    /* acao={criarAmr} */ />
+            acao={deletAmr} />
     }
 }

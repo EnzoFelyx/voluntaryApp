@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { ScrollView } from 'react-native';
 import Background from '../../../components/Background';
+import Screen from '../../../components/Screen';
 import Body from './components/Body';
 import Interactions from './components/Interactions';
 import Overview from './components/Overview';
 import Topo from './components/Topo';
-import Screen from '../../../components/Screen';
 
 export default function Details({ route }) {
 
@@ -25,8 +24,8 @@ export default function Details({ route }) {
         <Screen>
             <Topo imagem={imagem} />
             <Background back={"backThree"}>
-                {/* <Overview nome={nome} local={local} data={data} hora={horaEvento} organizadoraFoto={organizadoraFoto} organizadora={criadorEvento} />
-                <Interactions /> */}
+                <Overview nome={nome} local={local} data={data} hora={horaEvento} organizadoraFoto={organizadoraFoto} organizadora={criadorEvento} />
+                <Interactions />
                 <Body descricao={descricao} participantes={participantes} idEvento={idEvento} />
             </Background>
         </Screen>

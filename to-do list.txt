@@ -13,3 +13,15 @@ separar "interagiveis" de "botões"
 Implementar escopo excluido
 
 teste
+
+
+
+
+
+
+
+
+    
+    refazer butão componente
+
+    criar msg de confirmação inscrito ou desinscrito

@@ -69,7 +69,7 @@ export async function criarEvento(postId, criadorEvento, imagemCriadorEvento, no
 }
 
 
-export async function deletarEvento(id) {
+/* export async function deletarEvento(id) {
 
     try {
 
@@ -82,7 +82,7 @@ export async function deletarEvento(id) {
         return 'Erro'
     }
 
-}
+} */
 
 export async function buscarEvento(nomeEvento) {
     try {
@@ -97,21 +97,31 @@ export async function buscarEvento(nomeEvento) {
 
 
 export async function criarAmrEvento(postId, eventoId) {
-
     try {
-
         await api.post(`/amarraParticipanteEvento`,
             {
                 postId: postId,
                 eventoId: eventoId,
 
             });
+        console.log('Sucesso ao inscrever-se no evento!')
         return 1
     }
-
     catch (error) {
         console.log(error)
-        return 'Erro'
+        return console.log('Erro')
     }
+}
 
+export async function deletAmrEvento(postId, eventoId) {
+    try {
+        const resultado = await api.get(`/amarraParticipanteEvento?postId=${postId}&eventoId=${eventoId}`);
+        const deletar = resultado.data[0].id
+        await api.delete(`/amarraParticipanteEvento/${deletar}`);
+        return console.log('Desinscrito com sucesso!')
+    }
+    catch (error) {
+        console.log(error)
+        return console.log('Erro');
+    }
 }

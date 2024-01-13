@@ -139,6 +139,16 @@
       "postId": 1,
       "eventoId": 2,
       "id": 4
+    },
+    {
+      "postId": 3,
+      "eventoId": 5,
+      "id": 6
+    },
+    {
+      "postId": 3,
+      "eventoId": 1,
+      "id": 7
     }
   ]
 }
