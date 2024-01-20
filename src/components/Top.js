@@ -4,49 +4,42 @@ import { SafeAreaView, StyleSheet, View } from 'react-native';
 import Icon from './Icon';
 import Image from './Image';
 import Title from './Title';
+import Return from './Return';
 
-export default function Cabecalho({ titulo = null, Foto = null, icone = false, fotoEstilo = null }) {
+export default function Cabecalho({ tipo = null, titulo = null, Foto = null, fotoEstilo = null }) {
 
     const navigation = useNavigation();
 
+    switch (tipo) {
 
-    if (Foto != null && icone == false) {
-        return <SafeAreaView style={estilos.topo}>
-            <Title entrada={titulo} tipo={"Titulo"} />
-            <View style={{ flex: 1 }}>
+        case "Perfil":
+            return <View style={estilos.topo}>
+                <Title entrada={titulo} tipo={"Titulo"} />
                 <Image imagem={Foto} tipo={'perfilFoto'} />
             </View>
-        </SafeAreaView>
-    }
 
-    else if (Foto != null && icone == true) {
-        return <SafeAreaView>
-            <View style={{ marginTop: 16 }}>
+            break;
+
+        case "Welcome":
+            return <View style={{ marginTop: 16 }}>
                 <Image imagem={Foto} tipo={fotoEstilo} />
-                <View style={estilos.voltarImagem}>
-                    <Icon
-                        icone={"chevron-left"}
-                        interativo={true}
-                        tamanho={40}
-                        acao={() => { navigation.goBack() }}
-                    />
-                </View>
+                <Return />
             </View>
-        </SafeAreaView>
-    }
+            break;
 
-    else {
-        return <SafeAreaView style={estilos.voltar}>
+        default:
+            return <SafeAreaView style={estilos.voltar}>
 
-            <Icon
-                icone={"chevron-left"}
-                interativo={true}
-                tamanho={40}
-                acao={() => { navigation.goBack() }}
-            />
+                <Icon
+                    icone={"chevron-left"}
+                    interativo={true}
+                    tamanho={40}
+                    acao={() => { navigation.goBack() }}
+                />
 
-            <Title entrada={titulo} tipo={"Titulo"} />
-        </SafeAreaView>
+                <Title entrada={titulo} tipo={"Titulo"} />
+            </SafeAreaView>
+            break;
     }
 }
 
@@ -61,11 +54,6 @@ const estilos = StyleSheet.create({
     voltar: {
         flexDirection: "row",
         marginTop: 16,
-        marginLeft: 16,
-    },
-
-    voltarImagem: {
-        position: "absolute",
         marginLeft: 16,
     },
 })

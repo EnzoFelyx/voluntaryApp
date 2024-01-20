@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { FlatList, View } from 'react-native';
-import Button from '../../../components/Button';
+import Interation from '../../../components/Interation';
 import Image from "../../../components/Image";
 import Owner from '../../../components/Owner';
 import Texto from '../../../components/texto';
@@ -13,10 +13,10 @@ export default function Ongs({ dadosOng, titulo }) {
 
   const renderItem = ({ item }) => (
     <View style={{ flex: 1, }}>
-      <Button tipo={3} texto={
-        <View>
-          <Image imagem={{ uri: item.imagemOng }} tipo={'imagemEvento'} />
-        </View>}
+      <Interation
+        tipo={'Home'}
+        imagem={{ uri: item.imagemOng }}
+        styleImg={'imagemEvento'}
         acao={() => navigation.navigate('PerfilCriadorEvento', { item })}
       />
       <View style={{ marginTop: 12, marginRight: 16, }}>

@@ -17,7 +17,7 @@ export default function Home() {
 
   return (
     <Screen>
-      <Top Foto={{ uri: dadosDoUsuario.perfil }} titulo={title} />
+      <Top tipo={'Perfil'} Foto={{ uri: dadosDoUsuario.perfil }} titulo={title} />
       <Background back={"backTwo"}>
         <List highlights={Highlights} trends={Trends} ongs={Ongs} />
       </Background>

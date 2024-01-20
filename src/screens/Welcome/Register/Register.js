@@ -12,7 +12,7 @@ export default function Index() {
     const title = register.title
 
     return <Screen>
-        <Top Foto={fotoRegistrar} icone={true} fotoEstilo={"loginImagem"} />
+        <Top tipo={'Welcome'} Foto={fotoRegistrar} fotoEstilo={"loginImagem"} />
         <Background back={"backOne"}>
             <Title entrada={title} tipo={"Titulo"} />
             <Dados />

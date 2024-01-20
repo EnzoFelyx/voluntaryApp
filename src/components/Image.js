@@ -158,6 +158,7 @@ const estilos = StyleSheet.create({
 
     imagemEvento:
     {
+        marginTop: 20,
         width: 328,
         height: 158,
         resizeMode: 'contain'
@@ -166,9 +167,7 @@ const estilos = StyleSheet.create({
     {
         width: 50,
         height: 50,
-        borderRadius: 25,
-        alignSelf: 'center',
-        marginBottom: 8,
+        borderRadius: 25,        
     },
 
     fotoEvento: {
