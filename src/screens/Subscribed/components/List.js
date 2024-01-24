@@ -8,6 +8,7 @@ import Image from "../../../components/Image";
 import Line from "../../../components/Line";
 import Owner from "../../../components/Owner";
 import Texto from "../../../components/texto";
+import Interaction from "../../../components/Interation";
 
 
 export default function Lista({ dadosEventos }) {
@@ -17,20 +18,15 @@ export default function Lista({ dadosEventos }) {
 
   const renderItem = ({ item }) => (
     <ScrollView>
-      <Button
-        tipo={3}
-        texto={
-          <View style={{ flex: 1 }}>
-            <Image imagem={{ uri: item[0].imagemEvento }} tipo={'imagemEvento'} />
-            <Text style={{ marginLeft: 12, fontSize: 16 }}>{item[0].nomeEvento}</Text>
-          </View>
-        }
+      <Interaction
+        tipo={'Home'}
+        imagem={{ uri: item[0].imagemEvento }}
+        styleImg={'imagemEvento'}
+        texto={item[0].nomeEvento}
+        styleLeg={{ margin: 8, position: "absolute" }}
         acao={() => navigation.navigate('Detalhes', { item: item[0] })}
       />
-
-      <View style={{ marginTop: 12, marginRight: 16 }}>
-        <Owner image={{ uri: item[0].imagemCriadorEvento }} nome={item[0].criadorEvento} acao={() => navigation.navigate('PerfilCriadorEvento', { item })} />
-      </View>
+      <Owner image={{ uri: item[0].imagemCriadorEvento }} nome={item[0].criadorEvento} acao={() => navigation.navigate('PerfilCriadorEvento', { item })} />
     </ScrollView>
   );
 

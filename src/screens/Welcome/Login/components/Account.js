@@ -8,7 +8,7 @@ import Input from "../../../../components/Input";
 import Title from "../../../../components/Title";
 import { Login } from "../../../../services/requests/usuario";
 
-export default function Conta() {
+export default function Account() {
 
   const navigation = useNavigation();
 

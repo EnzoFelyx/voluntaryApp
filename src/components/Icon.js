@@ -29,11 +29,6 @@ export default function Icon({ familia, icone, tipo, interativo = true, cor, aca
                 }
                 break;
 
-/*             case "organizadora":
-                return {
-                    estilus: estilos.organizadora,
-                }
-                break; */
 
             case "perfil":
                 return {
@@ -41,33 +36,10 @@ export default function Icon({ familia, icone, tipo, interativo = true, cor, aca
                 }
                 break;
 
-/*             case "adicionarCapa":
-                return {
-                    estilus: estilos.adicionarCapa,
-                }
-                break; */
-
-/*             case "info":
-                return {
-                    estilus: estilos.info,
-                }
-                break; */
-        
-/*             case "mais":
-                return {
-                    estilus: estilos.mais,
-                } */
-
             case "option":
                 return {
                     estilus: estilos.option,
                 }
-
-            default:
-                return {
-                    estilus: estilos.default,
-                }
-                break;
         }
     }
 
@@ -83,7 +55,6 @@ const estilos = StyleSheet.create({
 
     detalhes: {
         fontSize: 25,
-        
     },
 
     perfil: {
@@ -91,28 +62,7 @@ const estilos = StyleSheet.create({
         fontSize: 30,
     },
 
-    adicionarCapa: {
-        alignItems: 'center',
-
-    },
-
-    pesquisa: {
-        paddingTop: 16,
-        marginLeft: "auto",
-
-    },
-
-    mais: {
-        position: 'absolute',
-        marginRight: "auto",
-        marginRight: 24,
-        marginTop: 350
-    },
-
     option: {
         fontSize: 28,
     },
-
-
-    default: {},
 })

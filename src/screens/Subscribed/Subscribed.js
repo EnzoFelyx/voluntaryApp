@@ -75,7 +75,7 @@ export default function SeusEventos({ interacoes }) {
 
   return (
     <Screen type={'static'}>
-      <Top Foto={{ uri: dadosDoUsuario.perfil }} titulo={title} icone={false} />
+      <Top tipo={'Perfil'} Foto={{ uri: dadosDoUsuario.perfil }} titulo={title} />
       <Background back="backTwo">
         <View style={{ flex: 1 }}>
           <List {...interacoes} dadosEventos={dadosEventos} />

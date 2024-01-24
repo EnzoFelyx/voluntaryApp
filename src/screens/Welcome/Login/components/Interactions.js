@@ -6,7 +6,7 @@ import Button from '../../../../components/Button';
 import Line from "../../../../components/Line";
 import Texto from '../../../../components/texto';
 
-export default function Interacoes() {
+export default function Interactions() {
 
     const navigation = useNavigation();
     const { guest, or, ask, register } = login.interactions;

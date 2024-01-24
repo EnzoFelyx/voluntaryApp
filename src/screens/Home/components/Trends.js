@@ -19,12 +19,10 @@ export default function Trends({ dadosEventos, titulo }) {
         imagem={{ uri: item.imagemEvento }}
         styleImg={'imagemEvento'}
         texto={item.nomeEvento}
-        styleLeg={{margin: 8, position: "absolute"}}
+        styleLeg={{ margin: 8, position: "absolute" }}
         acao={() => navigation.navigate('Detalhes', { item })}
       />
-      <View style={{ marginTop: 12, marginRight: 16 }}>
-        <Owner image={{ uri: item.imagemCriadorEvento }} nome={item.criadorEvento} />
-      </View>
+      <Owner image={{ uri: item.imagemCriadorEvento }} nome={item.criadorEvento} />
     </View>
   );
 

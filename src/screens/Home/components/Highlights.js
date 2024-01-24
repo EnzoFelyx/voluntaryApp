@@ -2,7 +2,6 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { FlatList, View } from 'react-native';
 import Interation from '../../../components/Interation';
-import Image from "../../../components/Image";
 import Texto from '../../../components/texto';
 import estilos from './estilos';
 
@@ -16,7 +15,7 @@ export default function Destaques({ dadosDoUsuario, titulo }) {
       imagem={{ uri: item.perfil }}
       styleImg={'perfilDestaque'}
       texto={item.nome}
-      styleLeg={{marginTop: 10, textAlign: 'center'}}
+      styleLeg={{ marginTop: 10, textAlign: 'center' }}
       acao={() => navigation.navigate('PerfilCriadorEvento', { item })}
     />
   );

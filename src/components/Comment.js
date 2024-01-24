@@ -1,10 +1,9 @@
 import React from "react";
-import Titulo from './Title';
-import Image from './Image';
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import Image from './Image';
 import Texto from "./texto";
 
-export default function Comentar({ UsuarioFoto, nome, data, comentario }) {
+export default function Comment({ UsuarioFoto, nome, data, comentario }) {
     return <>
         <TouchableOpacity style={{ flexDirection: "row", marginTop: 8, }}>
             <Image imagem={UsuarioFoto} tipo={'Comentario'} />
