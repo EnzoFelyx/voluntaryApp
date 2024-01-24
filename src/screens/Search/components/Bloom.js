@@ -1,6 +1,6 @@
 import { useIsFocused } from "@react-navigation/native";
 import React, { useEffect, useState } from "react";
-import { FlatList, SafeAreaView, StyleSheet, TextInput, View } from "react-native";
+import { FlatList, StyleSheet, TextInput, View } from "react-native";
 import { search } from "../../../../config/text.json";
 import Title from '../../../components/Title';
 import useSearch from "../../../hooks/useSearch";
@@ -20,7 +20,7 @@ export default function Bloom() {
     }, [isFocused]);
 
     return (
-        <SafeAreaView>
+        <View>
             <TextInput
                 style={estilos.caixa}
                 setNomeEvento={''}
@@ -30,20 +30,18 @@ export default function Bloom() {
                 onChangeText={setNomeEvento}
             />
             <View>
-                {lista.length > 0 && (<>
-                    <Title
-                        entrada={subtitle}
-                        tipo={"Titulo"}
-                    />
-                    <FlatList
-                        data={lista}
-                        keyExtractor={(item) => item.id.toString()}
-                        renderItem={({ item }) => <Event {...item} feedBack={item} />
-                        } />
-                </>
-                )}
+                <Title
+                    entrada={subtitle}
+                    tipo={"Titulo"}
+                />
+                <FlatList
+                    data={lista}
+                    keyExtractor={(item) => item.id.toString()}
+                    renderItem={({ item }) => <Event {...item} feedBack={item} />
+                    } />
+
             </View>
-        </SafeAreaView>
+        </View>
     );
 }
 
