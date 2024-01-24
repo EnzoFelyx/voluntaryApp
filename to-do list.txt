@@ -14,12 +14,14 @@ teste
 
 
 
-
-
-
-
-
-    
-    refazer butão componente
+Atual:
 
     criar msg de confirmação inscrito ou desinscrito
+
+    fazer ação "entrar" login somente com nome e senha inseridas
+
+    refazer "dados" em register (mudar cor do titulo tbm)
+
+    refazer subscribed index e list do subscribed
+
+    tentar aplicar conceito de scrowview de "subscribed" em "buscar" 
