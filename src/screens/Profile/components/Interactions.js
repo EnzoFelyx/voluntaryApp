@@ -13,7 +13,7 @@ export default function Interactions() {
     const Option = ({ acao, texto }) =>
         <TouchableOpacity style={estilos.perfilOption} onPress={acao}>
             <Texto style={estilos.texto}>{texto}</Texto>
-            <Icon icone={"chevron-right"} interativo={false} cor={"gray"} tipo={"option"} />
+            <Icon icone={"chevron-right"} interativo={false} cor={"gray"} styleIcon={{ fontSize: 28 }} />
         </TouchableOpacity>
 
     return (

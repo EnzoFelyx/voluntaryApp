@@ -11,7 +11,7 @@ export default function Interactions() {
 
     const Interact = ({ icone, familia, texto }) =>
         <TouchableOpacity style={{ alignItems: "center", }}>
-            <Icon familia={familia} tipo={"detalhes"} icone={icone} interativo={false} />
+            <Icon familia={familia} styleIcon={{ fontSize: 25 }} icone={icone} interativo={false} />
             <Texto style={estilos.texto}>{texto}</Texto>
         </TouchableOpacity>
 

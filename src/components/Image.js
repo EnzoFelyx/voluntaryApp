@@ -1,12 +1,7 @@
 import React from 'react';
-import { Dimensions, Image, StyleSheet } from 'react-native';
-
-
-const width = Dimensions.get('screen').width;
-
+import { Image, StyleSheet } from 'react-native';
 
 export default function Imagem({ imagem, tipo }) {
-
 
     const tipoImagemTamanho = (tipo) => {
 
@@ -17,11 +12,6 @@ export default function Imagem({ imagem, tipo }) {
                 }
                 break;
 
-            case 'recuperarImagem':
-                return {
-                    picture: estilos.recuperarImagem
-                }
-                break;
 
             case 'perfilFoto':
                 return {
@@ -35,15 +25,6 @@ export default function Imagem({ imagem, tipo }) {
                 }
                 break;
 
-            case 'icone':
-                return {
-                    picture: estilos.icone
-                }
-                break;
-            case 'criadorEvento':
-                return {
-                    picture: estilos.criadorEvento
-                }
             case 'imagemEvento':
                 return {
                     picture: estilos.imagemEvento
@@ -65,18 +46,17 @@ export default function Imagem({ imagem, tipo }) {
                 }
                 break;
 
-            case 'Upload':
-                return {
-
-                    picture: estilos.Upload
-                }
-                break;
-
-            case 'Comentario':
-                return {
-                    picture: estilos.Comentario
-                }
-                break;
+            /*  case 'Upload':
+                 return {
+                     picture: estilos.Upload
+                 }
+                 break;
+ 
+             case 'Comentario':
+                 return {
+                     picture: estilos.Comentario
+                 }
+                 break; */
 
             case 'Perfil':
                 return {
@@ -84,17 +64,18 @@ export default function Imagem({ imagem, tipo }) {
                 }
                 break;
 
-            case 'Elos':
+            case 'Elos': //temporario
                 return {
                     picture: estilos.Elos
                 }
                 break;
 
-            case 'Loading':
+            case 'Loading': //temporario
                 return {
                     picture: estilos.Loading
                 }
                 break;
+
             default:
                 break;
         }
@@ -122,7 +103,6 @@ const estilos = StyleSheet.create({
         borderRadius: 25,
         marginLeft: "auto",
         marginRight: 24,
-
     },
 
     RegistrarFoto: {
@@ -133,41 +113,19 @@ const estilos = StyleSheet.create({
         alignSelf: 'center',
         borderWidth: 3,
         borderColor: '#accb7f',
-
     },
 
-    recuperarImagem: {
-        height: 250,
-        width: 250,
-        alignSelf: 'center',
-        backgroundColor: "#E4F4CD"
-    },
-
-
-    icone: {
-        opacity: 0.4,
-        height: 25,
-        width: 25,
-    },
-
-    criadorEvento: {
-        height: 25,
-        width: 25,
-        borderRadius: 25,
-    },
-
-    imagemEvento:
-    {
+    imagemEvento: {
         marginTop: 20,
         width: 328,
         height: 158,
         resizeMode: 'contain'
     },
-    perfilDestaque:
-    {
+
+    perfilDestaque: {
         width: 50,
         height: 50,
-        borderRadius: 25,        
+        borderRadius: 25,
     },
 
     fotoEvento: {
@@ -175,7 +133,7 @@ const estilos = StyleSheet.create({
         width: 429,
     },
 
-    Comentario: {
+    /* Comentario: {
         height: 40,
         width: 40,
         borderRadius: 25,
@@ -185,7 +143,7 @@ const estilos = StyleSheet.create({
         width: 50,
         height: 50,
 
-    },
+    }, */
 
     fotoMenor: {
         height: 32,

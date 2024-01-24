@@ -3,19 +3,17 @@ import React from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 
+export default function Return() {
 
-
-export default function Voltar() {
-
-    const navigation =useNavigation();
+    const navigation = useNavigation();
 
     return (
-    <TouchableOpacity 
-    style={estilos.voltar}
-    onPress= {() => {navigation.goBack()}} 
-    >
-        <MaterialCommunityIcons name="chevron-left" size={40} color="gray" />
-    </TouchableOpacity>
+        <TouchableOpacity
+            style={estilos.voltar}
+            onPress={() => { navigation.goBack() }}
+        >
+            <MaterialCommunityIcons name="chevron-left" size={40} color="gray" />
+        </TouchableOpacity>
     )
 }
 

@@ -16,7 +16,7 @@ export default function Overview({
 
     const About = ({ icone, familia, texto }) =>
         <View style={estilos.about}>
-            <Icon familia={familia} tipo={"detalhes"} icone={icone} interativo={false} cor={"gray"} />
+            <Icon familia={familia} styleIcon={{ fontSize: 25 }} icone={icone} interativo={false} cor={"gray"} />
             <Texto style={estilos.texto}>{texto}</Texto>
         </View>
 

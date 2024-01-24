@@ -3,7 +3,7 @@ import { StyleSheet, TouchableOpacity } from 'react-native';
 import Image from './Image';
 import Texto from './texto';
 
-export default function Organizadora({ image, nome, acao }) {
+export default function Owner({ image, nome, acao }) {
 
     return <TouchableOpacity style={estilos.organizadora} onPress={acao}>
         <Texto style={estilos.nome}>{nome}</Texto>

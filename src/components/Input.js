@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, TextInput, View } from 'react-native';
+import { StyleSheet, TextInput, View } from 'react-native';
 import Texto from './texto';
 
 export default function Input({ legenda = null, entrada, senha = false, tipo, valor, onChangeText }) {
@@ -9,13 +9,13 @@ export default function Input({ legenda = null, entrada, senha = false, tipo, va
     switch (tipo) {
 
       case 1:
-        return estilos.caixaInputGrande;
+      /*  return estilos.caixaInputGrande; */
 
-      case 2:
-        return estilos.caixaInputPequena;
+      /*     case 2:
+            return estilos.caixaInputPequena; */
 
-      case 3:
-        return estilos.caixaComentar;
+      /*  case 3:
+         return estilos.caixaComentar; */
 
       default:
         return estilos.caixaInputGrande;
@@ -37,7 +37,8 @@ export default function Input({ legenda = null, entrada, senha = false, tipo, va
 }
 
 const estilos = StyleSheet.create({
-  caixaInputPequena: {
+
+  /* caixaInputPequena: {
     height: 43,
     width: 156,
     marginTop: 16,
@@ -46,19 +47,17 @@ const estilos = StyleSheet.create({
     backgroundColor: "#E4F4CD",
     borderRadius: 15,
     paddingLeft: 16,
-  },
+  }, */
 
-  caixaComentar: {
-
-    marginTop: 25,
-    paddingBottom: 56,
-    paddingHorizontal: 16,
-    backgroundColor: "#E4F4CD",
-    borderRadius: 15,
-    marginBottom: 16
-
-  },
-
+  /*  caixaComentar: {
+     marginTop: 25,
+     paddingBottom: 56,
+     paddingHorizontal: 16,
+     backgroundColor: "#E4F4CD",
+     borderRadius: 15,
+     marginBottom: 16
+   },
+  */
   caixaInputGrande: {
     paddingVertical: 14,
     marginVertical: 18,

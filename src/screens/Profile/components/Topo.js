@@ -13,7 +13,7 @@ export default function Topo() {
     return <>
         <View style={estilos.titulo}>
             <Title entrada={title} tipo={'Titulo'} />
-            <Icon icone={"logout"} tipo={"perfil"} acao={() => { navigation.navigate('Login') }} />
+            <Icon icone={"logout"} styleIcon={{ marginRight: 24, fontSize: 30, }} acao={() => { navigation.navigate('Login') }} />
         </View>
     </>
 }
