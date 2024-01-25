@@ -4,6 +4,7 @@ import Button from "../../../../components/Button";
 import useTop from '../../../../hooks/useTop';
 import { criarAmrEvento, deletAmrEvento } from '../../../../services/requests/eventos';
 import { UserEvent } from "../../../../services/requests/usuario";
+import { Alert } from "react-native";
 
 export default function Subscribe({ idEvento }) {
 
@@ -17,6 +18,7 @@ export default function Subscribe({ idEvento }) {
             dadosDoUsuario.id,
             idEvento
         );
+        Alert.alert('Inscrição feita com sucesso!');
         navigation.goBack()
     };
 
@@ -26,6 +28,7 @@ export default function Subscribe({ idEvento }) {
             dadosDoUsuario.id,
             idEvento
         );
+        Alert.alert('Desinscrito do evento com sucesso!');
         navigation.goBack()
     };
 

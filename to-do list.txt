@@ -1,27 +1,9 @@
-trocar icones de imagens por biblioteca icons
-
 definir um .js para controlar as cores do projeto
 
 fazer array de fotos nas pessoas participando no detalhe dos eventos
 
-refatorar componentes (ta muito banguçado)
+pesquisar eventos colocar  foto uma para pesquisa vazia e outra para não achado
 
-pesquisar eventos (colocar infocused para limpar pesquisa e duas fotos, uma para pesquisa vazia e outra para não achado)
+tentar aplicar conceito de scrowview de "subscribed" em "buscar" 
 
-separar "interagiveis" de "botões"
-
-teste
-
-
-
-Atual:
-
-    criar msg de confirmação inscrito ou desinscrito
-
-    fazer ação "entrar" login somente com nome e senha inseridas
-
-    refazer "dados" em register (mudar cor do titulo tbm)
-
-    refazer subscribed index e list do subscribed
-
-    tentar aplicar conceito de scrowview de "subscribed" em "buscar" 
+lista de comentários em detalhes eventos

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import Background from '../../../components/Background';
 import Screen from '../../../components/Screen';
+import Top from '../../../components/Top';
 import Body from './components/Body';
 import Interactions from './components/Interactions';
 import Overview from './components/Overview';
-import Topo from './components/Topo';
+
 
 export default function Details({ route }) {
 
@@ -22,7 +23,7 @@ export default function Details({ route }) {
 
     return (
         <Screen>
-            <Topo imagem={imagem} />
+            <Top Foto={{ uri: imagem }} fotoEstilo={"fotoEvento"} tipo={"Welcome"} />
             <Background back={"backThree"}>
                 <Overview nome={nome} local={local} data={data} hora={horaEvento} organizadoraFoto={organizadoraFoto} organizadora={criadorEvento} />
                 <Interactions />

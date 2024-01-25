@@ -19,21 +19,24 @@ export default function Account() {
   const [password, setSenha] = useState("");
 
   async function logar() {
-    const resultado = await Login(email, password);
-    if (resultado) {
-      await AsyncStorage.setItem("id", String(resultado.id))
-      navigation.replace(logged);
-
-    } else {
-      Alert.alert(error);
+    if (email && password) { // Verifica se ambos estão preenchidos
+      const resultado = await Login(email, password);
+      if (resultado) {
+        await AsyncStorage.setItem("id", String(resultado.id))
+        navigation.replace(logged);
+      } else {
+        Alert.alert(error);
+      }
     }
   }
 
-  return <>
-    <Title entrada={title} tipo={"Titulo"} />
-    <Input entrada={emailLeg} valor={email} onChangeText={setEmail} />
-    <Input entrada={passLeg} senha={true} valor={password} onChangeText={setSenha} />
-    <Button texto={join} tipo={1} acao={logar} />
-
-  </>
+  return (
+    <>
+      <Title entrada={title} tipo={"Titulo"} />
+      <Input entrada={emailLeg} valor={email} onChangeText={setEmail} />
+      <Input entrada={passLeg} senha={true} valor={password} onChangeText={setSenha} />
+      <Button texto={join} tipo={1} acao={logar} disabled={!email || !password} />
+    </>
+  );
 }
+
