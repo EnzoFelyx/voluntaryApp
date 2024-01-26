@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { ScrollView,View,Text,StyleSheet } from 'react-native';
-import Background from '../../../componentes/Background';
-import Interativos from './Componentes/Interativos';
-import VisaoGeral from './Componentes/VisaoGeral';
-import Meu_elo from './Componentes/Meu_elo';
-import Voltar from '../../../componentes/Voltar';
+import Background from '../../components/Background';
+import Interativos from './components/Interactions';
+import VisaoGeral from './components/Overview';
+import Meu_elo from './components/Rank';
+import Voltar from '../../components/Return';
 import { useRoute } from '@react-navigation/native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-/* import { pegarDadosUsuario } from '../../../servicos/requisicoes/usuario';
-import { pegarEventosInscritos } from '../../../servicos/requisicoes/eventos';
-import { pegarEventos } from '../../../servicos/requisicoes/eventos';
- */
+import { pegarDadosUsuario } from '../../services/requests/usuario';
+import { pegarEventosInscritos } from '../../services/requests/eventos';;
+import { pegarEventos } from '../../services/requests/eventos';
 
-export default function Perfil_outro_usuario({ route }) {/* 
+
+export default function Perfil_outro_usuario({ route }) {
     const { item } = route.params;
     let  [perfil, setFoto] = useState(item.imagemOng ?? item.perfil);
     let [nome, setNome] = useState(item.nomeOng ?? item.nome);
@@ -62,7 +62,7 @@ export default function Perfil_outro_usuario({ route }) {/*
                 </Background>
             </Background>
         </>
-    ) */
+    )
 }
 
 

@@ -11,6 +11,8 @@ export default function Trends({ dadosEventos, titulo }) {
 
   const navigation = useNavigation();
 
+  console.log(dadosEventos.criadorEvento) 
+  
   const renderItem = ({ item }) => (
     <View style={{ flex: 1, }}>
 
@@ -22,7 +24,11 @@ export default function Trends({ dadosEventos, titulo }) {
         styleLeg={{ margin: 8, position: "absolute" }}
         acao={() => navigation.navigate('Detalhes', { item })}
       />
-      <Owner image={{ uri: item.imagemCriadorEvento }} nome={item.criadorEvento} />
+      <Owner 
+        image={{ uri: item.imagemCriadorEvento }} 
+        nome={item.criadorEvento} 
+        acao={() => navigation.navigate('PerfilCriadorEvento', { item })}
+        />
     </View>
   );
 

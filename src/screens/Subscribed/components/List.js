@@ -1,15 +1,13 @@
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { FlatList, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { Dimensions, FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
 import { subscribed } from '../../../../config/text.json';
-import Button from "../../../components/Button";
-import Image from "../../../components/Image";
-import Line from "../../../components/Line";
+import Icon from "../../../components/Icon";
+import Interaction from "../../../components/Interation";
 import Owner from "../../../components/Owner";
 import Texto from "../../../components/texto";
-import Interaction from "../../../components/Interation";
 
+const { width, height } = Dimensions.get('window');
 
 export default function Lista({ dadosEventos }) {
 
@@ -30,45 +28,34 @@ export default function Lista({ dadosEventos }) {
     </ScrollView>
   );
 
-
-
-  return (<>
-    <View style={{ paddingHorizontal: 12 }}>{/*Margem apenas para adequar ao figma*/}
+  return <>
+    <View style={{ paddingHorizontal: 12 }}>
       <Texto>{subtitle}</Texto>
     </View>
-
 
     <View style={{ marginTop: 40, marginBottom: 24, }}>
       <Text style={{ fontWeight: "bold", fontSize: 18 }}> {subs} {dadosEventos.length}</Text>
     </View>
 
-    <Line />
-    <>
+    <FlatList
+      data={dadosEventos}
+      keyExtractor={(item) => item[0].id.toString()}
+      renderItem={renderItem}
+    />
 
-      <FlatList
-        data={dadosEventos}
-        keyExtractor={(item) => item[0].id.toString()}
-        renderItem={renderItem}
-      />
-    </>
+    <Icon icone={"plus-circle-outline"} acao={() => { navigation.navigate('CriarEvento') }} styleIcon={estilus.botao} />
 
-
-    <View>
-      <TouchableOpacity
-        onPress={() => navigation.navigate('CriarEvento')}>
-        <MaterialCommunityIcons name={"plus-circle-outline"} size={36} color="black" style={{ marginRight: 8 }} />
-      </TouchableOpacity>
-    </View>
-
-
-
-
-
-    {/*View da Flatlist*/}
-
-
-  </>)
-
+  </>
 
 }
 
+const estilus = StyleSheet.create({
+
+  botao: {
+    bottom: height * 0.03,
+    right: width * 0.05,
+    position: "absolute",
+    fontSize: 36,
+  }
+
+})
