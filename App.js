@@ -20,7 +20,7 @@ export default function App() {
       <SafeAreaView style={estilo.container}>
         <StatusBar backgroundColor={'#E4F4CD'} barStyle={'dark-content'}/>
         <Login_Routes />
-      </SafeAreaView>
+      </SafeAreaView> 
       <SafeAreaView style={estilo.barradeBaixo} />
     </>
   );

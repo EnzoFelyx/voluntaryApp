@@ -29,3 +29,13 @@ export async function pegarDadosTodosUsuarios() {
         return null;
     }
 }
+
+export async function pegarDadosUsuario({ nome }) {
+    try {
+        const resultado = await api.get(`/users?nome=${nome}`)
+        return resultado.data;
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+}

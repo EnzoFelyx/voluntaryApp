@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { pegarDadosTodasOngs, pegarDadosTodosUsuarios, pegarTodosEventos } from '../services/requests/home';
+import { pegarDadosTodasOngs, pegarDadosTodosUsuarios, pegarDadosUsuario, pegarTodosEventos } from '../services/requests/home';
 
 export function useEventos() {
 
@@ -52,4 +52,21 @@ export function UseOngs() {
     }, []);
 
     return dadosOng
+}
+
+export function UseProfile({ nome }) {
+
+    const [dadosDoUsuario, setDadosDoUsuario] = useState({});
+
+    useEffect(() => {
+        async function buscarUserProfile() {
+            const resultadoProfile = await pegarDadosUsuario({ nome });
+            if (resultadoProfile) {
+                setDadosDoUsuario(resultadoProfile);
+            }
+        }
+        buscarUserProfile();
+    }, []);
+
+    return dadosDoUsuario
 }
