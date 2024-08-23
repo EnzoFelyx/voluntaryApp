@@ -9,6 +9,7 @@ import Ongs from './components/Ongs';
 import Trends from './components/Trends';
 import Screen from '../../components/Screen';
 import { View } from 'react-native';
+import Buscar from './components/Buscar';
 
 export default function Home() {
 
@@ -18,8 +19,8 @@ export default function Home() {
   return (
     <Screen>
       <Top tipo={'Perfil'} Foto={{ uri: dadosDoUsuario.perfil }} titulo={title} />
-      {/* aqui */}
-      <View style={{ paddingHorizontal: 16, paddingTop: 16 }}>
+      <View style={{ paddingHorizontal: 16, paddingTop: 16}}>
+        <Buscar />
         <List highlights={Highlights} trends={Trends} ongs={Ongs} />
       </View>
     </Screen>

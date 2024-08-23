@@ -29,6 +29,7 @@ export default function Lista({ dadosEventos }) {
   );
 
   return <>
+  
     <View style={{ paddingHorizontal: 12 }}>
       <Texto>{subtitle}</Texto>
     </View>

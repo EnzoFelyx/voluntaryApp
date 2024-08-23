@@ -5,7 +5,9 @@ import Texto from '../components/texto';
 import Button from './Button';
 
 export default function Interaction({ imagem, styleImg, styleLeg, texto, tipo, acao }) {
-    
+
+    console.log(styleImg)
+     
     const tipoBotaoEstilo = (tipo) => {
         switch (tipo) {
 
@@ -59,7 +61,7 @@ const estilos = StyleSheet.create({
 
     botaoDestaque: {
         width: 160,
-        height: 200,
+        height: 210,
         borderWidth: 0.5,
         borderRadius: 15,
         backgroundColor: "#FFFF",

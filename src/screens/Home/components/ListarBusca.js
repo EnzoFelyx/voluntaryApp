@@ -1,4 +1,4 @@
-import { useNavigation } from "@react-navigation/native";
+/* import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import pessoas from "../../../../assets/buscar/pessoas.png";
@@ -6,7 +6,7 @@ import Button from '../../../components/Button';
 import Image from "../../../components/Image";
 import Texto from "../../../components/texto";
 
-export default function Event({
+export default function ListarBusca({
     nomeEvento,
     localEvento,
     contPessoas,
@@ -62,3 +62,4 @@ const estilos = StyleSheet.create({
         marginHorizontal: 8,
     },
 });
+ */

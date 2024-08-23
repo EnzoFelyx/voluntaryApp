@@ -48,7 +48,6 @@ export default function SeusEventos({ interacoes }) {
 
       fetchData();
 
-      // Limpar os dados quando a tela for desfocada (quando sair da página)
       return () => {
         setDadosAmarra({});
         setDadosEventos({});
@@ -77,9 +76,7 @@ export default function SeusEventos({ interacoes }) {
     <Screen type={'static'}>
       <Top tipo={'Perfil'} Foto={{ uri: dadosDoUsuario.perfil }} titulo={title} />
       <Background back="backTwo">
-        <View style={{ flex: 1 }}>
-          <List {...interacoes} dadosEventos={dadosEventos} />
-        </View>
+        <List {...interacoes} dadosEventos={dadosEventos} />
       </Background>
     </Screen>
   );

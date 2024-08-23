@@ -53,7 +53,7 @@
         "title": "Pesquisar",
         "body": {
             "searchFor": "Digite aqui...",
-            "subtitle": "Eventos:"
+            "subtitle": "Eventos"
         }
     },
     "event": {
@@ -100,9 +100,9 @@
         "body": {
             "subtitle": "Seja bem-vindo!",
             "news": "Veja aqui as novidades de nossas comunidades solidárias",
-            "events": "Eventos:",
-            "highlights": "Destaques do mês:",
-            "ongs": "ONGs:"
+            "events": "Eventos",
+            "highlights": "Destaques do mês",
+            "ongs": "ONGs"
         }
     },
     "details": {

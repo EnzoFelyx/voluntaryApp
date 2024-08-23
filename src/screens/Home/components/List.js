@@ -20,9 +20,6 @@ export default function List({
 
     return (
         <View style={{ flex: 1 }}>
-            <Title entrada={subtitle} tipo={"subtitle"} />
-            <Texto style={estilos.subtitulo}>{news}</Texto>
-            <Line />
             <Trends dadosEventos={dadosEventos} titulo={events} />
             <Highlights dadosDoUsuario={dadosDoUsuario} titulo={highlights} />
             <Ongs dadosOng={dadosOng} titulo={ongs} />
