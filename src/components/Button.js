@@ -20,10 +20,23 @@ export default function Botao({ texto, tipo, acao }) {
                 }
                 break;
 
+            case 3:
+                return {
+                    botao: estilos.botaoEvento
+                }
+                break;
+
             case 9:
                 return {
                     botao: estilos.terceiroBotao.caixa,
                     texto: estilos.terceiroBotao.texto
+                }
+                break;
+
+            case 4:
+                return {
+                    botao: estilos.quartoBotao.caixa,
+                    texto: estilos.quartoBotao.texto
                 }
                 break;
 
@@ -88,6 +101,31 @@ const estilos = StyleSheet.create({
             fontWeight: "500",
             color: 'red',
         }
-    }
+    },
+
+    quartoBotao: {
+        caixa: {
+            backgroundColor: "#9dc662",
+            paddingHorizontal: 8,
+            paddingTop: 6,
+            paddingBottom: 10,
+            borderRadius: 15,
+            marginTop: 'auto',
+        },
+        texto: {
+            fontSize: 16,
+            fontWeight: "bold",
+            color: '#FFFF',
+        }
+    },
+
+    botaoEvento: {
+        marginTop: 16,
+        paddingVertical: 12,
+        backgroundColor: "#FFFFFF",
+        borderRadius: 15,
+        marginRight: 8,
+        flexDirection: "row",
+    },
 })
 

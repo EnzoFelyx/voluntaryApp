@@ -64,6 +64,13 @@ export default function Imagem({ imagem, tipo }) {
                 }
                 break;
 
+            case 'icone':
+                return {
+                    picture: estilos.icone
+                }
+                break;
+
+
             case 'Elos': //temporario
                 return {
                     picture: estilos.Elos
@@ -91,10 +98,10 @@ export default function Imagem({ imagem, tipo }) {
 const estilos = StyleSheet.create({
 
     loginImagem: {
-        height: 200,
+        height: 300,
         width: 350,
         alignSelf: 'center',
-        backgroundColor: "#E4F4CD"
+        backgroundColor: "#E4F4CD",
     },
 
     perfilFoto: {
@@ -123,9 +130,11 @@ const estilos = StyleSheet.create({
     },
 
     perfilDestaque: {
-        width: 50,
-        height: 50,
-        borderRadius: 25,
+        width: 60,
+        height: 60,
+        borderWidth: 2,
+        borderColor: '#accb7f',
+        borderRadius: 45,
     },
 
     fotoEvento: {
@@ -169,5 +178,11 @@ const estilos = StyleSheet.create({
         marginTop: 8,
         height: 22,
         width: 188
-    }
+    },
+
+    icone: {
+        opacity: 0.4,
+        height: 25,
+        width: 25,
+    },
 })

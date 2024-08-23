@@ -1,9 +1,11 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity } from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import Image from '../components/Image';
 import Texto from '../components/texto';
+import Button from './Button';
 
 export default function Interaction({ imagem, styleImg, styleLeg, texto, tipo, acao }) {
+    
     const tipoBotaoEstilo = (tipo) => {
         switch (tipo) {
 
@@ -23,36 +25,49 @@ export default function Interaction({ imagem, styleImg, styleLeg, texto, tipo, a
     const estiloBotao = tipoBotaoEstilo(tipo);
 
     return (
-        <TouchableOpacity style={estiloBotao.botao} onPress={acao}>
-            <Image imagem={imagem} tipo={styleImg} />
-            <Texto style={styleLeg}>{texto}</Texto>
-        </TouchableOpacity>
+        <View>
+            <TouchableOpacity style={estiloBotao.botao} onPress={acao}>
+                <Image imagem={imagem} tipo={styleImg} />
+                {
+                    styleImg === 'perfilDestaque' ? (<>
+                        <Texto style={styleLeg}>{texto}</Texto>
+                        <Button texto={'conectar-se'} tipo={4} />
+                    </>
+                    ) : <></>
+                }
+            </TouchableOpacity>
+            {
+                styleImg === 'imagemEvento' ? (
+                    <Texto style={styleLeg}>{texto}</Texto>
+                ) : <></>
+            }
+        </View>
     );
 }
 
 const estilos = StyleSheet.create({
 
     botaoEvento: {
-        marginTop: 16,
+        marginTop: 8,
         paddingTop: 12,
         paddingBottom: 12,
-        backgroundColor: "#FFFFFF",
+        borderWidth: 0.5,
         borderRadius: 15,
-        marginRight: 8,
+        marginRight: 16,
         flexDirection: "row",
     },
 
     botaoDestaque: {
-        width: 140,
-        height: 192,
+        width: 160,
+        height: 200,
+        borderWidth: 0.5,
         borderRadius: 15,
-        backgroundColor: "#FFFFFF",
+        backgroundColor: "#FFFF",
         marginEnd: 15,
-        marginTop: 15,
-        marginBottom: 20,
-        justifyContent: 'center',
-        paddingBottom: 30,
-        paddingHorizontal: 20,
+        marginVertical: 15,
+        paddingBottom: 15,
+        paddingTop: 20,
+        paddingHorizontal: 14,
         alignItems: 'center'
     },
 

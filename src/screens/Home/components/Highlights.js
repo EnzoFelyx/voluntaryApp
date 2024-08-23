@@ -15,7 +15,7 @@ export default function Destaques({ dadosDoUsuario, titulo }) {
       imagem={{ uri: item.perfil }}
       styleImg={'perfilDestaque'}
       texto={item.nome}
-      styleLeg={{ marginTop: 10, textAlign: 'center' }}
+      styleLeg={{ marginVertical: 10, textAlign: 'center', }}
       acao={() => navigation.navigate('PerfilCriadorEvento', { item })}
     />
   );

@@ -10,8 +10,6 @@ import Interation from '../../../components/Interation'
 export default function Trends({ dadosEventos, titulo }) {
 
   const navigation = useNavigation();
-
-  console.log(dadosEventos.criadorEvento) 
   
   const renderItem = ({ item }) => (
     <View style={{ flex: 1, }}>
@@ -21,7 +19,7 @@ export default function Trends({ dadosEventos, titulo }) {
         imagem={{ uri: item.imagemEvento }}
         styleImg={'imagemEvento'}
         texto={item.nomeEvento}
-        styleLeg={{ margin: 8, position: "absolute" }}
+        styleLeg={{ margin: 8, }}
         acao={() => navigation.navigate('Detalhes', { item })}
       />
       <Owner 

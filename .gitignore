@@ -1,6 +1,7 @@
 node_modules/
 .expo/
 dist/
+to-do list.txt
 npm-debug.*
 *.jks
 *.p8

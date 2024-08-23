@@ -9,7 +9,11 @@ export default StyleSheet.create({
     },
     container: {
         flex: 1,
-        marginBottom: 8,
+        marginTop: 8,
+        marginBottom: 32,
+        paddingHorizontal: 16,
+        borderRadius: 15,
+        backgroundColor: "#FFFFFF",
     },
 
     subtitulo: {

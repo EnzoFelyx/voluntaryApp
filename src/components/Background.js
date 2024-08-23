@@ -44,6 +44,7 @@ const estilos = StyleSheet.create({
 
     backOne: {
         marginHorizontal: 15,
+        marginBottom: 24,
         borderRadius: 32,
         paddingTop: 40,
         paddingBottom: 20,
@@ -53,14 +54,7 @@ const estilos = StyleSheet.create({
     },
 
     backTwo: {
-        marginHorizontal: 15,
-        paddingLeft: 16,
-        paddingRight: 16,
-        backgroundColor: '#CAF38D',
-        borderTopLeftRadius: 32,
-        borderTopRightRadius: 32,
-        paddingTop: 24,
-        flex: 1,
+        /* padding: 16, */
     },
 
     backThree: {

@@ -1,5 +1,4 @@
 import { React } from 'react';
-import { ScrollView } from 'react-native';
 import { home } from "../../../config/text.json";
 import Background from '../../components/Background';
 import Top from '../../components/Top';
@@ -9,6 +8,7 @@ import List from './components/List';
 import Ongs from './components/Ongs';
 import Trends from './components/Trends';
 import Screen from '../../components/Screen';
+import { View } from 'react-native';
 
 export default function Home() {
 
@@ -18,9 +18,10 @@ export default function Home() {
   return (
     <Screen>
       <Top tipo={'Perfil'} Foto={{ uri: dadosDoUsuario.perfil }} titulo={title} />
-      <Background back={"backTwo"}>
+      {/* aqui */}
+      <View style={{ paddingHorizontal: 16, paddingTop: 16 }}>
         <List highlights={Highlights} trends={Trends} ongs={Ongs} />
-      </Background>
+      </View>
     </Screen>
   )
 }

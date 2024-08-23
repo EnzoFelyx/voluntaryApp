@@ -25,9 +25,16 @@ export default function Input({ legenda = null, entrada, senha = false, tipo, va
   const estiloCaixa = caixaInputStyle(tipo);
 
   if (legenda == null) {
-    return <TextInput secureTextEntry={senha} style={estiloCaixa} placeholder={entrada} value={valor} onChangeText={onChangeText} />
-
+    return <TextInput
+              secureTextEntry={senha} 
+              style={estiloCaixa} 
+              placeholder={entrada} 
+              value={valor} 
+              onChangeText={onChangeText} 
+              autoCapitalize='none'
+              />
   }
+  
   else {
     return <View style={estilos.insertLegenda}>
       <Texto>{legenda}</Texto>
