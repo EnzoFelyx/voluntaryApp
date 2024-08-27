@@ -1,7 +1,6 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
-import Search_Routes from "./Search_Routes";
 import Home_Routes from "./Home_Routes";
 import Profile_Routes from "./Profile_Routes";
 import Subscribed_Routes from "./Subscribed_Routes";
@@ -67,7 +66,7 @@ export default function Routes() {
                         style={{ flex: 1, marginTop: 5 }} />
                 )
             }}
-            component={Search_Routes} />
+            component={Home_Routes} />
 
         <Tab.Screen name="Perfil"
             options={{

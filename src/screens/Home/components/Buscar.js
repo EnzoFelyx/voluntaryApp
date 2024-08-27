@@ -4,6 +4,7 @@ import { FlatList, StyleSheet, TextInput, View } from "react-native";
 import { search } from "../../../../config/text.json";
 import useSearch from "../../../hooks/useSearch";
 import ListarBusca from "./ListarBusca";
+import Screen from "../../../components/Screen";
 
 
 export default function Buscar() {
@@ -22,7 +23,7 @@ export default function Buscar() {
     }, [isFocused]);
 
     return (
-        <View>
+        <Screen type={'static'}>
             <TextInput
                 style={estilos.caixa}
                 setNomeEvento={''}
@@ -31,14 +32,17 @@ export default function Buscar() {
                 value={nomeDoEvento}
                 onChangeText={setNomeEvento}
             />
-            {/* <View>
+            <View>
                 <FlatList
                     data={lista}
                     keyExtractor={(item) => item.id.toString()}
-                    renderItem={({ item }) => <ListarBusca {...item} feedBack={item} />
+                    contentContainerStyle={{ marginBottom: 24 }} 
+                    renderItem={({ item }) => <ListarBusca {...item} feedBack={item} 
+                    />
+                    
                     } />
-            </View> */}
-        </View>
+            </View>
+        </Screen>
     );
 }
 
@@ -47,7 +51,7 @@ const estilos = StyleSheet.create({
     caixa: {
         alignItems: 'center',
         height: 50,
-        marginBottom: 16,
+        /* marginBottom: 16, */
         backgroundColor: "#ffff",
         borderRadius: 15,
         borderWidth: 1,

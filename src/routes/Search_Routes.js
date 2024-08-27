@@ -1,4 +1,4 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+/* import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import Details from '../screens/Event/Details/Details'
 import Search from '../screens/Search/Search'
@@ -18,3 +18,4 @@ export default function Search_Routes() {
     </Stack.Navigator>
     )
 }
+ */

@@ -5,8 +5,6 @@ import Texto from '../components/texto';
 import Button from './Button';
 
 export default function Interaction({ imagem, styleImg, styleLeg, texto, tipo, acao }) {
-
-    console.log(styleImg)
      
     const tipoBotaoEstilo = (tipo) => {
         switch (tipo) {

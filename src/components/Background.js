@@ -54,7 +54,12 @@ const estilos = StyleSheet.create({
     },
 
     backTwo: {
-        /* padding: 16, */
+        borderRadius: 30,
+        paddingTop: 40,
+        paddingBottom: 20,
+        paddingLeft: 20,
+        paddingRight: 20,
+        backgroundColor: "#FFFF",
     },
 
     backThree: {

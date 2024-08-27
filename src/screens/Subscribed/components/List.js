@@ -15,13 +15,13 @@ export default function Lista({ dadosEventos }) {
   const navigation = useNavigation();
 
   const renderItem = ({ item }) => (
-    <ScrollView>
+    <ScrollView style={{marginBottom: 16}}>
       <Interaction
         tipo={'Home'}
         imagem={{ uri: item[0].imagemEvento }}
         styleImg={'imagemEvento'}
         texto={item[0].nomeEvento}
-        styleLeg={{ margin: 8, position: "absolute" }}
+        styleLeg={{ margin: 8 }}
         acao={() => navigation.navigate('Detalhes', { item: item[0] })}
       />
       <Owner image={{ uri: item[0].imagemCriadorEvento }} nome={item[0].criadorEvento} acao={() => navigation.navigate('PerfilCriadorEvento', { item })} />
@@ -42,6 +42,7 @@ export default function Lista({ dadosEventos }) {
       data={dadosEventos}
       keyExtractor={(item) => item[0].id.toString()}
       renderItem={renderItem}
+      contentContainerStyle={{ paddingBottom: 200 }} 
     />
 
     <Icon icone={"plus-circle-outline"} acao={() => { navigation.navigate('CriarEvento') }} styleIcon={estilus.botao} />
