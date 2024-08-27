@@ -56,35 +56,31 @@
             "subtitle": "Eventos"
         }
     },
-    "event": {
-        "new": {
-            "top": {
+    "newEvent": {
+            "page1": {
                 "title": "Criar Evento",
                 "name": "Digite qual será o nome do evento",
                 "nameLeg": "Título do evento",
                 "date": "Data",
-                "dateLeg": "dd/mm/aa",
-                "period": "Perído",
+                "dateLeg": "DD/MM/AA",
+                "period": "Turno de início",
                 "periodLeg": "Ex:. Matutino",
                 "start": "Começa ás:",
-                "startLeg": "00:00",
+                "timeLeg": "HH:MM",
                 "ends": "Termina ás:"
             },
-            "map": {
+            "page2": {
                 "map": "Mapa:",
-                "mapLeg": "Localização:"
-            },
-            "place": {
-                "cep": "CEP",
-                "cepLeg": "Buscar...",
-                "address": "Logradouro",
-                "addressLeg": "Ex: Av, Rua, Praça...",
-                "neighborhood": "Bairro",
+                "mapLeg": "Localização:",
                 "city": "Cidade",
                 "state": "Estado",
+                "neighborhood": "Bairro",
+                "cep": "CEP",
+                "street": "Logradouro",
+                "streetLeg": "Ex: Av, Rua, Praça...",
                 "button": "Continuar"
             },
-            "description": {
+            "page3": {
                 "cover": "Foto de capa do evento",
                 "about": "Faça uma breve descrição sobre o evento:",
                 "aboutLeg": "Digite aqui ...",
@@ -93,7 +89,6 @@
                 "place": "O Local de realizaação do evento é :",
                 "button": "Criar evento"
             }
-        }
     },
     "home": {
         "title": "Home",

@@ -6,19 +6,20 @@ import Background from '../../../components/Background';
 import Top from '../../../components/Top';
 import Criar_mock from '../../../mocks/Evento_Mocks/Criar_mock';
 import Topo from './components/Topo';
-
+import { newEvent } from "../../../../config/text.json";
+import FirstStep from './components/FirstStep';
+import SecondStep from './components/SecondStep';
 
 export default function NewEvent() {
+
+    const title = newEvent.page1.title
+
     return <Screen>
-        <Background back={"fundo"}>
-            <Top PerfilFoto={PerfilFoto} titulo={"Criar Evento"} />
-            <ScrollView >
-                <Background back={'backTwo'}>
-                    {/* <Topo {...Criar_mock} /> */}
-                </Background>
-            </ScrollView>
+        <Top PerfilFoto={PerfilFoto} titulo={title} />
+        <Background back={'backOne'}>
+            {/* <Topo {...Criar_mock} /> */}
+            <FirstStep />
+            <SecondStep />
         </Background>
     </Screen>
 }
-
-//arrumar depois

@@ -58,7 +58,7 @@ const estilos = StyleSheet.create({
         paddingTop: 40,
         paddingBottom: 20,
         paddingLeft: 20,
-        paddingRight: 20,
+        /* paddingRight: 20, */
         backgroundColor: "#FFFF",
     },
 

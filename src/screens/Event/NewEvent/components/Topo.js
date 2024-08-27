@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { StyleSheet, View, KeyboardAvoidingView, Platform, SafeAreaView, TouchableOpacity } from "react-native";
 import Texto from "../../../../components/texto";
 import Input from "../../../../components/Input";
@@ -7,156 +7,187 @@ import CaixaSelecao from "./CaixaSelecao";
 import { MaterialIcons } from '@expo/vector-icons';
 import Icon from "../../../../components/Icon";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {criarEvento} from '../../../../services/requests/eventos'
+import { criarEvento } from '../../../../services/requests/eventos'
 import { pegarDadosUsuario } from '../../../../services/requests/usuario'
 import { Alert } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { useNavigation } from "@react-navigation/native";
-
-
+import { newEvent } from "../../../../../config/text.json";
 
 export default function Topo({ titulos, interacoes }) {
+
+  const { name, nameLeg, date, dateLeg, periodLeg, start, timeLeg, ends } = newEvent.page1
+
   const [nomeEvento, setnomeEvento] = useState('');
   const [dataEvento, setdataEvento] = useState('');
   const [horaEvento, sethoraEvento] = useState('');
   const [localEvento, setlocalEvento] = useState('');
   const [descricao, setdescricao] = useState('');
   const [imagemEvento, setImagemSelecionada] = useState(null);
-  const [permissaoGaleria,setPermissaoGaleria] = useState(null);
+  const [permissaoGaleria, setPermissaoGaleria] = useState(null);
   const [dadosDoUsuario, setDadosDoUsuario] = useState({});
   const navigation = useNavigation()
 
-  
-    useEffect(() => {
-      async function buscarDadosDoUsuario() {
-        const id = await AsyncStorage.getItem('id');
-  
-        if (!id) {
-          return null;
-        }
-        
-        const resultado = await pegarDadosUsuario(id);
-        if (resultado) {
-          setDadosDoUsuario(resultado);
 
-        }
+  useEffect(() => {
+    async function buscarDadosDoUsuario() {
+      const id = await AsyncStorage.getItem('id');
+
+      if (!id) {
+        return null;
       }
-      buscarDadosDoUsuario();
 
-    }, []);
+      const resultado = await pegarDadosUsuario(id);
+      if (resultado) {
+        setDadosDoUsuario(resultado);
 
-    useEffect(() => {
-      (async () => {
-          const galleryStatus = await ImagePicker.requestMediaLibraryPermissionsAsync();
-          setPermissaoGaleria(galleryStatus.status ==='granted');
-
-        })();
-
-    }, []);
-
-    const pickImage = async () => {
-      let result = await ImagePicker.launchImageLibraryAsync({
-        mediaTypes: ImagePicker.MediaTypeOptions.Images,
-        allowsEditing:true,
-        aspect: [4,3],
-        quality:1
-      });
-
-
-      if (!result.cencaled)
-      {
-        setImagemSelecionada(result.uri) //mudei de uri para assests pq está dizendo que é depreciado.
       }
-    };
-
-    if (permissaoGaleria === false)
-    {
-      console.log('Sem acesso a Galeria.')
     }
+    buscarDadosDoUsuario();
+
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      const galleryStatus = await ImagePicker.requestMediaLibraryPermissionsAsync();
+      setPermissaoGaleria(galleryStatus.status === 'granted');
+
+    })();
+
+  }, []);
+
+  const pickImage = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1
+    });
 
 
-  async function criar(){
+    if (!result.cencaled) {
+      setImagemSelecionada(result.uri) //mudei de uri para assests pq está dizendo que é depreciado.
+    }
+  };
 
-      const resultado = await criarEvento(
+  if (permissaoGaleria === false) {
+    console.log('Sem acesso a Galeria.')
+  }
 
-          dadosDoUsuario.id,
-          dadosDoUsuario.nome,
-          dadosDoUsuario.perfil,
-          nomeEvento,
-          dataEvento,
-          localEvento,
-          horaEvento,
-          descricao,
-          imagemEvento
-      );
 
-      Alert.alert("Sucesso. Evento criado !")
-      navigation.goBack()
+  async function criar() {
+
+    const resultado = await criarEvento(
+
+      dadosDoUsuario.id,
+      dadosDoUsuario.nome,
+      dadosDoUsuario.perfil,
+      nomeEvento,
+      dataEvento,
+      localEvento,
+      horaEvento,
+      descricao,
+      imagemEvento
+    );
+
+    Alert.alert("Sucesso. Evento criado !")
+    navigation.goBack()
   };
 
   return (
+    <>
+      <View>
 
-    <SafeAreaView style={{ flex: 1 }}>
+        <Texto>{name}</Texto>
+        <Input
+          entrada={nameLeg}
+          tipo={'1'}
+          valor={nomeEvento}
+          onChangeText={setnomeEvento}
+        />
 
-      <View style={estilos.container}>
-        <View style={estilos.viewInput}>
-          <Texto>{titulos.evento}</Texto>
+        <Texto>{date}</Texto>
+
+        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
           <Input
-           entrada="Nome do evento" 
-           tipo={'1'}
-           valor={nomeEvento}
-           onChangeText={setnomeEvento}
-            />
+            entrada={dateLeg}
+            tipo={2}
+            valor={localEvento}
+            onChangeText={setlocalEvento}
+          />
+
+          <Input
+            entrada={periodLeg}
+            tipo={2}
+            valor={localEvento}
+            onChangeText={setlocalEvento}
+          />
         </View>
 
-        <View style={estilos.viewInput}>
-          <Texto>Local do evento:</Texto>
-          <Input
-           entrada="Local" 
-           tipo={'1'}
-           valor={localEvento}
-           onChangeText={setlocalEvento}
+
+        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+          <View style={{flex: 1}}>
+            <Texto>{start}</Texto>
+            <Input
+              entrada={timeLeg}
+              tipo={2}
+              valor={localEvento}
+              onChangeText={setlocalEvento}
             />
+          </View>
+          <View style={{flex: 1}}>
+            <Texto>{ends}</Texto>
+            <Input
+              entrada={timeLeg}
+              tipo={2}
+              valor={localEvento}
+              onChangeText={setlocalEvento}
+            />
+          </View>
         </View>
 
-        <View style={estilos.viewInput}>
+
+
+
+        {/* <View>
           <View style={estilos.viewInputPequena}>
-            {/*data*/}
+
             <Texto>{titulos.data}</Texto>
-            {/*Hora*/}
+
             <Texto style={{ marginHorizontal: 60 }}>{titulos.comeca}</Texto>
           </View>
           <View style={estilos.viewInputPequena}>
-            {/*data*/}
+        
 
-            <Input style={{ marginHorizontal: 10 }} 
-            entrada="dd/mm/aa" 
-            tipo={2} 
-            valor={dataEvento}
-            onChangeText={setdataEvento}
+            <Input style={{ marginHorizontal: 10 }}
+              entrada="dd/mm/aa"
+              tipo={2}
+              valor={dataEvento}
+              onChangeText={setdataEvento}
             />
 
-            {/*Hora*/}
-            <Input style={{ marginHorizontal: 10 }} 
-            entrada="Horário"
-            tipo={2} 
-            valor={horaEvento}
-            onChangeText={sethoraEvento}
-             />
+            
+            <Input style={{ marginHorizontal: 10 }}
+              entrada="Horário"
+              tipo={2}
+              valor={horaEvento}
+              onChangeText={sethoraEvento}
+            />
           </View>
-        </View>
 
-        <View style={estilos.viewInput}>
+        </View> */}
+
+        {/* <View style={estilos.viewInput}>
           <Texto>{titulos.fotoCapa}</Texto>
           <View style ={estilos.viewInput}/> 
-          <Button tipo={7} texto={
+          <Button tipo={2} texto={
             <View style={estilos.Capa}>
               <Icon icone={"plus-circle-outline"} tipo={"adicionarCapa"} tamanho={36} />
             </View>
             
           } acao={pickImage}/>
-        </View>
-
+        </View> */}
+        {/* 
         <View style={estilos.viewInput}>
           <Texto>{titulos.descricao}</Texto>
           <Input style={{ marginHorizontal: 10 }} 
@@ -166,7 +197,7 @@ export default function Topo({ titulos, interacoes }) {
           onChangeText={setdescricao}
           />
         </View>
-{/*
+
         <View style={estilos.viewInput}>
           <Texto>{titulos.local}</Texto>
           <CaixaSelecao label1={<Texto>Publico</Texto>} label2={<Texto>Privado</Texto>} />
@@ -180,27 +211,19 @@ export default function Topo({ titulos, interacoes }) {
         <TouchableOpacity style={{paddingTop:10,alignItems:"center",paddingBottom:20}} >
           <MaterialIcons name="cloud-upload" size={36} color="green" />
         </TouchableOpacity>
-*/}
+
         <View style={estilos.posicao}>
         <Button tipo={2} texto={'Criar Evento'}
         acao={criar} />
-        </View>            
-  
-
+        </View>   */}
 
       </View>
-    </SafeAreaView>
+    </>
   );
 }
 
 const estilos = StyleSheet.create({
-  topo: {
 
-  },
-  container:
-  {
-    flex: 1
-  },
   viewInput: {
     marginTop: 10,
     marginEnd: 10,
@@ -210,8 +233,8 @@ const estilos = StyleSheet.create({
   viewInputPequena: {
     flexDirection: "row",
     justifyContent: 'space-between',
-    marginBottom:10
-    
+    marginBottom: 10
+
 
   },
   viewFotos: {
@@ -221,7 +244,7 @@ const estilos = StyleSheet.create({
   },
 
   Capa: {
-    paddingTop:70,
+    paddingTop: 70,
     height: 180,
     width: 300,
     backgroundColor: "#E4F4CD",
@@ -229,10 +252,10 @@ const estilos = StyleSheet.create({
   },
 
   posicao: {
-    marginTop:30,
+    marginTop: 30,
     bottom: 20,
     alignSelf: 'center',
-    height:55,
+    height: 55,
     width: 188,
   },
 

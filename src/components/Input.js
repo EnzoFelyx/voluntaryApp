@@ -11,8 +11,8 @@ export default function Input({ legenda = null, entrada, senha = false, tipo, va
       case 1:
       /*  return estilos.caixaInputGrande; */
 
-      /*     case 2:
-            return estilos.caixaInputPequena; */
+          case 2:
+            return estilos.caixaInputPequena;
 
       /*  case 3:
          return estilos.caixaComentar; */
@@ -26,15 +26,15 @@ export default function Input({ legenda = null, entrada, senha = false, tipo, va
 
   if (legenda == null) {
     return <TextInput
-              secureTextEntry={senha} 
-              style={estiloCaixa} 
-              placeholder={entrada} 
-              value={valor} 
-              onChangeText={onChangeText} 
-              autoCapitalize='none'
-              />
+      secureTextEntry={senha}
+      style={estiloCaixa}
+      placeholder={entrada}
+      value={valor}
+      onChangeText={onChangeText}
+      autoCapitalize='none'
+    />
   }
-  
+
   else {
     return <View style={estilos.insertLegenda}>
       <Texto>{legenda}</Texto>
@@ -45,16 +45,16 @@ export default function Input({ legenda = null, entrada, senha = false, tipo, va
 
 const estilos = StyleSheet.create({
 
-  /* caixaInputPequena: {
-    height: 43,
-    width: 156,
+  caixaInputPequena: {
     marginTop: 16,
-    fontSize: 12,
     paddingVertical: 15,
     backgroundColor: "#E4F4CD",
+    marginVertical: 18,
     borderRadius: 15,
-    paddingLeft: 16,
-  }, */
+    textAlign: 'center',
+    flex: 1,
+    marginEnd: 16,
+  },
 
   /*  caixaComentar: {
      marginTop: 25,

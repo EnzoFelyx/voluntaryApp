@@ -1,11 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 import { home } from "../../../../config/text.json";
-import Line from "../../../components/Line";
-import Title from "../../../components/Title";
-import Texto from "../../../components/texto";
 import { UseOngs, useEventos, useUsuarios } from "../../../hooks/useHome";
-import estilos from "./estilos";
 
 export default function List({
     highlights: Highlights,

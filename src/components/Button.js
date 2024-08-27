@@ -22,7 +22,8 @@ export default function Botao({ texto, tipo, acao }) {
 
             case 3:
                 return {
-                    botao: estilos.botaoEvento
+                    botao: estilos.third.caixa,
+                    texto: estilos.third.texto
                 }
                 break;
 
@@ -119,13 +120,21 @@ const estilos = StyleSheet.create({
         }
     },
 
-    botaoEvento: {
-        marginTop: 16,
-        paddingVertical: 12,
-        backgroundColor: "#FFFFFF",
-        borderRadius: 15,
-        marginRight: 8,
-        flexDirection: "row",
+    third: {
+        caixa: {
+            backgroundColor: "#84b340",
+            paddingVertical: 15,
+            borderRadius: 15,
+            marginRight: 40,
+            marginLeft: 20,
+            marginTop: 20
+        },
+        texto: {
+            textAlign: "center",
+            color: "#FFFFFF",
+            fontSize: 16,
+            fontWeight: "bold",
+        }
     },
 })
 

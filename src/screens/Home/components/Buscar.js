@@ -37,9 +37,9 @@ export default function Buscar() {
                     data={lista}
                     keyExtractor={(item) => item.id.toString()}
                     contentContainerStyle={{ marginBottom: 24 }} 
+                    scrollEnabled={false} 
                     renderItem={({ item }) => <ListarBusca {...item} feedBack={item} 
                     />
-                    
                     } />
             </View>
         </Screen>

@@ -1,13 +1,11 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { Dimensions, FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
+import { FlatList, ScrollView, Text, View } from "react-native";
 import { subscribed } from '../../../../config/text.json';
-import Icon from "../../../components/Icon";
+import Botao from "../../../components/Button";
 import Interaction from "../../../components/Interation";
 import Owner from "../../../components/Owner";
 import Texto from "../../../components/texto";
-
-const { width, height } = Dimensions.get('window');
 
 export default function Lista({ dadosEventos }) {
 
@@ -15,7 +13,7 @@ export default function Lista({ dadosEventos }) {
   const navigation = useNavigation();
 
   const renderItem = ({ item }) => (
-    <ScrollView style={{marginBottom: 16}}>
+    <ScrollView style={{ marginBottom: 16 }}>
       <Interaction
         tipo={'Home'}
         imagem={{ uri: item[0].imagemEvento }}
@@ -29,8 +27,8 @@ export default function Lista({ dadosEventos }) {
   );
 
   return <>
-  
-    <View style={{ paddingHorizontal: 12 }}>
+
+    <View style={{ paddingHorizontal: 12, paddingRight: 20}}>
       <Texto>{subtitle}</Texto>
     </View>
 
@@ -42,22 +40,9 @@ export default function Lista({ dadosEventos }) {
       data={dadosEventos}
       keyExtractor={(item) => item[0].id.toString()}
       renderItem={renderItem}
-      contentContainerStyle={{ paddingBottom: 200 }} 
+      contentContainerStyle={{ paddingBottom: 250 }}
+      ListFooterComponent={<Botao texto={'Criar evento'} tipo={3} acao={ () => navigation.navigate('CriarEvento')} />}
     />
 
-    <Icon icone={"plus-circle-outline"} acao={() => { navigation.navigate('CriarEvento') }} styleIcon={estilus.botao} />
-
   </>
-
 }
-
-const estilus = StyleSheet.create({
-
-  botao: {
-    bottom: height * 0.03,
-    right: width * 0.05,
-    position: "absolute",
-    fontSize: 36,
-  }
-
-})
