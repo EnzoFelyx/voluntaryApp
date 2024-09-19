@@ -83,6 +83,12 @@ export default function Imagem({ imagem, tipo }) {
                 }
                 break;
 
+            case 'mapa': 
+                return {
+                    picture: estilos.mapa
+                }
+                break;
+
             default:
                 break;
         }
@@ -184,5 +190,10 @@ const estilos = StyleSheet.create({
         opacity: 0.4,
         height: 25,
         width: 25,
+    },
+
+    mapa: {
+        height: 54,
+        width: 52,
     },
 })
