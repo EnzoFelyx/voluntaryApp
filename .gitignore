@@ -2,6 +2,7 @@ node_modules/
 .expo/
 dist/
 to-do list.txt
+constants
 npm-debug.*
 *.jks
 *.p8
