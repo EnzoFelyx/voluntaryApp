@@ -22,13 +22,6 @@ export default function Botao({ texto, tipo, acao }) {
 
             case 3:
                 return {
-                    botao: estilos.third.caixa,
-                    texto: estilos.third.texto
-                }
-                break;
-
-            case 9:
-                return {
                     botao: estilos.terceiroBotao.caixa,
                     texto: estilos.terceiroBotao.texto
                 }
@@ -38,6 +31,13 @@ export default function Botao({ texto, tipo, acao }) {
                 return {
                     botao: estilos.quartoBotao.caixa,
                     texto: estilos.quartoBotao.texto
+                }
+                break;
+
+            case 9:
+                return {
+                    botao: estilos.nonoBotao.caixa,
+                    texto: estilos.nonoBotao.texto
                 }
                 break;
 
@@ -90,17 +90,18 @@ const estilos = StyleSheet.create({
 
     terceiroBotao: {
         caixa: {
-            backgroundColor: "#F9F9F9",
-            paddingVertical: 16,
+            backgroundColor: "#84b340",
+            paddingVertical: 15,
             borderRadius: 15,
-            borderWidth: 1,
-            borderColor: 'red',
+            marginRight: 40,
+            marginLeft: 20,
+            marginTop: 20
         },
         texto: {
             textAlign: "center",
+            color: "#FFFFFF",
             fontSize: 16,
-            fontWeight: "500",
-            color: 'red',
+            fontWeight: "bold",
         }
     },
 
@@ -120,20 +121,19 @@ const estilos = StyleSheet.create({
         }
     },
 
-    third: {
+    nonoBotao: {
         caixa: {
-            backgroundColor: "#84b340",
-            paddingVertical: 15,
+            backgroundColor: "#F9F9F9",
+            paddingVertical: 16,
             borderRadius: 15,
-            marginRight: 40,
-            marginLeft: 20,
-            marginTop: 20
+            borderWidth: 1,
+            borderColor: 'red',
         },
         texto: {
             textAlign: "center",
-            color: "#FFFFFF",
             fontSize: 16,
-            fontWeight: "bold",
+            fontWeight: "500",
+            color: 'red',
         }
     },
 })

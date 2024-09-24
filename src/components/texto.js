@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, Text } from "react-native";
+import { fontFamily } from "../styles/fontFamily";
 
 export default function Texto ({ children, style }) {
     let estilo = estilos.texto;
@@ -12,12 +13,12 @@ export default function Texto ({ children, style }) {
 
 const estilos = StyleSheet.create({
     texto: {
-        fontFamily: "QuicksandRegular",
+        fontFamily: fontFamily.regular,
         fontWeight: "normal",
         fontSize: 16,
     },
     textoNegrito: {
-        fontFamily: "QuicksandBold",
+        fontFamily: fontFamily.bold,
         fontWeight: "bold",   
     }
 })

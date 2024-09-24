@@ -1,46 +1,35 @@
-import { Quicksand_400Regular, Quicksand_700Bold, useFonts } from '@expo-google-fonts/quicksand';
+import { 
+  Quicksand_400Regular, 
+  Quicksand_700Bold,
+  Quicksand_500Medium,
+
+  useFonts 
+} from '@expo-google-fonts/quicksand';
 import React from 'react';
-import { Dimensions, SafeAreaView, StatusBar, StyleSheet, View } from 'react-native';
+import { StatusBar, View } from 'react-native';
+
 import Login_Routes from './src/routes/Login_Routes'
 
 import Maps from "./src/screens/Event/Maps"
 
-const window = Dimensions.get('window');
 
 export default function App() {
 
-  const [fontCarregada] = useFonts({
-    "QuicksandRegular": Quicksand_400Regular,
-    "QuicksandBold": Quicksand_700Bold,
+  const [fontsLoaded] = useFonts({
+    Quicksand_400Regular, 
+    Quicksand_700Bold,
+    Quicksand_500Medium,
   })
 
-  if (!fontCarregada) {
-    return <View />
+  if (!fontsLoaded) {
+    return null
   }
 
   return (
-    <>
-      <SafeAreaView style={estilo.container}>
-        <StatusBar barStyle={'dark-content'} backgroundColor="transparent" translucent />
-        {/* <Login_Routes /> */}
-        <Maps />
-      </SafeAreaView>
-      <SafeAreaView style={estilo.barradeBaixo} />
-    </>
+    <View style={{ flex: 1 }}>
+      <StatusBar barStyle={'dark-content'} backgroundColor="transparent" translucent />
+      <Login_Routes />
+      {/* <Maps /> */}
+    </View>
   );
 }
-
-const estilo = StyleSheet.create(
-  {
-    container: {
-      flex: 1,
-      width: window.width,
-      height: window.height,
-    },
-    barradeBaixo:
-    {
-      backgroundColor: '#649469',
-      flex: 0,
-    }
-  }
-);

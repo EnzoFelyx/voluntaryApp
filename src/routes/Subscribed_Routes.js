@@ -13,6 +13,7 @@ export default function SeusEventosRotas() {
             headerShown: false
         }}
     >
+        
         <Stack.Screen name='SeusEventos'>
             {() => <Subscribed/>}
         </Stack.Screen>
