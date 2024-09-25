@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
-import { View } from 'react-native';
+
 import { subscribed } from '../../../config/text.json';
 import Background from '../../components/Background';
 import Screen from '../../components/Screen';
