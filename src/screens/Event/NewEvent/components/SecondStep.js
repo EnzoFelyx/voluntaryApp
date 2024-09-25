@@ -1,23 +1,26 @@
 import React, { useState } from "react";
-import { StyleSheet, Touchable, TouchableOpacity, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
+import mapa from "../../../../../assets/mapa.png";
 import { newEvent } from "../../../../../config/text.json";
-import Input from "../../../../components/Input";
-import Texto from "../../../../components/texto";
 import Button from "../../../../components/Button";
 import Imagem from "../../../../components/Image";
-import mapa from "../../../../../assets/mapa.png"
-import Icon from "../../../../components/Icon";
+import Input from "../../../../components/Input";
 import Line from "../../../../components/Line";
+import Texto from "../../../../components/texto";
+import { CircleX } from "lucide-react-native";
+import { useNavigation } from "@react-navigation/native";
 
 export default function SecondStep() {
 
-    const { map, mapLeg, city, state, neighborhood, cep, street, streetLeg, button } = newEvent.page2
+    const { city, state, neighborhood, cep, street, streetLeg, button } = newEvent.page2
 
     const [Ename, setName] = useState('');
     const [Edate, setDate] = useState('');
     const [Eperiod, setPeriod] = useState('');
     const [Estart, setStart] = useState('');
     const [Eends, setEnds] = useState('');
+
+    const navigation = useNavigation();
 
 
     return (
@@ -29,7 +32,8 @@ export default function SecondStep() {
                 <View style={{ flexDirection: "row", }}>
                     <TouchableOpacity
                         style={estilos.mapinha}
-                        activeOpacity={0.6}
+                        activeOpacity={0.5}
+                        onPress={() => navigation.navigate('Maps')}
                     >
                         <Imagem imagem={mapa} tipo={'mapa'} />
                     </TouchableOpacity>
@@ -40,12 +44,14 @@ export default function SecondStep() {
                     </View>
 
                 </View>
-                <Icon icone={'close-circle'} cor={"#d9d9d9"}styleIcon={{ backgroundColor: '#767676', borderRadius: 15 ,fontSize: 24}}/>
+                <TouchableOpacity>
+                    <CircleX color={"#767676"} size={25} />
+                </TouchableOpacity>
             </View>
 
             <Line />
 
-            <View style={{marginTop: 24}}>
+            <View style={{ marginTop: 24 }}>
 
                 <View style={estilos.smallInput}>
 

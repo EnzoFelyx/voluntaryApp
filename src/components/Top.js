@@ -5,6 +5,8 @@ import Icon from './Icon';
 import Image from './Image';
 import Title from './Title';
 import Return from './Return';
+import { ChevronLeft } from 'lucide-react-native';
+import { TouchableOpacity } from 'react-native';
 
 export default function Cabecalho({ tipo = null, titulo = null, Foto = null, fotoEstilo = null }) {
 
@@ -28,17 +30,15 @@ export default function Cabecalho({ tipo = null, titulo = null, Foto = null, fot
             break;
 
         default:
-            return <SafeAreaView style={estilos.voltar}>
+            return <View style={estilos.voltar}>
 
-                <Icon
-                    icone={"chevron-left"}
-                    interativo={true}
-                    tamanho={40}
-                    acao={() => { navigation.goBack() }}
-                />
+                <TouchableOpacity onPress={() => { navigation.goBack() }}>
+                    <ChevronLeft color={"black"} size={25} />
+                </TouchableOpacity>
 
                 <Title entrada={titulo} tipo={"Titulo"} />
-            </SafeAreaView>
+            </View>
+
             break;
     }
 }
@@ -53,7 +53,10 @@ const estilos = StyleSheet.create({
 
     voltar: {
         flexDirection: "row",
-        marginTop: 16,
+        alignItems: "center",
+        gap: 12,
+        marginTop: 50,
+        marginBottom: 16,
         marginLeft: 16,
     },
 })

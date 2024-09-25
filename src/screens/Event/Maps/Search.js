@@ -3,6 +3,7 @@ import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { GOOGLE_MAPS_API_KEY } from '../../../constants';
 import Icon from '../../../components/Icon';
+import { toInputBoxStyles } from './estilos';
 
 export default function Search({ onCoordenadasChange }) {
 
@@ -66,27 +67,3 @@ export default function Search({ onCoordenadasChange }) {
 
     );
 }
-
-const toInputBoxStyles = StyleSheet.create({
-
-    container: {
-        flex: 0,
-        paddingHorizontal: 10,
-        backgroundColor: "#FFFF",
-        marginBottom: 16,
-    },
-    textInput: {
-        paddingHorizontal: 16,
-        height: 50,
-        backgroundColor: "#DDDDDF",
-        borderWidth: 0.5,
-        borderRadius: 20,
-        fontSize: 18,
-    },
-
-    TextInputContainer: {
-        paddingHorizontal: 20,
-        paddingBottom: 0,
-    },
-})
-
