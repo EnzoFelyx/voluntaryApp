@@ -25,9 +25,9 @@ export default function Details({ route }) {
         <Screen>
             <Top Foto={{ uri: imagem }} fotoEstilo={"fotoEvento"} tipo={"Welcome"} />
             <Background back={"backThree"}>
-                <Overview nome={nome} local={local} data={data} hora={horaEvento} organizadoraFoto={organizadoraFoto} organizadora={criadorEvento} />
+                <Overview nome={nome} local={local} data={data} hora={horaEvento} organizadoraFoto={organizadoraFoto} organizadora={criadorEvento} people={participantes} />
                 <Interactions />
-                <Body descricao={descricao} participantes={participantes} idEvento={idEvento} />
+                <Body descricao={descricao} idEvento={idEvento} />
             </Background>
         </Screen>
     )

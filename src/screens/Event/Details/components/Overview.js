@@ -1,9 +1,13 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { View } from "react-native";
+
+import pessoas from "../../../../../assets/buscar/pessoas.png";
 import Icon from "../../../../components/Icon";
+import Image from '../../../../components/Image';
 import Owner from "../../../../components/Owner";
-import Title from '../../../../components/Title';
 import Texto from "../../../../components/texto";
+import Title from '../../../../components/Title';
+import { estilos } from "./estilos";
 
 export default function Overview({
     nome,
@@ -11,7 +15,8 @@ export default function Overview({
     data,
     organizadora,
     organizadoraFoto,
-    hora
+    hora,
+    people
 }) {
 
     const About = ({ icone, familia, texto }) =>
@@ -24,30 +29,18 @@ export default function Overview({
         <View style={estilos.titulo}>
             <Title entrada={nome} tipo={"Titulo"} />
         </View>
-        <About familia={"Entypo"} icone={"location-pin"} texto={local} />
-        <About icone={"calendar-month-outline"} texto={data} />
-        <About icone={"clock-outline"} texto={hora} />
+        <View style={estilos.inLine}>
+            <About icone={"calendar-month-outline"} texto={data} />
+            <About icone={"clock-outline"} texto={hora} />
+        </View>
+
+        <View style={estilos.inLine}>
+            <About familia={"Entypo"} icone={"location-pin"} texto={local} />
+            <View style={{ flexDirection: "row", gap: 12 }}>
+                <Image imagem={pessoas} tipo={"icone"} />
+                <Texto>{people}</Texto>
+            </View>
+        </View>
         <Owner image={{ uri: organizadoraFoto }} nome={organizadora} />
     </>
 }
-
-const estilos = StyleSheet.create({
-    evento: {
-        color: "#ffffe5",
-        fontSize: 26,
-    },
-
-    titulo: {
-        marginLeft: 8,
-        marginTop: 10,
-        marginBottom: 8,
-    },
-    about: {
-        flexDirection: "row",
-        marginVertical: 3,
-    },
-    texto: {
-        marginLeft: 8,
-        color: "gray"
-    }
-})

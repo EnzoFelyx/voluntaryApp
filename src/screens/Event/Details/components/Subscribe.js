@@ -1,10 +1,11 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useEffect, useState } from "react";
+import { Alert } from "react-native";
+
 import Button from "../../../../components/Button";
 import useTop from '../../../../hooks/useTop';
 import { criarAmrEvento, deletAmrEvento } from '../../../../services/requests/eventos';
 import { UserEvent } from "../../../../services/requests/usuario";
-import { Alert } from "react-native";
 
 export default function Subscribe({ idEvento }) {
 
