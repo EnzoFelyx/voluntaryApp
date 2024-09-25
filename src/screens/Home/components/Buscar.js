@@ -1,6 +1,7 @@
 import { useIsFocused } from "@react-navigation/native";
 import React, { useEffect, useState } from "react";
 import { FlatList, TextInput, View } from "react-native";
+
 import { search } from "../../../../config/text.json";
 import Screen from "../../../components/Screen";
 import useSearch from "../../../hooks/useSearch";
@@ -13,7 +14,7 @@ export default function Buscar() {
     const [nomeDoEvento, setNomeEvento] = useState('');
     const isFocused = useIsFocused();
     const lista = useSearch(nomeDoEvento);
-    
+
     useEffect(() => {
         if (!isFocused) {
             setNomeEvento('');
@@ -23,6 +24,7 @@ export default function Buscar() {
     return (
         <Screen type={'static'}>
             <TextInput
+                ref={TextInput}
                 style={estilos.caixa}
                 setNomeEvento={''}
                 placeholder={searchFor}

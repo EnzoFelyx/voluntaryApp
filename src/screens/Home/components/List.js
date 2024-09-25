@@ -1,5 +1,6 @@
 import React from "react";
 import { View } from "react-native";
+
 import { home } from "../../../../config/text.json";
 import { UseOngs, useEventos, useUsuarios } from "../../../hooks/useHome";
 

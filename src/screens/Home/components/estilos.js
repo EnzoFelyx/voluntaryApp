@@ -35,6 +35,8 @@ export default StyleSheet.create({
     
     people: {
         flexDirection: "row",
+        alignItems: "center",
+        gap: 4,
         marginLeft: "auto",
         marginRight: 20,
     },

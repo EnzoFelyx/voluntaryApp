@@ -1,6 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { FlatList, View } from 'react-native';
+
 import Interation from '../../../components/Interation';
 import Owner from '../../../components/Owner';
 import Texto from '../../../components/texto';

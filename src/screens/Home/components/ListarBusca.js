@@ -1,8 +1,8 @@
 import { useNavigation } from "@react-navigation/native";
+import { UsersRound } from "lucide-react-native";
 import React from "react";
 import { TouchableOpacity, View } from "react-native";
-import pessoas from "../../../../assets/buscar/pessoas.png";
-import Image from "../../../components/Image";
+
 import Texto from "../../../components/texto";
 import estilos from "./estilos";
 
@@ -29,7 +29,7 @@ export default function ListarBusca({
             <View style={{ flexDirection: "row" }}>
                 <Texto style={estilos.local}>{localEvento}</Texto>
                 <View style={estilos.people}>
-                    <Image imagem={pessoas} tipo={"icone"} />
+                    <UsersRound color={"gray"} size={20} />
                     <Texto style={estilos.contador}>{contPessoas}</Texto>
                 </View>
             </View>

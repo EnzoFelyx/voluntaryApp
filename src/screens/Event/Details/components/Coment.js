@@ -1,4 +1,4 @@
-import React from "react";
+/* import React from "react";
 import { SafeAreaView, View } from "react-native";
 
 import Button from "../../../../components/Button";
@@ -17,3 +17,4 @@ export default function Corpo({ subtitle, legenda, input, botao }) {
     </SafeAreaView>
 }
 
+ */

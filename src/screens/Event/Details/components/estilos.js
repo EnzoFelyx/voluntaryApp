@@ -11,7 +11,8 @@ export const estilos = StyleSheet.create({
 
     icones: {
         flexDirection: "row",
-        marginVertical: 14,
+        marginTop: 7,
+        marginBottom: 14,
         justifyContent: 'space-between',
         backgroundColor: "#ffffe5",
         borderWidth: 0.5,
@@ -36,6 +37,7 @@ export const estilos = StyleSheet.create({
     about: {
         flexDirection: "row",
         marginVertical: 3,
+        alignItems: "center",
     },
     texto: {
         marginLeft: 8,
@@ -46,6 +48,11 @@ export const estilos = StyleSheet.create({
         justifyContent: "space-between", 
         paddingRight: 16, 
         marginBottom: 8 
+    },
+    peoples:{
+        flexDirection: "row", 
+        gap: 12, 
+        alignItems: "center"
     }
   
   })
