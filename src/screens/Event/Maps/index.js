@@ -3,21 +3,31 @@ import {
     requestForegroundPermissionsAsync
 } from 'expo-location';
 import { useEffect, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
+import { Modal } from '../../../components/Modal';
+import Top from '../../../components/Top';
+import Texto from '../../../components/texto';
+import { pesquisarEndereco } from '../../../services/requests/maps';
+import { styles } from './estilos';
 import Search from './Search';
 import Topo from './Topo';
-import { TouchableOpacity } from 'react-native';
-import Texto from '../../../components/texto';
-import { GOOGLE_MAPS_API_KEY } from '../../../constants';
-import axios from 'axios';
-import { styles } from './estilos';
+import { CalendarDays, Clock } from 'lucide-react-native';
+
+
+const MODAL = {
+    NONE: 0,
+    UPDATE_TRIP: 1,
+}
+
 
 export default function Maps() {
 
     const [selectedPlace, setSelectedPlace] = useState(null);
     const [marker, setMarker] = useState(null);
     const [address, setAddress] = useState([]);
+
+    const [showModal, setShowModal] = useState(MODAL.NONE)
 
     const handleCoordenadasChange = (newCoordenadas) => {
         setMarker(newCoordenadas)
@@ -41,35 +51,9 @@ export default function Maps() {
         }
     }
 
-    const fetchAddressFromCoordinates = async (latitude, longitude) => {
-        try {
-            const response = await axios.get(
-                `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${GOOGLE_MAPS_API_KEY}`
-            );
-            if (response.data.results.length > 0) {
-                const addressComponents = response.data.results[0]?.address_components || [];
-                const resultado = [
-                    latitude,
-                    longitude,
-                    addressComponents[0]?.long_name,
-                    addressComponents[1]?.long_name,
-                    addressComponents[2]?.long_name,
-                    addressComponents[3]?.long_name,
-                    addressComponents[4]?.short_name,
-                    addressComponents[5]?.long_name,
-                    addressComponents[6]?.long_name
-                ].filter(Boolean);
-                setAddress(resultado);
-            } else {
-                setAddress(null);
-            }
-
-        } catch (error) {
-            console.error(error);
-            console.log('Erro ao buscar o endereço');
-        }
-    };
-
+    const mostrarEndereco = async (latitude, longitude) => {
+        setAddress(await pesquisarEndereco(latitude, longitude));
+    }
 
     useEffect(() => {
         requestLocationPermissions();
@@ -80,35 +64,34 @@ export default function Maps() {
 
         <View style={styles.container}>
 
-            <Topo topo={"Escolha o local"} />
+            <Top titulo={"Escolha o local"} />
 
             <Search onCoordenadasChange={handleCoordenadasChange} />
 
-            <View style={styles.containerMapa}>
-                {
-                    selectedPlace &&
-                    <MapView
-                        style={styles.map}
-                        showsUserLocation
-                        region={{
-                            latitude: selectedPlace.latitude,
-                            longitude: selectedPlace.longitude,
-                            latitudeDelta: 0.005,
-                            longitudeDelta: 0.005,
-                        }}
-                        onPress={handleMapPress}
-                    >
-                        {marker && (
-                            <Marker
-                                coordinate={{
-                                    latitude: marker?.latitude,
-                                    longitude: marker?.longitude,
-                                }}
-                            />
-                        )}
-                    </MapView>
-                }
-            </View>
+            {
+                selectedPlace &&
+                <MapView
+                    style={styles.container}
+                    showsUserLocation
+                    region={{
+                        latitude: selectedPlace.latitude,
+                        longitude: selectedPlace.longitude,
+                        latitudeDelta: 0.005,
+                        longitudeDelta: 0.005,
+                    }}
+                    onPress={handleMapPress}
+                >
+                    {marker && (
+                        <Marker
+                            coordinate={{
+                                latitude: marker?.latitude,
+                                longitude: marker?.longitude,
+                            }}
+                        />
+                    )}
+                </MapView>
+            }
+
 
             {marker &&
                 <TouchableOpacity
@@ -116,16 +99,93 @@ export default function Maps() {
                     style={styles.caixa}
                     onPress={() => {
                         if (marker && marker.latitude !== undefined && marker.longitude !== undefined) {
-                            fetchAddressFromCoordinates(marker.latitude, marker.longitude);
+                            mostrarEndereco(marker.latitude, marker.longitude);
                         } else {
                             console.log('Coordenadas não disponíveis');
                         }
                     }}
+                    onPressIn={() => setShowModal(MODAL.UPDATE_TRIP)}
                 >
-                    <Texto style={styles.texto}>Adicionar local</Texto>
+                    <Texto style={styles.textoCaixa}>Adicionar local</Texto>
 
                 </TouchableOpacity>
             }
+
+            <Modal
+                title="Dê um nome ao destino"
+                subtitle="Confira os dados antes de salvar"
+                visible={showModal === MODAL.UPDATE_TRIP}
+                onClose={() => setShowModal(MODAL.NONE)}
+            >
+                <View style={{ marginVertical: 4 }}>
+
+                    <View style={styles.info}>
+                        <Text style={styles.infoText}>Nome do Evento</Text>
+                    </View>
+
+                    <View style={{ flexDirection: 'row', gap: 16 }}>
+
+                        <View style={[styles.info, { justifyContent: "center", gap: 8 }]}>
+                            <CalendarDays color={"black"} size={25} />
+                            <Text style={styles.infoText}>data</Text>
+                        </View>
+
+                        <View style={[styles.info, { justifyContent: "center", gap: 8 }]}>
+                            <Clock color={"black"} size={25} />
+                            <Text style={styles.infoText}>hora</Text>
+                        </View>
+                    </View>
+
+                    <Text style={styles.endereco}>Endereço</Text>
+
+                    <View style={styles.info}>
+                        {address?.[3] &&
+                            <Text style={styles.infoText}>{address?.[3]}, {address?.[2]}</Text>}
+                    </View>
+
+                    <View style={{ flexDirection: 'row', gap: 16 }}>
+
+                        <View style={styles.info}>
+                            <Text style={styles.infoText}>{address?.[5]}</Text>
+                        </View>
+
+                        <View style={styles.info}>
+                            <Text style={styles.infoText}>{address?.[4]}</Text>
+                        </View>
+                    </View>
+
+                    <View style={{ flexDirection: 'row', gap: 16 }}>
+
+                        <View style={styles.info}>
+                            <Text style={styles.infoText}>{address?.[8]}</Text>
+                        </View>
+
+                        <View style={styles.info}>
+                            {address?.[6] && address?.[7] &&
+                                <Text style={styles.infoText}>{address?.[6]} / {address?.[7]}</Text>}
+                        </View>
+
+                    </View>
+                    
+                    <TouchableOpacity
+                        style={styles.infoCaixa}
+                        onPress={() => {
+                          /*   if (pin !== "") { */
+                                /* CriarCheckPoint(); */
+                                setMarker(null)
+                                setShowModal(MODAL.NONE)
+                            /* } else {
+                                console.log('escolha um nome');
+                            } */
+                        }}
+                    >
+                        <Text style={styles.textoCaixa}>Confirmar</Text>
+                    </TouchableOpacity>
+
+                </View>
+
+            </Modal>
+
 
         </View >
     </>

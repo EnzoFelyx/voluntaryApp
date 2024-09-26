@@ -71,7 +71,7 @@ export default function SeusEventos({ interacoes }) {
 
     buscarDadosDoUsuario();
   }, []);
-
+ 
   return (
     <Screen type={'static'}>
       <Top tipo={'Perfil'} Foto={{ uri: dadosDoUsuario.perfil }} titulo={title} />
