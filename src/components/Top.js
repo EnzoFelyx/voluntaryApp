@@ -1,12 +1,10 @@
 import { useNavigation } from '@react-navigation/native';
-import React from 'react';
-import { SafeAreaView, StyleSheet, View } from 'react-native';
-import Icon from './Icon';
-import Image from './Image';
-import Title from './Title';
-import Return from './Return';
 import { ChevronLeft } from 'lucide-react-native';
-import { TouchableOpacity } from 'react-native';
+import React from 'react';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import Image from './Image';
+import Return from './Return';
+import Title from './Title';
 
 export default function Cabecalho({ tipo = null, titulo = null, Foto = null, fotoEstilo = null }) {
 

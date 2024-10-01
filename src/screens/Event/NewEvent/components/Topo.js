@@ -1,18 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { StyleSheet, View, KeyboardAvoidingView, Platform, SafeAreaView, TouchableOpacity } from "react-native";
-import Texto from "../../../../components/texto";
-import Input from "../../../../components/Input";
-import Button from "../../../../components/Button";
-import CaixaSelecao from "./CaixaSelecao";
-import { MaterialIcons } from '@expo/vector-icons';
-import Icon from "../../../../components/Icon";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { criarEvento } from '../../../../services/requests/eventos'
-import { pegarDadosUsuario } from '../../../../services/requests/usuario'
-import { Alert } from 'react-native';
-import * as ImagePicker from 'expo-image-picker';
 import { useNavigation } from "@react-navigation/native";
+import * as ImagePicker from 'expo-image-picker';
+import React, { useEffect, useState } from "react";
+import { Alert, StyleSheet, View } from "react-native";
 import { newEvent } from "../../../../../config/text.json";
+import Input from "../../../../components/Input";
+import Texto from "../../../../components/texto";
+import { criarEvento } from '../../../../services/requests/eventos';
+import { pegarDadosUsuario } from '../../../../services/requests/usuario';
 
 export default function Topo({ titulos, interacoes }) {
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
 import Texto from './texto';
 
-export default function Input({ legenda = null, entrada, senha = false, tipo, valor, onChangeText }) {
+export default function Input({ legenda = null, entrada, senha = false, tipo, valor, onChangeText, onPressIn = null, focado = null, keyType = null, leght = null, editable = true }) {
 
   const caixaInputStyle = (tipo) => {
 
@@ -11,8 +11,8 @@ export default function Input({ legenda = null, entrada, senha = false, tipo, va
       case 1:
       /*  return estilos.caixaInputGrande; */
 
-          case 2:
-            return estilos.caixaInputPequena;
+      case 2:
+        return estilos.caixaInputPequena;
 
       /*  case 3:
          return estilos.caixaComentar; */
@@ -26,12 +26,17 @@ export default function Input({ legenda = null, entrada, senha = false, tipo, va
 
   if (legenda == null) {
     return <TextInput
+      maxLength={leght}
+      keyboardType={keyType}
+      onPressIn={onPressIn}
+      onFocus={focado}
       secureTextEntry={senha}
       style={estiloCaixa}
       placeholder={entrada}
       value={valor}
       onChangeText={onChangeText}
       autoCapitalize='none'
+      editable={editable}
     />
   }
 

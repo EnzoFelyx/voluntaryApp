@@ -19,7 +19,6 @@ export default function NewEvent() {
         <Background back={'backOne'}>
             {/* <Topo {...Criar_mock} /> */}
             <FirstStep />
-            <SecondStep />
         </Background>
     </Screen>
 }
