@@ -8,6 +8,7 @@ export const estilos = StyleSheet.create({
 
     input: {
         marginBottom: 16,
+        gap: 12,
     },
 
     smallInput: {

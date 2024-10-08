@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useNavigation, useRoute } from "@react-navigation/native";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 import mapa from "../../../../../assets/mapa.png";
 import { newEvent } from "../../../../../config/text.json";
@@ -7,22 +8,37 @@ import Imagem from "../../../../components/Image";
 import Input from "../../../../components/Input";
 import Line from "../../../../components/Line";
 import Texto from "../../../../components/texto";
-import { CircleX } from "lucide-react-native";
-import { useNavigation } from "@react-navigation/native";
 
-export default function SecondStep() {
+export default function SecondStep({ feedBack }) {
 
-    const { city, state, neighborhood, cep, street, streetLeg, button } = newEvent.page2
+    const { city, state, neighborhood, cep, street, button } = newEvent.page2
 
-    const [Ename, setName] = useState('');
-    const [Edate, setDate] = useState('');
-    const [Eperiod, setPeriod] = useState('');
-    const [Estart, setStart] = useState('');
-    const [Eends, setEnds] = useState('');
+    const [estado, setEstado] = useState('');
+    const [cidade, setCidade] = useState('');
+    const [bairro, setBairro] = useState('');
+    const [thiscep, setCep] = useState('');
+    const [logradouro, setLogradouro] = useState('');
+    const [latitude, setLatitude] = useState('');
+    const [longitude, setLongitude] = useState('');
+    const [pais, setPais] = useState('');
 
     const navigation = useNavigation();
 
+    const route = useRoute();
 
+    useEffect(() => {
+        if (route.params?.address) {
+            const [latitude, longitude, number, rua, bairro, cidade, estado, pais, cep] = route.params.address;
+            setEstado(estado || '');
+            setCidade(cidade || '');
+            setBairro(bairro || '');
+            setCep(cep || '');
+            setLogradouro(`${rua || ''},  ${number || ''}`.trim());
+            setLatitude(latitude);
+            setLongitude(longitude);
+            setPais(pais);
+        }
+    }, [route.params?.address]);
     return (
         <>
             <Texto>Mapa</Texto>
@@ -33,20 +49,17 @@ export default function SecondStep() {
                     <TouchableOpacity
                         style={estilos.mapinha}
                         activeOpacity={0.5}
-                        onPress={() => navigation.navigate('Maps')}
+                        onPress={() => navigation.navigate('Maps', { ...feedBack })}
                     >
                         <Imagem imagem={mapa} tipo={'mapa'} />
                     </TouchableOpacity>
 
                     <View style={{ marginLeft: 16 }}>
                         <Texto>Localização:</Texto>
-                        <Texto>Praia dos Milionários</Texto>
+                        <Texto>Buscar no mapa o local</Texto>
                     </View>
 
                 </View>
-                <TouchableOpacity>
-                    <CircleX color={"#767676"} size={25} />
-                </TouchableOpacity>
             </View>
 
             <Line />
@@ -60,17 +73,17 @@ export default function SecondStep() {
                         <Input
                             entrada={''}
                             tipo={2}
-                            valor={Edate}
-                            onChangeText={setDate} />
+                            valor={cidade}
+                            onChangeText={setCidade} />
                     </View>
 
                     <View>
                         <Texto>{state}</Texto>
                         <Input
-                            entrada={'SP'}
+                            entrada={''}
                             tipo={2}
-                            valor={Eperiod}
-                            onChangeText={setPeriod} />
+                            valor={estado}
+                            onChangeText={setEstado} />
                     </View>
                 </View>
 
@@ -81,8 +94,8 @@ export default function SecondStep() {
                         <Input
                             entrada={''}
                             tipo={2}
-                            valor={Edate}
-                            onChangeText={setDate} />
+                            valor={bairro}
+                            onChangeText={setBairro} />
                     </View>
 
                     <View style={estilos.container}>
@@ -90,8 +103,8 @@ export default function SecondStep() {
                         <Input
                             entrada={''}
                             tipo={2}
-                            valor={Eperiod}
-                            onChangeText={setPeriod} />
+                            valor={thiscep}
+                            onChangeText={setCep} />
                     </View>
                 </View>
 
@@ -99,15 +112,15 @@ export default function SecondStep() {
                 <View style={estilos.input}>
                     <Texto>{street}</Texto>
                     <Input
-                        entrada={streetLeg}
+                        entrada={''}
                         tipo={'1'}
-                        valor={Ename}
-                        onChangeText={setName} />
+                        valor={logradouro}
+                        onChangeText={setLogradouro} />
                 </View>
 
             </View>
 
-            <Button tipo={1} texto={button} />
+            <Button tipo={1} texto={'Continuar'} acao={() => navigation.navigate('FinalStep')} />
 
 
 
@@ -136,7 +149,8 @@ const estilos = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
-        marginVertical: 16
+        marginVertical: 16,
+        overflow: "hidden",
     },
 
     mapinha: {

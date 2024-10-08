@@ -5,6 +5,7 @@ import Details from '../screens/Event/Details/Details'
 import Subscribed from '../screens/Subscribed/Subscribed'
 import Maps from '../screens/Event/Maps';
 import Perfil_outro_usuario from "../screens/Profile/Perfil_outro_usuario";
+import FinalStep from "../screens/Event/NewEvent/components/FinalStep";
 
 const Stack = createNativeStackNavigator();
 
@@ -14,14 +15,16 @@ export default function SeusEventosRotas() {
             headerShown: false
         }}
     >
-        
+
         <Stack.Screen name='SeusEventos'>
-            {() => <Subscribed/>}
+            {() => <Subscribed />}
         </Stack.Screen>
 
         <Stack.Screen name="CriarEvento" component={NewEvent} />
 
         <Stack.Screen name="Maps" component={Maps} />
+
+        <Stack.Screen name="FinalStep" component={FinalStep} />
 
 
         <Stack.Screen name='Detalhes' component={Details} />

@@ -13,6 +13,7 @@ import { styles } from './estilos';
 import Search from './Search';
 import Topo from './Topo';
 import { CalendarDays, Clock } from 'lucide-react-native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 
 const MODAL = {
@@ -22,6 +23,12 @@ const MODAL = {
 
 
 export default function Maps() {
+
+    const route = useRoute();
+
+    const navigation = useNavigation();
+
+    const { Edate, Ename, Estart } = route.params
 
     const [selectedPlace, setSelectedPlace] = useState(null);
     const [marker, setMarker] = useState(null);
@@ -54,6 +61,11 @@ export default function Maps() {
     const mostrarEndereco = async (latitude, longitude) => {
         setAddress(await pesquisarEndereco(latitude, longitude));
     }
+
+    const handleReturn = () => {
+        navigation.navigate('CriarEvento', { address });
+    };
+
 
     useEffect(() => {
         requestLocationPermissions();
@@ -120,19 +132,19 @@ export default function Maps() {
                 <View style={{ marginVertical: 4 }}>
 
                     <View style={styles.info}>
-                        <Text style={styles.infoText}>Nome do Evento</Text>
+                        <Text style={styles.infoText}>{Ename}</Text>
                     </View>
 
                     <View style={{ flexDirection: 'row', gap: 16 }}>
 
                         <View style={[styles.info, { justifyContent: "center", gap: 8 }]}>
                             <CalendarDays color={"black"} size={25} />
-                            <Text style={styles.infoText}>data</Text>
+                            <Text style={styles.infoText}>{`${Edate.day}/${Edate.month}/${Edate.year}`}</Text>
                         </View>
 
                         <View style={[styles.info, { justifyContent: "center", gap: 8 }]}>
                             <Clock color={"black"} size={25} />
-                            <Text style={styles.infoText}>hora</Text>
+                            <Text style={styles.infoText}>{Estart}h00</Text>
                         </View>
                     </View>
 
@@ -166,17 +178,13 @@ export default function Maps() {
                         </View>
 
                     </View>
-                    
+
                     <TouchableOpacity
                         style={styles.infoCaixa}
                         onPress={() => {
-                          /*   if (pin !== "") { */
-                                /* CriarCheckPoint(); */
-                                setMarker(null)
-                                setShowModal(MODAL.NONE)
-                            /* } else {
-                                console.log('escolha um nome');
-                            } */
+                            setMarker(null)
+                            setShowModal(MODAL.NONE)
+                            handleReturn();
                         }}
                     >
                         <Text style={styles.textoCaixa}>Confirmar</Text>

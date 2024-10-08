@@ -9,13 +9,16 @@ export default function Input({ legenda = null, entrada, senha = false, tipo, va
     switch (tipo) {
 
       case 1:
-      /*  return estilos.caixaInputGrande; */
+        /*  return estilos.caixaInputGrande; */
+        break
 
       case 2:
         return estilos.caixaInputPequena;
+        break;
 
-      /*  case 3:
-         return estilos.caixaComentar; */
+      case 3:
+        return estilos.numerico;
+        break
 
       default:
         return estilos.caixaInputGrande;
@@ -82,5 +85,14 @@ const estilos = StyleSheet.create({
     marginTop: 16,
     marginBottom: 16,
   },
+
+  numerico: {
+    
+    backgroundColor: "#E4F4CD",
+    borderRadius: 15,
+    padding: 8,
+    textAlign: 'center',
+
+  }
 
 });

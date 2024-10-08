@@ -83,9 +83,21 @@ export default function Imagem({ imagem, tipo }) {
                 }
                 break;
 
-            case 'mapa': 
+            case 'mapa':
                 return {
                     picture: estilos.mapa
+                }
+                break;
+
+            case 'capaImagem':
+                return {
+                    picture: estilos.capaImagem
+                }
+                break;
+
+            case 'fotosEvento':
+                return {
+                    picture: estilos.fotosEvento
                 }
                 break;
 
@@ -95,6 +107,8 @@ export default function Imagem({ imagem, tipo }) {
     }
 
     const estiloImagem = tipoImagemTamanho(tipo);
+
+
 
     return (
         <Image source={imagem} style={estiloImagem.picture} />
@@ -195,5 +209,15 @@ const estilos = StyleSheet.create({
     mapa: {
         height: 54,
         width: 52,
+    },
+
+    capaImagem: {
+        height: 200,
+        width: 350,
+    },
+
+    fotosEvento: {
+        height: 70,
+        width: 70,
     },
 })

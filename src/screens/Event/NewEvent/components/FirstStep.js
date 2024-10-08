@@ -110,7 +110,7 @@ export default function FirstStep() {
                         tipo={2}
                     />
                 </View>
-                <SecondStep />
+                <SecondStep feedBack={{ Ename, Edate, Estart }} />
             </>
             )
             }

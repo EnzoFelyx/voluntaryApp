@@ -32,7 +32,9 @@ export default function Routes() {
             },
             keyboardHidesTabBar: 'true',
             //esconde a tab bar quando abre o teclado
-        }}>
+        }}
+        initialRouteName='Home'
+    >
 
         <Tab.Screen name="Eventos"
             options={{
