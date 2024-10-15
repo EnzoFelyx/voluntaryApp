@@ -181,8 +181,8 @@ const estilos = StyleSheet.create({
     },
 
     Perfil: {
-        height: 156,
-        width: 156,
+        height: 140,
+        width: 140,
         borderRadius: 90,
         marginTop: 5,
         alignSelf: 'center',

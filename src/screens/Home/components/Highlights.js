@@ -8,7 +8,7 @@ import estilos from './estilos';
 
 export default function Destaques({ dadosDoUsuario, titulo }) {
 
-  const navigation = useNavigation();
+/*   const navigation = useNavigation(); */
 
   const renderItem = ({ item }) => (
     <Interation
@@ -17,7 +17,7 @@ export default function Destaques({ dadosDoUsuario, titulo }) {
       styleImg={'perfilDestaque'}
       texto={item.nome}
       styleLeg={{ marginVertical: 10, textAlign: 'center', }}
-      acao={() => navigation.navigate('PerfilCriadorEvento', { item })}
+      /* acao={() => navigation.navigate('PerfilCriadorEvento', { item })} */
     />
   );
 

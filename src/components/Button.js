@@ -34,6 +34,13 @@ export default function Botao({ texto, tipo, acao }) {
                 }
                 break;
 
+            case 5:
+                return {
+                    botao: estilos.quintoBotao.caixa,
+                    texto: estilos.quintoBotao.texto
+                }
+                break;
+
             case 9:
                 return {
                     botao: estilos.nonoBotao.caixa,
@@ -116,6 +123,24 @@ const estilos = StyleSheet.create({
         },
         texto: {
             fontSize: 16,
+            fontWeight: "bold",
+            color: '#FFFF',
+        }
+    },
+
+    quintoBotao: {
+
+        caixa: {
+            backgroundColor: "#9dc662",
+            borderRadius: 15,
+            alignItems: 'center',
+            paddingVertical: 16,
+            marginHorizontal: 32,
+            marginBottom: 24
+        },
+        texto: {
+            fontSize: 16,
+
             fontWeight: "bold",
             color: '#FFFF',
         }

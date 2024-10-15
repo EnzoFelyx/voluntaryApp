@@ -1,4 +1,4 @@
-import { useRoute } from '@react-navigation/native';
+/* import { useRoute } from '@react-navigation/native';
 import React from 'react';
 import { ScrollView } from 'react-native';
 import Background from '../../components/Background';
@@ -37,4 +37,4 @@ export default function Perfil() {
       </Background>
     </Screen>
   )
-}
+} */
