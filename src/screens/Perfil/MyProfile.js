@@ -1,102 +1,109 @@
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import Background from '../../components/Background';
-import Screen from '../../components/Screen';
-import Image from '../../components/Image';
+import { BadgePlus, Calendar, CalendarPlus2, Trophy } from 'lucide-react-native';
+import React, { useState } from 'react';
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Button from '../../components/Button';
-import { useUsuarios } from '../../hooks/useHome';
-import Highlights from '../Home/components/Highlights'
-import { BadgePlus, Calendar, CalendarPlus2, CalendarX2, Trophy } from 'lucide-react-native';
+import Image from '../../components/Image';
+import Top from '../../components/Top';
+import useTopo from '../../hooks/useTop';
+import Highlights from '../Home/components/Highlights';
+import Achievements from './components/Achievements';
+import { useRoute } from '@react-navigation/native';
 
 export default function MyProfile() {
 
-    const dadosDoUsuario = useUsuarios();
+    const dadosDoUsuario = useTopo();
+
+    const route = useRoute();
+    console.log(route.params)
+
+    /* const usuario = () => {
+        if 
+    } */
+
+
+
+    const [follow, setFollow] = useState(Math.floor(Math.random() * 100) + 1);
+    const [Followers, setFolllowers] = useState(Math.floor(Math.random() * 100) + 1);
+    const [eventos, setEventos] = useState(Math.floor(Math.random() * 50) + 1);
+    const [criados, setCriados] = useState(Math.floor(Math.random() * 10) + 1);
+    const [xp, setXp] = useState(Math.floor(Math.random() * 10000) + 1);
+    const [numero, setNumero] = useState(Math.floor(Math.random() * 5) + 1);
+
+    const myElo = () => {
+        let categoria;
+
+        switch (numero) {
+            case 1:
+                categoria = 'Bronze';
+                break;
+            case 2:
+                categoria = 'Prata';
+                break;
+            case 3:
+                categoria = 'Ouro';
+                break;
+            case 4:
+                categoria = 'Platina';
+                break;
+            case 5:
+                categoria = 'Diamante';
+                break;
+            default:
+                categoria = 'Bronze';
+        }
+
+        return categoria;
+    };
 
     return (
-        <>
-            <Screen>
-                <Background back={"backOne"}>
+        <ScrollView>
+
+            <Top tipo={'Perfil'} titulo={'Perfil'} />
+
+            <View style={{ flex: 1, backgroundColor: '#E4F4CD', borderTopStartRadius: 30, borderTopRightRadius: 30, marginTop: 6, borderWidth: 3, borderColor: "#CAF38D", paddingTop: 32 }}>
+
+
+                <View>
 
                     <TouchableOpacity style={estilos.contorno}>
-                        <Image imagem={{ uri: 'https://avatars.githubusercontent.com/u/101266167?v=4' }} tipo={"Perfil"} />
+                        <Image imagem={{ uri: dadosDoUsuario.perfil }} tipo={"Perfil"} />
                     </TouchableOpacity>
 
                     <View style={{ alignItems: "center", marginBottom: 32, gap: 8 }}>
-                        <Text style={estilos.nome}>Enzo Felix</Text>
+                        <Text style={estilos.nome}>{dadosDoUsuario.nome}</Text>
                         <View style={{ flexDirection: "row", gap: 12 }}>
-                            <Text style={estilos.subtitle}>52 seguidores</Text>
-                            <Text style={estilos.subtitle}>55 seguindo</Text>
+                            <Text style={estilos.subtitle}>{follow} seguidores</Text>
+                            <Text style={estilos.subtitle}>{Followers} seguindo</Text>
                         </View>
                     </View>
 
                     <Button texto={'SEGUIR'} tipo={5} />
 
-                    <View style={{ flexDirection: "row", gap: 16, marginBottom: 8 }}>
+                    <View style={estilos.achievements}>
 
-                        <TouchableOpacity style={estilos.status}>
-                            <Calendar size={26} color={"black"} />
-                            <View>
-                                <Text style={estilos.statusTitle}>11</Text>
-                                <Text style={estilos.statusSubt}>Eventos</Text>
-                            </View>
-                        </TouchableOpacity>
+                        <View style={{ flexDirection: "row", gap: 16 }}>
+                            <Achievements Icone={Calendar} cor={"red"} sub={"Eventos"} legenda={eventos} />
+                            <Achievements Icone={CalendarPlus2} cor={"blue"} sub={"Criados"} legenda={criados} />
+                        </View>
 
-                        <TouchableOpacity style={estilos.status}>
-                            <CalendarPlus2 size={26} color={"black"} />
-                            <View>
-                                <Text style={estilos.statusTitle}>2</Text>
-                                <Text style={estilos.statusSubt}>Criados</Text>
-                            </View>
-                        </TouchableOpacity>
-
-                    </View>
-
-                    <View style={{ flexDirection: "row", gap: 16, marginBottom: 32 }}>
-
-                        <TouchableOpacity style={estilos.status}>
-                            <Trophy size={26} color={"black"} />
-                            <View>
-                                <Text style={estilos.statusTitle}>Diamante</Text>
-                                <Text style={estilos.statusSubt}>Ranking</Text>
-                            </View>
-                        </TouchableOpacity>
-
-                        <TouchableOpacity style={estilos.status}>
-                            <BadgePlus size={26} color={"black"} />
-                            <View>
-                                <Text style={estilos.statusTitle}>13215</Text>
-                                <Text style={estilos.statusSubt}>Experiência</Text>
-                            </View>
-                        </TouchableOpacity>
+                        <View style={{ flexDirection: "row", gap: 16 }}>
+                            <Achievements Icone={Trophy} cor={"green"} sub={"Raking"} legenda={myElo()} />
+                            <Achievements Icone={BadgePlus} cor={"black"} sub={"Experiência"} legenda={xp} />
+                        </View>
 
                     </View>
 
                     <Highlights dadosDoUsuario={dadosDoUsuario} titulo={'Sugestões'} />
+                </View>
 
-                </Background>
-            </Screen>
-        </>
+            </View>
+
+        </ScrollView>
     )
 }
 
 
-
-
 const estilos = StyleSheet.create({
-    perfilOption: {
-
-        marginTop: 15,
-        alignSelf: 'center',
-        width: 342,
-        height: 60,
-        backgroundColor: "#E5ECB9",
-        borderRadius: 15,
-        flexDirection: 'row',
-        elevation: 8,
-        marginBottom: 12,
-        alignItems: 'center'
-    },
 
     texto: {
         textAlignVertical: 'center',
@@ -123,25 +130,13 @@ const estilos = StyleSheet.create({
         fontSize: 16,
     },
 
-    status: {
-        flexDirection: "row",
-        flex: 1,
-        paddingVertical: 12,
-        paddingHorizontal: 16,
-        borderRadius: 20,
-        borderWidth: 3,
-        borderColor: "white",
-        gap: 8
-    },
-
-    statusTitle: {
-        fontSize: 20,
-        fontWeight: "bold",
-        color: "gray"
-    },
-    statusSubt: {
-        fontSize: 16,
-        /* fontWeight: "bold", */
-        color: "white"
+    achievements: {
+        backgroundColor: "white",
+        paddingHorizontal: 12,
+        paddingVertical: 16,
+        borderRadius: 16,
+        marginTop: 8,
+        marginBottom: 32,
+        gap: 12
     }
 })

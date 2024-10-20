@@ -18,8 +18,8 @@ export default function Home() {
 
   return (
     <Screen>
-      <Top tipo={'Perfil'} Foto={{ uri: dadosDoUsuario.perfil }} titulo={title} />
-      <View style={{ paddingHorizontal: 16, paddingTop: 16}}>
+      <Top Foto={{ uri: dadosDoUsuario.perfil }} titulo={title} />
+      <View style={{ paddingHorizontal: 16, paddingTop: 16 }}>
         <Buscar />
         <List highlights={Highlights} trends={Trends} ongs={Ongs} />
       </View>

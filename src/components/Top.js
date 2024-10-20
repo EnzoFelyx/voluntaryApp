@@ -1,5 +1,5 @@
-import { useNavigation } from '@react-navigation/native';
-import { ChevronLeft } from 'lucide-react-native';
+import { useNavigation, CommonActions } from '@react-navigation/native';
+import { LogOut } from 'lucide-react-native';
 import React from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import Image from './Image';
@@ -15,7 +15,18 @@ export default function Cabecalho({ tipo = null, titulo = null, Foto = null, fot
         case "Perfil":
             return <View style={estilos.topo}>
                 <Title entrada={titulo} tipo={"Titulo"} />
-                <Image imagem={Foto} tipo={'perfilFoto'} />
+                <TouchableOpacity
+                    onPress={() =>
+                        navigation.dispatch(
+                            CommonActions.reset({
+                                index: 0,
+                                routes: [{ name: 'Login' }],
+                            })
+                        )
+                    }
+                >
+                    <LogOut size={30} color={'red'} />
+                </TouchableOpacity>
             </View>
 
             break;
@@ -28,13 +39,9 @@ export default function Cabecalho({ tipo = null, titulo = null, Foto = null, fot
             break;
 
         default:
-            return <View style={estilos.voltar}>
-
-                <TouchableOpacity onPress={() => { navigation.goBack() }}>
-                    <ChevronLeft color={"black"} size={25} />
-                </TouchableOpacity>
-
+            return <View style={estilos.topo}>
                 <Title entrada={titulo} tipo={"Titulo"} />
+                <Image imagem={Foto} tipo={'perfilFoto'} />
             </View>
 
             break;
@@ -44,7 +51,9 @@ export default function Cabecalho({ tipo = null, titulo = null, Foto = null, fot
 const estilos = StyleSheet.create({
     topo: {
         flexDirection: "row",
-        marginLeft: 26,
+        justifyContent: "space-between",
+        alignItems: 'center',
+        paddingHorizontal: 26,
         marginTop: 50,
         marginBottom: 12,
     },

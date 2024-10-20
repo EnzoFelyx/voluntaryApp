@@ -27,8 +27,8 @@ export default function App() {
   return (
     <View style={{ flex: 1 }}>
       <StatusBar barStyle={'dark-content'} backgroundColor="transparent" translucent />
-      {/* <Login_Routes /> */}
-      <MyProfile />
+      <Login_Routes />
+      {/* <MyProfile /> */}
     </View>
   );
 }
