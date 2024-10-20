@@ -6,6 +6,7 @@ import Owner from "../../../../components/Owner";
 import Texto from "../../../../components/texto";
 import Title from '../../../../components/Title';
 import { estilos } from "./estilos";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Overview({
     nome,
@@ -16,6 +17,8 @@ export default function Overview({
     hora,
     people
 }) {
+
+    const navigation = useNavigation();
 
     const About = ({ Icon, texto }) =>
         <View style={estilos.about}>
@@ -36,9 +39,14 @@ export default function Overview({
             <About Icon={MapPin} texto={local} />
             <View style={estilos.peoples}>
                 <UsersRound color={"gray"} size={20} />
-                <Texto style={{color: "gray"}}>{people}</Texto>
+                <Texto style={{ color: "gray" }}>{people}</Texto>
             </View>
         </View>
-        <Owner image={{ uri: organizadoraFoto }} nome={organizadora} />
+        <Owner image={{ uri: organizadoraFoto }} nome={organizadora} acao={() => {
+            navigation.navigate('OtherProfile', {
+                perfil: organizadoraFoto,
+                nome: organizadora
+            });
+        }} />
     </>
 }

@@ -17,7 +17,9 @@ export default function Destaques({ dadosDoUsuario, titulo }) {
       styleImg={'perfilDestaque'}
       texto={item.nome}
       styleLeg={{ marginVertical: 10, textAlign: 'center', }}
-      acao={() => navigation.navigate('Perfil', { item })}
+      acao={() => {
+        navigation.navigate('OtherProfile', item);
+      }}
     />
   );
 

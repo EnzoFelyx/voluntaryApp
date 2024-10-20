@@ -1,5 +1,5 @@
 import { BadgePlus, Calendar, CalendarPlus2, Trophy } from 'lucide-react-native';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Button from '../../components/Button';
 import Image from '../../components/Image';
@@ -7,20 +7,13 @@ import Top from '../../components/Top';
 import useTopo from '../../hooks/useTop';
 import Highlights from '../Home/components/Highlights';
 import Achievements from './components/Achievements';
-import { useRoute } from '@react-navigation/native';
+import { useIsFocused, useRoute } from '@react-navigation/native';
+import { useUsuarios } from '../../hooks/useHome';
 
 export default function MyProfile() {
 
-    const dadosDoUsuario = useTopo();
-
     const route = useRoute();
-    console.log(route.params)
-
-    /* const usuario = () => {
-        if 
-    } */
-
-
+    const isFocused = useIsFocused();
 
     const [follow, setFollow] = useState(Math.floor(Math.random() * 100) + 1);
     const [Followers, setFolllowers] = useState(Math.floor(Math.random() * 100) + 1);
@@ -28,6 +21,7 @@ export default function MyProfile() {
     const [criados, setCriados] = useState(Math.floor(Math.random() * 10) + 1);
     const [xp, setXp] = useState(Math.floor(Math.random() * 10000) + 1);
     const [numero, setNumero] = useState(Math.floor(Math.random() * 5) + 1);
+    const [userNow, setUserNow] = useState(null);
 
     const myElo = () => {
         let categoria;
@@ -55,10 +49,27 @@ export default function MyProfile() {
         return categoria;
     };
 
+    const dadosDoUsuario = useTopo();
+
+    const dadosUsers = useUsuarios();
+
+    const tipoTop = route.name === 'OtherProfile' ? 'Back' : 'Perfil';
+    const titulo = route.name === 'OtherProfile' ? 'Visitando perfil' : 'Meu Perfil';
+
+    useEffect(() => {
+        setUserNow(null)
+        if (route.name === "OtherProfile") {
+            setUserNow(route.params);
+        } else {
+            setUserNow(dadosDoUsuario);
+        }
+    }, [route.params, dadosDoUsuario, isFocused]);
+
+
     return (
         <ScrollView>
 
-            <Top tipo={'Perfil'} titulo={'Perfil'} />
+            <Top tipo={tipoTop} titulo={titulo} />
 
             <View style={{ flex: 1, backgroundColor: '#E4F4CD', borderTopStartRadius: 30, borderTopRightRadius: 30, marginTop: 6, borderWidth: 3, borderColor: "#CAF38D", paddingTop: 32 }}>
 
@@ -66,11 +77,11 @@ export default function MyProfile() {
                 <View>
 
                     <TouchableOpacity style={estilos.contorno}>
-                        <Image imagem={{ uri: dadosDoUsuario.perfil }} tipo={"Perfil"} />
+                        <Image imagem={{ uri: userNow?.perfil }} tipo={"Perfil"} />
                     </TouchableOpacity>
 
                     <View style={{ alignItems: "center", marginBottom: 32, gap: 8 }}>
-                        <Text style={estilos.nome}>{dadosDoUsuario.nome}</Text>
+                        <Text style={estilos.nome}>{userNow?.nome}</Text>
                         <View style={{ flexDirection: "row", gap: 12 }}>
                             <Text style={estilos.subtitle}>{follow} seguidores</Text>
                             <Text style={estilos.subtitle}>{Followers} seguindo</Text>
@@ -93,7 +104,8 @@ export default function MyProfile() {
 
                     </View>
 
-                    <Highlights dadosDoUsuario={dadosDoUsuario} titulo={'Sugestões'} />
+                    <Highlights dadosDoUsuario={dadosUsers} titulo={'Sugestões'} />
+
                 </View>
 
             </View>

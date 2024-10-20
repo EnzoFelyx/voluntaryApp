@@ -10,7 +10,7 @@ import estilos from './estilos';
 export default function Trends({ dadosEventos, titulo }) {
 
   const navigation = useNavigation();
-  
+
   const renderItem = ({ item }) => (
     <View style={{ flex: 1, }}>
 
@@ -22,11 +22,16 @@ export default function Trends({ dadosEventos, titulo }) {
         styleLeg={{ margin: 8, }}
         acao={() => navigation.navigate('Detalhes', { item })}
       />
-      <Owner 
-        image={{ uri: item.imagemCriadorEvento }} 
-        nome={item.criadorEvento} 
-        acao={() => navigation.navigate('PerfilCriadorEvento', { item })}
-        />
+      <Owner
+        image={{ uri: item.imagemCriadorEvento }}
+        nome={item.criadorEvento}
+        acao={() => {
+          navigation.navigate('OtherProfile', {
+            perfil: item.imagemCriadorEvento,
+            nome: item.criadorEvento
+          });
+        }}
+      />
     </View>
   );
 

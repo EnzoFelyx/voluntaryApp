@@ -24,7 +24,16 @@ export default function Lista({ dadosEventos }) {
         styleLeg={{ margin: 8 }}
         acao={() => navigation.navigate('Detalhes', { item: item[0] })}
       />
-      <Owner image={{ uri: item[0].imagemCriadorEvento }} nome={item[0].criadorEvento} acao={() => navigation.navigate('PerfilCriadorEvento', { item })} />
+      <Owner
+        image={{ uri: item[0].imagemCriadorEvento }}
+        nome={item[0].criadorEvento}
+        acao={() => {
+          navigation.navigate('OtherProfile', {
+            perfil: item[0].imagemCriadorEvento,
+            nome: item[0].criadorEvento
+          });
+        }}
+      />
     </ScrollView>
   );
 

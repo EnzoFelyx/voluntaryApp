@@ -38,10 +38,28 @@ export default function Cabecalho({ tipo = null, titulo = null, Foto = null, fot
             </View>
             break;
 
+        case "Back":
+            return <View style={{ flexDirection: 'row', marginTop: 50, alignItems: 'center', marginLeft: 16, gap: 8, marginBottom: 12 }}>
+                <Return />
+                <Title entrada={titulo} tipo={"Titulo"} />
+            </View>
+            break;
+
         default:
             return <View style={estilos.topo}>
                 <Title entrada={titulo} tipo={"Titulo"} />
-                <Image imagem={Foto} tipo={'perfilFoto'} />
+                <TouchableOpacity
+                    onPress={() =>
+                        navigation.dispatch(
+                            CommonActions.reset({
+                                index: 0,
+                                routes: [{ name: 'Perfil' }],
+                            })
+                        )
+                    }
+                >
+                    <Image imagem={Foto} tipo={'perfilFoto'} />
+                </TouchableOpacity>
             </View>
 
             break;

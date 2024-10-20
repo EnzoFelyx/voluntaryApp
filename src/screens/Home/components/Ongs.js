@@ -19,7 +19,12 @@ export default function Ongs({ dadosOng, titulo }) {
         styleImg={'imagemEvento'}
         acao={() => navigation.navigate('PerfilCriadorEvento', { item })}
       />
-      <Owner image={{ uri: item.perfilOng }} nome={item.nomeOng} acao={() => navigation.navigate('PerfilCriadorEvento', { item })} />
+      <Owner image={{ uri: item.perfilOng }} nome={item.nomeOng} acao={() => {
+        navigation.navigate('OtherProfile', {
+          perfil: item.imagemOng,
+          nome: item.nomeOng
+        });
+      }} />
     </View>
   );
 

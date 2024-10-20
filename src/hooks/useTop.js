@@ -15,7 +15,6 @@ export default function useTop() {
             const resultadouser = await pegarDadosUsuario(id);
             if (resultadouser) {
                 setDadosDoUsuario(resultadouser);
-
             }
         }
         pegarUser();

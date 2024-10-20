@@ -20,14 +20,6 @@ export default function Login_Routes() {
                     {() => <Login />}
                 </Stack.Screen>
 
-{/*                 <Stack.Screen name="Password">
-                    {() => <Password />}
-                </Stack.Screen>
-
-                <Stack.Screen name="Path">
-                    {() => <Path />}
-                </Stack.Screen> */}
-
                 <Stack.Screen name="Registrar">
                     {() => <Register />}
                 </Stack.Screen>

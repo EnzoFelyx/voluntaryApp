@@ -20,9 +20,7 @@ export default function Return() {
 
 const estilos = StyleSheet.create({
     voltar: {
-        position: "absolute",
-        marginTop: 20,
-        marginLeft: 16
+       /*  marginLeft: 16 */
     },
 
 })
