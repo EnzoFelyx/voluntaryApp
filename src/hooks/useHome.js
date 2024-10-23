@@ -25,7 +25,6 @@ export function useUsuarios() {
 
     useEffect(() => {
         async function buscarDadosUsuarios() {
-
             const resultadoUsers = await pegarDadosTodosUsuarios();
             if (resultadoUsers) {
                 setDadosDoUsuario(resultadoUsers);

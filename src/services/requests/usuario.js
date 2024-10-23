@@ -7,7 +7,7 @@ export async function Login(email, senha) {
 
         try {
 
-            const resultado = await api.get(`/users?email=${email}&&senha=${senha}`)
+            const resultado = await api.get(`/users?usuario=${email}&&senha=${senha}`)
 
             if (resultado.data.length > 0) {
 

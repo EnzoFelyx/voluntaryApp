@@ -63,8 +63,7 @@ export default function MyProfile() {
         } else {
             setUserNow(dadosDoUsuario);
         }
-    }, [route.params, dadosDoUsuario, isFocused]);
-
+    }, [route.params, dadosDoUsuario, isFocused]); 
 
     return (
         <ScrollView>

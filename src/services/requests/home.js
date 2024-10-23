@@ -12,8 +12,9 @@ export async function pegarTodosEventos() {
 
 export async function pegarDadosTodasOngs() {
     try {
-        const resultado = await api.get(`/ongs`);
-        return resultado.data;
+        const resultado = await api.get(`/users`);
+        const usuariosOngs = resultado.data.filter(user => user.type === "Ong");
+        return usuariosOngs;
     } catch (error) {
         console.log(error);
         return null;
@@ -23,7 +24,8 @@ export async function pegarDadosTodasOngs() {
 export async function pegarDadosTodosUsuarios() {
     try {
         const resultado = await api.get(`/users`);
-        return resultado.data;
+        const usuariosPessoa = resultado.data.filter(user => user.type === "person");
+        return usuariosPessoa;
     } catch (error) {
         console.log(error);
         return null;

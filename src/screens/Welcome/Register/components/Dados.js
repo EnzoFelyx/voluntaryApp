@@ -9,39 +9,55 @@ import Button from '../../../../components/Button';
 import Image from '../../../../components/Image';
 import Input from '../../../../components/Input';
 import { criarConta } from "../../../../services/requests/cadastrar";
+import { validarCNPJ, validarCPF, validarEmail } from "../../../../utils/validations";
 
 export default function Dados() {
-
-    const [dados, setDados] = useState({});
-    const [capaImagem, setImagemCapa] = useState();
 
     const navigation = useNavigation()
 
     const { name, email, cpf, password, confirm, button } = register.input
     const { error, registered } = register.warnings
 
-
-
-    function atualizarDados(id, valor) {
-        setDados({ ...dados, [id]: valor })
-
-    }
+    const [nome, setNome] = useState();
+    const [capaImagem, setImagemCapa] = useState();
+    const [ownerMail, setOwnerMail] = useState();
+    const [ownerType, setOwnerType] = useState();
+    const [senha, setSenha] = useState();
+    const [confirmar, setConfirm] = useState();
 
     async function criar() {
-        const resultado = await criarConta(
-            dados[imagem],
-            dados[nome],
-            dados[email],
-            dados[cpf],
-            dados[senha]
-        );
 
-        if (resultado == 'Sucesso') {
-            Alert.alert(registered)
-            navigation.goBack()
+        if (!nome || !capaImagem || !ownerType || !ownerMail || !senha) {
+            console.log("preencha todos os campos")
         }
+        else if (senha !== confirmar) {
+            console.log("Senhas diferentes! Confirme a senha corretamente.")
+        }
+
+        else if (!validarEmail(ownerMail)) {
+            console.log("E-mail inválido");
+        }
+
+        else if (!validarCPF(ownerType) && !validarCNPJ(ownerType)) {
+            console.log("CPF/CNPJ inválido");
+        }
+
         else {
-            Alert.alert(error)
+            const resultado = await criarConta(
+                capaImagem,
+                nome,
+                ownerMail,
+                ownerType,
+                senha
+            );
+
+            if (resultado == 'Sucesso') {
+                Alert.alert(registered)
+                navigation.goBack()
+            }
+            else {
+                Alert.alert(error)
+            }
         }
     };
 
@@ -95,11 +111,11 @@ export default function Dados() {
         </TouchableOpacity>
 
         <View style={{ marginBottom: 16, }}>
-            <Input entrada={name} valor={dados[name]} onChangeText={(valor) => atualizarDados(name, valor)} />
-            <Input entrada={email} valor={dados[email]} onChangeText={(valor) => atualizarDados(email, valor)} />
-            <Input entrada={cpf} valor={dados[cpf]} onChangeText={(valor) => atualizarDados(cpf, valor)} />
-            <Input entrada={password} valor={dados[password]} senha={true} onChangeText={(valor) => atualizarDados(password, valor)} />
-            <Input entrada={confirm} valor={dados[confirm]} senha={true} onChangeText={(valor) => atualizarDados(confirm, valor)} />
+            <Input entrada={name} onChangeText={setNome} />
+            <Input entrada={email} onChangeText={setOwnerMail} />
+            <Input entrada={cpf} onChangeText={setOwnerType} keyType={'numeric'} />
+            <Input entrada={password} senha={true} onChangeText={setSenha} />
+            <Input entrada={confirm} senha={true} onChangeText={setConfirm} />
             <Button texto={button} tipo={1} acao={criar} />
         </View>
     </>

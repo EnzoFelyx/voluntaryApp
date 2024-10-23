@@ -15,14 +15,19 @@ export default function Ongs({ dadosOng, titulo }) {
     <View style={{ flex: 1, }}>
       <Interation
         tipo={'Home'}
-        imagem={{ uri: item.imagemOng }}
+        imagem={{ uri: item.perfil }}
         styleImg={'imagemEvento'}
-        acao={() => navigation.navigate('PerfilCriadorEvento', { item })}
+        acao={() => {
+          navigation.navigate('OtherProfile', {
+            perfil: item.perfil,
+            nome: item.nome
+          });
+        }}
       />
-      <Owner image={{ uri: item.perfilOng }} nome={item.nomeOng} acao={() => {
+      <Owner image={{ uri: item.perfil }} nome={item.nome} acao={() => {
         navigation.navigate('OtherProfile', {
-          perfil: item.imagemOng,
-          nome: item.nomeOng
+          perfil: item.perfil,
+          nome: item.nome
         });
       }} />
     </View>
