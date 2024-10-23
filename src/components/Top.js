@@ -32,9 +32,11 @@ export default function Cabecalho({ tipo = null, titulo = null, Foto = null, fot
             break;
 
         case "Welcome":
-            return <View style={{ marginTop: 16 }}>
+            return <View style={{ marginTop: 50 }}>
+                <View style={{ marginLeft: 16 }}>
+                    <Return />
+                </View>
                 <Image imagem={Foto} tipo={fotoEstilo} />
-                <Return />
             </View>
             break;
 

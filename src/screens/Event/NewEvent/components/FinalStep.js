@@ -1,16 +1,16 @@
-import { CirclePlus, CloudUpload, Trash2 } from "lucide-react-native";
+import { CirclePlus } from "lucide-react-native";
 import React, { useState } from "react";
 import { Alert, FlatList, StyleSheet, TextInput, TouchableOpacity, View } from "react-native";
-import Input from "../../../../components/Input";
-import Image from "../../../../components/Image";
 import Button from "../../../../components/Button";
+import Image from "../../../../components/Image";
+import Input from "../../../../components/Input";
 import Texto from "../../../../components/texto";
 import { estilos } from "./estilos";
 
-import * as ImagePicker from "expo-image-picker"
+import * as ImagePicker from "expo-image-picker";
+import Background from "../../../../components/Background";
 import Screen from "../../../../components/Screen";
 import Top from "../../../../components/Top";
-import Background from "../../../../components/Background";
 
 
 export default function FinalStep() {
