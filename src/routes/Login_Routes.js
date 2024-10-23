@@ -2,9 +2,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import Login from '../screens/Welcome/Login/Login';
-import Path from '../screens/Recover/Path/Path'
 import Register from '../screens/Welcome/Register/Register';
-import Password from '../screens/Recover/Password/Password';
 import Routes from "./Routes";
 
 const Stack = createNativeStackNavigator();
