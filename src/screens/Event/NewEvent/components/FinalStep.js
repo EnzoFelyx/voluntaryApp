@@ -1,29 +1,41 @@
 import { CirclePlus } from "lucide-react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Alert, FlatList, StyleSheet, TextInput, TouchableOpacity, View } from "react-native";
 import Button from "../../../../components/Button";
 import Image from "../../../../components/Image";
 import Input from "../../../../components/Input";
 import Texto from "../../../../components/texto";
 import { estilos } from "./estilos";
+import useTopo from '../../../../hooks/useTop';
 
 import * as ImagePicker from "expo-image-picker";
 import Background from "../../../../components/Background";
 import Screen from "../../../../components/Screen";
 import Top from "../../../../components/Top";
+import { useNavigation, useRoute, CommonActions } from "@react-navigation/native";
+import { criarEvento } from "../../../../services/requests/eventos";
 
 
 export default function FinalStep() {
 
+    const dadosDoUsuario = useTopo();
+
+    const navigation = useNavigation();
+
+    const route = useRoute();
+
+    const [dados, latitude, longitude, rua, cidade] = route.params;
+    const { Edate, Ename, Estart } = dados;
+
+    const { id, perfil, nome } = dadosDoUsuario
+
     const [descricao, setDescricao] = useState();
     const [participante, setParticipante] = useState();
     const [publico, setPublico] = useState(true);
+    const [capaImagem, setImagemCapa] = useState();
+    const [fotosEvento, setFotosEvento] = useState([]);
 
     const [inputHeight, setInputHeight] = useState(40);
-
-    const [capaImagem, setImagemCapa] = useState();
-
-    const [fotosEvento, setFotosEvento] = useState([]);
 
     const toggleStatus = () => {
         setPublico((inputHeight) => !inputHeight);
@@ -122,11 +134,51 @@ export default function FinalStep() {
         }
     };
 
+    const dadosEvento = [
+        Ename,
+        Edate,
+        Estart,
+        latitude,
+        longitude,
+        rua,
+        cidade,
+        descricao,
+        participante,
+        publico,
+        capaImagem,
+        id,
+        perfil,
+        nome,
+        fotosEvento
+    ];
+
+    async function novoEvento() {
+
+        if (!descricao || !participante || !capaImagem) {
+            console.log("Preencha todos os campos")
+        }
+
+        else {
+            const resultado = await criarEvento(dadosEvento);
+            if (resultado == 'Sucesso') {
+                Alert.alert('Evento criado com sucesso!')
+                navigation.dispatch(
+                    CommonActions.reset({
+                        index: 0,
+                        routes: [{ name: 'Home' }],
+                    })
+                )
+            }
+            else {
+                Alert.alert(error)
+            }
+        }
+    };
 
     return (
         <>
             <Screen>
-                <Top PerfilFoto={''} titulo={'Criar evento'} />
+                <Top tipo={'Back'} titulo={'Criar evento'} />
                 <Background back="backOne">
                     <View style={estilos.input}>
 
@@ -251,7 +303,7 @@ export default function FinalStep() {
                         />
                     </View>
 
-                    <Button tipo={1} texto={'Criar evento'} />
+                    <Button tipo={1} texto={'Criar evento'} acao={novoEvento} />
                 </Background>
             </Screen>
 

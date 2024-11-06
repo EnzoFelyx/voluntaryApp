@@ -142,7 +142,7 @@ const estilos = StyleSheet.create({
     },
 
     imagemEvento: {
-        marginTop: 20,
+        marginVertical: 10,
         width: 328,
         height: 158,
         resizeMode: 'contain'
@@ -159,19 +159,8 @@ const estilos = StyleSheet.create({
     fotoEvento: {
         height: 657 / 1.85,
         width: 429,
+        alignSelf: 'center',
     },
-
-    /* Comentario: {
-        height: 40,
-        width: 40,
-        borderRadius: 25,
-    },
-
-    Upload: {
-        width: 50,
-        height: 50,
-
-    }, */
 
     fotoMenor: {
         height: 32,
@@ -185,18 +174,6 @@ const estilos = StyleSheet.create({
         borderRadius: 90,
         marginTop: 5,
         alignSelf: 'center',
-    },
-
-    Elos: {
-        height: 100,
-        width: 110,
-        alignSelf: 'center',
-    },
-
-    Loading: {
-        marginTop: 8,
-        height: 22,
-        width: 188
     },
 
     icone: {

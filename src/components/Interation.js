@@ -54,6 +54,7 @@ const estilos = StyleSheet.create({
         borderWidth: 0.5,
         borderRadius: 15,
         marginRight: 16,
+        justifyContent: 'center',
         flexDirection: "row",
     },
 

@@ -42,25 +42,60 @@ export async function salvarEvento(postId, id, rnome, rdata) {
 
 }
 
-export async function criarEvento(postId, criadorEvento, imagemCriadorEvento, nomeEvento, dataEvento, localEvento, horaEvento, descricao, imagemEvento) {
+export async function criarEvento(dados) {
+
+    const [
+        Ename,
+        Edate,
+        Estart,
+        latitude,
+        longitude,
+        rua,
+        cidade,
+        descricao,
+        participante,
+        publico,
+        capaImagem,
+        id,
+        perfil,
+        nome,
+        fotosEvento
+    ] = dados
+
+    const coordenadas = [latitude, longitude]
+    const localEvento = [rua, cidade]
+    const idEvento = Date.now()
 
     try {
-
         await api.post(`/eventos`,
             {
-                postId: postId,
-                criadorEvento: criadorEvento,
-                imagemCriadorEvento: imagemCriadorEvento,
-                nomeEvento: nomeEvento,
+                id: idEvento,
+                criadorEvento: nome,
+                idCriador: id,
+                imagemCriadorEvento: perfil,
+                nomeEvento: Ename,
+                coordendasEvento: coordenadas,
                 localEvento: localEvento,
-                dataEvento: dataEvento,
-                horaEvento: horaEvento,
+                dataEvento: Edate,
+                horaEvento: Estart,
                 descricao: descricao,
-                imagemEvento: imagemEvento
+                imagemEvento: capaImagem,
+                contPessoas: participante,
+                fotosEvento: fotosEvento,
+                localtype: publico,
             });
+        const newResult = await criarAmrEvento(
+            id,
+            idEvento
+        );
+        if (newResult == 'Sucesso') {
+            console.log('Inscrição feita com sucesso!');
+        }
+        else {
+            console.log('Erro ao se inscrever no evento')
+        }
         return 'Sucesso'
     }
-
     catch (error) {
         console.log(error)
         return 'Erro'
@@ -105,7 +140,7 @@ export async function criarAmrEvento(postId, eventoId) {
 
             });
         console.log('Sucesso ao inscrever-se no evento!')
-        return 1
+        return 'Sucesso'
     }
     catch (error) {
         console.log(error)

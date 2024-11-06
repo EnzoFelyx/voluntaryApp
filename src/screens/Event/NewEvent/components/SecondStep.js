@@ -11,16 +11,16 @@ import Texto from "../../../../components/texto";
 
 export default function SecondStep({ feedBack }) {
 
-    const { city, state, neighborhood, cep, street, button } = newEvent.page2
+    const { city, state, neighborhood, cep, street } = newEvent.page2
 
-    const [estado, setEstado] = useState('');
-    const [cidade, setCidade] = useState('');
-    const [bairro, setBairro] = useState('');
-    const [thiscep, setCep] = useState('');
-    const [logradouro, setLogradouro] = useState('');
-    const [latitude, setLatitude] = useState('');
-    const [longitude, setLongitude] = useState('');
-    const [pais, setPais] = useState('');
+    const [estado, setEstado] = useState();
+    const [cidade, setCidade] = useState();
+    const [bairro, setBairro] = useState();
+    const [thiscep, setCep] = useState();
+    const [logradouro, setLogradouro] = useState();
+    const [latitude, setLatitude] = useState();
+    const [longitude, setLongitude] = useState();
+    const [pais, setPais] = useState();
 
     const navigation = useNavigation();
 
@@ -120,10 +120,11 @@ export default function SecondStep({ feedBack }) {
 
             </View>
 
-            <Button tipo={1} texto={'Continuar'} acao={() => navigation.navigate('FinalStep')} />
-
-
-
+            <Button
+                tipo={1}
+                texto={'Continuar'}
+                acao={() => navigation.navigate('FinalStep', [feedBack, latitude, longitude, logradouro, cidade,])}
+            />
 
         </>
     );

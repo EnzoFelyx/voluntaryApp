@@ -11,26 +11,29 @@ import { estilos } from "./estilos";
 
 export default function Lista({ dadosEventos }) {
 
+  const dados = (Array.isArray(dadosEventos) ? dadosEventos : []).flat();
+
   const { subtitle, subs } = subscribed.body;
   const navigation = useNavigation();
+
 
   const renderItem = ({ item }) => (
     <ScrollView style={estilos.espaco}>
       <Interaction
         tipo={'Home'}
-        imagem={{ uri: item[0].imagemEvento }}
+        imagem={{ uri: item.imagemEvento }}
         styleImg={'imagemEvento'}
-        texto={item[0].nomeEvento}
+        texto={item.nomeEvento}
         styleLeg={{ margin: 8 }}
-        acao={() => navigation.navigate('Detalhes', { item: item[0] })}
+        acao={() => navigation.navigate('Detalhes', { item })}
       />
       <Owner
-        image={{ uri: item[0].imagemCriadorEvento }}
-        nome={item[0].criadorEvento}
+        image={{ uri: item.imagemCriadorEvento }}
+        nome={item.criadorEvento}
         acao={() => {
           navigation.navigate('OtherProfile', {
-            perfil: item[0].imagemCriadorEvento,
-            nome: item[0].criadorEvento
+            perfil: item.imagemCriadorEvento,
+            nome: item.criadorEvento
           });
         }}
       />
@@ -48,10 +51,11 @@ export default function Lista({ dadosEventos }) {
     </View>
 
     <FlatList
-      data={dadosEventos}
-      keyExtractor={(item) => item[0].id.toString()}
+      data={dados}
+      keyExtractor={(item) => item.id.toString()}
       renderItem={renderItem}
-      contentContainerStyle={{ paddingBottom: 300 }}
+      scrollEnabled={false}
+      contentContainerStyle={{ paddingBottom: 30 }}
       ListFooterComponent={<Botao texto={'Criar evento'} tipo={3} acao={() => navigation.navigate('CriarEvento')} />}
     />
 

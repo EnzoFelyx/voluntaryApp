@@ -61,6 +61,7 @@ const estilos = StyleSheet.create({
     borderRadius: 15,
     textAlign: 'center',
     flex: 1,
+    paddingHorizontal: 8,
     marginEnd: 16,
   },
 
@@ -77,6 +78,7 @@ const estilos = StyleSheet.create({
     paddingVertical: 14,
     marginVertical: 18,
     backgroundColor: "#E4F4CD",
+    paddingHorizontal: 8,
     borderRadius: 15,
     paddingLeft: 16,
   },

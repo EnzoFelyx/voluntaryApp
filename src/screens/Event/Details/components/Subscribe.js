@@ -14,13 +14,17 @@ export default function Subscribe({ idEvento }) {
     const [verificaResultado, setVerificaResultado] = useState();
 
     async function criarAmr() {
-
         const resultado = await criarAmrEvento(
             dadosDoUsuario.id,
             idEvento
         );
-        Alert.alert('Inscrição feita com sucesso!');
-        navigation.goBack()
+        if (resultado == 'Sucesso') {
+            Alert.alert('Inscrição feita com sucesso!');
+            navigation.goBack()
+        }
+        else {
+            console.log('Erro ao se inscrever no evento')
+        }
     };
 
     async function deletAmr() {
@@ -29,8 +33,13 @@ export default function Subscribe({ idEvento }) {
             dadosDoUsuario.id,
             idEvento
         );
-        Alert.alert('Desinscrito do evento com sucesso!');
-        navigation.goBack()
+        if (resultado == 'Sucesso') {
+            Alert.alert('Desinscrito do evento com sucesso!');
+            navigation.goBack()
+        }
+        else {
+            console.log('Erro ao se desinscrever do evento')
+        }
     };
 
     async function verf() {

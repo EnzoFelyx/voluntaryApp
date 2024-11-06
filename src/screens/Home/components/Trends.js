@@ -10,7 +10,6 @@ import estilos from './estilos';
 export default function Trends({ dadosEventos, titulo }) {
 
   const navigation = useNavigation();
-
   const renderItem = ({ item }) => (
     <View style={{ flex: 1, }}>
 

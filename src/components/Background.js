@@ -58,6 +58,7 @@ const estilos = StyleSheet.create({
         paddingTop: 40,
         paddingBottom: 20,
         paddingLeft: 20,
+        marginTop: 16,
         backgroundColor: "#FFFF",
     },
 
