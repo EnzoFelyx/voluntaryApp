@@ -18,6 +18,8 @@ export default function Overview({
     people
 }) {
 
+    const time = `${hora}:00`
+
     const navigation = useNavigation();
 
     const About = ({ Icon, texto }) =>
@@ -32,21 +34,24 @@ export default function Overview({
         </View>
         <View style={estilos.inLine}>
             <About Icon={CalendarDays} texto={data} />
-            <About Icon={Clock} texto={hora} />
+            <About Icon={Clock} texto={time} />
         </View>
 
+        <About Icon={MapPin} texto={local} />
+
         <View style={estilos.inLine}>
-            <About Icon={MapPin} texto={local} />
+            
             <View style={estilos.peoples}>
                 <UsersRound color={"gray"} size={20} />
                 <Texto style={{ color: "gray" }}>{people}</Texto>
             </View>
+
+            <Owner image={{ uri: organizadoraFoto }} nome={organizadora} acao={() => {
+                navigation.navigate('OtherProfile', {
+                    perfil: organizadoraFoto,
+                    nome: organizadora
+                });
+            }} />
         </View>
-        <Owner image={{ uri: organizadoraFoto }} nome={organizadora} acao={() => {
-            navigation.navigate('OtherProfile', {
-                perfil: organizadoraFoto,
-                nome: organizadora
-            });
-        }} />
     </>
 }

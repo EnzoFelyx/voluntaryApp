@@ -12,8 +12,11 @@ export default function Details({ route }) {
     const { item } = route.params;
     const [imagem, setImagem] = useState(item.imagemEvento);
     const [nome, setNome] = useState(item.nomeEvento);
+    const [coordenadas, setCoordenadas] = useState(item.coordendasEvento);
     const [local, setLocal] = useState(item.localEvento);
     const [data, setData] = useState(item.dataEvento);
+    const [fotos, setFotos] = useState(item.fotosEvento);
+    const [typeLocal, setTypeLocal] = useState(item.localtype);
     const [organizadoraFoto, setorganizadoraFoto] = useState(item.imagemCriadorEvento);
     const [descricao, setDescricao] = useState(item.descricao);
     const [participantes, setParticipantes] = useState(item.contPessoas);
@@ -23,10 +26,10 @@ export default function Details({ route }) {
 
     return (
         <Screen>
-            <Top Foto={{ uri: imagem }} fotoEstilo={"fotoEvento"} tipo={"Welcome"} />
+            <Top Foto={{ uri: imagem }} fotoEstilo={"fotoEvento"} tipo={"Details"} />
             <Background back={"backThree"}>
                 <Overview nome={nome} local={local} data={data} hora={horaEvento} organizadoraFoto={organizadoraFoto} organizadora={criadorEvento} people={participantes} />
-                <Interactions />
+                <Interactions coord={coordenadas} fotosE={fotos} isPublic={typeLocal} />
                 <Body descricao={descricao} idEvento={idEvento} />
             </Background>
         </Screen>

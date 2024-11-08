@@ -25,7 +25,7 @@ export default function FinalStep() {
     const route = useRoute();
 
     const [dados, latitude, longitude, rua, cidade] = route.params;
-    const { Edate, Ename, Estart } = dados;
+    const { formatDate, Ename, Estart } = dados;
 
     const { id, perfil, nome } = dadosDoUsuario
 
@@ -136,7 +136,7 @@ export default function FinalStep() {
 
     const dadosEvento = [
         Ename,
-        Edate,
+        formatDate,
         Estart,
         latitude,
         longitude,

@@ -28,7 +28,7 @@ export default function Maps() {
 
     const navigation = useNavigation();
 
-    const { Edate, Ename, Estart } = route.params
+    const { formatDate, Ename, Estart } = route.params
 
     const [selectedPlace, setSelectedPlace] = useState(null);
     const [marker, setMarker] = useState(null);
@@ -139,7 +139,7 @@ export default function Maps() {
 
                         <View style={[styles.info, { justifyContent: "center", gap: 8 }]}>
                             <CalendarDays color={"black"} size={25} />
-                            <Text style={styles.infoText}>{`${Edate.day}/${Edate.month}/${Edate.year}`}</Text>
+                            <Text style={styles.infoText}>{formatDate}</Text>
                         </View>
 
                         <View style={[styles.info, { justifyContent: "center", gap: 8 }]}>

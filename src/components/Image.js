@@ -101,6 +101,12 @@ export default function Imagem({ imagem, tipo }) {
                 }
                 break;
 
+            case 'fotosDetales':
+                return {
+                    picture: estilos.fotosDetales
+                }
+                break;
+
             default:
                 break;
         }
@@ -195,5 +201,10 @@ const estilos = StyleSheet.create({
     fotosEvento: {
         height: 70,
         width: 70,
+    },
+
+    fotosDetales: {
+        height: 100,
+        width: 100,
     },
 })

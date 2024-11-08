@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Keyboard, StyleSheet, View } from "react-native";
 import { newEvent } from "../../../../../config/text.json";
 import Button from "../../../../components/Button";
@@ -30,8 +30,12 @@ export default function FirstStep() {
 
     const [Ename, setName] = useState();
     const [Edate, setDate] = useState();
+    const [formatDate, setFormatDate] = useState();
     const [Estart, setStart] = useState();
 
+    useEffect(() => {
+        setFormatDate(`${Edate?.day}/${Edate?.month}/${Edate?.year}`)
+    }, [Edate]);
 
     function handleSelectDate(selectedDay) {
         const dates = calendarUtils.orderStartsAtAndEndsAt({
@@ -68,7 +72,7 @@ export default function FirstStep() {
                         entrada={dateLeg}
                         tipo={2}
                         editable={!showContinue}
-                        valor={Edate ? `${Edate.day}/${Edate.month}/${Edate.year}` : ""}
+                        valor={Edate ? formatDate : ""}
                         onChangeText={setDate} />
                 </View>
 
@@ -110,7 +114,7 @@ export default function FirstStep() {
                         tipo={2}
                     />
                 </View>
-                <SecondStep feedBack={{ Ename, Edate, Estart }} />
+                <SecondStep feedBack={{ Ename, formatDate, Estart }} />
             </>
             )
             }

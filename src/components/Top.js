@@ -40,6 +40,13 @@ export default function Cabecalho({ tipo = null, titulo = null, Foto = null, fot
             </View>
             break;
 
+        case "Details":
+            return <View>
+                {/* <Return /> */}
+                <Image imagem={Foto} tipo={fotoEstilo} />
+            </View>
+            break;
+
         case "Back":
             return <View style={{ flexDirection: 'row', marginTop: 50, alignItems: 'center', marginLeft: 16, gap: 8, marginBottom: 12 }}>
                 <Return />

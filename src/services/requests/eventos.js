@@ -46,7 +46,7 @@ export async function criarEvento(dados) {
 
     const [
         Ename,
-        Edate,
+        formatDate,
         Estart,
         latitude,
         longitude,
@@ -63,7 +63,7 @@ export async function criarEvento(dados) {
     ] = dados
 
     const coordenadas = [latitude, longitude]
-    const localEvento = [rua, cidade]
+    const localEvento = `${rua}\n${cidade}`
     const idEvento = Date.now()
 
     try {
@@ -76,7 +76,7 @@ export async function criarEvento(dados) {
                 nomeEvento: Ename,
                 coordendasEvento: coordenadas,
                 localEvento: localEvento,
-                dataEvento: Edate,
+                dataEvento: formatDate,
                 horaEvento: Estart,
                 descricao: descricao,
                 imagemEvento: capaImagem,

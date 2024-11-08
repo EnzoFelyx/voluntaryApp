@@ -64,8 +64,8 @@ const estilos = StyleSheet.create({
 
     backThree: {
         
-        marginHorizontal: 15,
-        paddingHorizontal: 16,
+        /* marginHorizontal: 15, */
+        paddingHorizontal: 25,
         backgroundColor: '#D7FF9C',
         borderRadius: 24,
         marginTop: 8,

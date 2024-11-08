@@ -47,12 +47,14 @@ export const estilos = StyleSheet.create({
         flexDirection: "row", 
         justifyContent: "space-between", 
         paddingRight: 16, 
-        marginBottom: 8 
+        marginBottom: 8,
     },
     peoples:{
         flexDirection: "row", 
         gap: 12, 
-        alignItems: "center"
+        alignItems: "center",
+        marginLeft: 3,
+        marginBottom: 5,
     }
   
   })
