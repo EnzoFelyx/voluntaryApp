@@ -5,6 +5,7 @@ import { Modal } from '../../../../components/Modal';
 import Image from '../../../../components/Image';
 
 import { estilos } from "./estilos";
+import { useNavigation } from '@react-navigation/native';
 
 
 const MODAL = {
@@ -13,11 +14,14 @@ const MODAL = {
     FOCO_IMAGE: 2,
 }
 
+export default function Interactions({ coordendasEvento, fotosEvento, localtype, nomeEvento, dataEvento, horaEvento }) {
 
-export default function Interactions({ coord, fotosE, isPublic }) {
+    const navigation = useNavigation();
 
     const [showModal, setShowModal] = useState(MODAL.NONE)
     const [foco, setFoco] = useState()
+
+    const mostrarNoMapa = true;
 
     const Interact = ({ Icon, acao }) =>
         <TouchableOpacity onPress={acao}>
@@ -32,9 +36,11 @@ export default function Interactions({ coord, fotosE, isPublic }) {
     return <>
         <View style={estilos.icones}>
             <Interact Icon={BadgeCheck} />
-            <Interact Icon={Map} />
+            <Interact Icon={Map} acao={() => {
+                navigation.navigate('DetalhesMapa', { dataEvento, nomeEvento, horaEvento, coordendasEvento });
+            }} />
             <Interact Icon={Images} acao={() => setShowModal(MODAL.SHOW_IMAGES)} />
-            <Interact Icon={Info} acao={() => Alert.alert(isPublic ? 'O evento é um local público' : 'O evento é em um local privado')} />
+            <Interact Icon={Info} acao={() => Alert.alert(localtype ? 'O evento é um local público' : 'O evento é em um local privado')} />
         </View>
 
         <Modal
@@ -47,7 +53,7 @@ export default function Interactions({ coord, fotosE, isPublic }) {
 
                 <View>
                     <FlatList
-                        data={fotosE}
+                        data={fotosEvento}
                         renderItem={({ item, index }) => (
                             <TouchableOpacity
                                 onPress={() => ampliar(item)}

@@ -9,7 +9,6 @@ import { ScrollView, View } from 'react-native';
 
 
 export default function Details({ route }) {
-
     const { item } = route.params;
     const [imagem, setImagem] = useState(item.imagemEvento);
     const [nome, setNome] = useState(item.nomeEvento);
@@ -33,7 +32,7 @@ export default function Details({ route }) {
                     showsVerticalScrollIndicator={false}
                 >
                     <Overview nome={nome} local={local} data={data} hora={horaEvento} organizadoraFoto={organizadoraFoto} organizadora={criadorEvento} people={participantes} />
-                    <Interactions coord={coordenadas} fotosE={fotos} isPublic={typeLocal} />
+                    <Interactions {...item} />
                     <Body descricao={descricao} idEvento={idEvento} />
                 </ScrollView>
             </Background>

@@ -2,6 +2,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import Details from '../screens/Event/Details/Details'
 import Home from '../screens/Home/Home'
+import Perfil from '../screens/Perfil/MyProfile';
+import Maps from '../screens/Event/Maps';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,7 +16,15 @@ export default function Home_Routes() {
         <Stack.Screen name='StackHome'>
             {() => <Home />}
         </Stack.Screen>
+
         <Stack.Screen name="Detalhes" component={Details} />
+
+        <Stack.Screen name="OtherProfile" component={Perfil} />
+
+        <Stack.Screen name="DetalhesMapa" component={Maps} />
+
+
+
     </Stack.Navigator>
     )
 }

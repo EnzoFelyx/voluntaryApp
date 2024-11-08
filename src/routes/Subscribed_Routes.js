@@ -6,6 +6,7 @@ import Subscribed from '../screens/Subscribed/Subscribed'
 import Maps from '../screens/Event/Maps';
 import FinalStep from "../screens/Event/NewEvent/components/FinalStep";
 
+
 const Stack = createNativeStackNavigator();
 
 export default function SeusEventosRotas() {
@@ -21,11 +22,11 @@ export default function SeusEventosRotas() {
 
         <Stack.Screen name="CriarEvento" component={NewEvent} />
 
+        <Stack.Screen name='Detalhes' component={Details} />
+
         <Stack.Screen name="Maps" component={Maps} />
 
         <Stack.Screen name="FinalStep" component={FinalStep} />
-
-        <Stack.Screen name='Detalhes' component={Details} />
 
     </Stack.Navigator>
     )

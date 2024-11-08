@@ -8,9 +8,12 @@ export default function Perfilrotas() {
     return (<Stack.Navigator
         screenOptions={{ headerShown: false }}
     >
-        <Stack.Screen name="MyPerfil" component={Perfil} />
+        <Stack.Screen name='MyPerfil'>
+            {() => <Perfil />}
+        </Stack.Screen>
 
         <Stack.Screen name="OtherProfile" component={Perfil} />
+        
     </Stack.Navigator>
     )
 }

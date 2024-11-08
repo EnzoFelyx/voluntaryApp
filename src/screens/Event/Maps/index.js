@@ -3,7 +3,7 @@ import {
     requestForegroundPermissionsAsync
 } from 'expo-location';
 import { useEffect, useState } from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Alert, Linking, Platform, Text, TouchableOpacity, View } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import { Modal } from '../../../components/Modal';
 import Top from '../../../components/Top';
@@ -29,11 +29,12 @@ export default function Maps() {
     const navigation = useNavigation();
 
     const { formatDate, Ename, Estart } = route.params
+    const { coordendasEvento, dataEvento, horaEvento, nomeEvento } = route.params
+    const nomeRota = route.name;
 
     const [selectedPlace, setSelectedPlace] = useState(null);
     const [marker, setMarker] = useState(null);
     const [address, setAddress] = useState([]);
-
     const [showModal, setShowModal] = useState(MODAL.NONE)
 
     const handleCoordenadasChange = (newCoordenadas) => {
@@ -66,6 +67,31 @@ export default function Maps() {
         navigation.navigate('CriarEvento', { address });
     };
 
+    async function handleOpenDeviceMap() {
+        const scheme = Platform.select({
+            ios: "maps://0,0?q=",
+            android: "geo:0,0?q="
+        })
+        const latLgn = `${coordendasEvento[0]},${coordendasEvento[1]}`
+        const label = nomeEvento
+
+        const url = Platform.select({
+            ios: `${scheme}${label}@${latLgn}`,
+            android: `${scheme}${latLgn}(${label})`
+        })
+
+        if (!url) {
+            return Alert.alert('Não foi possível abrir o mapa.')
+        }
+
+        const canOpen = await Linking.canOpenURL(url);
+
+        if (!canOpen) {
+            return Alert.alert('Não foi possível abrir o mapa.')
+        }
+
+        Linking.openURL(url)
+    }
 
     useEffect(() => {
         requestLocationPermissions();
@@ -76,75 +102,112 @@ export default function Maps() {
 
         <View style={styles.container}>
 
-            <Top titulo={"Escolha o local"} />
+            {nomeRota === 'Maps' ?
+                <>
 
-            <Search onCoordenadasChange={handleCoordenadasChange} />
+                    <Top titulo={"Escolha o local"} />
 
-            {
-                selectedPlace &&
-                <MapView
-                    style={styles.container}
-                    showsUserLocation
-                    region={{
-                        latitude: selectedPlace.latitude,
-                        longitude: selectedPlace.longitude,
-                        latitudeDelta: 0.005,
-                        longitudeDelta: 0.005,
-                    }}
-                    onPress={handleMapPress}
-                >
-                    {marker && (
+                    <Search onCoordenadasChange={handleCoordenadasChange} />
+
+                    {
+                        selectedPlace &&
+                        < MapView
+                            style={styles.container}
+                            showsUserLocation
+                            region={{
+                                latitude: selectedPlace.latitude,
+                                longitude: selectedPlace.longitude,
+                                latitudeDelta: 0.005,
+                                longitudeDelta: 0.005,
+                            }}
+                            onPress={handleMapPress}
+                        >
+                            {marker && (
+                                <Marker
+                                    coordinate={{
+                                        latitude: marker?.latitude,
+                                        longitude: marker?.longitude,
+                                    }}
+                                />
+                            )}
+                        </MapView>
+                    }
+
+                    {marker &&
+                        <TouchableOpacity
+
+                            style={styles.caixa}
+                            onPress={() => {
+                                if (marker && marker.latitude !== undefined && marker.longitude !== undefined) {
+                                    mostrarEndereco(marker.latitude, marker.longitude);
+                                } else {
+                                    console.log('Coordenadas não disponíveis');
+                                }
+                            }}
+                            onPressIn={() => setShowModal(MODAL.UPDATE_TRIP)}
+                        >
+                            <Texto style={styles.textoCaixa}>Adicionar local</Texto>
+
+                        </TouchableOpacity>
+                    }
+                </>
+                :
+                <>
+                    <MapView
+                        style={styles.container}
+                        region={{
+                            latitude: coordendasEvento[0],
+                            longitude: coordendasEvento[1],
+                            latitudeDelta: 0.005,
+                            longitudeDelta: 0.005,
+                        }}
+                        onPress={handleMapPress}
+                    >
                         <Marker
+                            title={nomeEvento}
+                            subtitle={dataEvento}
                             coordinate={{
-                                latitude: marker?.latitude,
-                                longitude: marker?.longitude,
+                                latitude: coordendasEvento[0],
+                                longitude: coordendasEvento[1]
                             }}
                         />
-                    )}
-                </MapView>
-            }
+                    </MapView>
 
+                    <TouchableOpacity
+                        style={styles.caixa}
+                        onPress={() => {
+                            mostrarEndereco(coordendasEvento[0], coordendasEvento[1]);
+                        }}
+                        onPressIn={() => setShowModal(MODAL.UPDATE_TRIP)}
+                    >
+                        <Texto style={styles.textoCaixa}>Detalhes do local</Texto>
 
-            {marker &&
-                <TouchableOpacity
-
-                    style={styles.caixa}
-                    onPress={() => {
-                        if (marker && marker.latitude !== undefined && marker.longitude !== undefined) {
-                            mostrarEndereco(marker.latitude, marker.longitude);
-                        } else {
-                            console.log('Coordenadas não disponíveis');
-                        }
-                    }}
-                    onPressIn={() => setShowModal(MODAL.UPDATE_TRIP)}
-                >
-                    <Texto style={styles.textoCaixa}>Adicionar local</Texto>
-
-                </TouchableOpacity>
+                    </TouchableOpacity>
+                </>
             }
 
             <Modal
-                title="Dê um nome ao destino"
-                subtitle="Confira os dados antes de salvar"
+                title="Informações do destino"
+                subtitle="Veja se está tudo certo antes de continuar."
                 visible={showModal === MODAL.UPDATE_TRIP}
                 onClose={() => setShowModal(MODAL.NONE)}
             >
                 <View style={{ marginVertical: 4 }}>
 
                     <View style={styles.info}>
-                        <Text style={styles.infoText}>{Ename}</Text>
+                        <Text style={styles.infoText}>{Ename ? Ename : nomeEvento}</Text>
                     </View>
 
                     <View style={{ flexDirection: 'row', gap: 16 }}>
 
                         <View style={[styles.info, { justifyContent: "center", gap: 8 }]}>
                             <CalendarDays color={"black"} size={25} />
-                            <Text style={styles.infoText}>{formatDate}</Text>
+                            <Text style={styles.infoText}>{formatDate ? formatDate : dataEvento}</Text>
                         </View>
 
                         <View style={[styles.info, { justifyContent: "center", gap: 8 }]}>
                             <Clock color={"black"} size={25} />
-                            <Text style={styles.infoText}>{Estart}h00</Text>
+                            <Text style={styles.infoText}>{Estart ? Estart : horaEvento}h00</Text>
                         </View>
                     </View>
 
@@ -178,17 +241,25 @@ export default function Maps() {
                         </View>
 
                     </View>
-
-                    <TouchableOpacity
-                        style={styles.infoCaixa}
-                        onPress={() => {
-                            setMarker(null)
-                            setShowModal(MODAL.NONE)
-                            handleReturn();
-                        }}
-                    >
-                        <Text style={styles.textoCaixa}>Confirmar</Text>
-                    </TouchableOpacity>
+                    {nomeRota === 'Maps' ?
+                        <TouchableOpacity
+                            style={styles.infoCaixa}
+                            onPress={() => {
+                                setMarker(null)
+                                setShowModal(MODAL.NONE)
+                                handleReturn();
+                            }}
+                        >
+                            <Text style={styles.textoCaixa}>Confirmar</Text>
+                        </TouchableOpacity>
+                        :
+                        <TouchableOpacity
+                            style={styles.infoCaixa}
+                            onPress={() => handleOpenDeviceMap()}
+                        >
+                            <Text style={styles.textoCaixa}>Ver no Maps</Text>
+                        </TouchableOpacity>
+                    }
 
                 </View>
 
