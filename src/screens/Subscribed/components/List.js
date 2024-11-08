@@ -20,9 +20,9 @@ export default function Lista({ dadosEventos }) {
   const renderItem = ({ item }) => (
     <ScrollView style={estilos.espaco}>
       <Interaction
-        tipo={'Home'}
+        tipo={'subsEvento'}
         imagem={{ uri: item.imagemEvento }}
-        styleImg={'imagemEvento'}
+        styleImg={'subsEvento'}
         texto={item.nomeEvento}
         styleLeg={{ margin: 8 }}
         acao={() => navigation.navigate('Detalhes', { item })}

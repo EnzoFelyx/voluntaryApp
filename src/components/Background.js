@@ -57,20 +57,18 @@ const estilos = StyleSheet.create({
         borderRadius: 30,
         paddingTop: 40,
         paddingBottom: 20,
-        paddingLeft: 20,
+        paddingHorizontal: 20,
         marginTop: 16,
         backgroundColor: "#FFFF",
     },
 
-    backThree: {
-        
-        /* marginHorizontal: 15, */
+   backThree: {
+        flex: 1,
+        top: -20,
+        borderTopLeftRadius: 24,
+        borderTopRightRadius: 24,
         paddingHorizontal: 25,
         backgroundColor: '#D7FF9C',
-        borderRadius: 24,
-        marginTop: 8,
         paddingTop: 24,
-        top: -40,
-        paddingBottom: 50,
     },
 })

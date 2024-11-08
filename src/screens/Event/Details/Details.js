@@ -5,6 +5,7 @@ import Top from '../../../components/Top';
 import Body from './components/Body';
 import Interactions from './components/Interactions';
 import Overview from './components/Overview';
+import { ScrollView, View } from 'react-native';
 
 
 export default function Details({ route }) {
@@ -25,13 +26,17 @@ export default function Details({ route }) {
     const [horaEvento, setHoraEvento] = useState(item.horaEvento)
 
     return (
-        <Screen>
+        <View style={{ flex: 1, backgroundColor: '#D7FF9C', }}>
             <Top Foto={{ uri: imagem }} fotoEstilo={"fotoEvento"} tipo={"Details"} />
             <Background back={"backThree"}>
-                <Overview nome={nome} local={local} data={data} hora={horaEvento} organizadoraFoto={organizadoraFoto} organizadora={criadorEvento} people={participantes} />
-                <Interactions coord={coordenadas} fotosE={fotos} isPublic={typeLocal} />
-                <Body descricao={descricao} idEvento={idEvento} />
+                <ScrollView
+                    showsVerticalScrollIndicator={false}
+                >
+                    <Overview nome={nome} local={local} data={data} hora={horaEvento} organizadoraFoto={organizadoraFoto} organizadora={criadorEvento} people={participantes} />
+                    <Interactions coord={coordenadas} fotosE={fotos} isPublic={typeLocal} />
+                    <Body descricao={descricao} idEvento={idEvento} />
+                </ScrollView>
             </Background>
-        </Screen>
+        </View>
     )
 }

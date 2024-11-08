@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, StyleSheet } from 'react-native';
 
-export default function Imagem({ imagem, tipo }) {
+export default function Imagem({ imagem, tipo, cover = null }) {
 
     const tipoImagemTamanho = (tipo) => {
 
@@ -107,6 +107,12 @@ export default function Imagem({ imagem, tipo }) {
                 }
                 break;
 
+            case 'subsEvento':
+                return {
+                    picture: estilos.subsEvento
+                }
+                break;
+
             default:
                 break;
         }
@@ -117,7 +123,7 @@ export default function Imagem({ imagem, tipo }) {
 
 
     return (
-        <Image source={imagem} style={estiloImagem.picture} />
+        <Image source={imagem} style={estiloImagem.picture} resizeMode={cover} />
     )
 }
 
@@ -147,11 +153,13 @@ const estilos = StyleSheet.create({
         borderColor: '#accb7f',
     },
 
+    subsEvento: {
+        flex: 1,
+        width: '100%',
+    },
     imagemEvento: {
-        marginVertical: 10,
-        width: 328,
-        height: 158,
-        resizeMode: 'contain'
+        flex: 1,
+        width: '100%',
     },
 
     perfilDestaque: {
@@ -163,9 +171,8 @@ const estilos = StyleSheet.create({
     },
 
     fotoEvento: {
-        height: 657 / 1.85,
-        width: 429,
-        alignSelf: 'center',
+        flex: 1,
+        width: '100%',
     },
 
     fotoMenor: {

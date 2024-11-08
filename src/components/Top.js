@@ -1,10 +1,12 @@
 import { useNavigation, CommonActions } from '@react-navigation/native';
 import { LogOut } from 'lucide-react-native';
 import React from 'react';
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Dimensions, StyleSheet, TouchableOpacity, View } from 'react-native';
 import Image from './Image';
 import Return from './Return';
 import Title from './Title';
+
+const height = Dimensions.get('window').height;
 
 export default function Cabecalho({ tipo = null, titulo = null, Foto = null, fotoEstilo = null }) {
 
@@ -41,7 +43,11 @@ export default function Cabecalho({ tipo = null, titulo = null, Foto = null, fot
             break;
 
         case "Details":
-            return <View>
+            return <View
+                style={{
+                    height: height * 0.35,
+                    width: '100%'
+                    }}>
                 {/* <Return /> */}
                 <Image imagem={Foto} tipo={fotoEstilo} />
             </View>

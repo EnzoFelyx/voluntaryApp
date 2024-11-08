@@ -1,17 +1,26 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Dimensions, StyleSheet, TouchableOpacity, View } from 'react-native';
 import Image from '../components/Image';
 import Texto from '../components/texto';
 import Button from './Button';
 
-export default function Interaction({ imagem, styleImg, styleLeg, texto, tipo, acao }) {
-     
+const height = Dimensions.get('window').height;
+const width = Dimensions.get('window').width;
+
+export default function Interaction({ imagem, styleImg, styleLeg, texto, tipo, acao, cover }) {
+
     const tipoBotaoEstilo = (tipo) => {
         switch (tipo) {
 
             case 'Home':
                 return {
                     botao: estilos.botaoEvento
+                }
+                break;
+
+            case 'subsEvento':
+                return {
+                    botao: estilos.subsEvento
                 }
                 break;
 
@@ -27,7 +36,7 @@ export default function Interaction({ imagem, styleImg, styleLeg, texto, tipo, a
     return (
         <View>
             <TouchableOpacity style={estiloBotao.botao} onPress={acao}>
-                <Image imagem={imagem} tipo={styleImg} />
+                <Image imagem={imagem} tipo={styleImg} cover={cover} />
                 {
                     styleImg === 'perfilDestaque' ? (<>
                         <Texto style={styleLeg}>{texto}</Texto>
@@ -37,7 +46,7 @@ export default function Interaction({ imagem, styleImg, styleLeg, texto, tipo, a
                 }
             </TouchableOpacity>
             {
-                styleImg === 'imagemEvento' ? (
+                styleImg === 'imagemEvento' || styleImg === 'subsEvento' ? (
                     <Texto style={styleLeg}>{texto}</Texto>
                 ) : <></>
             }
@@ -47,15 +56,26 @@ export default function Interaction({ imagem, styleImg, styleLeg, texto, tipo, a
 
 const estilos = StyleSheet.create({
 
-    botaoEvento: {
+    subsEvento: {
         marginTop: 8,
-        paddingTop: 12,
-        paddingBottom: 12,
-        borderWidth: 0.5,
+        borderWidth: 0.8,
         borderRadius: 15,
         marginRight: 16,
         justifyContent: 'center',
         flexDirection: "row",
+        width: '100%',
+        height: height * 0.25,
+        overflow: "hidden",
+    },
+
+    botaoEvento: {
+        marginTop: 8,
+        overflow: "hidden",
+        borderWidth: 0.8,
+        borderRadius: 15,
+        marginRight: 16,
+        width: width * .8,
+        height: height * 0.25,
     },
 
     botaoDestaque: {
