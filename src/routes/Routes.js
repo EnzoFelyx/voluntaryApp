@@ -4,6 +4,7 @@ import React from "react";
 import Home_Routes from "./Home_Routes";
 import Profile_Routes from "./Profile_Routes";
 import Subscribed_Routes from "./Subscribed_Routes";
+import Explore from '../screens/Explore/Explore';
 
 const Tab = createBottomTabNavigator();
 
@@ -58,7 +59,7 @@ export default function Routes() {
                 )
             }} component={Home_Routes} />
 
-        <Tab.Screen name="Buscar"
+        <Tab.Screen name="Explorar"
             options={{
                 tabBarIcon: ({ color, size, focused }) => (
                     <MaterialCommunityIcons
@@ -68,7 +69,7 @@ export default function Routes() {
                         style={{ flex: 1, marginTop: 5 }} />
                 )
             }}
-            component={Home_Routes} />
+            component={Explore} />
 
         <Tab.Screen name="Perfil"
             options={{
