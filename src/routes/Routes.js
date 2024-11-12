@@ -4,7 +4,8 @@ import React from "react";
 import Home_Routes from "./Home_Routes";
 import Profile_Routes from "./Profile_Routes";
 import Subscribed_Routes from "./Subscribed_Routes";
-import Explore from '../screens/Explore/Explore';
+import Explore_Routes from "./Explore_Routes";
+
 
 const Tab = createBottomTabNavigator();
 
@@ -69,7 +70,7 @@ export default function Routes() {
                         style={{ flex: 1, marginTop: 5 }} />
                 )
             }}
-            component={Explore} />
+            component={Explore_Routes} />
 
         <Tab.Screen name="Perfil"
             options={{

@@ -1,10 +1,12 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import Explore from "../screens/Explore/Explore";
+import Perfil from '../screens/Perfil/MyProfile';
+import Details from '../screens/Event/Details/Details'
 
 const Stack = createNativeStackNavigator();
 
-export default function Home_Routes() {
+export default function Explore_Routes() {
     return (<Stack.Navigator
         screenOptions={{
             headerShown: false
@@ -13,6 +15,11 @@ export default function Home_Routes() {
         <Stack.Screen name='StackExplore'>
             {() => <Explore />}
         </Stack.Screen>
+
+        <Stack.Screen name="Detalhes" component={Details} />
+
+        <Stack.Screen name="OtherProfile" component={Perfil} />
+
 
     </Stack.Navigator>
     )

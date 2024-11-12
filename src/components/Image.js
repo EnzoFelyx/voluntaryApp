@@ -45,6 +45,12 @@ export default function Imagem({ imagem, tipo, cover = null }) {
                     picture: estilos.fotoMenor
                 }
                 break;
+                
+            case 'Explorar':
+                return {
+                    picture: estilos.Explorar
+                }
+                break;
 
             /*  case 'Upload':
                  return {
@@ -179,6 +185,12 @@ const estilos = StyleSheet.create({
         height: 32,
         width: 32,
         borderRadius: 25,
+    },
+
+    Explorar: {
+        height: 50,
+        width: 50,
+        borderRadius: 30,
     },
 
     Perfil: {
