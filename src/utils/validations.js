@@ -1,4 +1,5 @@
 export function validarCPF(cpf) {
+
     cpf = cpf.replace(/[^\d]/g, "");
     if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) {
         return false;
@@ -19,9 +20,8 @@ export function validarCPF(cpf) {
     return digito1 == cpf[9] && digito2 == cpf[10];
 }
 
-
 export function validarCNPJ(cnpj) {
-
+    
     cnpj = cnpj.replace(/[^\d]/g, "");
 
     if (cnpj.length !== 14 || /^(\d)\1+$/.test(cnpj)) {

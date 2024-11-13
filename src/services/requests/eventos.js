@@ -21,27 +21,6 @@ export async function pegarEventosInscritos(id) {
     }
 }
 
-export async function salvarEvento(postId, id, rnome, rdata) {
-
-    try {
-
-        const resultado = await api.put(`/repositories/${id}`,
-            {
-                postId: postId,
-                id: id,
-                rnome: rnome,
-                rdata: rdata
-            });
-        return 'Sucesso'
-    }
-
-    catch (error) {
-        console.log(error)
-        return 'Erro'
-    }
-
-}
-
 export async function criarEvento(dados) {
 
     const [
@@ -103,22 +82,6 @@ export async function criarEvento(dados) {
 
 }
 
-
-/* export async function deletarEvento(id) {
-
-    try {
-
-        await api.delete(`/repositories/${id}`);
-        return 'Sucesso'
-    }
-
-    catch (error) {
-        console.log(error)
-        return 'Erro'
-    }
-
-} */
-
 export async function buscarEvento(nomeEvento) {
     try {
         const resultado = await api.get(`/eventos?nomeEvento_like=${nomeEvento}`);
@@ -129,7 +92,6 @@ export async function buscarEvento(nomeEvento) {
         return {}
     }
 }
-
 
 export async function criarAmrEvento(postId, eventoId) {
     try {
@@ -160,7 +122,6 @@ export async function deletAmrEvento(postId, eventoId) {
         return console.log('Erro');
     }
 }
-
 
 export async function deleteEvento(idUser, eventoId) {
     try {

@@ -8,9 +8,6 @@ import React from 'react';
 import { StatusBar, View } from 'react-native';
 
 import Login_Routes from './src/routes/Login_Routes';
-import MyProfile from './src/screens/Perfil/MyProfile';
-
-
 
 export default function App() {
 
@@ -28,7 +25,6 @@ export default function App() {
     <View style={{ flex: 1 }}>
       <StatusBar barStyle={'dark-content'} backgroundColor="transparent" translucent />
       <Login_Routes />
-      {/* <MyProfile /> */}
     </View>
   );
 }
