@@ -4,7 +4,7 @@ import { Alert } from "react-native";
 
 import Button from "../../../../components/Button";
 import useTop from '../../../../hooks/useTop';
-import { criarAmrEvento, deletAmrEvento } from '../../../../services/requests/eventos';
+import { criarAmrEvento, deletAmrEvento, deleteEvento } from '../../../../services/requests/eventos';
 import { UserEvent } from "../../../../services/requests/usuario";
 
 export default function Subscribe({ idEvento }) {
@@ -19,57 +19,136 @@ export default function Subscribe({ idEvento }) {
             idEvento
         );
         if (resultado == 'Sucesso') {
-            Alert.alert('Inscrição feita com sucesso!');
+            Alert.alert(
+                "Inscrição confirmada!",
+                "Você se inscreveu no evento com sucesso."
+            );
             navigation.goBack()
         }
         else {
-            console.log('Erro ao se inscrever no evento')
+            Alert.alert(
+                "Erro ao se inscrever!",
+                "Algo deu errado ao se inscrever nesse evento."
+            );
         }
     };
 
     async function deletAmr() {
-
-        const resultado = await deletAmrEvento(
-            dadosDoUsuario.id,
-            idEvento
+        Alert.alert(
+            "Confirmação de Desinscrição",
+            "Você realmente deseja se desinscrever do evento?",
+            [
+                {
+                    text: "Cancelar",
+                    onPress: () => console.log("Ação cancelada"),
+                    style: "cancel"
+                },
+                {
+                    text: "Sim",
+                    onPress: async () => {
+                        const resultado = await deletAmrEvento(
+                            dadosDoUsuario.id,
+                            idEvento
+                        );
+                        if (resultado === 'Sucesso') {
+                            Alert.alert(
+                                "Desinscrito do evento!",
+                                "Você não faz mais parte desse evento."
+                            );
+                            navigation.goBack();
+                        } else {
+                            Alert.alert(
+                                "Erro ao se desinscrever!",
+                                "Algo deu errado ao se desinscrever nesse evento."
+                            );
+                        }
+                    }
+                }
+            ],
+            { cancelable: true }
         );
-        if (resultado == 'Sucesso') {
-            Alert.alert('Desinscrito do evento com sucesso!');
-            navigation.goBack()
-        }
-        else {
-            console.log('Erro ao se desinscrever do evento')
-        }
-    };
+    }
 
-    async function verf() {
+    async function apagarEvento() {
+        Alert.alert(
+            "Cancelar evento",
+            "Você realmente deseja cancelar este evento?",
+            [
+                {
+                    text: "Cancelar",
+                    onPress: () => console.log("Ação cancelada"),
+                    style: "cancel"
+                },
+                {
+                    text: "Apagar",
+                    onPress: async () => {
+                        const resultado = await deleteEvento(
+                            dadosDoUsuario.id,
+                            idEvento
+                        );
+                        if (resultado === 'Sucesso') {
+                            Alert.alert(
+                                "Evento excluido com sucesso!",
+                                "O evento foi você criou foi cancelado."
+                            );
+                            console.log('apagou')
+                            navigation.goBack();
+                        } else {
+                            Alert.alert(
+                                "Erro ao excluir evento!",
+                                "Algo deu errado ao apagar esse evento."
+                            );
+                        }
+                    }
+                }
+            ],
+            { cancelable: true }
+        );
+    }
+
+    async function verf(id) {
 
         const resultado = await UserEvent(
-            dadosDoUsuario.id,
+            id,
             idEvento
         );
-        if (resultado === 'encontrado') {
-            return true;
-        } else {
-            return false;
+
+        if (resultado === 'mine') {
+            return 'Deletar';
         }
+
+        else if (resultado === 'encontrado') {
+            return 'encontrado';
+        }
+
+        else if (resultado === 'new')
+            return 'Sub'
     };
 
     useEffect(() => {
         async function fetchData() {
-            const resultado = await verf();
-            setVerificaResultado(resultado);
+            if (dadosDoUsuario.id && verificaResultado === undefined) {
+                const resultado = await verf(dadosDoUsuario.id);
+                setVerificaResultado(resultado);
+            }
         }
         fetchData();
-    },);
+    }, [dadosDoUsuario.id, verificaResultado]);
 
 
-    if (verificaResultado == false) {
+    if (verificaResultado === 'Deletar') {
+        return <Button texto={'Cancelar meu evento'}
+            tipo={9}
+            acao={apagarEvento}
+        />
+    }
+
+    else if (verificaResultado === 'Sub') {
         return <Button texto={'Inscrever-se'}
             tipo={2}
             acao={criarAmr} />
     }
-    else {
+    else if (verificaResultado === 'encontrado') {
         return <Button texto={'Desinscrever'}
             tipo={9}
             acao={deletAmr} />

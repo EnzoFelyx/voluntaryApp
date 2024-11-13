@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { pegarDadosTodasOngs, pegarDadosTodosUsuarios, pegarDadosUsuario, pegarTodosEventos } from '../services/requests/home';
+import { useIsFocused } from "@react-navigation/native";
 
 export function useEventos() {
 
     const [dadosEventos, setDadosEventos] = useState({});
+
+    const isFocus = useIsFocused();
 
     useEffect(() => {
         async function buscarDadosEventos() {
@@ -15,7 +18,7 @@ export function useEventos() {
         }
         buscarDadosEventos();
 
-    }, []);
+    }, [isFocus]);
     return dadosEventos
 }
 

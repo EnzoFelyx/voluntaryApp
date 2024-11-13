@@ -153,7 +153,24 @@ export async function deletAmrEvento(postId, eventoId) {
         const resultado = await api.get(`/amarraParticipanteEvento?postId=${postId}&eventoId=${eventoId}`);
         const deletar = resultado.data[0].id
         await api.delete(`/amarraParticipanteEvento/${deletar}`);
-        return console.log('Desinscrito com sucesso!')
+        return 'Sucesso'
+    }
+    catch (error) {
+        console.log(error)
+        return console.log('Erro');
+    }
+}
+
+
+export async function deleteEvento(idUser, eventoId) {
+    try {
+        const resultado = await api.get(`/eventos?id=${eventoId}`);
+        if (resultado.data[0].idCriador === idUser) {
+            await api.delete(`/eventos/${eventoId}`);
+            return 'Sucesso'
+        }
+        else
+            return console.log('Sem permissão para excluir evento')
     }
     catch (error) {
         console.log(error)

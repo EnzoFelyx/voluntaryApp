@@ -36,13 +36,20 @@ export async function pegarDadosUsuario(id) {
     }
 }
 
-export async function UserEvent(id, idEvento) {
+export async function UserEvent(id, idEvento) {  
     try {
-        const resultado = await api.get(`/amarraParticipanteEvento?postId=${id}&eventoId=${idEvento}`);    
-        if (resultado.data.length !== 0) {
-            return 'encontrado'
+        const myresult = await api.get(`/eventos?id=${idEvento}`);
+        if (myresult.data[0].idCriador === id) {
+            return 'mine'
         }
-        
+        else {
+            const resultado = await api.get(`/amarraParticipanteEvento?postId=${id}&eventoId=${idEvento}`);
+            if (resultado.data.length !== 0) {
+                return 'encontrado'
+            }
+            else
+                return 'new'
+        }
     } catch (error) {
         console.log(error);
         return null;

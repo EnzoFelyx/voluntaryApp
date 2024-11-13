@@ -1,5 +1,6 @@
-import { useNavigation } from "@react-navigation/native";
-import React from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
+import React, { useState } from "react";
 import { FlatList, ScrollView, Text, View } from "react-native";
 
 import { subscribed } from '../../../../config/text.json';
@@ -7,15 +8,44 @@ import Botao from "../../../components/Button";
 import Interaction from "../../../components/Interation";
 import Owner from "../../../components/Owner";
 import Texto from "../../../components/texto";
+import { pegarEventos, pegarEventosInscritos } from '../../../services/requests/eventos';
 import { estilos } from "./estilos";
 
-export default function Lista({ dadosEventos }) {
 
-  const dados = (Array.isArray(dadosEventos) ? dadosEventos : []).flat();
+export default function Lista() {
 
   const { subtitle, subs } = subscribed.body;
   const navigation = useNavigation();
 
+  const [dadosEventos, setDadosEventos] = useState({});
+
+  useFocusEffect(
+    React.useCallback(() => {
+      async function fetchData() {
+        const id = await AsyncStorage.getItem('id');
+
+        if (!id) {
+          return null;
+        }
+
+        const resultadoIns = await pegarEventosInscritos(id);
+        if (resultadoIns) {
+          const eventosPromises = resultadoIns.map(async (inscricao) => {
+            const resultado = await pegarEventos(inscricao.eventoId);
+            return resultado;
+          });
+          const eventos = await Promise.all(eventosPromises);
+          setDadosEventos(eventos);
+        }
+      }
+      fetchData();
+      return () => {
+        setDadosEventos({});
+      };
+    }, [])
+  );
+
+  const dados = (Array.isArray(dadosEventos) ? dadosEventos : []).flat();
 
   const renderItem = ({ item }) => (
     <ScrollView style={estilos.espaco}>

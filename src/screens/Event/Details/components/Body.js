@@ -13,7 +13,7 @@ export default function Corpo({ descricao, idEvento }) {
   return <>
     <Title entrada={title} tipo={"Titulo"} />
     <Texto style={{ marginTop: 12 }}>{descricao}</Texto>
-    <View style={{ marginTop: 100, marginBottom: 50 }}>
+    <View style={{ marginTop: 100, marginBottom: 50 }}> 
       <Subscribe idEvento={idEvento} />
     </View>
   </>

@@ -33,7 +33,7 @@ export default function Details({ route }) {
                 >
                     <Overview nome={nome} local={local} data={data} hora={horaEvento} organizadoraFoto={organizadoraFoto} organizadora={criadorEvento} people={participantes} />
                     <Interactions {...item} />
-                    <Body descricao={descricao} idEvento={idEvento} />
+                    <Body descricao={descricao} idEvento={idEvento} /> 
                 </ScrollView>
             </Background>
         </View>
