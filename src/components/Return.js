@@ -1,7 +1,7 @@
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import React from "react";
-import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { useNavigation } from '@react-navigation/native';
+import { ChevronLeft } from 'lucide-react-native';
+import React from "react";
+import { TouchableOpacity } from "react-native";
 
 export default function Return() {
 
@@ -9,18 +9,9 @@ export default function Return() {
 
     return (
         <TouchableOpacity
-            style={estilos.voltar}
             onPress={() => { navigation.goBack() }}
         >
-            <MaterialCommunityIcons name="chevron-left" size={40} color="gray" />
+            <ChevronLeft size={35} color={'gray'} />
         </TouchableOpacity>
     )
 }
-
-
-const estilos = StyleSheet.create({
-    voltar: {
-       /*  marginLeft: 16 */
-    },
-
-})

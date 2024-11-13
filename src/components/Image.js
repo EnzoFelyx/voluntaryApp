@@ -161,12 +161,13 @@ const estilos = StyleSheet.create({
 
     subsEvento: {
         flex: 1,
-        width: '100%',
+        width: 100,
+        
     },
     imagemEvento: {
         flex: 1,
         width: '100%',
-    },
+    }, //home
 
     perfilDestaque: {
         width: 60,
@@ -179,7 +180,7 @@ const estilos = StyleSheet.create({
     fotoEvento: {
         flex: 1,
         width: '100%',
-    },
+    }, //detalhes
 
     fotoMenor: {
         height: 32,

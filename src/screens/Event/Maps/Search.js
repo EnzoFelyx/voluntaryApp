@@ -1,9 +1,11 @@
+import { CircleX } from 'lucide-react-native';
 import React, { useRef, useState } from 'react';
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity } from 'react-native';
+import 'react-native-get-random-values';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { GOOGLE_MAPS_API_KEY } from '../../../constants';
-import Icon from '../../../components/Icon';
 import { toInputBoxStyles } from './estilos';
+
 
 export default function Search({ onCoordenadasChange }) {
 
@@ -48,11 +50,12 @@ export default function Search({ onCoordenadasChange }) {
             onFail={(error) => console.log(error)}
             renderRightButton={() => (
                 inputValue.length > 0 && isFocused === true ? (
-                    <View
+                    <TouchableOpacity
                         style={{ position: 'absolute', right: 0, alignSelf: 'center', marginRight: 16, }}
+                        onPress={() => handleClearInput()}
                     >
-                        <Icon styleIcon={{ fontSize: 24 }} cor={"gray"} icone={"close-circle-outline"} acao={handleClearInput} />
-                    </View>
+                        <CircleX size={24} color={"gray"} />
+                    </TouchableOpacity>
                 ) : <></>
             )}
             textInputProps={{

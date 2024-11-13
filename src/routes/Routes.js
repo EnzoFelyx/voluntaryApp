@@ -1,10 +1,10 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
+import Explore_Routes from "./Explore_Routes";
 import Home_Routes from "./Home_Routes";
 import Profile_Routes from "./Profile_Routes";
 import Subscribed_Routes from "./Subscribed_Routes";
-import Explore_Routes from "./Explore_Routes";
 
 
 const Tab = createBottomTabNavigator();
@@ -13,74 +13,92 @@ export default function Routes() {
 
     return <Tab.Navigator
         screenOptions={{
+            tabBarActiveTintColor: '#9fe801',
+            tabBarInactiveTintColor: 'black',
             headerShown: false,
-            tabBarActiveTintColor: '#ffff',
-            tabBarActiveBackgroundColor: '#649469', //selecionado
-            tabBarInactiveBackgroundColor: '#649469',
-            tabBarInactiveTintColor: '#D3d3d3', // n selecionado
-            TabBa: '#649469',
-            style:
-            {
-                height: 70,
-                borderRadius: 15,
-            },
-            labelStyle: //estilo dos botões
-            {
-                fontWeight: 'bold',
-                fontSize: 16,
-                lineHeight: 21,
-                paddingBottom: 10,
-                backgroundColor: '#649469'
+            tabBarShowLabel: false,
+            tabBarStyle: {
+                backgroundColor: 'white',
+                position: 'absolute',
+                borderTopWidth: .8,
+                borderColor: 'black',
+                height: 60,
             },
             keyboardHidesTabBar: 'true',
-            //esconde a tab bar quando abre o teclado
         }}
         initialRouteName='Home'
     >
-
         <Tab.Screen name="Eventos"
             options={{
-                tabBarIcon: ({ color, size, focused }) => (
-                    <MaterialCommunityIcons
-                        name="account-group"
-                        color={'black'}
-                        size={focused ? 35 : 30}
-                        style={{ flex: 1, marginTop: 5 }} />
-                )
+                tabBarIcon: ({ color, size, focused }) => {
+                    if (focused) {
+                        return <MaterialCommunityIcons
+                            name="account-group"
+                            color={color}
+                            size={30}
+                        />
+                    }
+                    return <MaterialCommunityIcons
+                        name="account-group-outline"
+                        color={color}
+                        size={25}
+                    />
+                }
             }} component={Subscribed_Routes} />
 
         <Tab.Screen name="Home"
             options={{
-                tabBarIcon: ({ color, size, focused }) => (
-                    <MaterialCommunityIcons
-                        name="home-account"
-                        color={'black'}
-                        size={focused ? 35 : 30}
-                        style={{ flex: 1, marginTop: 5 }} />
-                )
+                tabBarIcon: ({ color, size, focused }) => {
+                    if (focused) {
+                        return <MaterialCommunityIcons
+                            name="home"
+                            color={color}
+                            size={30}
+                        />
+                    }
+                    return <MaterialCommunityIcons
+                        name="home-outline"
+                        color={color}
+                        size={25}
+                    />
+                }
             }} component={Home_Routes} />
 
         <Tab.Screen name="Explorar"
             options={{
-                tabBarIcon: ({ color, size, focused }) => (
-                    <MaterialCommunityIcons
-                        name="magnify"
-                        color={'black'}
-                        size={focused ? 35 : 30}
-                        style={{ flex: 1, marginTop: 5 }} />
-                )
+                tabBarIcon: ({ color, size, focused }) => {
+                    if (focused) {
+                        return <MaterialCommunityIcons
+                            name="compass"
+                            color={color}
+                            size={30}
+                        />
+                    }
+                    return <MaterialCommunityIcons
+                        name="compass-outline"
+                        color={color}
+                        size={25}
+                    />
+                }
             }}
             component={Explore_Routes} />
 
         <Tab.Screen name="Perfil"
             options={{
-                tabBarIcon: ({ color, size, focused }) => (
-                    <MaterialCommunityIcons
+                tabBarIcon: ({ color, size, focused }) => {
+                    if (focused) {
+                        return <MaterialCommunityIcons
+                            name="account"
+                            color={color}
+                            size={30}
+                        />
+                    }
+                    return <MaterialCommunityIcons
                         name="account-outline"
-                        color={'black'}
-                        size={focused ? 35 : 30}
-                        style={{ flex: 1, marginTop: 5 }} />
-                )
+                        color={color}
+                        size={25}
+                    />
+                }
             }} component={Profile_Routes} />
 
     </Tab.Navigator>

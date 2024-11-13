@@ -15,12 +15,12 @@ export default function MyProfile() {
     const route = useRoute();
     const isFocused = useIsFocused();
 
-    const [follow, setFollow] = useState(Math.floor(Math.random() * 100) + 1);
-    const [Followers, setFolllowers] = useState(Math.floor(Math.random() * 100) + 1);
-    const [eventos, setEventos] = useState(Math.floor(Math.random() * 50) + 1);
-    const [criados, setCriados] = useState(Math.floor(Math.random() * 10) + 1);
-    const [xp, setXp] = useState(Math.floor(Math.random() * 10000) + 1);
-    const [numero, setNumero] = useState(Math.floor(Math.random() * 5) + 1);
+    const [follow, setFollow] = useState();
+    const [Followers, setFolllowers] = useState();
+    const [eventos, setEventos] = useState();
+    const [criados, setCriados] = useState();
+    const [xp, setXp] = useState();
+    const [numero, setNumero] = useState();
     const [userNow, setUserNow] = useState(null);
 
     const myElo = () => {
@@ -63,7 +63,13 @@ export default function MyProfile() {
         } else {
             setUserNow(dadosDoUsuario);
         }
-    }, [route.params, dadosDoUsuario, isFocused]); 
+        setFollow(Math.floor(Math.random() * 100) + 1)
+        setFolllowers(Math.floor(Math.random() * 100) + 1)
+        setEventos(Math.floor(Math.random() * 50) + 1)
+        setCriados(Math.floor(Math.random() * 10) + 1)
+        setXp(Math.floor(Math.random() * 10000) + 1)
+        setNumero(Math.floor(Math.random() * 5) + 1)
+    }, [route.params, dadosDoUsuario, isFocused]);
 
     return (
         <ScrollView>
