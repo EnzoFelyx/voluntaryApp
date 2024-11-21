@@ -1,15 +1,15 @@
+import { useIsFocused, useRoute } from '@react-navigation/native';
 import { BadgePlus, Calendar, CalendarPlus2, Trophy } from 'lucide-react-native';
 import React, { useEffect, useState } from 'react';
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Button from '../../components/Button';
 import Image from '../../components/Image';
 import Top from '../../components/Top';
+import { useSugestoes } from '../../hooks/UseMyProfile';
 import useTopo from '../../hooks/useTop';
+import { amarrarSeguidor, procurarAmigo } from '../../services/requests/usuario';
 import Highlights from '../Home/components/Highlights';
 import Achievements from './components/Achievements';
-import { useIsFocused, useRoute } from '@react-navigation/native';
-import { useUsuarios } from '../../hooks/useHome';
-import { amarrarSeguidor, procurarAmigo } from '../../services/requests/usuario';
 
 export default function MyProfile() {
 
@@ -26,6 +26,8 @@ export default function MyProfile() {
     const [xp, setXp] = useState();
     const [numero, setNumero] = useState();
     const [userNow, setUserNow] = useState(null);
+
+    console.log(route.name)
 
 
     const myElo = () => {
@@ -56,7 +58,7 @@ export default function MyProfile() {
 
     const dadosDoUsuario = useTopo();
 
-    const dadosUsers = useUsuarios();
+    const dadosUsers = useSugestoes(route?.params?.id);
 
     const tipoTop = route.name === 'OtherProfile' ? 'Back' : 'Perfil';
     const titulo = route.name === 'OtherProfile' ? 'Visitando perfil' : 'Meu Perfil';
@@ -76,7 +78,7 @@ export default function MyProfile() {
 
     useEffect(() => {
         if (route.name === 'OtherProfile') {
-            console.log(id)
+            
             if (id) {
                 isAmigo(id)
             }

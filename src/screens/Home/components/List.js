@@ -7,9 +7,9 @@ import { UseOngs, useEventos, useUsuarios } from "../../../hooks/useHome";
 export default function List({
     highlights: Highlights,
     trends: Trends,
-    ongs: Ongs
+    ongs: Ongs,
 }) {
-
+ 
     const { events, highlights, ongs } = home.body
     const dadosEventos = useEventos();
     const dadosDoUsuario = useUsuarios();

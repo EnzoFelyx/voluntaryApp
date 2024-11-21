@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { pegarDadosTodasOngs, pegarDadosTodosUsuarios, pegarDadosUsuario, pegarTodosEventos } from '../services/requests/home';
 import { useIsFocused } from "@react-navigation/native";
+import useTopo from './useTop';
 
 export function useEventos() {
 
@@ -24,17 +25,22 @@ export function useEventos() {
 
 export function useUsuarios() {
 
+    const MyUser = useTopo();
+
     const [dadosDoUsuario, setDadosDoUsuario] = useState({});
 
     useEffect(() => {
         async function buscarDadosUsuarios() {
             const resultadoUsers = await pegarDadosTodosUsuarios();
             if (resultadoUsers) {
-                setDadosDoUsuario(resultadoUsers);
+                const filtrado = resultadoUsers.filter(item => item.id !== MyUser.id);
+                const embaralhado = filtrado.sort(() => Math.random() - 0.5);
+                const resultado = embaralhado.slice(0, 5);
+                setDadosDoUsuario(resultado);
             }
         }
         buscarDadosUsuarios();
-    }, []);
+    }, [MyUser.id]);
 
     return dadosDoUsuario
 }

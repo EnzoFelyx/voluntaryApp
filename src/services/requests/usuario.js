@@ -112,3 +112,21 @@ export async function procurarAmigo(id) {
         return console.log('Erro ao buscar usuários')
     }
 }
+
+export async function sugestoes(userId) {
+    try {
+        const usuarios = await api.get(`/users`);
+        const pessoas = usuarios.data.filter(user => user.type === "person");
+        const amigos = await api.get(`/amarrarSeguidor`);
+
+        const meusAmigos = amigos.data.filter(item => item.ownerId === userId); //somente meus amigos 
+        const sugestao = pessoas.filter(item =>
+            !meusAmigos.some(amigo => amigo.otherId === item.id)
+        );
+
+        return sugestao
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+}

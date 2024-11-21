@@ -21,7 +21,7 @@ export default function Home() {
       <Top Foto={{ uri: dadosDoUsuario.perfil }} titulo={title} />
       <View style={{ paddingHorizontal: 16, paddingTop: 16 }}>
         <Buscar />
-        <List highlights={Highlights} trends={Trends} ongs={Ongs} />
+        <List highlights={Highlights} trends={Trends} ongs={Ongs}/>
       </View>
     </Screen>
   )
