@@ -9,11 +9,15 @@ import Highlights from '../Home/components/Highlights';
 import Achievements from './components/Achievements';
 import { useIsFocused, useRoute } from '@react-navigation/native';
 import { useUsuarios } from '../../hooks/useHome';
+import { amarrarSeguidor, procurarAmigo } from '../../services/requests/usuario';
 
 export default function MyProfile() {
 
     const route = useRoute();
     const isFocused = useIsFocused();
+    const myUser = useTopo();
+
+    const id = [myUser.id, route?.params?.id]
 
     const [follow, setFollow] = useState();
     const [Followers, setFolllowers] = useState();
@@ -22,6 +26,7 @@ export default function MyProfile() {
     const [xp, setXp] = useState();
     const [numero, setNumero] = useState();
     const [userNow, setUserNow] = useState(null);
+
 
     const myElo = () => {
         let categoria;
@@ -56,6 +61,28 @@ export default function MyProfile() {
     const tipoTop = route.name === 'OtherProfile' ? 'Back' : 'Perfil';
     const titulo = route.name === 'OtherProfile' ? 'Visitando perfil' : 'Meu Perfil';
 
+    const [myFriend, setIsMyFriend] = useState(true);
+    const [updateTrigger, setUpdateTrigger] = useState(false);
+
+    async function isAmigo(id) {
+        const amigo = await procurarAmigo(id);
+        setIsMyFriend(amigo)
+    }
+
+    async function amarrarAmigo(id) {
+        const amigo = await amarrarSeguidor(id);
+        setUpdateTrigger(!updateTrigger);
+    }
+
+    useEffect(() => {
+        if (route.name === 'OtherProfile') {
+            console.log(id)
+            if (id) {
+                isAmigo(id)
+            }
+        }
+    }, [updateTrigger, myUser.id]);
+
     useEffect(() => {
         setUserNow(null)
         if (route.name === "OtherProfile") {
@@ -71,6 +98,7 @@ export default function MyProfile() {
         setNumero(Math.floor(Math.random() * 5) + 1)
     }, [route.params, dadosDoUsuario, isFocused]);
 
+
     return (
         <ScrollView>
 
@@ -78,40 +106,55 @@ export default function MyProfile() {
 
             <View style={{ flex: 1, backgroundColor: '#E4F4CD', borderTopStartRadius: 30, borderTopRightRadius: 30, marginTop: 6, borderWidth: 3, borderColor: "#CAF38D", paddingTop: 32 }}>
 
+                <TouchableOpacity style={estilos.contorno}>
+                    <Image imagem={{ uri: userNow?.perfil }} tipo={"Perfil"} />
+                </TouchableOpacity>
 
-                <View>
+                <View style={{ alignItems: "center", marginBottom: 32, gap: 8 }}>
+                    <Text style={estilos.nome}>{userNow?.nome}</Text>
+                    <View style={{ flexDirection: "row", gap: 12 }}>
+                        <Text style={estilos.subtitle}>{follow} seguidores</Text>
+                        <Text style={estilos.subtitle}>{Followers} seguindo</Text>
+                    </View>
+                </View>
+                {
+                    route.name !== 'OtherProfile' ? (
+                        <Button
+                            texto="Meus contatos"
+                            tipo={7}
+                        />
+                    ) : myFriend === true ? (
+                        <Button
+                            texto="Conectar-se"
+                            tipo={5}
+                            acao={() => amarrarAmigo(id)}
+                        />
+                    ) : (
+                        <Button
+                            texto="Seguindo"
+                            tipo={7}
+                            acao={() => amarrarAmigo(id)}
+                        />
+                    )
+                }
 
-                    <TouchableOpacity style={estilos.contorno}>
-                        <Image imagem={{ uri: userNow?.perfil }} tipo={"Perfil"} />
-                    </TouchableOpacity>
 
-                    <View style={{ alignItems: "center", marginBottom: 32, gap: 8 }}>
-                        <Text style={estilos.nome}>{userNow?.nome}</Text>
-                        <View style={{ flexDirection: "row", gap: 12 }}>
-                            <Text style={estilos.subtitle}>{follow} seguidores</Text>
-                            <Text style={estilos.subtitle}>{Followers} seguindo</Text>
-                        </View>
+
+                <View style={estilos.achievements}>
+
+                    <View style={{ flexDirection: "row", gap: 16 }}>
+                        <Achievements Icone={Calendar} cor={"red"} sub={"Eventos"} legenda={eventos} />
+                        <Achievements Icone={CalendarPlus2} cor={"blue"} sub={"Criados"} legenda={criados} />
                     </View>
 
-                    <Button texto={'SEGUIR'} tipo={5} />
-
-                    <View style={estilos.achievements}>
-
-                        <View style={{ flexDirection: "row", gap: 16 }}>
-                            <Achievements Icone={Calendar} cor={"red"} sub={"Eventos"} legenda={eventos} />
-                            <Achievements Icone={CalendarPlus2} cor={"blue"} sub={"Criados"} legenda={criados} />
-                        </View>
-
-                        <View style={{ flexDirection: "row", gap: 16 }}>
-                            <Achievements Icone={Trophy} cor={"green"} sub={"Raking"} legenda={myElo()} />
-                            <Achievements Icone={BadgePlus} cor={"black"} sub={"Experiência"} legenda={xp} />
-                        </View>
-
+                    <View style={{ flexDirection: "row", gap: 16 }}>
+                        <Achievements Icone={Trophy} cor={"green"} sub={"Raking"} legenda={myElo()} />
+                        <Achievements Icone={BadgePlus} cor={"black"} sub={"Experiência"} legenda={xp} />
                     </View>
-
-                    <Highlights dadosDoUsuario={dadosUsers} titulo={'Sugestões'} />
 
                 </View>
+
+                <Highlights dadosDoUsuario={dadosUsers} titulo={'Sugestões'} />
 
             </View>
 

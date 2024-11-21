@@ -5,8 +5,11 @@ import { FlatList, View } from 'react-native';
 import Interation from '../../../components/Interation';
 import Texto from '../../../components/texto';
 import estilos from './estilos';
+import useTopo from '../../../hooks/useTop';
 
 export default function Destaques({ dadosDoUsuario, titulo }) {
+
+  const myUser = useTopo();
 
   const navigation = useNavigation();
 
@@ -16,6 +19,7 @@ export default function Destaques({ dadosDoUsuario, titulo }) {
       imagem={{ uri: item.perfil }}
       styleImg={'perfilDestaque'}
       texto={item.nome}
+      id={[myUser.id, item.id]}
       styleLeg={{ marginVertical: 10, textAlign: 'center', }}
       acao={() => {
         navigation.navigate('OtherProfile', item);

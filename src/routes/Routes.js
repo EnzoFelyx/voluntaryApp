@@ -19,7 +19,7 @@ export default function Routes() {
             tabBarShowLabel: false,
             tabBarStyle: {
                 backgroundColor: 'white',
-                position: 'absolute',
+              
                 borderTopWidth: .8,
                 borderColor: 'black',
                 height: 60,

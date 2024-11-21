@@ -41,6 +41,20 @@ export default function Botao({ texto, tipo, acao }) {
                 }
                 break;
 
+            case 6:
+                return {
+                    botao: estilos.sextoBotao.caixa,
+                    texto: estilos.sextoBotao.texto
+                }
+                break;
+
+            case 7:
+                return {
+                    botao: estilos.setimoBotao.caixa,
+                    texto: estilos.setimoBotao.texto
+                }
+                break;
+
             case 9:
                 return {
                     botao: estilos.nonoBotao.caixa,
@@ -115,7 +129,8 @@ const estilos = StyleSheet.create({
     quartoBotao: {
         caixa: {
             backgroundColor: "#9dc662",
-            paddingHorizontal: 8,
+            paddingLeft: 10,
+            paddingRight: 8,
             paddingTop: 6,
             paddingBottom: 10,
             borderRadius: 15,
@@ -143,6 +158,45 @@ const estilos = StyleSheet.create({
 
             fontWeight: "bold",
             color: '#FFFF',
+        }
+    },
+
+    sextoBotao: {
+        caixa: {
+            backgroundColor: "#FFFF",
+            borderWidth: 2,
+            borderColor: '#9dc662',
+            paddingLeft: 10,
+            paddingRight: 8,
+            paddingTop: 6,
+            paddingBottom: 8,
+            borderRadius: 15,
+            marginTop: 'auto',
+        },
+        texto: {
+            fontSize: 16,
+            fontWeight: "bold",
+            color: '#9dc662',
+        }
+    },
+
+    setimoBotao: {
+
+        caixa: {
+            backgroundColor: "#FFF",
+            borderWidth: 2,
+            borderColor: '#9dc662',
+            borderRadius: 15,
+            alignItems: 'center',
+            paddingVertical: 16,
+            marginHorizontal: 32,
+            marginBottom: 24
+        },
+        texto: {
+            fontSize: 16,
+
+            fontWeight: "bold",
+            color: '#9dc662',
         }
     },
 

@@ -36,7 +36,7 @@ export async function pegarDadosUsuario(id) {
     }
 }
 
-export async function UserEvent(id, idEvento) {  
+export async function UserEvent(id, idEvento) {
     try {
         const myresult = await api.get(`/eventos?id=${idEvento}`);
         if (myresult.data[0].idCriador === id) {
@@ -53,5 +53,62 @@ export async function UserEvent(id, idEvento) {
     } catch (error) {
         console.log(error);
         return null;
+    }
+}
+
+export async function amarrarSeguidor(id) {
+
+    const [ownerId, otherId] = id;
+
+    try {
+        const resultado = await api.get(`/amarrarSeguidor?ownerId=${ownerId}&&otherId=${otherId}`)
+        if (!resultado.data[0] && ownerId !== otherId) {
+            try {
+                await api.post(`/amarrarSeguidor`,
+                    {
+                        id: Date.now(),
+                        ownerId: ownerId,
+                        otherId: otherId
+                    });
+                return console.log('Seguindo')
+            }
+            catch (error) {
+                return console.log('Falha ao seguir')
+            }
+        }
+        else {
+            try {
+                const deletar = resultado.data[0].id
+                await api.delete(`/amarrarSeguidor/${deletar}`);
+                return console.log('Você não está mais seguindo este usuário');
+            }
+            catch (error) {
+                console.log(error)
+                return console.log('Erro ao tirar seguindo');
+            }
+        }
+    }
+    catch (error) {
+        console.log(error)
+        return console.log('Erro ao buscar usuários')
+    }
+}
+
+export async function procurarAmigo(id) {
+
+    const [ownerId, otherId] = id;
+
+    try {
+        const resultado = await api.get(`/amarrarSeguidor?ownerId=${ownerId}&&otherId=${otherId}`)
+        if (!resultado.data[0] && ownerId !== otherId) {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    catch (error) {
+        console.log(error)
+        return console.log('Erro ao buscar usuários')
     }
 }
