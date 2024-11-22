@@ -17,11 +17,12 @@ export function useSugestoes(other = false) {
             const resultadoUsers = await sugestoes(MyUser.id);
             if (resultadoUsers) {
                 const filtrado = resultadoUsers.filter(item => item.id !== MyUser.id);
+                const embaralhado = filtrado.sort(() => Math.random() - 0.5);
                 if (!other) {
-                    setDadosDoUsuario(filtrado);
+                    setDadosDoUsuario(embaralhado);
                 }
                 else {
-                    const newFilter = filtrado.filter(item => item.id !== other);
+                    const newFilter = embaralhado.filter(item => item.id !== other);
                     setDadosDoUsuario(newFilter)
                 }
             }

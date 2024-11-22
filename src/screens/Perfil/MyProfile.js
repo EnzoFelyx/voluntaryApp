@@ -27,9 +27,6 @@ export default function MyProfile() {
     const [numero, setNumero] = useState();
     const [userNow, setUserNow] = useState(null);
 
-    console.log(route.name)
-
-
     const myElo = () => {
         let categoria;
 

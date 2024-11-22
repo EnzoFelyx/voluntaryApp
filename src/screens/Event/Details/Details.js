@@ -6,6 +6,7 @@ import Body from './components/Body';
 import Interactions from './components/Interactions';
 import Overview from './components/Overview';
 import { ScrollView, View } from 'react-native';
+import Comentario from './components/Coment';
 
 
 export default function Details({ route }) {
@@ -33,7 +34,8 @@ export default function Details({ route }) {
                 >
                     <Overview nome={nome} local={local} data={data} hora={horaEvento} organizadoraFoto={organizadoraFoto} organizadora={criadorEvento} people={participantes} />
                     <Interactions {...item} />
-                    <Body descricao={descricao} idEvento={idEvento} /> 
+                    <Body descricao={descricao} idEvento={idEvento} />
+                    <Comentario />
                 </ScrollView>
             </Background>
         </View>
