@@ -6560,6 +6560,11 @@ rc@^1.0.1, rc@^1.1.6, rc@~1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-content-loader@^7.0.2:
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/react-content-loader/-/react-content-loader-7.0.2.tgz#5d5e0f723cb937db88f9fec1c5b0651cd301c42e"
+  integrity sha512-773S98JTyC8VB2nu7LXUhpHx8tZMieGxMcx3qTe7IkohT6Br7d9AXnIXs/wQ6IhlUdKQcw6JLKk1QKigYCWDRA==
+
 react-devtools-core@^5.3.1:
   version "5.3.2"
   resolved "https://registry.yarnpkg.com/react-devtools-core/-/react-devtools-core-5.3.2.tgz#d5df92f8ef2a587986d094ef2c47d84cf4ae46ec"
@@ -6653,10 +6658,10 @@ react-native-screens@~4.0.0:
     react-freeze "^1.0.0"
     warn-once "^0.1.0"
 
-react-native-svg@^15.9.0:
-  version "15.9.0"
-  resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-15.9.0.tgz#a742a63cb463502ce591fdfcf7b9e80544f0a8c2"
-  integrity sha512-pwo7hteAM0P8jNpPGQtiSd0SnbBhE8tNd94LT8AcZcbnH5AJdXBIcXU4+tWYYeGUjiNAH2E5d0T5XIfnvaz1gA==
+react-native-svg@^15.10.0:
+  version "15.10.0"
+  resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-15.10.0.tgz#bc5c4352f35895bfc35714bbbc2696d35900e38d"
+  integrity sha512-tUdiNitPyE6fP0rrQfqnc75kXJuaJXkiqBlgs0zvmO/2CL3ar2uP4EIn56BqG8KeSeb4OLnEy0iBI9Cu2ltpcw==
   dependencies:
     css-select "^5.1.0"
     css-tree "^1.1.3"

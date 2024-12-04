@@ -1,16 +1,24 @@
-import { useNavigation, CommonActions } from '@react-navigation/native';
+import { CommonActions, useNavigation } from '@react-navigation/native';
 import { LogOut } from 'lucide-react-native';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Dimensions, StyleSheet, TouchableOpacity, View } from 'react-native';
+import AnimetedView from './Animeted';
 import Image from './Image';
 import Return from './Return';
 import Title from './Title';
 
 const height = Dimensions.get('window').height;
 
+
 export default function Cabecalho({ tipo = null, titulo = null, Foto = null, fotoEstilo = null }) {
 
     const navigation = useNavigation();
+
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        setTimeout(() => setIsLoading(false), 3000)
+    }, [])
 
     switch (tipo) {
 
@@ -47,8 +55,7 @@ export default function Cabecalho({ tipo = null, titulo = null, Foto = null, fot
                 style={{
                     height: height * 0.35,
                     width: '100%'
-                    }}>
-                {/* <Return /> */}
+                }}>
                 <Image imagem={Foto} tipo={fotoEstilo} />
             </View>
             break;
@@ -63,22 +70,29 @@ export default function Cabecalho({ tipo = null, titulo = null, Foto = null, fot
         default:
             return <View style={estilos.topo}>
                 <Title entrada={titulo} tipo={"Titulo"} />
-                <TouchableOpacity
-                    onPress={() =>
-                        navigation.dispatch(
-                            CommonActions.reset({
-                                index: 0,
-                                routes: [{ name: 'Perfil' }],
-                            })
-                        )
-                    }
-                >
-                    <Image imagem={Foto} tipo={'perfilFoto'} />
-                </TouchableOpacity>
+                {isLoading ? (
+                    <View style={estilos.pfp}>
+                        <AnimetedView width={'40%'} length={50} />
+                    </View>
+                ) : (
+                    <TouchableOpacity
+                        onPress={() =>
+                            navigation.dispatch(
+                                CommonActions.reset({
+                                    index: 0,
+                                    routes: [{ name: 'Perfil' }],
+                                })
+                            )
+                        }
+                    >
+                        <Image imagem={Foto} tipo={'perfilFoto'} />
+                    </TouchableOpacity>
+                )}
             </View>
 
             break;
     }
+
 }
 
 const estilos = StyleSheet.create({
@@ -99,4 +113,12 @@ const estilos = StyleSheet.create({
         marginBottom: 16,
         marginLeft: 16,
     },
+
+    pfp: {
+        overflow: "hidden",
+        height: 48,
+        width: 48,
+        borderRadius: 25,
+        backgroundColor: '#DEDFE3'
+    }
 })
