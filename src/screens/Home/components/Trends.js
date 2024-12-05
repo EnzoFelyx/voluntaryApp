@@ -15,7 +15,7 @@ export default function Trends({ dadosEventos, titulo }) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => setIsLoading(false), 3000)
+    setTimeout(() => setIsLoading(false), 2000)
   }, [])
 
   const navigation = useNavigation();
@@ -102,9 +102,9 @@ const skeleton = StyleSheet.create({
     overflow: "hidden",
     backgroundColor: "#DEDFE3",
     borderRadius: 8,
-    margin: 8,
     width: 250,
     height: 20,
+    margin: 8,
   },
 
   owner: {
