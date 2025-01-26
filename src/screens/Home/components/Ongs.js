@@ -7,6 +7,7 @@ import Interation from '../../../components/Interation';
 import Owner from '../../../components/Owner';
 import Texto from '../../../components/texto';
 import estilos from './estilos';
+import useLoading from '../../../hooks/useSkeleton';
 
 const height = Dimensions.get('window').height;
 
@@ -14,11 +15,7 @@ export default function Ongs({ dadosOng, titulo }) {
 
   const navigation = useNavigation();
 
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    setTimeout(() => setIsLoading(false), 2000)
-  }, [])
+   const loading = useLoading();
 
   const renderItem = ({ item }) => (
     <View style={{ flex: 1, }}>
@@ -45,7 +42,7 @@ export default function Ongs({ dadosOng, titulo }) {
   return <View style={estilos.container}>
     <Texto style={estilos.titulo}>{titulo}</Texto>
 
-    {isLoading ? (
+    {loading ? (
 
       <View style={{ flex: 1, }}>
         <View

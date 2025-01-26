@@ -20,34 +20,30 @@ export function Modal({
     return (
         <RNModal transparent animationType="fade" {...rest}>
             <BlurView
-                style={{ flex: 1, justifyContent: "flex-end", backgroundColor: "white" }}
+                style={{ flex: 1, justifyContent: "flex-end", backgroundColor: "white"}}
                 intensity={8}
                 tint="light"
                 experimentalBlurMethod="dimezisBlurView"
             >
-                <View style={estilos.container}>
-                    <View style={estilos.box}>
-                        <ScrollView showsVerticalScrollIndicator={false}>
-                            <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center", paddingTop: 5, }}>
-                                <Text style={estilos.titulo}>{title}</Text>
+                <View style={estilos.box}>
+                    <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center", paddingTop: 5, }}>
+                        <Text style={estilos.titulo}>{title}</Text>
 
-                                {onClose && (
-                                    <TouchableOpacity activeOpacity={0.7} onPress={onClose} style={{ marginRight: 8 }}>
-                                        <X color="white" size={20} />
-                                    </TouchableOpacity>
-                                )}
-                            </View>
+                        {onClose && (
+                            <TouchableOpacity activeOpacity={0.7} onPress={onClose} style={{ marginRight: 8 }}>
+                                <X color="black" size={20} />
+                            </TouchableOpacity>
+                        )}
+                    </View>
 
-                            {subtitle.trim().length > 0 && (
-                                <Text style={{ color: "#CCCCCC", marginTop: 8, marginLeft: 8, }}>
-                                    {subtitle}
-                                </Text>
-                            )
-                            }
+                    {subtitle.trim().length > 0 && (
+                        <Text style={{ color: "#3D3D3D", marginTop: 16, marginLeft: 8, }}>
+                            {subtitle}
+                        </Text>
+                    )
+                    }
 
-                            {children}
-                        </ScrollView >
-                    </View >
+                    {children}
                 </View >
             </BlurView >
         </RNModal >
@@ -60,22 +56,22 @@ const estilos = StyleSheet.create({
     container: {
     },
     box: {
-        backgroundColor: "gray",
+        backgroundColor: "white",
         borderTopRightRadius: 22,
         borderTopLeftRadius: 22,
         borderTopWidth: 1,
-        borderColor: "black",
-        paddingHorizontal: 6,
-        paddingTop: 16,
-        paddingBottom: 10
+        borderColor: "white",
+        paddingHorizontal: 12,
+        paddingTop: 30,
+        paddingBottom: 50
     },
     texto: {
-        color: "white",
+        color: "black",
         fontWeight: "500",
         fontSize: 20,
     },
     titulo: {
-        color: "white",
+        color: "#252525",
         fontWeight: "500",
         fontSize: 26,
         marginLeft: 8

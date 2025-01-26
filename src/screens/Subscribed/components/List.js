@@ -10,12 +10,16 @@ import Owner from "../../../components/Owner";
 import Texto from "../../../components/texto";
 import { pegarEventos, pegarEventosInscritos } from '../../../services/requests/eventos';
 import { estilos } from "./estilos";
+import SkeletonEvent from "../../../components/SkeletonEvent";
+import useLoading from "../../../hooks/useSkeleton";
 
 
 export default function Lista() {
 
   const { subtitle, subs } = subscribed.body;
   const navigation = useNavigation();
+
+  const loading = useLoading();
 
   const [dadosEventos, setDadosEventos] = useState({});
 
@@ -80,14 +84,23 @@ export default function Lista() {
       <Text style={estilos.subtitle}> {subs} {dadosEventos.length}</Text>
     </View>
 
-    <FlatList
-      data={dados}
-      keyExtractor={(item) => item.id.toString()}
-      renderItem={renderItem}
-      scrollEnabled={false}
-      contentContainerStyle={{ paddingBottom: 30 }}
-      ListFooterComponent={<Botao texto={'Criar evento'} tipo={3} acao={() => navigation.navigate('CriarEvento')} />}
-    />
+    {loading ? (
+      <>
+        <SkeletonEvent />
+        <SkeletonEvent />
+      </>
+    )
+      : (
+        <FlatList
+          data={dados}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={renderItem}
+          scrollEnabled={false}
+          contentContainerStyle={{ paddingBottom: 30 }}
+          ListFooterComponent={<Botao texto={'Criar evento'} tipo={3} acao={() => navigation.navigate('CriarEvento')} />}
+        />
+      )}
+
 
   </>
 }

@@ -1,16 +1,25 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { ActivityIndicator, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import useLoading from '../../../hooks/useSkeleton';
 
 export default function Achievements({ Icone, cor, legenda, sub }) {
-    
+
+    const loading = useLoading();
+
     return (
         <>
-            <TouchableOpacity style={[estilos.status, { borderColor: cor }]}>
-                <Icone size={26} color={cor} />
-                <View>
-                    <Text style={estilos.statusTitle}>{legenda}</Text>
-                    <Text style={[estilos.statusSubt, { color: cor }]}>{sub}</Text>
+            <TouchableOpacity style={[estilos.status, { borderColor: cor, height: 87 }]}>
+                {loading ? (<View style={{ flex: 1, justifyContent: 'center' }}>
+                    <ActivityIndicator color={'#bbbb'} />
                 </View>
+                ) : (<>
+                    <Icone size={26} color={cor} />
+                    <View>
+                        <Text style={estilos.statusTitle}>{legenda}</Text>
+                        <Text style={[estilos.statusSubt, { color: cor }]}>{sub}</Text>
+                    </View>
+                </>
+                )}
             </TouchableOpacity>
         </>
     )
@@ -33,7 +42,7 @@ const estilos = StyleSheet.create({
         fontWeight: "bold",
         color: "black"
     },
-    
+
     statusSubt: {
         fontSize: 16,
     }

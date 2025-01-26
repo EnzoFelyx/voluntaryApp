@@ -7,6 +7,7 @@ import Interation from '../../../components/Interation';
 import Texto from '../../../components/texto';
 import useTopo from '../../../hooks/useTop';
 import estilos from './estilos';
+import useLoading from '../../../hooks/useSkeleton';
 
 export default function Destaques({ dadosDoUsuario, titulo }) {
 
@@ -14,11 +15,7 @@ export default function Destaques({ dadosDoUsuario, titulo }) {
 
   const navigation = useNavigation();
 
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    setTimeout(() => setIsLoading(false), 2000)
-  }, [])
+  const loading = useLoading();
 
   const renderItem = ({ item }) => (
     <Interation
@@ -37,7 +34,7 @@ export default function Destaques({ dadosDoUsuario, titulo }) {
   return <View style={estilos.container}>
     <Texto style={estilos.titulo}>{titulo}</Texto>
 
-    {isLoading ?
+    {loading ?
       (
         <View style={{ flexDirection: "row" }}>
           <View style={skeleton.card}>

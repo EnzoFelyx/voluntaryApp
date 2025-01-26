@@ -10,12 +10,16 @@ import useTopo from '../../hooks/useTop';
 import { amarrarSeguidor, procurarAmigo } from '../../services/requests/usuario';
 import Highlights from '../Home/components/Highlights';
 import Achievements from './components/Achievements';
+import AnimetedView from '../../components/Animeted';
+import useLoading from '../../hooks/useSkeleton';
 
 export default function MyProfile() {
 
     const route = useRoute();
     const isFocused = useIsFocused();
     const myUser = useTopo();
+
+      const loading = useLoading();
 
     const id = [myUser.id, route?.params?.id]
 
@@ -75,7 +79,7 @@ export default function MyProfile() {
 
     useEffect(() => {
         if (route.name === 'OtherProfile') {
-            
+
             if (id) {
                 isAmigo(id)
             }
@@ -105,17 +109,61 @@ export default function MyProfile() {
 
             <View style={{ flex: 1, backgroundColor: '#E4F4CD', borderTopStartRadius: 30, borderTopRightRadius: 30, marginTop: 6, borderWidth: 3, borderColor: "#CAF38D", paddingTop: 32 }}>
 
-                <TouchableOpacity style={estilos.contorno}>
-                    <Image imagem={{ uri: userNow?.perfil }} tipo={"Perfil"} />
-                </TouchableOpacity>
-
-                <View style={{ alignItems: "center", marginBottom: 32, gap: 8 }}>
-                    <Text style={estilos.nome}>{userNow?.nome}</Text>
-                    <View style={{ flexDirection: "row", gap: 12 }}>
-                        <Text style={estilos.subtitle}>{follow} seguidores</Text>
-                        <Text style={estilos.subtitle}>{Followers} seguindo</Text>
+                {loading ? (<>
+                    <View style={estilos.contorno}>
+                        <AnimetedView width={'25%'} length={200} />
                     </View>
-                </View>
+
+                    <View style={{ alignItems: "center", marginBottom: 32, gap: 8 }}>
+                        <View style={{
+                            marginTop: 5,
+                            overflow: "hidden",
+                            backgroundColor: "#DEDFE3",
+                            borderRadius: 15,
+                            width: 150,
+                            height: 25,
+                        }}>
+                            <AnimetedView width={'25%'} length={150} />
+                        </View>
+                        <View style={{ flexDirection: "row", gap: 12, marginTop: 10 }}>
+                            <View style={{
+                                overflow: "hidden",
+                                backgroundColor: "#DEDFE3",
+                                borderRadius: 15,
+                                width: 125,
+                                height: 20,
+                            }}>
+                                <AnimetedView width={'25%'} length={125} />
+                            </View>
+                            <View style={{
+                                overflow: "hidden",
+                                backgroundColor: "#DEDFE3",
+                                borderRadius: 15,
+                                width: 125,
+                                height: 20,
+                            }}>
+                                <AnimetedView width={'25%'} length={125} />
+                            </View>
+                        </View>
+                    </View>
+                </>
+
+                ) :
+                    (<>
+                        <TouchableOpacity style={[estilos.contorno, { backgroundColor: "#FFFF" }]}>
+                            <Image imagem={{ uri: userNow?.perfil }} tipo={"Perfil"} />
+                        </TouchableOpacity>
+
+                        < View style={{ alignItems: "center", marginBottom: 32, gap: 8 }}>
+                            <Text style={estilos.nome}>{userNow?.nome}</Text>
+                            <View style={{ flexDirection: "row", gap: 12 }}>
+                                <Text style={estilos.subtitle}>{follow} seguidores</Text>
+                                <Text style={estilos.subtitle}>{Followers} seguindo</Text>
+                            </View>
+                        </View>
+                    </>
+                    )}
+
                 {
                     route.name !== 'OtherProfile' ? (
                         <Button
@@ -157,7 +205,7 @@ export default function MyProfile() {
 
             </View>
 
-        </ScrollView>
+        </ScrollView >
     )
 }
 
@@ -175,9 +223,10 @@ const estilos = StyleSheet.create({
         width: 150,
         borderRadius: 90,
         alignSelf: 'center',
-        backgroundColor: "#FFFFFFFF",
+        backgroundColor: "#DEDFE3",
         marginTop: 16,
         marginBottom: 16,
+        overflow: "hidden",
     },
 
     nome: {

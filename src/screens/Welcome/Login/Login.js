@@ -42,13 +42,13 @@ export default function Login() {
             >
                 <View style={{ marginVertical: 12, marginTop: 30 }}>
                     <View style={{ paddingRight: 8, marginHorizontal: 12, marginBottom: 12 }}>
-                        <Text style={{ color: 'white', marginBottom: 16 }}>
+                        <Text style={{ color: '#858585', marginBottom: 16, fontSize: 16 }}>
                             Este aplicativo é um projeto de estudo feito para mostrar como
                             seria uma rede social focada em ações voluntárias e solidárias.
                         </Text>
 
-                        <Text style={{ color: 'white' }}>
-                            Entre como convidado ou crie uma nova conta para navegar pelo aplicativo. Divirta-se!
+                        <Text style={{ color: '#858585', marginBottom: 25, fontSize: 16 }}>
+                            Entre como convidado ou crie uma nova conta para navegar pelo aplicativo.
                         </Text>
                     </View>
 

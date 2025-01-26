@@ -6,17 +6,14 @@ import Interation from '../../../components/Interation';
 import Owner from '../../../components/Owner';
 import Texto from '../../../components/texto';
 import estilos from './estilos';
-import AnimetedView from '../../../components/Animeted';
+import useLoading from '../../../hooks/useSkeleton';
+import SkeletonEvent from '../../../components/SkeletonEvent';
 
 const height = Dimensions.get('window').height;
 
 export default function Trends({ dadosEventos, titulo }) {
 
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    setTimeout(() => setIsLoading(false), 2000)
-  }, [])
+  const loading = useLoading();
 
   const navigation = useNavigation();
 
@@ -47,31 +44,8 @@ export default function Trends({ dadosEventos, titulo }) {
   return <View style={estilos.container}>
     <Texto style={estilos.titulo}>{titulo}</Texto>
 
-    {isLoading ? (
-
-      <View style={{ flex: 1, }}>
-        <View
-          style={skeleton.capa}>
-          <AnimetedView width={'25%'} length={400} />
-        </View>
-
-        <View style={skeleton.legenda}>
-          <AnimetedView width={'25%'} length={300} />
-        </View>
-
-        <View style={skeleton.owner}>
-
-          <View style={skeleton.pfp}>
-            <AnimetedView width={'25%'} length={400} />
-          </View>
-
-          <View style={skeleton.nameperson}>
-            <AnimetedView width={'25%'} length={400} />
-          </View>
-
-        </View>
-
-      </View>
+    {loading ? (
+      <SkeletonEvent />
     ) : (
 
       <FlatList
@@ -84,52 +58,3 @@ export default function Trends({ dadosEventos, titulo }) {
     )}
   </View>
 }
-
-
-
-const skeleton = StyleSheet.create({
-  capa: {
-    overflow: "hidden",
-    marginTop: 8,
-    borderRadius: 15,
-    marginRight: 16,
-    width: '100%',
-    height: height * 0.25,
-    backgroundColor: "#DEDFE3",
-  },
-
-  legenda: {
-    overflow: "hidden",
-    backgroundColor: "#DEDFE3",
-    borderRadius: 8,
-    width: 250,
-    height: 20,
-    margin: 8,
-  },
-
-  owner: {
-    flexDirection: "row",
-    marginBottom: 16,
-    marginTop: 14,
-    alignItems: 'center',
-    marginLeft: 8,
-  },
-
-  pfp: {
-    overflow: "hidden",
-    backgroundColor: "#DEDFE3",
-    height: 32,
-    width: 32,
-    borderRadius: 25,
-  },
-
-  nameperson: {
-    overflow: "hidden",
-    backgroundColor: "#DEDFE3",
-    borderRadius: 8,
-    marginLeft: 8,
-    marginTop: 4,
-    width: 125,
-    height: 20,
-  }
-})

@@ -6,6 +6,7 @@ import AnimetedView from './Animeted';
 import Image from './Image';
 import Return from './Return';
 import Title from './Title';
+import useLoading from '../hooks/useSkeleton';
 
 const height = Dimensions.get('window').height;
 
@@ -14,11 +15,7 @@ export default function Cabecalho({ tipo = null, titulo = null, Foto = null, fot
 
     const navigation = useNavigation();
 
-    const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-        setTimeout(() => setIsLoading(false), 2000)
-    }, [])
+    const loading = useLoading();
 
     switch (tipo) {
 
@@ -70,7 +67,7 @@ export default function Cabecalho({ tipo = null, titulo = null, Foto = null, fot
         default:
             return <View style={estilos.topo}>
                 <Title entrada={titulo} tipo={"Titulo"} />
-                {isLoading ? (
+                {loading ? (
                     <View style={estilos.pfp}>
                         <AnimetedView width={'40%'} length={50} />
                     </View>
