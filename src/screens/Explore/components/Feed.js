@@ -17,8 +17,6 @@ export default function Explore() {
 
     const dadosEventos = useEventos();
 
-    const dadosReversos = [...dadosEventos].reverse();
-
     const navigation = useNavigation();
 
     const loading = useLoading();
@@ -217,7 +215,7 @@ export default function Explore() {
                 </>
             ) : (
                 <FlatList
-                    data={dadosReversos}
+                    data={dadosEventos}
                     renderItem={renderItem}
                     keyExtractor={(item) => item.id.toString()}
                     scrollEnabled={false}

@@ -95,7 +95,7 @@ const skeleton = StyleSheet.create({
     borderRadius: 15,
     backgroundColor: "#FFFF",
     marginEnd: 15,
-    marginVertical: 15,
+    marginBottom: 15,
     paddingBottom: 15,
     paddingTop: 20,
     paddingHorizontal: 14,

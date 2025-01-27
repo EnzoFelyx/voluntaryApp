@@ -11,7 +11,7 @@ export default function NewEvent() {
     const title = newEvent.page1.title
 
     return <Screen>
-        <Top PerfilFoto={PerfilFoto} titulo={title} />
+        <Top tipo={'Back'} titulo={title} />
         <Background back={'backOne'}>
             <FirstStep />
         </Background>

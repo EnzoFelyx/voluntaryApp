@@ -14,7 +14,7 @@ export function useEventos() {
 
             const resultado = await pegarTodosEventos();
             if (resultado) {
-                setDadosEventos(resultado);
+                setDadosEventos(resultado.reverse());
             }
         }
         buscarDadosEventos();
