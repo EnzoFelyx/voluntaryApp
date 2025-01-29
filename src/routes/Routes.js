@@ -19,8 +19,7 @@ export default function Routes() {
             tabBarShowLabel: false,
             tabBarStyle: {
                 backgroundColor: 'white',
-                height: 50,
-                paddingBottom: 5,
+                height: 55,
             },
             keyboardHidesTabBar: 'true',
         }}

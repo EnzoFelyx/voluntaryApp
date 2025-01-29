@@ -8,7 +8,7 @@
     "login": {
         "account": {
             "title": "Login",
-            "emailLeg": "Seu Nome",
+            "emailLeg": "Email",
             "passLeg": "Senha",
             "join": "Entrar"
         },
@@ -36,7 +36,8 @@
         },
         "warnings": {
             "error": "Erro ao criar repositório",
-            "registered": "Sucesso. Sua conta foi criada !"
+            "registered": "Sucesso. Sua conta foi criada !",
+            "logged": "Logado"
         }
     },
     "profile": {

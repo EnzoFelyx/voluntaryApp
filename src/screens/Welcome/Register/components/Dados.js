@@ -8,18 +8,20 @@ import { register } from "../../../../../config/text.json";
 import Button from '../../../../components/Button';
 import Image from '../../../../components/Image';
 import Input from '../../../../components/Input';
-import { criarConta } from "../../../../services/requests/cadastrar";
+import { criarConta, emailExistente } from "../../../../services/requests/cadastrar";
 import { validarCNPJ, validarCPF, validarEmail } from "../../../../utils/validations";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Dados() {
 
     const navigation = useNavigation()
 
     const { name, email, cpf, password, confirm, button } = register.input
-    const { error, registered } = register.warnings
+    const { error, registered, logged } = register.warnings
+
 
     const [nome, setNome] = useState();
-    const [capaImagem, setImagemCapa] = useState();
+    const [capaImagem, setImagemCapa] = useState('https://github.com/user-attachments/assets/6d957f77-ab27-4e8e-a9ac-d1becdf87472');
     const [ownerMail, setOwnerMail] = useState();
     const [ownerType, setOwnerType] = useState();
     const [senha, setSenha] = useState();
@@ -27,39 +29,58 @@ export default function Dados() {
 
     async function criar() {
 
-        if (!nome || !capaImagem || !ownerType || !ownerMail || !senha) {
-            console.log("preencha todos os campos")
+        if (!nome || !ownerType || !ownerMail || !senha) {
+            return Alert.alert("Cadastro", "Preencha todos os campos!")
         }
         else if (senha !== confirmar) {
-            console.log("Senhas diferentes! Confirme a senha corretamente.")
+            return Alert.alert("Cadastro", "Senhas diferentes! Confirme a senha corretamente.")
         }
 
         else if (!validarEmail(ownerMail)) {
-            console.log("E-mail inválido");
+            return Alert.alert("Cadastro", "E-mail inválido");
         }
 
         else if (!validarCPF(ownerType) && !validarCNPJ(ownerType)) {
-            console.log("CPF/CNPJ inválido");
+            return Alert.alert("Cadastro", "CPF/CNPJ inválido");
         }
 
         else {
-            const resultado = await criarConta(
-                capaImagem,
-                nome,
-                ownerMail,
-                ownerType,
-                senha
-            );
 
-            if (resultado == 'Sucesso') {
-                Alert.alert(registered)
-                navigation.goBack()
+            const verificaEmail = await emailExistente(ownerMail);
+
+            if (verificaEmail) {
+                Alert.alert('Cadastro', 'Email já em uso!')
             }
+
             else {
-                Alert.alert(error)
+
+                const resultado = await criarConta(
+                    capaImagem,
+                    nome,
+                    ownerMail,
+                    ownerType,
+                    senha
+                );
+
+                if (resultado) {
+                    Alert.alert(registered)
+                    logar(resultado)
+                }
+                else {
+                    Alert.alert(error)
+                }
             }
         }
     };
+
+    async function logar(resultado) {
+        try {
+            await AsyncStorage.setItem("id", String(resultado));
+            navigation.replace(logged);
+        } catch (error) {
+            Alert.alert(error);
+        }
+    }
 
     const uploadImage = async (mode) => {
 
@@ -113,7 +134,7 @@ export default function Dados() {
         <View style={{ marginBottom: 16, }}>
             <Input entrada={name} onChangeText={setNome} />
             <Input entrada={email} onChangeText={setOwnerMail} />
-            <Input entrada={cpf} onChangeText={setOwnerType} keyType={'numeric'} />
+            <Input entrada={cpf} onChangeText={setOwnerType} />
             <Input entrada={password} senha={true} onChangeText={setSenha} />
             <Input entrada={confirm} senha={true} onChangeText={setConfirm} />
             <Button texto={button} tipo={1} acao={criar} />
