@@ -7,6 +7,7 @@ import Button from "../../../../components/Button";
 import Input from "../../../../components/Input";
 import Title from "../../../../components/Title";
 import { Login } from "../../../../services/requests/usuario";
+import CryptoJS from "crypto-js";
 
 export default function Account() {
 
@@ -19,8 +20,9 @@ export default function Account() {
   const [password, setSenha] = useState("");
 
   async function logar() {
-    if (email && password) { // Verifica se ambos estão preenchidos
-      const resultado = await Login(email, password);
+    if (email && password) {
+      const senha = CryptoJS.MD5(password).toString();
+      const resultado = await Login(email, senha);
       if (resultado) {
         await AsyncStorage.setItem("id", String(resultado.id))
         navigation.replace(logged);

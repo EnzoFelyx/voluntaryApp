@@ -1,20 +1,16 @@
 import api from "../api";
 
 export async function Login(email, senha) {
+    
     if (!email || !senha) return null()
 
     else {
-
         try {
-
             const resultado = await api.get(`/users?usuario=${email}&&senha=${senha}`)
-
             if (resultado.data.length > 0) {
-
                 return resultado.data[0];
             }
             else {
-
                 return null;
             }
         }

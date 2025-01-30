@@ -19,6 +19,7 @@ export default function Interactions() {
 
 
     async function logar() {
+
         if (email && password) { // Verifica se ambos estão preenchidos
             const resultado = await Login(email, password);
             if (resultado) {
