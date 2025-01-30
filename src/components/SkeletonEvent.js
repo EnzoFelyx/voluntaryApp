@@ -3,12 +3,13 @@ import { Dimensions, StyleSheet, View } from 'react-native';
 import AnimetedView from './Animeted'
 
 const height = Dimensions.get('window').height;
+const width = Dimensions.get('window').width;
 
 export default function SkeletonEvent() {
 
     return <View style={{ flex: 1, }}>
         <View style={skeleton.capa}>
-            <AnimetedView width={'25%'} length={400} />
+            <AnimetedView width={'25%'} length={width} />
         </View>
         <View style={skeleton.legenda}>
             <AnimetedView width={'25%'} length={300} />

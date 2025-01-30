@@ -10,6 +10,7 @@ import estilos from './estilos';
 import useLoading from '../../../hooks/useSkeleton';
 
 const height = Dimensions.get('window').height;
+const width = Dimensions.get('window').width;
 
 export default function Ongs({ dadosOng, titulo }) {
 
@@ -47,7 +48,7 @@ export default function Ongs({ dadosOng, titulo }) {
       <View style={{ flex: 1, }}>
         <View
           style={skeleton.capa}>
-          <AnimetedView width={'25%'} length={400} />
+          <AnimetedView width={'25%'} length={width} />
         </View>
 
         <View style={skeleton.owner}>

@@ -8,7 +8,6 @@ export default StyleSheet.create({
         fontWeight: "bold",
     },
     container: {
-        flex: 1,
         marginTop: 8,
         marginBottom: 32,
         paddingHorizontal: 16,

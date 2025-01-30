@@ -16,6 +16,24 @@ export default function Destaques({ dadosDoUsuario, titulo }) {
   const navigation = useNavigation();
 
   const loading = useLoading();
+  const SkeletonFeed = () => {
+    return <View style={skeleton.card}>
+
+      <View style={skeleton.pfp}>
+        <AnimetedView width={'25%'} length={75} />
+      </View>
+
+      <View style={skeleton.userName}>
+        <AnimetedView width={'25%'} length={100} />
+      </View>
+
+      <View style={skeleton.button}>
+        <AnimetedView width={'25%'} length={125} />
+      </View>
+
+
+    </View>
+  }
 
   const renderItem = ({ item }) => (
     <Interation
@@ -36,40 +54,14 @@ export default function Destaques({ dadosDoUsuario, titulo }) {
 
     {loading ?
       (
-        <View style={{ flexDirection: "row" }}>
-          <View style={skeleton.card}>
-
-            <View style={skeleton.pfp}>
-              <AnimetedView width={'25%'} length={75} />
-            </View>
-
-            <View style={skeleton.userName}>
-              <AnimetedView width={'25%'} length={100} />
-            </View>
-
-            <View style={skeleton.button}>
-              <AnimetedView width={'25%'} length={125} />
-            </View>
-
-
-          </View>
-
-          <View style={skeleton.card}>
-
-            <View style={skeleton.pfp}>
-              <AnimetedView width={'25%'} length={75} />
-            </View>
-
-            <View style={skeleton.userName}>
-              <AnimetedView width={'25%'} length={100} />
-            </View>
-
-            <View style={skeleton.button}>
-              <AnimetedView width={'25%'} length={125} />
-            </View>
-
-
-          </View>
+        <View style={{ flexDirection: "row", overflow: 'hidden' }}>
+          <SkeletonFeed />
+          <SkeletonFeed />
+          <SkeletonFeed />
+          <SkeletonFeed />
+          <SkeletonFeed />
+          <SkeletonFeed />
+          <SkeletonFeed />
         </View>
       ) :
 

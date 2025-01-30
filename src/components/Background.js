@@ -1,5 +1,8 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { Dimensions, StyleSheet, View } from 'react-native';
+
+const height = Dimensions.get('window').height;
+
 
 export default function Background({ children, back }) {
 
@@ -44,7 +47,8 @@ const estilos = StyleSheet.create({
 
     backOne: {
         marginHorizontal: 15,
-        marginBottom: 24,
+        marginBottom: 30,
+        height: height * 0.75,
         borderRadius: 32,
         paddingTop: 40,
         paddingBottom: 20,
@@ -62,7 +66,7 @@ const estilos = StyleSheet.create({
         backgroundColor: "#FFFF",
     },
 
-   backThree: {
+    backThree: {
         flex: 1,
         top: -20,
         borderTopLeftRadius: 24,

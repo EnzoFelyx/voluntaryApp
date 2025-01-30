@@ -55,7 +55,9 @@ const estilos = StyleSheet.create({
         color: "#1ea3b5",
     },
     registra: {
-        marginTop: 20,
+        flex: 1,
+        justifyContent: "flex-end",
+        marginBottom: 30,
         alignItems: "center"
     },
 

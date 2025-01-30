@@ -1,7 +1,7 @@
 import { useIsFocused, useRoute } from '@react-navigation/native';
 import { BadgePlus, Calendar, CalendarPlus2, Trophy } from 'lucide-react-native';
 import React, { useEffect, useState } from 'react';
-import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Dimensions, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Button from '../../components/Button';
 import Image from '../../components/Image';
 import Top from '../../components/Top';
@@ -13,13 +13,16 @@ import Achievements from './components/Achievements';
 import AnimetedView from '../../components/Animeted';
 import useLoading from '../../hooks/useSkeleton';
 
+
+const height = Dimensions.get('window').height;
+
 export default function MyProfile() {
 
     const route = useRoute();
     const isFocused = useIsFocused();
     const myUser = useTopo();
 
-      const loading = useLoading();
+    const loading = useLoading();
 
     const id = [myUser.id, route?.params?.id]
 
@@ -103,11 +106,21 @@ export default function MyProfile() {
 
 
     return (
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
 
             <Top tipo={tipoTop} titulo={titulo} />
 
-            <View style={{ flex: 1, backgroundColor: '#E4F4CD', borderTopStartRadius: 30, borderTopRightRadius: 30, marginTop: 6, borderWidth: 3, borderColor: "#CAF38D", paddingTop: 32 }}>
+            <View style={{
+                flex: 1,
+                backgroundColor: '#E4F4CD',
+                height: height * 1.12,
+                borderTopStartRadius: 30,
+                borderTopRightRadius: 30,
+                marginTop: 6,
+                borderWidth: 3,
+                borderColor: "#CAF38D",
+                paddingTop: 32,
+            }}>
 
                 {loading ? (<>
                     <View style={estilos.contorno}>
@@ -200,9 +213,7 @@ export default function MyProfile() {
                     </View>
 
                 </View>
-
                 <Highlights dadosDoUsuario={dadosUsers} titulo={'Sugestões'} />
-
             </View>
 
         </ScrollView >

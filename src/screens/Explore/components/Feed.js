@@ -52,7 +52,8 @@ export default function Explore() {
                 paddingHorizontal: 8,
                 marginVertical: 16,
                 backgroundColor: "#FFFF",
-                height: height * 0.53,
+                /* height: height * 0.53, */
+                paddingBottom: 30,
             }
             } >
             <View
@@ -116,7 +117,7 @@ export default function Explore() {
                     alignSelf: 'center',
                     marginTop: 10,
                 }}>
-                <AnimetedView width={'25%'} length={350} />
+                <AnimetedView width={'25%'} length={width} />
             </View>
 
             <View
@@ -129,7 +130,7 @@ export default function Explore() {
                     alignSelf: 'center',
                     marginTop: 10,
                 }}>
-                <AnimetedView width={'25%'} length={350} />
+                <AnimetedView width={'25%'} length={width} />
             </View>
 
 
@@ -144,7 +145,7 @@ export default function Explore() {
                     height: 15,
                     marginTop: 10,
                 }}>
-                <AnimetedView width={'25%'} length={350} />
+                <AnimetedView width={'25%'} length={width * .4} />
             </View>
 
             <View
@@ -157,7 +158,7 @@ export default function Explore() {
                     height: height * 0.25,
                     backgroundColor: "#DEDFE3",
                 }}>
-                <AnimetedView width={'10%'} length={400} />
+                <AnimetedView width={'10%'} length={width} />
             </View>
 
         </View >
