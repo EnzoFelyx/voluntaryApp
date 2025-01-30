@@ -68,11 +68,11 @@ const estilos = StyleSheet.create({
 
     backThree: {
         flex: 1,
-        top: -20,
         borderTopLeftRadius: 24,
         borderTopRightRadius: 24,
         paddingHorizontal: 25,
-        backgroundColor: '#D7FF9C',
-        paddingTop: 24,
+        backgroundColor: '#FFFF',
+        paddingVertical: 24,
+        
     },
 })

@@ -54,6 +54,9 @@ export default function Cabecalho({ tipo = null, titulo = null, Foto = null, fot
                     width: '100%'
                 }}>
                 <Image imagem={Foto} tipo={fotoEstilo} />
+                <View style={{ position: 'absolute', marginTop: 60, marginLeft: 20 }}>
+                    <Return />
+                </View>
             </View>
             break;
 

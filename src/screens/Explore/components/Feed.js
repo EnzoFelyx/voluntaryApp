@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import { EllipsisVertical, Plus } from 'lucide-react-native';
 import { React, useEffect, useState } from 'react';
-import { Dimensions, FlatList, Text, TouchableOpacity, View } from 'react-native';
+import { Dimensions, FlatList, Text, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
 import Interaction from '../../../components/Interation';
 import Owner from '../../../components/Owner';
 import { useEventos } from '../../../hooks/useHome';
@@ -21,26 +21,20 @@ export default function Explore() {
 
     const loading = useLoading();
 
+    const [expandirEventos, setExpandirEventos] = useState({});
+
+
+    const toggleExpandir = (id) => {
+        setExpandirEventos((prev) => ({
+            ...prev,
+            [id]: !prev[id],
+        }));
+    };
+
     const DescricaoFormated = (descricao) => {
-
-        if (descricao.length < 100) {
-            return <Text style={{ fontWeight: '400' }}>{' '}
-                {descricao}
-            </Text>
-        }
-        else {
-            const corteInicial = descricao.slice(0, 100);
-            const ultimoEspaco = corteInicial.lastIndexOf(" ");
-
-            return <>
-                <Text style={{ fontWeight: '400' }}>{' '}
-                    {corteInicial.slice(0, ultimoEspaco)}
-                    <Text style={{ fontWeight: '600' }}>{' '}
-                        ...Ler mais
-                    </Text>
-                </Text>
-            </>
-        }
+        return <>
+            <Text style={{ fontWeight: '400' }}>{descricao}</Text>
+        </>
     };
 
     const SkeletonFeed = () => {
@@ -52,7 +46,6 @@ export default function Explore() {
                 paddingHorizontal: 8,
                 marginVertical: 16,
                 backgroundColor: "#FFFF",
-                /* height: height * 0.53, */
                 paddingBottom: 30,
             }
             } >
@@ -164,48 +157,54 @@ export default function Explore() {
         </View >
     }
 
-    const renderItem = ({ item }) => (
+    const renderItem = ({ item }) => {
+        const isExpandido = expandirEventos[item.id] || false;
 
-        <View style={estilos.container}>
-            <View style={estilos.owner}>
-                <Owner
-                    image={{ uri: item.imagemCriadorEvento }}
-                    nome={item.criadorEvento}
-                    type='Explorar'
-                    pessoa={'person'}
-                    acao={() => {
-                        navigation.navigate('OtherProfile', {
-                            perfil: item.imagemCriadorEvento,
-                            nome: item.criadorEvento
-                        });
-                    }}
-                />
-                <View style={estilos.interaction}>
-                    <TouchableOpacity>
-                        <Plus size={23} color={'black'} />
-                    </TouchableOpacity>
+        return (
+            <View style={estilos.container}>
+                <View style={estilos.owner}>
+                    <Owner
+                        image={{ uri: item.imagemCriadorEvento }}
+                        nome={item.criadorEvento}
+                        type="Explorar"
+                        pessoa="person"
+                        acao={() => {
+                            navigation.navigate('OtherProfile', {
+                                perfil: item.imagemCriadorEvento,
+                                nome: item.criadorEvento,
+                            });
+                        }}
+                    />
+                    <View style={estilos.interaction}>
+                        <TouchableOpacity>
+                            <Plus size={23} color="black" />
+                        </TouchableOpacity>
 
-                    <TouchableOpacity>
-                        <EllipsisVertical size={23} color={'black'} />
-                    </TouchableOpacity>
+                        <TouchableOpacity>
+                            <EllipsisVertical size={23} color="black" />
+                        </TouchableOpacity>
+                    </View>
                 </View>
+
+                <TouchableWithoutFeedback style={estilos.legenda} onPress={() => toggleExpandir(item.id)}>
+                    <Text style={{ fontWeight: '600' }} numberOfLines={isExpandido ? undefined : 3}>
+                        {item.nomeEvento}: {''}
+                        {DescricaoFormated(item.descricao)}
+                    </Text>
+                </TouchableWithoutFeedback>
+
+                <View style={{marginBottom: 10}}/>
+
+                <Interaction
+                    tipo="subsEvento"
+                    imagem={{ uri: item.imagemEvento }}
+                    styleImg="imagemEvento"
+                    texto=""
+                    acao={() => navigation.navigate('Detalhes', { item })}
+                />
             </View>
-
-            <TouchableOpacity style={estilos.legenda}>
-                <Text style={{ fontWeight: '600' }}>{item.nomeEvento}:
-                    {DescricaoFormated(item.descricao)}
-                </Text>
-            </TouchableOpacity>
-
-            <Interaction
-                tipo={'subsEvento'}
-                imagem={{ uri: item.imagemEvento }}
-                styleImg={'imagemEvento'}
-                texto={''}
-                acao={() => navigation.navigate('Detalhes', { item })}
-            />
-        </View>
-    )
+        );
+    };
 
     return (
         <>
