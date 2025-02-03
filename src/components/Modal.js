@@ -31,7 +31,7 @@ export function Modal({
 
                         {onClose && (
                             <TouchableOpacity activeOpacity={0.7} onPress={onClose} style={{ marginRight: 8 }}>
-                                <X color="black" size={20} />
+                                <X color="#495057" size={20} />
                             </TouchableOpacity>
                         )}
                     </View>
@@ -71,7 +71,7 @@ const estilos = StyleSheet.create({
         fontSize: 20,
     },
     titulo: {
-        color: "#252525",
+        color: "#495057",
         fontWeight: "500",
         fontSize: 26,
         marginLeft: 8

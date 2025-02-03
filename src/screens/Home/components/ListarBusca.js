@@ -23,16 +23,20 @@ export default function ListarBusca({
             >
                 <View style={estilos.busca}>
                     <Texto style={estilos.nome}>{nomeEvento}</Texto>
+                    <View style={estilos.people}>
+                        <UsersRound color={"gray"} size={20} />
+                        <Texto style={estilos.contador}>{contPessoas}</Texto>
+                    </View>
                 </View>
             </TouchableOpacity>
-
+{/* 
             <View style={{ flexDirection: "row" }}>
-                <Texto style={estilos.local}>{localEvento}</Texto>
+                 <Texto style={estilos.local}>{localEvento}</Texto>
                 <View style={estilos.people}>
                     <UsersRound color={"gray"} size={20} />
                     <Texto style={estilos.contador}>{contPessoas}</Texto>
                 </View>
-            </View>
+            </View> */}
         </View>
     );
 }

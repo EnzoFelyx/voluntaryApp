@@ -58,7 +58,8 @@ const estilos = StyleSheet.create({
     },
 
     backTwo: {
-        borderRadius: 30,
+        borderTopRightRadius: 30,
+        borderTopLeftRadius: 30,
         paddingTop: 40,
         paddingBottom: 20,
         paddingHorizontal: 20,

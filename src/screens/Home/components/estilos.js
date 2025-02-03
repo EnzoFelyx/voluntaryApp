@@ -58,7 +58,8 @@ export default StyleSheet.create({
         flexDirection: "row",
     },
     busca:{
-        flexDirection: "row", 
+        flexDirection: "row",
+        flex: 1,
         paddingLeft: 10
     }
 
