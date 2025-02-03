@@ -28,6 +28,12 @@ export default function Background({ children, back }) {
                 }
                 break;
 
+            case 'backFour':
+                return {
+                    background: estilos.backFour
+                }
+                break;
+
             default:
                 return {
                     background: estilos.backOne
@@ -75,5 +81,16 @@ const estilos = StyleSheet.create({
         backgroundColor: '#FFFF',
         paddingVertical: 24,
         
+    },
+
+    backFour: {
+        marginHorizontal: 15,
+        marginBottom: 30,
+        borderRadius: 32,
+        paddingTop: 40,
+        paddingBottom: 20,
+        paddingLeft: 20,
+        paddingRight: 20,
+        backgroundColor: "#CAF38D",
     },
 })

@@ -13,7 +13,7 @@ export default function Register() {
 
     return <Screen>
         <Top tipo={'Welcome'} Foto={fotoRegistrar} fotoEstilo={"loginImagem"} />
-        <Background back={"backOne"}>
+        <Background back={"backFour"}>
             <Title entrada={title} tipo={"Titulo"} />
             <Dados />
         </Background>

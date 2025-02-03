@@ -137,7 +137,9 @@ export default function Dados() {
             <Input entrada={cpf} onChangeText={setOwnerType} />
             <Input entrada={password} senha={true} onChangeText={setSenha} />
             <Input entrada={confirm} senha={true} onChangeText={setConfirm} />
-            <Button texto={button} tipo={1} acao={criar} />
+            <View style={{marginTop: 30}}>
+                <Button texto={button} tipo={1} acao={criar} />
+            </View>
         </View>
     </>
 }
