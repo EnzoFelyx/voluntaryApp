@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { pegarDadosTodosUsuarios } from '../services/requests/home';
 import useTopo from './useTop';
 import { sugestoes } from "../services/requests/usuario";
 import { useIsFocused } from "@react-navigation/native";

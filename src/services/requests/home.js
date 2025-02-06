@@ -1,6 +1,7 @@
 import api from "../api";
+import { listaUsers } from "./usuario";
 
-export async function pegarTodosEventos() {
+export async function pegarTodosEventos() { //att
     try {
         const resultado = await api.get(`/eventos`);
         return resultado.data;
@@ -10,7 +11,7 @@ export async function pegarTodosEventos() {
     }
 }
 
-export async function pegarDadosTodasOngs() {
+export async function pegarDadosTodasOngs() { //att
     try {
         const resultado = await api.get(`/users`);
         const usuariosOngs = resultado.data.filter(user => user.type === "Ong");
@@ -21,10 +22,10 @@ export async function pegarDadosTodasOngs() {
     }
 }
 
-export async function pegarDadosTodosUsuarios() {
+export async function pegarDadosTodosUsuarios() { //att
     try {
-        const resultado = await api.get(`/users`);
-        const usuariosPessoa = resultado.data.filter(user => user.type === "person");
+        const resultado = await listaUsers();
+        const usuariosPessoa = resultado.filter(user => user.type === "person");
         return usuariosPessoa;
     } catch (error) {
         console.log(error);
@@ -32,12 +33,16 @@ export async function pegarDadosTodosUsuarios() {
     }
 }
 
-export async function pegarDadosUsuario({ nome }) {
+/* export async function pegarDadosUsuario({ nome }) { //necessário?
     try {
-        const resultado = await api.get(`/users?nome=${nome}`)
-        return resultado.data;
+        const resultado = await listaUsers();
+        if (resultado) {
+            const usuario = resultado.find(user => user.nome === nome);
+            console.log(usuario)
+            return usuario;
+        }
     } catch (error) {
         console.log(error);
         return null;
     }
-}
+} */

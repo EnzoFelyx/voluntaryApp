@@ -15,12 +15,12 @@ export default function Interactions() {
     const { guest, or, ask, register } = login.interactions;
 
     const [email, setEmail] = useState("ef");
-    const [password, setSenha] = useState("123");
+    const [password, setSenha] = useState("202cb962ac59075b964b07152d234b70");
 
 
     async function logar() {
 
-        if (email && password) { // Verifica se ambos estão preenchidos
+        if (email && password) {
             const resultado = await Login(email, password);
             if (resultado) {
                 await AsyncStorage.setItem("id", String(resultado.id))

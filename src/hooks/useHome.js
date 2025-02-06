@@ -62,7 +62,7 @@ export function UseOngs() {
     return dadosOng
 }
 
-export function UseProfile({ nome }) {
+/* export function UseProfile({ nome }) {
 
     const [dadosDoUsuario, setDadosDoUsuario] = useState({});
 
@@ -77,4 +77,4 @@ export function UseProfile({ nome }) {
     }, []);
 
     return dadosDoUsuario
-}
+} */

@@ -1,31 +1,41 @@
 import api from "../api";
 
-export async function Login(email, senha) {
-    
-    if (!email || !senha) return null()
-
-    else {
-        try {
-            const resultado = await api.get(`/users?usuario=${email}&&senha=${senha}`)
-            if (resultado.data.length > 0) {
-                return resultado.data[0];
-            }
-            else {
-                return null;
-            }
-        }
-
-        catch (error) {
-            console.log(error)
-            return null
-        }
+export async function listaUsers() { //att
+    try {
+        const resultado = await api.get(`/users`);
+        return resultado.data;
+    }
+    catch (error) {
+        console.log(error)
+        return []
     }
 }
 
-export async function pegarDadosUsuario(id) {
+export async function Login(email, senha) { //att
+    if (!email || !senha) return null;
     try {
-        const resultado = await api.get(`/users/${id}`);
-        return resultado.data;
+        const resultado = await listaUsers();
+        if (resultado) {
+            const usuario = resultado.find(user => user.usuario === email);
+            if (usuario && usuario.senha === senha) {
+                return usuario;
+            }
+        }
+
+        return null;
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+}
+
+export async function pegarDadosUsuario(id) { //att
+    try {
+        const resultado = await listaUsers();
+        if (resultado) {
+            const usuario = resultado.find(user => user.id == id);
+            return usuario;
+        }
     } catch (error) {
         console.log(error);
         return null;
@@ -34,7 +44,10 @@ export async function pegarDadosUsuario(id) {
 
 export async function UserEvent(id, idEvento) {
     try {
-        const myresult = await api.get(`/eventos?id=${idEvento}`);
+        const resultado = await api.get(`/eventos`);
+        const eventos = resultado.find(evento => evento.id === idEvento);
+ 
+        console.log(eventos) 
         if (myresult.data[0].idCriador === id) {
             return 'mine'
         }
@@ -90,17 +103,23 @@ export async function amarrarSeguidor(id) {
     }
 }
 
-export async function procurarAmigo(id) {
+export async function procurarAmigo(id) { //att
 
     const [ownerId, otherId] = id;
 
     try {
-        const resultado = await api.get(`/amarrarSeguidor?ownerId=${ownerId}&&otherId=${otherId}`)
-        if (!resultado.data[0] && ownerId !== otherId) {
-            return true
-        }
-        else {
-            return false
+        const resultado = await api.get(`/amarrarSeguidor`)
+        if (resultado) {
+            const newResult = resultado.data.filter(user => user.ownerId === ownerId);
+
+            const finalResult = newResult.find(user => user.otherId === otherId);
+                
+            if (finalResult) {
+                return false
+            }
+            else {
+                return true
+            }
         }
     }
     catch (error) {
@@ -109,17 +128,16 @@ export async function procurarAmigo(id) {
     }
 }
 
-export async function sugestoes(userId) {
+export async function sugestoes(userId) { //att
     try {
         const usuarios = await api.get(`/users`);
         const pessoas = usuarios.data.filter(user => user.type === "person");
-        const amigos = await api.get(`/amarrarSeguidor`);
 
+        const amigos = await api.get(`/amarrarSeguidor`);
         const meusAmigos = amigos.data.filter(item => item.ownerId === userId); //somente meus amigos 
         const sugestao = pessoas.filter(item =>
             !meusAmigos.some(amigo => amigo.otherId === item.id)
         );
-
         return sugestao
     } catch (error) {
         console.log(error);

@@ -1,20 +1,22 @@
 import api from "../api";
 
-export async function pegarEventos(id) {
+export async function pegarEventos(id) { //att 
     try {
-        const resultado = await api.get(`/eventos?id=${id}`);
-        return resultado.data;
+        const resultado = await api.get(`/eventos`);
+        const evento = resultado.data.filter(event => event.id == id);
+        return evento;
     } catch (error) {
         console.log(error);
         return null;
     }
 }
 
-export async function pegarEventosInscritos(id) {
+export async function pegarEventosInscritos(id) { //att
     try {
 
-        const resultado = await api.get(`/amarraParticipanteEvento?postId=${id}`);
-        return resultado.data;
+        const resultado = await api.get(`/amarraParticipanteEvento`);
+        const evento = resultado.data.filter(event => event.postId == id);
+        return evento;
     } catch (error) {
         console.log(error);
         return null;
@@ -82,10 +84,13 @@ export async function criarEvento(dados) {
 
 }
 
-export async function buscarEvento(nomeEvento) {
+export async function buscarEvento(nomeEvento) { //att
     try {
-        const resultado = await api.get(`/eventos?nomeEvento_like=${nomeEvento}`);
-        return resultado.data;
+        const resultado = await api.get(`/eventos`);
+        const eventos = resultado.data.filter(event =>
+            event.nomeEvento.toLowerCase().includes(nomeEvento.toLowerCase())
+        );
+        return eventos;
     }
     catch (error) {
         console.log(error)

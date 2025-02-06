@@ -40,7 +40,7 @@ export default function Login() {
                 visible={showModal === MODAL.BEM_VINDO}
                 onClose={() => setShowModal(MODAL.NONE)}
             >
-                <View style={{  marginTop: 40 }}>
+                <View style={{ marginTop: 40 }}>
                     <View style={{ paddingRight: 8, marginHorizontal: 12, marginBottom: 12 }}>
                         <Text style={{ color: '#858585', marginBottom: 16, fontSize: 16 }}>
                             Este aplicativo é um projeto de estudo feito para mostrar como

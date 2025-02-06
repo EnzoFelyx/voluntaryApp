@@ -11,7 +11,7 @@ import useLoading from '../../../hooks/useSkeleton';
 
 export default function Destaques({ dadosDoUsuario, titulo }) {
 
-  const myUser = useTopo();
+  const myUser = useTopo(); 
 
   const navigation = useNavigation();
 

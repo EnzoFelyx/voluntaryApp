@@ -22,6 +22,9 @@ export default function MyProfile() {
     const isFocused = useIsFocused();
     const myUser = useTopo();
 
+    const dadosDoUsuario = useTopo(); //meus dados de usuario
+    const dadosUsers = useSugestoes(route?.params?.id); // sugestão sem aparecer quem clickei se for visitante
+
     const loading = useLoading();
 
     const id = [myUser.id, route?.params?.id]
@@ -60,10 +63,6 @@ export default function MyProfile() {
         return categoria;
     };
 
-    const dadosDoUsuario = useTopo();
-
-    const dadosUsers = useSugestoes(route?.params?.id);
-
     const tipoTop = route.name === 'OtherProfile' ? 'Back' : 'Perfil';
     const titulo = route.name === 'OtherProfile' ? 'Visitando perfil' : 'Meu Perfil';
 
@@ -72,7 +71,7 @@ export default function MyProfile() {
 
     async function isAmigo(id) {
         const amigo = await procurarAmigo(id);
-        setIsMyFriend(amigo)
+        setIsMyFriend(amigo)  
     }
 
     async function amarrarAmigo(id) {
